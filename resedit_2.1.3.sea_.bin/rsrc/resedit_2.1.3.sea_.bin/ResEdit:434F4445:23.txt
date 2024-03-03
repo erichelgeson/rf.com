@@ -1,0 +1,100 @@
+# near model CODE resource
+# jump table entries: 3720-3721 (2 of them)
+fn00000000:
+00000000  4A44                     tst.w      D4
+00000002  6B20                     bmi        +0x22 /* 00000024 */
+00000004  6604                     bne        +0x6 /* 0000000A */
+00000006  3838 0A58                move.w     D4, [0x00000A58 /* SysMap */]
+label0000000A:
+0000000A  2878 0A50                movea.l    A4, [0x00000A50 /* TopMapHndl */]
+0000000E  7000                     moveq.l    D0, 0x00
+00000010  6008                     bra        +0xA /* 0000001A */
+label00000012:
+00000012  202A 0010                move.l     D0, [A2 + 0x10]
+00000016  C18C                     exg        D0, A4
+00000018  670E                     beq        +0x10 /* 00000028 */
+label0000001A:
+0000001A  2454                     movea.l    A2, [A4]
+0000001C  B86A 0014                cmp.w      D4, [A2 + 0x14]
+00000020  66F0                     bne        -0xE /* 00000012 */
+00000022  6004                     bra        +0x6 /* 00000028 */
+label00000024:
+00000024  7000                     moveq.l    D0, 0x00
+00000026  C18C                     exg        D0, A4
+label00000028:
+00000028  4E75                     rts
+0000002A  8A47 6574 5468 6973 4... dc.b       "GetThisMap"
+fn00000038:
+00000038  41FA 0042                lea.l      A0, [PC + 0x42 /* 0000007C, value 0x0, cstring "" */]
+0000003C  48E7 60F0                movem.l    -[A7], D1,D2,A0,A1,A2,A3
+00000040  7432                     moveq.l    D2, 0x32
+00000042  9FC2                     sub.l      A7, D2
+00000044  2F48 0020                move.l     [A7 + 0x20], A0
+00000048  204F                     movea.l    A0, A7
+0000004A  2254                     movea.l    A1, [A4]
+0000004C  3169 0014 0018           move.w     [A0 + 0x18], [A1 + 0x14]
+00000052  2140 0024                move.l     [A0 + 0x24], D0
+00000056  317C 0001 002C           move.w     [A0 + 0x2C], 0x1
+0000005C  D291                     add.l      D1, [A1]
+0000005E  2141 002E                move.l     [A0 + 0x2E], D1
+00000062  A002                     syscall    Read
+00000064  DFC2                     add.l      A7, D2
+00000066  4CDF 0F06                movem.l    D1,D2,A0,A1,A2,A3, [A7]+
+0000006A  4E75                     rts
+0000006C  8D52 6561 6452 6573 4... dc.b       "ReadResBuffer"
+0000007C  0000 0000                ori.b      D0, 0x0
+00000080  0000 0000                ori.b      D0, 0x0
+00000084  0000 0000                ori.b      D0, 0x0
+00000088  0000 0000                ori.b      D0, 0x0
+0000008C  0000 0000                ori.b      D0, 0x0
+00000090  0000 4E56                ori.b      D0, 0x56 /* 'V' */
+// begin alternate branch 00000092-0000009E
+export_465:
+00000092  4E56 0000                link       A6, 0
+00000096  48E7 0E28                movem.l    -[A7], D4,D5,D6,A2,A4
+0000009A  382E 0010                move.w     D4, [A6 + 0x10]
+// end alternate branch 00000092-0000009E
+export_465: // at 00000092 (misaligned)
+00000094  0000 48E7                ori.b      D0, 0xE7
+00000098  0E28 382E 0010           .invalid.b [A0 + 0x10], 0x2E /* '.' */ // invalid immediate operation
+0000009E  6100 FF60                bsr        -0x9E /* 00000000 */
+000000A2  200C                     move.l     D0, A4
+000000A4  6730                     beq        +0x32 /* 000000D6 */
+000000A6  7016                     moveq.l    D0, 0x16
+000000A8  246E 000C                movea.l    A2, [A6 + 0xC]
+000000AC  2C2A 0004                move.l     D6, [A2 + 0x4]
+000000B0  CCB8 031A                and.l      D6, [0x0000031A /* MaskBC/MaskHandle/MaskPtr/Lo3Bytes */]
+000000B4  2206                     move.l     D1, D6
+000000B6  6180                     bsr        -0x7E /* 00000038 */
+000000B8  0CA8 A89F 6572 0004      cmpi.l     [A0 + 0x4], 0xA89F6572
+000000C0  6614                     bne        +0x16 /* 000000D6 */
+000000C2  1028 000B                move.b     D0, [A0 + 0xB]
+000000C6  4880                     ext.w      D0
+000000C8  246E 0008                movea.l    A2, [A6 + 0x8]
+000000CC  3480                     move.w     [A2], D0
+000000CE  1D7C 0001 0012           move.b     [A6 + 0x12], 0x1
+000000D4  6004                     bra        +0x6 /* 000000DA */
+label000000D6:
+000000D6  422E 0012                clr.b      [A6 + 0x12]
+label000000DA:
+000000DA  4CDF 1470                movem.l    D4,D5,D6,A2,A4, [A7]+
+000000DE  4E5E                     unlink     A6
+000000E0  2057                     movea.l    A0, [A7]
+000000E2  DEFC 000E                add.w      A7, 0xE
+000000E6  4ED0                     jmp        [A0]
+000000E8  9547 6574 4578 7465 6... dc.b       "GetExtendedAttributes"
+export_466:
+00000100  2078 0A50                movea.l    A0, [0x00000A50 /* TopMapHndl */]
+label00000104:
+00000104  2008                     move.l     D0, A0
+00000106  6718                     beq        +0x1A /* 00000120 */
+00000108  2050                     movea.l    A0, [A0]
+0000010A  3038 0A5A                move.w     D0, [0x00000A5A /* CurMap */]
+0000010E  B068 0014                cmp.w      D0, [A0 + 0x14]
+00000112  6706                     beq        +0x8 /* 0000011A */
+00000114  2068 0010                movea.l    A0, [A0 + 0x10]
+00000118  60EA                     bra        -0x14 /* 00000104 */
+label0000011A:
+0000011A  08E8 0000 0017           bset.b     [A0 + 0x17], 0x0
+label00000120:
+00000120  4E75                     rts

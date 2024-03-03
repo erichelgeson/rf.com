@@ -1,0 +1,103 @@
+ 
+
+
+
+
+
+Advanced (Power User's) Features
+ 
+Note: Some Non-Professional versions of SCSI Director may not have all the these options described in the Online Help files. All of these, and much more are included in the "Professional" version of the program. Call  805/565-5200 to get more information or order an upgrade.
+
+
+SETUP MENU
+Some commands in the “Setup” menu do not have corresponding buttons in the main window, and therefore are not commonly used.
+
+“Format Options...”
+This command lets you select the Interleave and the block size (the driver supports 512, 1k and 2k block sizes) of the device once its formatted..
+
+ATTO CUSTOMER'S
+USE THE POP-UP BUS MENU TO SWITCH TO DIFFERENT SCSI BUSSES OR LUNS YOU MAY HAVE ON YOUR COMPUTER BY WAY OF ATTO CARDS. YOU MUST DO THIS BEFORE YOU WILL BE ABLE TO USE SCSI DIRECTOR TO OPERATION ON YOUR DEVICE CONNECTED TO THE CARD.
+
+This is the very, very important command that cycles the SCSI Director program from one SCSI bus to another SCSI Bus.  This command is currently used when supporting the add-on third party SCSI bus adapters that are gaining popularity because of their incredibly high performance. Use this command with your ATTO Technology’s SiliconExpress (I, II, III, or IV) NuBus board. This command is meant to be activated frequently, while running the SCSI Director program, for whenever the Main Setup display needs to be switched to another SCSI bus in order to select another device.
+
+
+VIEW MENU
+The commands in the “View” menu let you examine various data structures on the SCSI device. All of the displays can be updated and printed and use a similar display format. 
+
+The similar window parts among the “View” menu commands are the Update Values icon button, Date, Time, and the description section of the windows. Clicking on the Update Values icon button will update the window with the current values of the information displayed in the window. The Date and Time section display the date and time that the information was last updated (this is usually useful for printing purposes). The description section describes what type of information is displayed in the window.
+
+You can examine five types of data using the “View” menu:
+
+• Device Driver Map, which is on block 0 of the SCSI device
+• Partition Map Blocks, which are numerous and come in a variety of types
+• Sector, which provides a resizeable, scrolling window into any data on the SCSI device
+• Inquiry Information, as returned by issuing a SCSI Inquiry command to the device
+• Mode Sense, as returned by issuing a SCSI Mode Sense command to the device
+
+
+SPECIAL MENU
+The “Special” menu is activated, and deactivated, by clicking on the “Special Menu” icon button in the set up window. This menu contains many very specialized SCSI device altering commands that are very dangerous when used by an unwary user.
+
+“Setup Many Devices...”
+This commands allows you to format every SCSI device you have hooked up to the computer, except one that you choose as the one you are using now for the program. It is meant for people who format hundreds of drives per month.
+
+“Check Partition Map Quality...”
+This command checks to see if your device has all of its partitions in order. It checks for any illegal, non-Apple usage of the drive, including over seventy different types of corruption. It is very thorough, and the very last message indicates the severity of your damage from (0- Perfect), through (3- very very bad). It only works with post March 1987 partitioning techniques. You should run this periodically on all your devices.
+
+“Write Partition Map Only...”
+This is not a command, but is a setting. It is only for magically recovering devices with totally damaged partition map entries. If it is checked, then the program will avoid destroying the CONTENTS of your partitions if you use the partition command, and enter Megabyte values for partitions, from your memory, that were used with our program the last time you ever partitioned, or Auto-setup the device you are recovering. Thus, if you used our product in the past two years, and you can't get any partitions to view in the partition editor, then with this option, you can completely repair your partition maps. DO NOT PLAY WITH THIS OTHERWISE. It is meant for telephone support.
+
+“Modify Partition Map...”
+This command allows you to perform editing of the partition map blocks in the partition map. This may be done to fix problems with a device, or do some really custom partitioning.
+
+“Write Partition Entry...”
+This command aids technicians in recovering heavily damaged devices, by writing a single blank partition entry at a specific location, and then filling in the values via deduction. For partition editing on non-damaged disks, use the Partition View/Edit command in the utility menu. Avoid using this unless you are an expert in data recovery.
+
+“Clear range of blocks...”
+This command can be used to zero out (erase) a range of sectors, if the need ever arises.
+
+“Reset SCSI Bus...”
+Safe Command.
+This command issues a SCSI Reset command to reset the SCSI bus. This can be used to un-freeze the SCSI bus and make the SCSI devices on the bus pay attention by resetting their states to ready themselves to execute new SCSI commands. For some devices, this also causes them to enter a UNIT ATTENTION state in which the next command they receive will terminate with a sense key/code condition of UNIT ATTENTION.
+
+“Prevent-Allow removal...”
+Safe Command.
+This command is can be used on removable media devices to prevent or allow the media to be removed.
+
+“Enable-Disable read ahead...”
+This command is used to enable or disable the read ahead cache on SCSI devices that support it.
+
+“Start-Stop SCSI...”
+Safe Command.
+This command is use to spin up or spin down the SCSI device. On removable media devices, it can also be used to eject the media.
+
+“Send-Receive Diagnostic...”
+This command issues a SCSI Send Diagnostic and Received Diagnostic command to the SCSI device, and creates a window that displays the results. Only a few types of drives are actually set up for use with this command.
+
+“Reassign Block...”
+Safe Command.
+The command is used when testing the SCSI device has revealed a sector that has gone bad and must be re-mapped. Usually you would use the "Auto Verify & Reassign" command instead.
+
+“Auto Verify & Reassign...”
+Safe Command.
+This is a process that uses the real SCSI verify command to analyze your disk and remap any failing locations. It works with most drives.
+
+“Change SCSI ID...”
+Safe Command.
+This command is used to change the SCSI ID of a SCSI device through software. Only a limited number of SCSI devices support this feature.
+
+“Resurrect a Neutralized Driver...”
+Safe Command.
+This command is only for the RARE occasion when you need to 'revive' a device's SCSI driver that was deliberately neutralized, at your request, by this program in the recent past. AND YOU REGRETTED IT for some reason or another. The program allows you to neutralize an interfering SCSI driver that needs to be disabled to overwrite it with our own amazing SCSI driver. This option to 'neutralize' is given along with three other techniques, in the "Install" or "Update" driver command, when allowable.
+
+“Driver Options...”
+Safe Command.
+This command is used to set various driver options. These options include the ability to explicitly use or not use blind reading and/or blind writing on a SCSI device (the default checks automatically at bootup). Another option that you can select is whether all writing should use the SCSI "Write & Verify" command, to help guarantee valuable data was actually stored to a disk. Admittedly, the "Driver Options" feature is meant to slow down devices that are very new or seemingly incompatible with the Macintosh. Apple Quadra computers have been reported to be unstable for blind writes (the default) to devices such as Tahiti 2's, the NCR ADP-92, and the Sony SMO-C301. After using this command, you must use the “Install...” command to re-install the SCSI driver with the selection driver options onto the device.
+
+“Resume Scanning”
+Safe Command.
+Each time it is selected, this command toggles between “Resume Scanning” and “Suspend Scanning”. Removable media devices are automatically scanned periodically for insertion of media. When SCSI Director is started, this scanning is suspended. When SCSI Director is stopped, this scanning is resumed. Use this command if you wish to resume the scanning while still running SCSI Director. SCSI Director does this because the scanning can sometimes interfere with some operations you wish to perform with the device.
+
+
+Obviously, the large reference manual available for SCSI Director would be a wise thing to read before performing many of these potentially dangerous commands.
+

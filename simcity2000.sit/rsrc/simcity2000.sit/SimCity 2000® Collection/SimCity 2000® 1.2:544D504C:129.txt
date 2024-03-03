@@ -1,0 +1,35 @@
+‘Midi/cmid’ resource ID: 2-byte integer (decimal)
+Lead instrument ‘INST’ ID: 1-byte integer (decimal)
+Reserved (Set to 0): 1-byte integer (decimal)
+Tempo (or 0, default 16667) < slower, > faster: 2-byte integer (decimal)
+Song pitch shift (12 is up an octave, -12 is down an octave): 2-byte integer (decimal)
+Extra channels for sound effects: 1-byte integer (decimal)
+Max Notes: 1-byte integer (decimal)
+Max Norm Notes: 2-byte integer (decimal)
+(bit field)
+  Reserved (Set to 0): boolean
+  Terminate decaying notes early when exceeding Max Norm Notes?: boolean
+  Note interpolate whole song?: boolean
+  Note interpolate lead instrument?: boolean
+  Set Default programs:
+0-program=channel,
+1-program=track: boolean
+  Enable MIDI Program Change for INST settings?: boolean
+  Disable note click removal?: boolean
+  Use Lead INST for all voices?: boolean
+Global note release (in 1/60ths): 1-byte integer (decimal)
+Default percussion program for Channel 10. Use 0 for none.: 1-byte integer (decimal)
+(bit field)
+  Reserved (Set to 0): boolean
+  Reserved (Set to 0): boolean
+  Reserved (Set to 0): boolean
+  Master enable: inst. pitch randomness: boolean
+  Scale lead INST when amplitude scaling enabled?: boolean
+  Force all INSTs to use amplitude scaling if Master enable set?: boolean
+  Master enable: allow note amplitude scaling?: boolean
+  Reserved (Set to 0): boolean
+INST Remaps:: list (2-byte one-based item count)
+  Midi Program: 2-byte integer (decimal)
+  INST ID: 2-byte integer (decimal)
+Copyright: pstring (1-byte length)
+Author: pstring (1-byte length)

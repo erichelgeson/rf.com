@@ -1,0 +1,106 @@
+Appendix B:  Sample Robots
+
+The following code segments are the programs for the four sample robots distributed with this disk, Stationary, DumBot, TimBot, and MoveBot:
+
+# Robot Stationary
+# 12/30/89 By David Harris
+
+main:
+    aim 10 + aim' store
+    main jump
+
+••••••••••••••••••••••••••••••••••••
+
+{   
+    DumBot
+    Created 12/27/89 by David Harris
+
+    This robot maintains shields, rotates its
+    turret, and fires when it finds a target.
+}
+
+Main:
+    50 shield' store
+    aim 7 + aim' store
+    range 0 > 
+       missilesub if
+    main jump
+
+MissileSub:
+    50 missile' store
+    return
+
+••••••••••••••••••••••••••••••••••••
+
+#  Tim's Robot
+#
+#   Designed by the same person
+#   Who, at the present, due to the presence 
+#   of altogether too many Electric Monks,  
+#   believes that he is a banana and that Dodo
+#   is more powerful than Mac II, thereby
+#   causing his programming ability to
+#   deteriorate.  Oh well.
+ 
+    random aim' store
+
+Main:
+    range 0 = rotate shoot ife
+    main jump
+
+rotate:
+    aim 17 + aim' store
+    return
+
+shoot:
+    energy 20 > reallyshoot if
+    return
+
+reallyshoot:
+    energy fire' store
+    return
+
+••••••••••••••••••••••••••••••••••••
+
+{ MoveBot
+  Created 11/21/89 by David Harris.
+
+    This robot moves about the screen, 
+    maintaining shields and searching for a
+    target.  It fires when it sights anything.
+}
+
+START:
+	1 speedx' store				 
+	1 speedy' store
+   	25 shield' store
+
+MAIN:
+	aim 5 + aim' store		  	# Rotate Turret 
+	x 50 < xmin if			# X minimum
+	y 50 < ymin if			# Y minimum
+	x 250 > xmax if			# X maximum
+	y 250 > ymax if			# Y maximum
+	range 0 > shoot if		  	# Shoot if range >0
+    	25 shield' store
+	main jump
+
+XMIN:
+	random 3 mod 1 + speedx' store
+    	return
+
+YMIN:
+      random 3 mod 1 + speedy' store
+	return
+
+XMAX:
+	-1 random 3 mod - speedx' store
+	return
+
+YMAX:
+	-1 random 3 mod - speedy' store
+	return
+
+SHOOT:
+    	energy 2 / missile' store
+	return

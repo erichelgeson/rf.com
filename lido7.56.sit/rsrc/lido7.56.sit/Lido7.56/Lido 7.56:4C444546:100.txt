@@ -1,0 +1,46 @@
+start:
+00000000  4E56 FFF8                link       A6, -0x0008
+00000004  302E 001A                move.w     D0, [A6 + 0x1A]
+00000008  6760                     beq        +0x62 /* 0000006A */
+0000000A  5340                     subq.w     D0, 1
+0000000C  670A                     beq        +0xC /* 00000018 */
+0000000E  5340                     subq.w     D0, 1
+00000010  6758                     beq        +0x5A /* 0000006A */
+00000012  5340                     subq.w     D0, 1
+00000014  6754                     beq        +0x56 /* 0000006A */
+00000016  6052                     bra        +0x54 /* 0000006A */
+label00000018:
+00000018  3F3C 0003                move.w     -[A7], 0x3
+0000001C  A887                     syscall    TextFont
+0000001E  3F3C 0009                move.w     -[A7], 0x9 /* '\t' */
+00000022  A88A                     syscall    TextSize
+00000024  206E 0014                movea.l    A0, [A6 + 0x14]
+00000028  43EE FFF8                lea.l      A1, [A6 - 0x8]
+0000002C  22D8                     move.l     [A1]+, [A0]+
+0000002E  22D8                     move.l     [A1]+, [A0]+
+00000030  486E FFF8                pea.l      [A6 - 0x8]
+00000034  2F3C 0002 0004           move.l     -[A7], 0x20004
+0000003A  A8A9                     syscall    InsetRect
+0000003C  206E 0008                movea.l    A0, [A6 + 0x8]
+00000040  2050                     movea.l    A0, [A0]
+00000042  2068 0050                movea.l    A0, [A0 + 0x50]
+00000046  302E 000E                move.w     D0, [A6 + 0xE]
+0000004A  48C0                     ext.l      D0
+0000004C  D090                     add.l      D0, [A0]
+0000004E  2F00                     move.l     -[A7], D0
+00000050  302E 000C                move.w     D0, [A6 + 0xC]
+00000054  48C0                     ext.l      D0
+00000056  2F00                     move.l     -[A7], D0
+00000058  486E FFF8                pea.l      [A6 - 0x8]
+0000005C  4267                     clr.w      -[A7]
+0000005E  A9CE                     syscall    TETextBox/TextBox
+00000060  4267                     clr.w      -[A7]
+00000062  A887                     syscall    TextFont
+00000064  3F3C 000C                move.w     -[A7], 0xC
+00000068  A88A                     syscall    TextSize
+label0000006A:
+0000006A  4E5E                     unlink     A6
+0000006C  205F                     movea.l    A0, [A7]+
+0000006E  DEFC 0014                add.w      A7, 0x14
+00000072  4ED0                     jmp        [A0]
+00000074  864D 594C 4953 5400 0000 dc.b       "MYLIST"

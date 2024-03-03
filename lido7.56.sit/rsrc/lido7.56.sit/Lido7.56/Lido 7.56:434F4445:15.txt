@@ -1,0 +1,68 @@
+# near model CODE resource
+# jump table entries: 1784-1787 (4 of them)
+export_223:
+00000000  4E56 0000                link       A6, 0
+00000004  2F07                     move.l     -[A7], D7
+00000006  2E2E 0008                move.l     D7, [A6 + 0x8]
+0000000A  6D04                     blt        +0x6 /* 00000010 */
+0000000C  2007                     move.l     D0, D7
+0000000E  6004                     bra        +0x6 /* 00000014 */
+label00000010:
+00000010  2007                     move.l     D0, D7
+00000012  4480                     neg.l      D0
+label00000014:
+00000014  2E2E FFFC                move.l     D7, [A6 - 0x4]
+00000018  4E5E                     unlink     A6
+0000001A  4E75                     rts
+0000001C  8361 6273 0000           dc.b       "abs"
+export_224:
+00000022  4CEF 0300 0004           movem.l    A0,A1, [A7 + 0x4]
+00000028  7000                     moveq.l    D0, 0x00
+0000002A  B3C8                     cmpa.l     A1, A0
+0000002C  670A                     beq        +0xC /* 00000038 */
+label0000002E:
+0000002E  1018                     move.b     D0, [A0]+
+00000030  B019                     cmp.b      D0, [A1]+
+00000032  6608                     bne        +0xA /* 0000003C */
+00000034  4A00                     tst.b      D0
+00000036  66F6                     bne        -0x8 /* 0000002E */
+label00000038:
+00000038  7000                     moveq.l    D0, 0x00
+0000003A  4E75                     rts
+label0000003C:
+0000003C  7200                     moveq.l    D1, 0x00
+0000003E  1221                     move.b     D1, -[A1]
+00000040  9081                     sub.l      D0, D1
+00000042  4E75                     rts
+00000044  8673 7472 636D 7000 0000 dc.b       "strcmp"
+export_225:
+0000004E  4CEF 0300 0004           movem.l    A0,A1, [A7 + 0x4]
+00000054  2008                     move.l     D0, A0
+label00000056:
+00000056  10D9                     move.b     [A0]+, [A1]+
+00000058  66FC                     bne        -0x2 /* 00000056 */
+0000005A  4E75                     rts
+0000005C  8673 7472 6370 7900 0000 dc.b       "strcpy"
+export_226:
+00000066  4CEF 0300 0004           movem.l    A0,A1, [A7 + 0x4]
+0000006C  222F 000C                move.l     D1, [A7 + 0xC]
+00000070  7000                     moveq.l    D0, 0x00
+00000072  600A                     bra        +0xC /* 0000007E */
+label00000074:
+00000074  1018                     move.b     D0, [A0]+
+00000076  B019                     cmp.b      D0, [A1]+
+00000078  660C                     bne        +0xE /* 00000086 */
+0000007A  4A00                     tst.b      D0
+0000007C  6704                     beq        +0x6 /* 00000082 */
+label0000007E:
+0000007E  5381                     subq.l     D1, 1
+00000080  64F2                     bcc        -0xC /* 00000074 */
+label00000082:
+00000082  7000                     moveq.l    D0, 0x00
+00000084  4E75                     rts
+label00000086:
+00000086  7200                     moveq.l    D1, 0x00
+00000088  1221                     move.b     D1, -[A1]
+0000008A  9081                     sub.l      D0, D1
+0000008C  4E75                     rts
+0000008E  8773 7472 6E63 6D70 0000 dc.b       "strncmp"

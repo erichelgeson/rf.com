@@ -1,0 +1,65 @@
+# near model CODE resource
+# jump table entries: 3648-3648 (1 of them)
+fn00000000:
+00000000  4E56 0000                link       A6, 0
+00000004  206E 0008                movea.l    A0, [A6 + 0x8]
+00000008  2F08                     move.l     -[A7], A0
+0000000A  42A7                     clr.l      -[A7]
+0000000C  2F3C 0000 0428           move.l     -[A7], 0x428
+00000012  4EAD 04F2                jsr        [A5 + 0x4F2 /* export_154, CODE:3 @ 000024F2 */]
+00000016  201F                     move.l     D0, [A7]+
+00000018  205F                     movea.l    A0, [A7]+
+0000001A  2080                     move.l     [A0], D0
+0000001C  206E 0008                movea.l    A0, [A6 + 0x8]
+00000020  4A90                     tst.l      [A0]
+00000022  671E                     beq        +0x20 /* 00000042 */
+00000024  2050                     movea.l    A0, [A0]
+00000026  317C 0080 001E           move.w     [A0 + 0x1E], 0x80
+0000002C  206E 0008                movea.l    A0, [A6 + 0x8]
+00000030  2050                     movea.l    A0, [A0]
+00000032  217C 7FFF FFFF 000C      move.l     [A0 + 0xC], 0x7FFFFFFF
+0000003A  1D7C 0001 000C           move.b     [A6 + 0xC], 0x1
+00000040  6004                     bra        +0x6 /* 00000046 */
+label00000042:
+00000042  422E 000C                clr.b      [A6 + 0xC]
+label00000046:
+00000046  4E5E                     unlink     A6
+00000048  205F                     movea.l    A0, [A7]+
+0000004A  584F                     addq.w     A7, 4
+0000004C  4ED0                     jmp        [A0]
+export_456:
+0000004E  4E56 FFEE                link       A6, -0x0012
+00000052  426D F9AE                clr.w      [A5 - 0x652]
+00000056  4267                     clr.w      -[A7]
+00000058  486D F9BC                pea.l      [A5 - 0x644]
+0000005C  4EBA FFA2                jsr        [PC - 0x5E /* 00000000 */]
+00000060  101F                     move.b     D0, [A7]+
+00000062  6728                     beq        +0x2A /* 0000008C */
+00000064  4267                     clr.w      -[A7]
+00000066  486D F9B8                pea.l      [A5 - 0x648]
+0000006A  4EBA FF94                jsr        [PC - 0x6C /* 00000000 */]
+0000006E  101F                     move.b     D0, [A7]+
+00000070  671A                     beq        +0x1C /* 0000008C */
+00000072  4267                     clr.w      -[A7]
+00000074  486D F9B4                pea.l      [A5 - 0x64C]
+00000078  4EBA FF86                jsr        [PC - 0x7A /* 00000000 */]
+0000007C  101F                     move.b     D0, [A7]+
+0000007E  670C                     beq        +0xE /* 0000008C */
+00000080  4267                     clr.w      -[A7]
+00000082  486D F9B0                pea.l      [A5 - 0x650]
+00000086  4EBA FF78                jsr        [PC - 0x88 /* 00000000 */]
+0000008A  101F                     move.b     D0, [A7]+
+label0000008C:
+0000008C  4267                     clr.w      -[A7]
+0000008E  3EB8 0220                move.w     [A7], [0x00000220 /* MemErr */]
+00000092  3D5F 0008                move.w     [A6 + 0x8], [A7]+
+00000096  2F3C 0001 0000           move.l     -[A7], 0x10000
+0000009C  486E FFEE                pea.l      [A6 - 0x12]
+000000A0  4EAD 072A                jsr        [A5 + 0x72A /* export_225, CODE:3 @ 000032E2 */]
+000000A4  3D5F FFFE                move.w     [A6 - 0x2], [A7]+
+000000A8  0C6E 0606 FFF2           cmpi.w     [A6 - 0xE], 0x606
+000000AE  5CC0                     sge        D0
+000000B0  4400                     neg.b      D0
+000000B2  1B40 F9AD                move.b     [A5 - 0x653], D0
+000000B6  4E5E                     unlink     A6
+000000B8  4E75                     rts

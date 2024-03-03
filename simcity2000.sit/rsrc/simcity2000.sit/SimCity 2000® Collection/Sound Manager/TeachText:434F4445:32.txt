@@ -1,0 +1,78 @@
+# near model CODE resource
+# jump table entries: 0-0 (1 of them)
+00000000  0000 0020                ori.b      D0, 0x20 /* ' ' */
+00000004  4F64                     chk.w      D7, -[A4]
+00000006  3F3C 0001                move.w     -[A7], 0x1
+0000000A  A9F0                     syscall    LoadSeg
+export_0:
+0000000C  303C A1AD                move.w     D0, 0xA1AD
+00000010  A346                     syscall    GetOSTrapAddress, flags=3
+00000012  2F08                     move.l     -[A7], A0
+00000014  303C A89F                move.w     D0, 0xA89F
+00000018  A146                     syscall    GetTrapAddress, flags=1
+0000001A  B1DF                     cmpa.l     A0, [A7]+
+0000001C  671E                     beq        +0x20 /* 0000003C */
+0000001E  203C 7379 7376           move.l     D0, 0x73797376 /* 'sysv' */
+00000024  A1AD                     syscall    Gestalt, flags=1
+00000026  0C40 0000                cmpi.w     D0, 0x0
+0000002A  6610                     bne        +0x12 /* 0000003C */
+0000002C  2008                     move.l     D0, A0
+0000002E  0280 0000 FFFF           andi.l     D0, 0xFFFF
+00000034  E088                     lsr        D0, 8
+00000036  0C40 0007                cmpi.w     D0, 0x7
+0000003A  6C40                     bge        +0x42 /* 0000007C */
+label0000003C:
+0000003C  A063                     syscall    MaxApplZone
+0000003E  486D FFFC                pea.l      [A5 - 0x4]
+00000042  A86E                     syscall    InitGraf
+00000044  A8FE                     syscall    InitFonts
+00000046  A912                     syscall    InitWindows
+00000048  A930                     syscall    InitMenus
+0000004A  A9CC                     syscall    TEInit
+0000004C  42A7                     clr.l      -[A7]
+0000004E  A97B                     syscall    InitDialogs
+00000050  A850                     syscall    InitCursor
+00000052  9EFC 0010                sub.w      A7, 0x10
+00000056  244F                     movea.l    A2, A7
+00000058  7602                     moveq.l    D3, 0x02
+label0000005A:
+0000005A  554F                     subq.w     A7, 2
+0000005C  3F3C FFFF                move.w     -[A7], 0xFFFF
+00000060  2F0A                     move.l     -[A7], A2
+00000062  A971                     syscall    EventAvail
+00000064  544F                     addq.w     A7, 2
+00000066  51CB FFF2                dbf        D3, -0x10 /* 0000005A */
+0000006A  DEFC 0010                add.w      A7, 0x10
+0000006E  554F                     subq.w     A7, 2
+00000070  3F3C 0080                move.w     -[A7], 0x80
+00000074  42A7                     clr.l      -[A7]
+00000076  A985                     syscall    Alert
+00000078  301F                     move.w     D0, [A7]+
+0000007A  A9F4                     syscall    ExitToShell
+label0000007C:
+0000007C  41FA FF86                lea.l      A0, [PC - 0x7A /* 00000004, value 0x4F643F3C 'Od?<', cstring "Od?<" */]
+00000080  203A FF7E                move.l     D0, [PC - 0x82 /* 00000000, value 0x20 ' ', cstring "" */]
+00000084  43F5 0800                lea.l      A1, [A5 + D0]
+00000088  2449                     movea.l    A2, A1
+0000008A  22D8                     move.l     [A1]+, [A0]+
+0000008C  2290                     move.l     [A1], [A0]
+0000008E  0C38 0000 012F           cmpi.b     [0x0000012F /* CPUFlag */], 0x0
+00000094  6710                     beq        +0x12 /* 000000A6 */
+00000096  6112                     bsr        +0x14 /* 000000AA */
+00000098  41FA FF62                lea.l      A0, [PC - 0x9E /* FFFFFFFC */]
+0000009C  A128                     syscall    RecoverHandle, flags=1
+0000009E  4A78 0220                tst.w      [0x00000220 /* MemErr */]
+000000A2  6602                     bne        +0x4 /* 000000A6 */
+000000A4  A02A                     syscall    HUnlock
+label000000A6:
+000000A6  4EEA 0002                jmp        [A2 + 0x2]
+fn000000AA:
+000000AA  303C A89F                move.w     D0, 0xA89F
+000000AE  A146                     syscall    GetTrapAddress, flags=1
+000000B0  2278 06F4                movea.l    A1, [0x000006F4]
+000000B4  B3C8                     cmpa.l     A1, A0
+000000B6  6706                     beq        +0x8 /* 000000BE */
+000000B8  2F38 06F4                move.l     -[A7], [0x000006F4]
+000000BC  4E75                     rts
+label000000BE:
+000000BE  4E75                     rts

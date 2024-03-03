@@ -1,0 +1,43 @@
+ 
+
+
+
+
+
+MAIN WINDOW OVERVIEW
+ 
+This portion of help provides a brief description of all the main components of the opening window.
+
+DEVICE SELECTION AREA
+This is where you tell our program what SCSI device to do work with. The device is selected by clicking the radio button that is next to the device which is to be worked on. On the left side of the device selection area, there are radio buttons for each SCSI device that may be selected. If a radio button is grayed-out, then that means the device is not connected to the computer or the device is powered-off. The radio button labeled “No Device” is used for just that: when no device is selected. The other radio buttons in the device selection area are labeled “0” through “7”. These represent the SCSI IDs (sometimes called SCSI Addresses) of the SCSI devices connected to the computer. See (ASIDE: SCSI DEVICE IDS, below)
+
+There are five column headings at the top of the device selection area. The “Type” column show what kind of SCSI device is at the address. The “Vendor” column shows who the original equipment manufacturer of the SCSI device is. The “Product” column shows the product identification of the device. The “Size” column shows the size of the device in megabytes (1 megabyte = 1024 * 1024 bytes), rounded down. For identification of the SCSI device that uses the SCSI ID, there are a row of these columns next to each SCSI ID radio button.
+
+ASIDE: SCSI DEVICE IDS
+The SCSI bus used on the Macintosh (like all SCSI busses) identify SCSI devices by what is known as their SCSI IDs. SCSI IDs  must be numbered 0 through 7. On the Macintosh, as on many other computers, SCSI ID 7 represents the computer itself. The computer uses SCSI ID 7 because it has the highest priority. SCSI ID numbers 0-6 are used for the devices connected to the computer. It is very important that there be no SCSI ID conflicts. If two or more devices connected to the computer have the same SCSI ID, data loss is a very likely result. This is why it is important that each SCSI device be assigned its own unique SCSI ID when connected to the computer. By the way, it is common practice to use SCSI ID 0 for the internal device on the Macintosh.
+
+MESSAGE AREA
+The message area displays various messages that tell you what you can do next, what can be done next, the progress of an operation, or the current operation taking place. If there is any confusion as to what the program is doing, reading the message area can be a big help toward understanding what the program is doing.
+
+COMMAND ICON BUTTON AREA
+The command button area is where the user performs most one-time set up operations of a device. To do anything to a device, it must first be selected by clicking on the appropriate radio button in the device selection area. Once selected, there are a number of options available in the menus and in the command button area. The user must be careful here, some of these options will destroy data on the SCSI device. The program warns the user if something dangerous is about to happen. For each button in the command button area, there is an equivalent menu command in the “Setup” menu. Here is a brief description of what each button does:
+
+The “ID Search” button: Clicking this button, or typing return, will make the program re-scan the SCSI bus and update the device selection area with any new or changed information discovered during the re-scan.
+
+The “Auto Setup...” button: This will completely set up the selected SCSI device into one partition. In a single click, using this button is equivalent to using the “Format...”, then “Partition...”, then “Mount...” buttons. All data on the SCSI device will be destroyed by this operation.
+
+The “Format...” button: This button will perform a low-level format of the SCSI device, destroying all data.
+
+The “Partition...” button: This button presents a series of dialogs that allow you to set up multiple HFS partitions and/or partitions for A/UX. This operation will destroy all data on the SCSI device.
+NOTE ON FIXING PARTITION MAP CORRUPTION: You can use the "Write partition map Only..." command in the "Special" menu in order to make the "Partition..." command not destroy all data on the SCSI device. In this case, it would simply re-create the partition map at the beginning of the disk without actually touching any of the partitions. Use this to fix partition map corruption. Make sure that you partition the disk exactly as you originally did or this will not work and you will probably lose your data.
+
+The “Install...” button: This button installs the SCSI driver onto the device and allows you to select the icon to display on the desktop for the HFS volume(s) that belong to the device. You can update the driver on any SCSI device any time by using this operation, it will not destroy data on the SCSI device.
+
+The “Mount...” and “Unmount” buttons: These buttons are used to mount and unmount volumes of a SCSI device. If the device is removable, the “Unmount” button will also eject the media. Mounting and Unmounting will not destroy data on the SCSI device.
+
+The “Test...” button: This button invokes the testing facility which provides extensive benchmark and diagnostic testing of SCSI devices. There are four types of speed tests and four types of reliability tests. The tests produce a result file detailing the test suite results of the SCSI device. Testing a SCSI device will not destroy the data on it.
+
+The “Quit...” button: This button may be clicked in order to stop the application. Using command-Q or selection “Quit...” from the “File” menu does the same thing.
+
+
+If you need further help consult the large reference manual available for the Program.

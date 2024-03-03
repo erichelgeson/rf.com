@@ -1,0 +1,1485 @@
+# near model CODE resource
+# jump table entries: 976-981 (6 of them)
+00000000  4E56 0000                link       A6, 0
+00000004  4E5E                     unlink     A6
+00000006  4E75                     rts
+00000008  4E56 0000                link       A6, 0
+0000000C  2F0B                     move.l     -[A7], A3
+0000000E  266E 0008                movea.l    A3, [A6 + 0x8]
+00000012  2F0B                     move.l     -[A7], A3
+00000014  614C                     bsr        +0x4E /* 00000062 */
+00000016  584F                     addq.w     A7, 4
+00000018  3F3C 0005                move.w     -[A7], 0x5
+0000001C  4EAD 0522                jsr        [A5 + 0x522 /* export_160, CODE:0 @ 00000000 */]
+00000020  544F                     addq.w     A7, 2
+00000022  5640                     addq.w     D0, 3
+00000024  3740 0026                move.w     [A3 + 0x26], D0
+00000028  302B 0020                move.w     D0, [A3 + 0x20]
+0000002C  6024                     bra        +0x26 /* 00000052 */
+0000002E  602C                     bra        +0x2E /* 0000005C */
+label00000030:
+00000030  377C 0064 0022           move.w     [A3 + 0x22], 0x64 /* 'd' */
+00000036  377C 0003 0024           move.w     [A3 + 0x24], 0x3
+0000003C  601E                     bra        +0x20 /* 0000005C */
+label0000003E:
+0000003E  3F3C 000A                move.w     -[A7], 0xA /* '\n' */
+00000042  4EAD 0522                jsr        [A5 + 0x522 /* export_160, CODE:0 @ 00000000 */]
+00000046  544F                     addq.w     A7, 2
+00000048  D07C 000A                add.w      D0, 0xA /* '\n' */
+0000004C  3740 0026                move.w     [A3 + 0x26], D0
+00000050  600A                     bra        +0xC /* 0000005C */
+label00000052:
+00000052  907C 0000                sub.w      D0, 0x0
+00000056  67E6                     beq        -0x18 /* 0000003E */
+00000058  5340                     subq.w     D0, 1
+0000005A  67D4                     beq        -0x2A /* 00000030 */
+label0000005C:
+0000005C  265F                     movea.l    A3, [A7]+
+0000005E  4E5E                     unlink     A6
+00000060  4E75                     rts
+fn00000062:
+00000062  4E56 0000                link       A6, 0
+00000066  2F0B                     move.l     -[A7], A3
+00000068  266E 0008                movea.l    A3, [A6 + 0x8]
+0000006C  487A 004C                pea.l      [PC + 0x4C /* 000000BA, value 0x73746166 'staf', cstring "staff" */]
+00000070  362B 0020                move.w     D3, [A3 + 0x20]
+00000074  48C3                     ext.l      D3
+00000076  E583                     asl        D3, 2
+00000078  45ED FEC0                lea.l      A2, [A5 - 0x140]
+0000007C  2F32 3800                move.l     -[A7], [A2 + D3]
+00000080  4EAD 029A                jsr        [A5 + 0x29A /* export_79, CODE:0 @ 00000000 */]
+00000084  504F                     addq.w     A7, 8
+00000086  4A40                     tst.w      D0
+00000088  660A                     bne        +0xC /* 00000094 */
+0000008A  45FA 0034                lea.l      A2, [PC + 0x34 /* 000000C0, value 0x32643300 '2d3\0', cstring "2d3" */]
+0000008E  274A 0016                move.l     [A3 + 0x16], A2
+00000092  6008                     bra        +0xA /* 0000009C */
+label00000094:
+00000094  45FA 002E                lea.l      A2, [PC + 0x2E /* 000000C4, value 0x31643100 '1d1\0', cstring "1d1" */]
+00000098  274A 0016                move.l     [A3 + 0x16], A2
+label0000009C:
+0000009C  45FA 002A                lea.l      A2, [PC + 0x2A /* 000000C8, value 0x31643100 '1d1\0', cstring "1d1" */]
+000000A0  274A 001A                move.l     [A3 + 0x1A], A2
+000000A4  0C6B 0001 0020           cmpi.w     [A3 + 0x20], 0x1
+000000AA  6608                     bne        +0xA /* 000000B4 */
+000000AC  45FA 001E                lea.l      A2, [PC + 0x1E /* 000000CC, value 0x31643800 '1d8\0', cstring "1d8" */]
+000000B0  274A 0016                move.l     [A3 + 0x16], A2
+label000000B4:
+000000B4  265F                     movea.l    A3, [A7]+
+000000B6  4E5E                     unlink     A6
+000000B8  4E75                     rts
+000000BA  7374                     moveq.l    D1, 0x74
+000000BC  6166                     bsr        +0x68 /* 00000124 */
+000000BE  6600 3264                bne        +0x3266 /* 00003324 */
+000000C2  3300                     move.w     -[A1], D0
+000000C4  3164 3100                move.w     [A0 + 0x3100], -[A4]
+000000C8  3164 3100                move.w     [A0 + 0x3100], -[A4]
+000000CC  3164 3800                move.w     [A0 + 0x3800], -[A4]
+000000D0  4E56 FFCE                link       A6, -0x0032
+000000D4  48E7 0F18                movem.l    -[A7], D4,D5,D6,D7,A3,A4
+000000D8  266E 0008                movea.l    A3, [A6 + 0x8]
+000000DC  3C2B 0020                move.w     D6, [A3 + 0x20]
+000000E0  0C6B 002F 000E           cmpi.w     [A3 + 0xE], 0x2F /* '/' */
+000000E6  6726                     beq        +0x28 /* 0000010E */
+000000E8  4A2B 002A                tst.b      [A3 + 0x2A]
+000000EC  670A                     beq        +0xC /* 000000F8 */
+000000EE  4A6B 0026                tst.w      [A3 + 0x26]
+000000F2  6704                     beq        +0x6 /* 000000F8 */
+000000F4  7C0E                     moveq.l    D6, 0x0E
+000000F6  6016                     bra        +0x18 /* 0000010E */
+label000000F8:
+000000F8  487A 0566                pea.l      [PC + 0x566 /* 00000660, value 0x796F7520 'you ', cstring "you can\'t zap with that!" */]
+000000FC  4EAD 0502                jsr        [A5 + 0x502 /* export_156, CODE:0 @ 00000000 */]
+00000100  584F                     addq.w     A7, 4
+00000102  422D E471                clr.b      [A5 - 0x1B8F]
+label00000106:
+00000106  4CDF 18F0                movem.l    D4,D5,D6,D7,A3,A4, [A7]+
+0000010A  4E5E                     unlink     A6
+0000010C  4E75                     rts
+label0000010E:
+0000010E  4A6B 0026                tst.w      [A3 + 0x26]
+00000112  660C                     bne        +0xE /* 00000120 */
+00000114  487A 0563                pea.l      [PC + 0x563 /* 00000679, value 0x6E6F7468 'noth', cstring "nothing happens" */]
+00000118  4EAD 0502                jsr        [A5 + 0x502 /* export_156, CODE:0 @ 00000000 */]
+0000011C  584F                     addq.w     A7, 4
+0000011E  60E6                     bra        -0x18 /* 00000106 */
+label00000120:
+00000120  3006                     move.w     D0, D6
+00000122  6000 0524                bra        +0x526 /* 00000648 */
+// begin alternate branch 00000124-00000126
+fn00000124:
+00000124  0524                     btst       -[A4], D2
+// end alternate branch 00000124-00000126
+fn00000124: // (misaligned)
+00000126  6000 0530                bra        +0x532 /* 00000658 */
+0000012A  362D FCCC                move.w     D3, [A5 - 0x334]
+0000012E  C67C 0001                and.w      D3, 0x1
+00000132  670C                     beq        +0xE /* 00000140 */
+00000134  487A 0553                pea.l      [PC + 0x553 /* 00000689, value 0x796F7520 'you ', cstring "you feel a warm glow around you" */]
+00000138  4EAD 0502                jsr        [A5 + 0x502 /* export_156, CODE:0 @ 00000000 */]
+0000013C  584F                     addq.w     A7, 4
+0000013E  602A                     bra        +0x2C /* 0000016A */
+label00000140:
+00000140  1B7C 0001 E49E           move.b     [A5 - 0x1B62], 0x1
+00000146  246D FCE0                movea.l    A2, [A5 - 0x320]
+0000014A  362A 000E                move.w     D3, [A2 + 0xE]
+0000014E  C67C 0002                and.w      D3, 0x2
+00000152  670C                     beq        +0xE /* 00000160 */
+00000154  487A 0553                pea.l      [PC + 0x553 /* 000006A9, value 0x74686520 'the ', cstring "the corridor glows and then fad"... */]
+00000158  4EAD 0502                jsr        [A5 + 0x502 /* export_156, CODE:0 @ 00000000 */]
+0000015C  584F                     addq.w     A7, 4
+0000015E  600A                     bra        +0xC /* 0000016A */
+label00000160:
+00000160  487A 0569                pea.l      [PC + 0x569 /* 000006CB, value 0x74686520 'the ', cstring "the room is lit by a shimmering"... */]
+00000164  4EAD 0502                jsr        [A5 + 0x502 /* export_156, CODE:0 @ 00000000 */]
+00000168  584F                     addq.w     A7, 4
+label0000016A:
+0000016A  246D FCE0                movea.l    A2, [A5 - 0x320]
+0000016E  362A 000E                move.w     D3, [A2 + 0xE]
+00000172  C67C 0002                and.w      D3, 0x2
+00000176  6614                     bne        +0x16 /* 0000018C */
+00000178  246D FCE0                movea.l    A2, [A5 - 0x320]
+0000017C  026A FFFE 000E           andi.w     [A2 + 0xE], 0xFFFE
+00000182  486D FCC0                pea.l      [A5 - 0x340]
+00000186  4EAD 0532                jsr        [A5 + 0x532 /* export_162, CODE:0 @ 00000000 */]
+0000018A  584F                     addq.w     A7, 4
+label0000018C:
+0000018C  6000 04CA                bra        +0x4CC /* 00000658 */
+00000190  0C6D 0002 FCD8           cmpi.w     [A5 - 0x328], 0x2
+00000196  6C0E                     bge        +0x10 /* 000001A6 */
+00000198  487A 055C                pea.l      [PC + 0x55C /* 000006F6, value 0x796F7520 'you ', cstring "you are too weak to use it" */]
+0000019C  4EAD 0502                jsr        [A5 + 0x502 /* export_156, CODE:0 @ 00000000 */]
+000001A0  584F                     addq.w     A7, 4
+000001A2  6000 FF62                bra        -0x9C /* 00000106 */
+label000001A6:
+000001A6  4EBA 0616                jsr        [PC + 0x616 /* 000007BE */]
+000001AA  6000 04AC                bra        +0x4AE /* 00000658 */
+000001AE  382D FCC2                move.w     D4, [A5 - 0x33E]
+000001B2  3A2D FCC0                move.w     D5, [A5 - 0x340]
+label000001B6:
+000001B6  3F05                     move.w     -[A7], D5
+000001B8  3F04                     move.w     -[A7], D4
+000001BA  4EAD 05AA                jsr        [A5 + 0x5AA /* export_177, CODE:0 @ 00000000 */]
+000001BE  584F                     addq.w     A7, 4
+000001C0  3F00                     move.w     -[A7], D0
+000001C2  4EAD 058A                jsr        [A5 + 0x58A /* export_173, CODE:0 @ 00000000 */]
+000001C6  544F                     addq.w     A7, 2
+000001C8  4A40                     tst.w      D0
+000001CA  670A                     beq        +0xC /* 000001D6 */
+000001CC  D86D E4E2                add.w      D4, [A5 - 0x1B1E]
+000001D0  DA6D E4E0                add.w      D5, [A5 - 0x1B20]
+000001D4  60E0                     bra        -0x1E /* 000001B6 */
+label000001D6:
+000001D6  3F05                     move.w     -[A7], D5
+000001D8  3F04                     move.w     -[A7], D4
+000001DA  4EAD 054A                jsr        [A5 + 0x54A /* export_165, CODE:0 @ 00000000 */]
+000001DE  584F                     addq.w     A7, 4
+000001E0  2840                     movea.l    A4, D0
+000001E2  4A80                     tst.l      D0
+000001E4  6700 026E                beq        +0x270 /* 00000454 */
+000001E8  1D6C 000F FFFF           move.b     [A6 - 0x1], [A4 + 0xF]
+000001EE  1D6E FFFF FFF7           move.b     [A6 - 0x9], [A6 - 0x1]
+000001F4  162E FFFF                move.b     D3, [A6 - 0x1]
+000001F8  C67C 00FF                and.w      D3, 0xFF
+000001FC  B67C 0046                cmp.w      D3, 0x46 /* 'F' */
+00000200  6606                     bne        +0x8 /* 00000208 */
+00000202  026D FF7F FCCC           andi.w     [A5 - 0x334], 0xFF7F
+label00000208:
+00000208  BC7C 000E                cmp.w      D6, 0xE
+0000020C  664E                     bne        +0x50 /* 0000025C */
+0000020E  162E FFFF                move.b     D3, [A6 - 0x1]
+00000212  C67C 00FF                and.w      D3, 0xFF
+00000216  142B 002A                move.b     D2, [A3 + 0x2A]
+0000021A  4882                     ext.w      D2
+0000021C  B642                     cmp.w      D3, D2
+0000021E  662E                     bne        +0x30 /* 0000024E */
+00000220  162E FFFF                move.b     D3, [A6 - 0x1]
+00000224  C67C 00FF                and.w      D3, 0xFF
+00000228  967C 0041                sub.w      D3, 0x41 /* 'A' */
+0000022C  C6FC 001A                mulu.w     D3, 0x1A
+00000230  45ED DE88                lea.l      A2, [A5 - 0x2178]
+00000234  2F32 3800                move.l     -[A7], [A2 + D3]
+00000238  487A 04D7                pea.l      [PC + 0x4D7 /* 00000711, value 0x74686520 'the ', cstring "the %s vanishes in a puff of sm"... */]
+0000023C  4EAD 0502                jsr        [A5 + 0x502 /* export_156, CODE:0 @ 00000000 */]
+00000240  504F                     addq.w     A7, 8
+00000242  4267                     clr.w      -[A7]
+00000244  2F0C                     move.l     -[A7], A4
+00000246  4EAD 0372                jsr        [A5 + 0x372 /* export_106, CODE:0 @ 00000000 */]
+0000024A  5C4F                     addq.w     A7, 6
+0000024C  600A                     bra        +0xC /* 00000258 */
+label0000024E:
+0000024E  487A 04E4                pea.l      [PC + 0x4E4 /* 00000734, value 0x796F7520 'you ', cstring "you hear a maniacal chuckle in "... */]
+00000252  4EAD 0502                jsr        [A5 + 0x502 /* export_156, CODE:0 @ 00000000 */]
+00000256  584F                     addq.w     A7, 4
+label00000258:
+00000258  6000 01EC                bra        +0x1EE /* 00000446 */
+label0000025C:
+0000025C  BC7C 0005                cmp.w      D6, 0x5
+00000260  6600 00C6                bne        +0xC8 /* 00000328 */
+00000264  2D6C 002E FFF2           move.l     [A6 - 0xE], [A4 + 0x2E]
+0000026A  2F0C                     move.l     -[A7], A4
+0000026C  486D DE84                pea.l      [A5 - 0x217C]
+00000270  4EAD 00DA                jsr        [A5 + 0xDA /* export_23, CODE:0 @ 00000000 */]
+00000274  504F                     addq.w     A7, 8
+00000276  2F0C                     move.l     -[A7], A4
+00000278  4EAD 03E2                jsr        [A5 + 0x3E2 /* export_120, CODE:0 @ 00000000 */]
+0000027C  584F                     addq.w     A7, 4
+0000027E  4A40                     tst.w      D0
+00000280  6722                     beq        +0x24 /* 000002A4 */
+00000282  3F05                     move.w     -[A7], D5
+00000284  3F04                     move.w     -[A7], D4
+00000286  4EAD 0552                jsr        [A5 + 0x552 /* export_166, CODE:0 @ 00000000 */]
+0000028A  584F                     addq.w     A7, 4
+0000028C  246D FCE8                movea.l    A2, [A5 - 0x318]
+00000290  1632 0000                move.b     D3, [A2 + D0.w]
+00000294  C67C 00FF                and.w      D3, 0xFF
+00000298  3F03                     move.w     -[A7], D3
+0000029A  3F05                     move.w     -[A7], D5
+0000029C  3F04                     move.w     -[A7], D4
+0000029E  4EAD 00B2                jsr        [A5 + 0xB2 /* export_18, CODE:0 @ 00000000 */]
+000002A2  5C4F                     addq.w     A7, 6
+label000002A4:
+000002A4  1D6C 0011 FFFE           move.b     [A6 - 0x2], [A4 + 0x11]
+000002AA  3B44 E4E2                move.w     [A5 - 0x1B1E], D4
+000002AE  3B45 E4E0                move.w     [A5 - 0x1B20], D5
+000002B2  486D E4E0                pea.l      [A5 - 0x1B20]
+000002B6  3F3C 001A                move.w     -[A7], 0x1A
+000002BA  4EAD 0522                jsr        [A5 + 0x522 /* export_160, CODE:0 @ 00000000 */]
+000002BE  544F                     addq.w     A7, 2
+000002C0  D07C 0041                add.w      D0, 0x41 /* 'A' */
+000002C4  1D40 FFFF                move.b     [A6 - 0x1], D0
+000002C8  C07C 00FF                and.w      D0, 0xFF
+000002CC  3F00                     move.w     -[A7], D0
+000002CE  2F0C                     move.l     -[A7], A4
+000002D0  4EAD 0852                jsr        [A5 + 0x852 /* export_262, CODE:0 @ 00000000 */]
+000002D4  DEFC 000A                add.w      A7, 0xA /* '\n' */
+000002D8  2F0C                     move.l     -[A7], A4
+000002DA  4EAD 03E2                jsr        [A5 + 0x3E2 /* export_120, CODE:0 @ 00000000 */]
+000002DE  584F                     addq.w     A7, 4
+000002E0  4A40                     tst.w      D0
+000002E2  6714                     beq        +0x16 /* 000002F8 */
+000002E4  162E FFFF                move.b     D3, [A6 - 0x1]
+000002E8  C67C 00FF                and.w      D3, 0xFF
+000002EC  3F03                     move.w     -[A7], D3
+000002EE  3F05                     move.w     -[A7], D5
+000002F0  3F04                     move.w     -[A7], D4
+000002F2  4EAD 00B2                jsr        [A5 + 0xB2 /* export_18, CODE:0 @ 00000000 */]
+000002F6  5C4F                     addq.w     A7, 6
+label000002F8:
+000002F8  196E FFFE 0011           move.b     [A4 + 0x11], [A6 - 0x2]
+000002FE  296E FFF2 002E           move.l     [A4 + 0x2E], [A6 - 0xE]
+00000304  162E FFFF                move.b     D3, [A6 - 0x1]
+00000308  C67C 00FF                and.w      D3, 0xFF
+0000030C  142E FFF7                move.b     D2, [A6 - 0x9]
+00000310  C47C 00FF                and.w      D2, 0xFF
+00000314  B642                     cmp.w      D3, D2
+00000316  6706                     beq        +0x8 /* 0000031E */
+00000318  363C 0001                move.w     D3, 0x1
+0000031C  6002                     bra        +0x4 /* 00000320 */
+label0000031E:
+0000031E  4243                     clr.w      D3
+label00000320:
+00000320  872D E4A3                or.b       [A5 - 0x1B5D], D3
+00000324  6000 0120                bra        +0x122 /* 00000446 */
+label00000328:
+00000328  BC7C 000D                cmp.w      D6, 0xD /* '\r' */
+0000032C  6616                     bne        +0x18 /* 00000344 */
+0000032E  006C 1000 0016           ori.w      [A4 + 0x16], 0x1000
+00000334  026C FBEF 0016           andi.w     [A4 + 0x16], 0xFBEF
+0000033A  196C 000F 0010           move.b     [A4 + 0x10], [A4 + 0xF]
+00000340  6000 0104                bra        +0x106 /* 00000446 */
+label00000344:
+00000344  2F0C                     move.l     -[A7], A4
+00000346  4EAD 03E2                jsr        [A5 + 0x3E2 /* export_120, CODE:0 @ 00000000 */]
+0000034A  584F                     addq.w     A7, 4
+0000034C  4A40                     tst.w      D0
+0000034E  6712                     beq        +0x14 /* 00000362 */
+00000350  162C 0011                move.b     D3, [A4 + 0x11]
+00000354  4883                     ext.w      D3
+00000356  3F03                     move.w     -[A7], D3
+00000358  3F05                     move.w     -[A7], D5
+0000035A  3F04                     move.w     -[A7], D4
+0000035C  4EAD 00B2                jsr        [A5 + 0xB2 /* export_18, CODE:0 @ 00000000 */]
+00000360  5C4F                     addq.w     A7, 6
+label00000362:
+00000362  BC7C 000B                cmp.w      D6, 0xB
+00000366  6600 0092                bne        +0x94 /* 000003FA */
+0000036A  197C 007F 0011           move.b     [A4 + 0x11], 0x7F
+label00000370:
+00000370  4EAD 057A                jsr        [A5 + 0x57A /* export_171, CODE:0 @ 00000000 */]
+00000374  3D40 FFFC                move.w     [A6 - 0x4], D0
+00000378  45EE FFF8                lea.l      A2, [A6 - 0x8]
+0000037C  224C                     movea.l    A1, A4
+0000037E  D3FC 0000 000A           add.l      A1, 0xA /* '\n' */
+00000384  24D9                     move.l     [A2]+, [A1]+
+00000386  486E FFF8                pea.l      [A6 - 0x8]
+0000038A  362E FFFC                move.w     D3, [A6 - 0x4]
+0000038E  C7FC 0042                muls.w     D3, 0x42 /* 'B' */
+00000392  45ED E4E4                lea.l      A2, [A5 - 0x1B1C]
+00000396  D68A                     add.l      D3, A2
+00000398  2F03                     move.l     -[A7], D3
+0000039A  4EAD 052A                jsr        [A5 + 0x52A /* export_161, CODE:0 @ 00000000 */]
+0000039E  504F                     addq.w     A7, 8
+000003A0  3F2E FFF8                move.w     -[A7], [A6 - 0x8]
+000003A4  3F2E FFFA                move.w     -[A7], [A6 - 0x6]
+000003A8  4EAD 05AA                jsr        [A5 + 0x5AA /* export_177, CODE:0 @ 00000000 */]
+000003AC  584F                     addq.w     A7, 4
+000003AE  B07C 002E                cmp.w      D0, 0x2E /* '.' */
+000003B2  6714                     beq        +0x16 /* 000003C8 */
+000003B4  3F2E FFF8                move.w     -[A7], [A6 - 0x8]
+000003B8  3F2E FFFA                move.w     -[A7], [A6 - 0x6]
+000003BC  4EAD 05AA                jsr        [A5 + 0x5AA /* export_177, CODE:0 @ 00000000 */]
+000003C0  584F                     addq.w     A7, 4
+000003C2  B07C 0023                cmp.w      D0, 0x23 /* '#' */
+000003C6  66A8                     bne        -0x56 /* 00000370 */
+label000003C8:
+000003C8  244C                     movea.l    A2, A4
+000003CA  D5FC 0000 000A           add.l      A2, 0xA /* '\n' */
+000003D0  43EE FFF8                lea.l      A1, [A6 - 0x8]
+000003D4  24D9                     move.l     [A2]+, [A1]+
+000003D6  2F0C                     move.l     -[A7], A4
+000003D8  4EAD 03E2                jsr        [A5 + 0x3E2 /* export_120, CODE:0 @ 00000000 */]
+000003DC  584F                     addq.w     A7, 4
+000003DE  4A40                     tst.w      D0
+000003E0  6716                     beq        +0x18 /* 000003F8 */
+000003E2  162C 0010                move.b     D3, [A4 + 0x10]
+000003E6  4883                     ext.w      D3
+000003E8  3F03                     move.w     -[A7], D3
+000003EA  3F2C 000A                move.w     -[A7], [A4 + 0xA]
+000003EE  3F2C 000C                move.w     -[A7], [A4 + 0xC]
+000003F2  4EAD 00B2                jsr        [A5 + 0xB2 /* export_18, CODE:0 @ 00000000 */]
+000003F6  5C4F                     addq.w     A7, 6
+label000003F8:
+000003F8  6018                     bra        +0x1A /* 00000412 */
+label000003FA:
+000003FA  362D FCC2                move.w     D3, [A5 - 0x33E]
+000003FE  D66D E4E2                add.w      D3, [A5 - 0x1B1E]
+00000402  3943 000C                move.w     [A4 + 0xC], D3
+00000406  362D FCC0                move.w     D3, [A5 - 0x340]
+0000040A  D66D E4E0                add.w      D3, [A5 - 0x1B20]
+0000040E  3943 000A                move.w     [A4 + 0xA], D3
+label00000412:
+00000412  162C 000F                move.b     D3, [A4 + 0xF]
+00000416  4883                     ext.w      D3
+00000418  B67C 0046                cmp.w      D3, 0x46 /* 'F' */
+0000041C  6606                     bne        +0x8 /* 00000424 */
+0000041E  026D FF7F FCCC           andi.w     [A5 - 0x334], 0xFF7F
+label00000424:
+00000424  362C 000C                move.w     D3, [A4 + 0xC]
+00000428  B644                     cmp.w      D3, D4
+0000042A  6608                     bne        +0xA /* 00000434 */
+0000042C  362C 000A                move.w     D3, [A4 + 0xA]
+00000430  B645                     cmp.w      D3, D5
+00000432  6712                     beq        +0x14 /* 00000446 */
+label00000434:
+00000434  3F2C 000A                move.w     -[A7], [A4 + 0xA]
+00000438  3F2C 000C                move.w     -[A7], [A4 + 0xC]
+0000043C  4EAD 00AA                jsr        [A5 + 0xAA /* export_17, CODE:0 @ 00000000 */]
+00000440  584F                     addq.w     A7, 4
+00000442  1940 0011                move.b     [A4 + 0x11], D0
+label00000446:
+00000446  45ED FCC0                lea.l      A2, [A5 - 0x340]
+0000044A  294A 0012                move.l     [A4 + 0x12], A2
+0000044E  006C 0004 0016           ori.w      [A4 + 0x16], 0x4
+label00000454:
+00000454  6000 0202                bra        +0x204 /* 00000658 */
+00000458  1B7C 0001 E4A4           move.b     [A5 - 0x1B5C], 0x1
+0000045E  3D7C 002A FFDC           move.w     [A6 - 0x24], 0x2A /* '*' */
+00000464  45FA 02FB                lea.l      A2, [PC + 0x2FB /* 00000761, value 0x31643800 '1d8\0', cstring "1d8" */]
+00000468  2D4A FFE8                move.l     [A6 - 0x18], A2
+0000046C  3D7C 03E8 FFF0           move.w     [A6 - 0x10], 0x3E8
+00000472  3D7C 0001 FFF2           move.w     [A6 - 0xE], 0x1
+00000478  3D7C 0010 FFF6           move.w     [A6 - 0xA], 0x10
+0000047E  4AAD FF08                tst.l      [A5 - 0xF8]
+00000482  670A                     beq        +0xC /* 0000048E */
+00000484  246D FF08                movea.l    A2, [A5 - 0xF8]
+00000488  1D6A 0021 FFE2           move.b     [A6 - 0x1E], [A2 + 0x21]
+label0000048E:
+0000048E  3F2D E4E0                move.w     -[A7], [A5 - 0x1B20]
+00000492  3F2D E4E2                move.w     -[A7], [A5 - 0x1B1E]
+00000496  486E FFCE                pea.l      [A6 - 0x32]
+0000049A  4EAD 0702                jsr        [A5 + 0x702 /* export_220, CODE:0 @ 00000000 */]
+0000049E  504F                     addq.w     A7, 8
+000004A0  3F2E FFD8                move.w     -[A7], [A6 - 0x28]
+000004A4  3F2E FFDA                move.w     -[A7], [A6 - 0x26]
+000004A8  4EAD 054A                jsr        [A5 + 0x54A /* export_165, CODE:0 @ 00000000 */]
+000004AC  584F                     addq.w     A7, 4
+000004AE  2840                     movea.l    A4, D0
+000004B0  4A80                     tst.l      D0
+000004B2  6724                     beq        +0x26 /* 000004D8 */
+000004B4  2F0C                     move.l     -[A7], A4
+000004B6  3F3C 0003                move.w     -[A7], 0x3
+000004BA  4EAD 03A2                jsr        [A5 + 0x3A2 /* export_112, CODE:0 @ 00000000 */]
+000004BE  5C4F                     addq.w     A7, 6
+000004C0  4A40                     tst.w      D0
+000004C2  6614                     bne        +0x16 /* 000004D8 */
+000004C4  486E FFCE                pea.l      [A6 - 0x32]
+000004C8  3F2E FFD8                move.w     -[A7], [A6 - 0x28]
+000004CC  3F2E FFDA                move.w     -[A7], [A6 - 0x26]
+000004D0  4EAD 06F2                jsr        [A5 + 0x6F2 /* export_218, CODE:0 @ 00000000 */]
+000004D4  504F                     addq.w     A7, 8
+000004D6  600A                     bra        +0xC /* 000004E2 */
+label000004D8:
+000004D8  487A 028B                pea.l      [PC + 0x28B /* 00000765, value 0x74686520 'the ', cstring "the missle vanishes with a puff"... */]
+000004DC  4EAD 0502                jsr        [A5 + 0x502 /* export_156, CODE:0 @ 00000000 */]
+000004E0  584F                     addq.w     A7, 4
+label000004E2:
+000004E2  6000 0174                bra        +0x176 /* 00000658 */
+000004E6  362D FCC2                move.w     D3, [A5 - 0x33E]
+000004EA  D76D E4E2                add.w      [A5 - 0x1B1E], D3
+000004EE  362D FCC0                move.w     D3, [A5 - 0x340]
+000004F2  D76D E4E0                add.w      [A5 - 0x1B20], D3
+000004F6  3F2D E4E0                move.w     -[A7], [A5 - 0x1B20]
+000004FA  3F2D E4E2                move.w     -[A7], [A5 - 0x1B1E]
+000004FE  4EAD 054A                jsr        [A5 + 0x54A /* export_165, CODE:0 @ 00000000 */]
+00000502  584F                     addq.w     A7, 4
+00000504  2840                     movea.l    A4, D0
+00000506  4A80                     tst.l      D0
+00000508  6744                     beq        +0x46 /* 0000054E */
+0000050A  3F3C 0014                move.w     -[A7], 0x14
+0000050E  4EAD 0522                jsr        [A5 + 0x522 /* export_160, CODE:0 @ 00000000 */]
+00000512  544F                     addq.w     A7, 2
+00000514  4A40                     tst.w      D0
+00000516  6610                     bne        +0x12 /* 00000528 */
+00000518  45FA 0274                lea.l      A2, [PC + 0x274 /* 0000078E, value 0x33643800 '3d8\0', cstring "3d8" */]
+0000051C  274A 0016                move.l     [A3 + 0x16], A2
+00000520  377C 0009 0024           move.w     [A3 + 0x24], 0x9 /* '\t' */
+00000526  600E                     bra        +0x10 /* 00000536 */
+label00000528:
+00000528  45FA 0268                lea.l      A2, [PC + 0x268 /* 00000792, value 0x32643800 '2d8\0', cstring "2d8" */]
+0000052C  274A 0016                move.l     [A3 + 0x16], A2
+00000530  377C 0004 0024           move.w     [A3 + 0x24], 0x4
+label00000536:
+00000536  4267                     clr.w      -[A7]
+00000538  2F0B                     move.l     -[A7], A3
+0000053A  162C 000F                move.b     D3, [A4 + 0xF]
+0000053E  4883                     ext.w      D3
+00000540  3F03                     move.w     -[A7], D3
+00000542  486D E4E0                pea.l      [A5 - 0x1B20]
+00000546  4EAD 036A                jsr        [A5 + 0x36A /* export_105, CODE:0 @ 00000000 */]
+0000054A  DEFC 000C                add.w      A7, 0xC
+label0000054E:
+0000054E  6000 0108                bra        +0x10A /* 00000658 */
+00000552  382D FCC2                move.w     D4, [A5 - 0x33E]
+00000556  3A2D FCC0                move.w     D5, [A5 - 0x340]
+label0000055A:
+0000055A  3F05                     move.w     -[A7], D5
+0000055C  3F04                     move.w     -[A7], D4
+0000055E  4EAD 05AA                jsr        [A5 + 0x5AA /* export_177, CODE:0 @ 00000000 */]
+00000562  584F                     addq.w     A7, 4
+00000564  3F00                     move.w     -[A7], D0
+00000566  4EAD 058A                jsr        [A5 + 0x58A /* export_173, CODE:0 @ 00000000 */]
+0000056A  544F                     addq.w     A7, 2
+0000056C  4A40                     tst.w      D0
+0000056E  670A                     beq        +0xC /* 0000057A */
+00000570  D86D E4E2                add.w      D4, [A5 - 0x1B1E]
+00000574  DA6D E4E0                add.w      D5, [A5 - 0x1B20]
+00000578  60E0                     bra        -0x1E /* 0000055A */
+label0000057A:
+0000057A  3F05                     move.w     -[A7], D5
+0000057C  3F04                     move.w     -[A7], D4
+0000057E  4EAD 054A                jsr        [A5 + 0x54A /* export_165, CODE:0 @ 00000000 */]
+00000582  584F                     addq.w     A7, 4
+00000584  2840                     movea.l    A4, D0
+00000586  4A80                     tst.l      D0
+00000588  6750                     beq        +0x52 /* 000005DA */
+0000058A  BC7C 0007                cmp.w      D6, 0x7
+0000058E  661A                     bne        +0x1C /* 000005AA */
+00000590  362C 0016                move.w     D3, [A4 + 0x16]
+00000594  C67C 2000                and.w      D3, 0x2000 /* ' \0' */
+00000598  6708                     beq        +0xA /* 000005A2 */
+0000059A  026C DFFF 0016           andi.w     [A4 + 0x16], 0xDFFF
+000005A0  6006                     bra        +0x8 /* 000005A8 */
+label000005A2:
+000005A2  006C 4000 0016           ori.w      [A4 + 0x16], 0x4000 /* '@\0' */
+label000005A8:
+000005A8  601E                     bra        +0x20 /* 000005C8 */
+label000005AA:
+000005AA  362C 0016                move.w     D3, [A4 + 0x16]
+000005AE  C67C 4000                and.w      D3, 0x4000 /* '@\0' */
+000005B2  6708                     beq        +0xA /* 000005BC */
+000005B4  026C BFFF 0016           andi.w     [A4 + 0x16], 0xBFFF
+000005BA  6006                     bra        +0x8 /* 000005C2 */
+label000005BC:
+000005BC  006C 2000 0016           ori.w      [A4 + 0x16], 0x2000 /* ' \0' */
+label000005C2:
+000005C2  197C 0001 000E           move.b     [A4 + 0xE], 0x1
+label000005C8:
+000005C8  3B44 E4E2                move.w     [A5 - 0x1B1E], D4
+000005CC  3B45 E4E0                move.w     [A5 - 0x1B20], D5
+000005D0  486D E4E0                pea.l      [A5 - 0x1B20]
+000005D4  4EAD 03EA                jsr        [A5 + 0x3EA /* export_121, CODE:0 @ 00000000 */]
+000005D8  584F                     addq.w     A7, 4
+label000005DA:
+000005DA  607C                     bra        +0x7E /* 00000658 */
+000005DC  BC7C 0002                cmp.w      D6, 0x2
+000005E0  6608                     bne        +0xA /* 000005EA */
+000005E2  45FA 01B2                lea.l      A2, [PC + 0x1B2 /* 00000796, value 0x626F6C74 'bolt', cstring "bolt" */]
+000005E6  2E0A                     move.l     D7, A2
+000005E8  6014                     bra        +0x16 /* 000005FE */
+label000005EA:
+000005EA  BC7C 0003                cmp.w      D6, 0x3
+000005EE  6608                     bne        +0xA /* 000005F8 */
+000005F0  45FA 01A9                lea.l      A2, [PC + 0x1A9 /* 0000079B, value 0x666C616D 'flam', cstring "flame" */]
+000005F4  2E0A                     move.l     D7, A2
+000005F6  6006                     bra        +0x8 /* 000005FE */
+label000005F8:
+000005F8  45FA 01A7                lea.l      A2, [PC + 0x1A7 /* 000007A1, value 0x69636500 'ice\0', cstring "ice" */]
+000005FC  2E0A                     move.l     D7, A2
+label000005FE:
+000005FE  2F07                     move.l     -[A7], D7
+00000600  486D E4E0                pea.l      [A5 - 0x1B20]
+00000604  486D FCC0                pea.l      [A5 - 0x340]
+00000608  4EAD 0412                jsr        [A5 + 0x412 /* export_126, CODE:0 @ 00000000 */]
+0000060C  DEFC 000C                add.w      A7, 0xC
+00000610  45ED E49E                lea.l      A2, [A5 - 0x1B62]
+00000614  15BC 0001 6000           move.b     [A2 + D6.w], 0x1
+0000061A  603C                     bra        +0x3E /* 00000658 */
+0000061C  603A                     bra        +0x3C /* 00000658 */
+label0000061E:
+0000061E  487A 0185                pea.l      [PC + 0x185 /* 000007A5, value 0x77686174 'what', cstring "what a bizarre schtick!" */]
+00000622  4EAD 0502                jsr        [A5 + 0x502 /* export_156, CODE:0 @ 00000000 */]
+00000626  584F                     addq.w     A7, 4
+00000628  602E                     bra        +0x30 /* 00000658 */
+0000062A  FAD4 FE90                .extension 0xAD4 <<F/2-3/5>> // unimplemented
+0000062E  FF86                     .invalid   <<F/6/7>>
+00000630  FF86                     .invalid   <<F/6/7>>
+00000632  FF86                     .invalid   <<F/6/7>>
+00000634  FB58                     .extension 0xB58 <<F/4-5/5>> // unimplemented
+00000636  FE02 FEFC                .unknown   0xFE02 0xFEFC (W = 7)
+0000063A  FEFC FB3A                .extension 0xEFC <<F/2-3/7>> // unimplemented
+0000063E  FFC6                     .invalid   <<F/7/7>>
+00000640  FB58                     .extension 0xB58 <<F/4-5/5>> // unimplemented
+00000642  FB58                     .extension 0xB58 <<F/4-5/5>> // unimplemented
+00000644  FB58                     .extension 0xB58 <<F/4-5/5>> // unimplemented
+00000646  FB58                     .extension 0xB58 <<F/4-5/5>> // unimplemented
+label00000648:
+00000648  B07C 000F                cmp.w      D0, 0xF
+0000064C  64D0                     bcc        -0x2E /* 0000061E */
+0000064E  E340                     asl        D0.w, 1
+00000650  303B 00D8                move.w     D0, [PC + D0.w - 0x28]
+00000654  4EFB 0000                jmp        [PC + D0.w]
+label00000658:
+00000658  536B 0026                subq.w     [A3 + 0x26], 1
+0000065C  6000 FAA8                bra        -0x556 /* 00000106 */
+00000660  796F                     moveq.l    D4, 0x6F
+00000662  7520                     moveq.l    D2, 0x20
+00000664  6361                     bls        +0x63 /* 000006C7 */
+00000666  6E27                     bgt        +0x29 /* 0000068F */
+00000668  7420                     moveq.l    D2, 0x20
+0000066A  7A61                     moveq.l    D5, 0x61
+0000066C  7020                     moveq.l    D0, 0x20
+0000066E  7769                     moveq.l    D3, 0x69
+00000670  7468                     moveq.l    D2, 0x68
+00000672  2074 6861                movea.l    A0, [A4 + D6 + 0x61]
+00000676  7421                     moveq.l    D2, 0x21
+00000678  006E 6F74 6869           ori.w      [A6 + 0x6869], 0x6F74 /* 'ot' */
+0000067E  6E67                     bgt        +0x69 /* 000006E7 */
+00000680  2068 6170                movea.l    A0, [A0 + 0x6170]
+00000684  7065                     moveq.l    D0, 0x65
+00000686  6E73                     bgt        +0x75 /* 000006FB */
+00000688  0079 6F75 2066 6565      ori.w      [0x20666565], 0x6F75 /* 'ou' */
+00000690  6C20                     bge        +0x22 /* 000006B2 */
+00000692  6120                     bsr        +0x22 /* 000006B4 */
+00000694  7761                     moveq.l    D3, 0x61
+00000696  726D                     moveq.l    D1, 0x6D
+00000698  2067                     movea.l    A0, -[A7]
+0000069A  6C6F                     bge        +0x71 /* 0000070B */
+0000069C  7720                     moveq.l    D3, 0x20
+0000069E  6172                     bsr        +0x74 /* 00000712 */
+000006A0  6F75                     ble        +0x77 /* 00000717 */
+000006A2  6E64                     bgt        +0x66 /* 00000708 */
+000006A4  2079 6F75 0074           movea.l    A0, [0x6F750074]
+000006AA  6865                     bvc        +0x67 /* 00000711 */
+000006AC  2063                     movea.l    A0, -[A3]
+000006AE  6F72                     ble        +0x74 /* 00000722 */
+000006B0  7269                     moveq.l    D1, 0x69
+label000006B2:
+000006B2  646F                     bcc        +0x71 /* 00000723 */
+fn000006B4:
+000006B4  7220                     moveq.l    D1, 0x20
+000006B6  676C                     beq        +0x6E /* 00000724 */
+000006B8  6F77                     ble        +0x79 /* 00000731 */
+000006BA  7320                     moveq.l    D1, 0x20
+000006BC  616E                     bsr        +0x70 /* 0000072C */
+000006BE  6420                     bcc        +0x22 /* 000006E0 */
+000006C0  7468                     moveq.l    D2, 0x68
+000006C2  656E                     bcs        +0x70 /* 00000732 */
+000006C4  2066                     movea.l    A0, -[A6]
+000006C6  6164                     bsr        +0x66 /* 0000072C */
+000006C8  6573                     bcs        +0x75 /* 0000073D */
+000006CA  0074 6865 2072           ori.w      [A4 + D2.w + 0x72], 0x6865 /* 'he' */
+000006D0  6F6F                     ble        +0x71 /* 00000741 */
+000006D2  6D20                     blt        +0x22 /* 000006F4 */
+000006D4  6973                     bvs        +0x75 /* 00000749 */
+000006D6  206C 6974                movea.l    A0, [A4 + 0x6974]
+000006DA  2062                     movea.l    A0, -[A2]
+000006DC  7920                     moveq.l    D4, 0x20
+000006DE  6120                     bsr        +0x22 /* 00000700 */
+label000006E0:
+000006E0  7368                     moveq.l    D1, 0x68
+000006E2  696D                     bvs        +0x6F /* 00000751 */
+000006E4  6D65                     blt        +0x67 /* 0000074B */
+000006E6  7269                     moveq.l    D1, 0x69
+000006E8  6E67                     bgt        +0x69 /* 00000751 */
+000006EA  2062                     movea.l    A0, -[A2]
+000006EC  6C75                     bge        +0x77 /* 00000763 */
+000006EE  6520                     bcs        +0x22 /* 00000710 */
+000006F0  6C69                     bge        +0x6B /* 0000075B */
+000006F2  6768                     beq        +0x6A /* 0000075C */
+label000006F4:
+000006F4  7400                     moveq.l    D2, 0x00
+000006F6  796F                     moveq.l    D4, 0x6F
+000006F8  7520                     moveq.l    D2, 0x20
+000006FA  6172                     bsr        +0x74 /* 0000076E */
+000006FC  6520                     bcs        +0x22 /* 0000071E */
+000006FE  746F                     moveq.l    D2, 0x6F
+fn00000700:
+00000700  6F20                     ble        +0x22 /* 00000722 */
+00000702  7765                     moveq.l    D3, 0x65
+00000704  616B                     bsr        +0x6D /* 00000771 */
+00000706  2074 6F20 7573           movea.l    A0, [A4 + 0x7573 + D6 * 8]
+// begin alternate branch 00000708-0000070C
+label00000708:
+00000708  6F20                     ble        +0x22 /* 0000072A */
+0000070A  7573                     moveq.l    D2, 0x73
+// end alternate branch 00000708-0000070C
+label00000708: // (misaligned)
+0000070C  6520                     bcs        +0x22 /* 0000072E */
+0000070E  6974                     bvs        +0x76 /* 00000784 */
+label00000710:
+00000710  0074 6865 2025           ori.w      [A4 + D2.w + 0x25], 0x6865 /* 'he' */
+// begin alternate branch 00000712-00000716
+fn00000712:
+00000712  6865                     bvc        +0x67 /* 00000779 */
+00000714  2025                     move.l     D0, -[A5]
+// end alternate branch 00000712-00000716
+fn00000712: // (misaligned)
+00000716  7320                     moveq.l    D1, 0x20
+00000718  7661                     moveq.l    D3, 0x61
+0000071A  6E69                     bgt        +0x6B /* 00000785 */
+0000071C  7368                     moveq.l    D1, 0x68
+label0000071E:
+0000071E  6573                     bcs        +0x75 /* 00000793 */
+00000720  2069 6E20                movea.l    A0, [A1 + 0x6E20]
+// begin alternate branch 00000722-00000724
+label00000722:
+00000722  6E20                     bgt        +0x22 /* 00000744 */
+// end alternate branch 00000722-00000724
+label00000722: // (misaligned)
+label00000724:
+00000724  6120                     bsr        +0x22 /* 00000746 */
+00000726  7075                     moveq.l    D0, 0x75
+00000728  6666                     bne        +0x68 /* 00000790 */
+label0000072A:
+0000072A  206F 6620                movea.l    A0, [A7 + 0x6620]
+// begin alternate branch 0000072C-0000072E
+fn0000072C:
+0000072C  6620                     bne        +0x22 /* 0000074E */
+// end alternate branch 0000072C-0000072E
+fn0000072C: // (misaligned)
+label0000072E:
+0000072E  736D                     moveq.l    D1, 0x6D
+00000730  6F6B                     ble        +0x6D /* 0000079D */
+label00000732:
+00000732  6500 796F                bcs        +0x7971 /* 000080A3 */
+00000736  7520                     moveq.l    D2, 0x20
+00000738  6865                     bvc        +0x67 /* 0000079F */
+0000073A  6172                     bsr        +0x74 /* 000007AE */
+0000073C  2061                     movea.l    A0, -[A1]
+0000073E  206D 616E                movea.l    A0, [A5 + 0x616E]
+00000742  6961                     bvs        +0x63 /* 000007A5 */
+label00000744:
+00000744  6361                     bls        +0x63 /* 000007A7 */
+fn00000746:
+00000746  6C20                     bge        +0x22 /* 00000768 */
+00000748  6368                     bls        +0x6A /* 000007B2 */
+0000074A  7563                     moveq.l    D2, 0x63
+0000074C  6B6C                     bmi        +0x6E /* 000007BA */
+label0000074E:
+0000074E  6520                     bcs        +0x22 /* 00000770 */
+00000750  696E                     bvs        +0x70 /* 000007C0 */
+00000752  2074 6865                movea.l    A0, [A4 + D6 + 0x65]
+00000756  2064                     movea.l    A0, -[A4]
+00000758  6973                     bvs        +0x75 /* 000007CD */
+0000075A  7461                     moveq.l    D2, 0x61
+label0000075C:
+0000075C  6E63                     bgt        +0x65 /* 000007C1 */
+0000075E  652E                     bcs        +0x30 /* 0000078E */
+00000760  0031 6438 0074           ori.b      [A1 + D0.w + 0x74], 0x38 /* '8' */
+00000766  6865                     bvc        +0x67 /* 000007CD */
+label00000768:
+00000768  206D 6973                movea.l    A0, [A5 + 0x6973]
+0000076C  736C                     moveq.l    D1, 0x6C
+fn0000076E:
+0000076E  6520                     bcs        +0x22 /* 00000790 */
+label00000770:
+00000770  7661                     moveq.l    D3, 0x61
+00000772  6E69                     bgt        +0x6B /* 000007DD */
+00000774  7368                     moveq.l    D1, 0x68
+00000776  6573                     bcs        +0x75 /* 000007EB */
+00000778  2077 6974                movea.l    A0, <<invalid full ext with I/IS == 4>>
+0000077C  6820                     bvc        +0x22 /* 0000079E */
+0000077E  6120                     bsr        +0x22 /* 000007A0 */
+00000780  7075                     moveq.l    D0, 0x75
+00000782  6666                     bne        +0x68 /* 000007EA */
+label00000784:
+00000784  206F 6620                movea.l    A0, [A7 + 0x6620]
+00000788  736D                     moveq.l    D1, 0x6D
+0000078A  6F6B                     ble        +0x6D /* 000007F7 */
+0000078C  6500 3364                bcs        +0x3366 /* 00003AF2 */
+// begin alternate branch 0000078E-00000792
+label0000078E:
+0000078E  3364 3800                move.w     [A1 + 0x3800], -[A4]
+// end alternate branch 0000078E-00000792
+label0000078E: // (misaligned)
+label00000790:
+00000790  3800                     move.w     D4, D0
+00000792  3264                     movea.w    A1, -[A4]
+00000794  3800                     move.w     D4, D0
+00000796  626F                     bhi        +0x71 /* 00000807 */
+00000798  6C74                     bge        +0x76 /* 0000080E */
+0000079A  0066 6C61                ori.w      -[A6], 0x6C61 /* 'la' */
+label0000079E:
+0000079E  6D65                     blt        +0x67 /* 00000805 */
+fn000007A0:
+000007A0  0069 6365 0077           ori.w      [A1 + 0x77], 0x6365 /* 'ce' */
+000007A6  6861                     bvc        +0x63 /* 00000809 */
+000007A8  7420                     moveq.l    D2, 0x20
+000007AA  6120                     bsr        +0x22 /* 000007CC */
+000007AC  6269                     bhi        +0x6B /* 00000817 */
+fn000007AE:
+000007AE  7A61                     moveq.l    D5, 0x61
+000007B0  7272                     moveq.l    D1, 0x72
+label000007B2:
+000007B2  6520                     bcs        +0x22 /* 000007D4 */
+000007B4  7363                     moveq.l    D1, 0x63
+000007B6  6874                     bvc        +0x76 /* 0000082C */
+000007B8  6963                     bvs        +0x65 /* 0000081D */
+label000007BA:
+000007BA  6B21                     bmi        +0x23 /* 000007DD */
+000007BC  0000 4E56                ori.b      D0, 0x56 /* 'V' */
+// begin alternate branch 000007BE-000007C2
+fn000007BE:
+000007BE  4E56 FF5C                link       A6, -0x00A4
+// end alternate branch 000007BE-000007C2
+fn000007BE: // (misaligned)
+label000007C0:
+000007C0  FF5C                     .extension 0xF5C <<F/4-5/7>> // unimplemented
+000007C2  48E7 0C18                movem.l    -[A7], D4,D5,A3,A4
+000007C6  7800                     moveq.l    D4, 0x00
+000007C8  3F2D FCC0                move.w     -[A7], [A5 - 0x340]
+fn000007CC:
+000007CC  3F2D FCC2                move.w     -[A7], [A5 - 0x33E]
+000007D0  4EAD 0552                jsr        [A5 + 0x552 /* export_166, CODE:0 @ 00000000 */]
+label000007D4:
+000007D4  584F                     addq.w     A7, 4
+000007D6  246D FCE8                movea.l    A2, [A5 - 0x318]
+000007DA  1632 0000                move.b     D3, [A2 + D0.w]
+000007DE  C67C 00FF                and.w      D3, 0xFF
+000007E2  B67C 002B                cmp.w      D3, 0x2B /* '+' */
+000007E6  662C                     bne        +0x2E /* 00000814 */
+000007E8  3F2D FCC0                move.w     -[A7], [A5 - 0x340]
+// begin alternate branch 000007EA-000007F4
+label000007EA:
+000007EA  FCC0 3F2D                .extension 0xCC0 <<F/2-3/6>> // unimplemented
+000007EE  FCC2 4EAD                .extension 0xCC2 <<F/2-3/6>> // unimplemented
+000007F2  0552                     bchg       [A2], D2
+// end alternate branch 000007EA-000007F4
+label000007EA: // (misaligned)
+000007EC  3F2D FCC2                move.w     -[A7], [A5 - 0x33E]
+000007F0  4EAD 0552                jsr        [A5 + 0x552 /* export_166, CODE:0 @ 00000000 */]
+000007F4  584F                     addq.w     A7, 4
+000007F6  246D FF20                movea.l    A2, [A5 - 0xE0]
+000007FA  1632 0000                move.b     D3, [A2 + D0.w]
+000007FE  C67C 00FF                and.w      D3, 0xFF
+00000802  C67C 000F                and.w      D3, 0xF
+00000806  C6FC 0042                mulu.w     D3, 0x42 /* 'B' */
+0000080A  45ED E736                lea.l      A2, [A5 - 0x18CA]
+label0000080E:
+0000080E  2643                     movea.l    A3, D3
+00000810  D7CA                     add.l      A3, A2
+00000812  6002                     bra        +0x4 /* 00000816 */
+label00000814:
+00000814  97CB                     sub.l      A3, A3
+label00000816:
+00000816  246D FCE0                movea.l    A2, [A5 - 0x320]
+0000081A  362A 000E                move.w     D3, [A2 + 0xE]
+0000081E  C67C 0002                and.w      D3, 0x2
+00000822  1A03                     move.b     D5, D3
+00000824  45EE FF5C                lea.l      A2, [A6 - 0xA4]
+00000828  284A                     movea.l    A4, A2
+0000082A  2D6D DE84 FFFC           move.l     [A6 - 0x4], [A5 - 0x217C]
+// begin alternate branch 0000082C-00000830
+label0000082C:
+0000082C  DE84                     add.l      D7, D4
+0000082E  FFFC                     .invalid   <<F/7/7>>
+// end alternate branch 0000082C-00000830
+label0000082C: // (misaligned)
+label00000830:
+00000830  4AAE FFFC                tst.l      [A6 - 0x4]
+00000834  6700 0092                beq        +0x94 /* 000008C8 */
+00000838  246E FFFC                movea.l    A2, [A6 - 0x4]
+0000083C  226A 002A                movea.l    A1, [A2 + 0x2A]
+00000840  B3ED FCE0                cmpa.l     A1, [A5 - 0x320]
+00000844  676E                     beq        +0x70 /* 000008B4 */
+00000846  246E FFFC                movea.l    A2, [A6 - 0x4]
+0000084A  226A 002A                movea.l    A1, [A2 + 0x2A]
+0000084E  B3CB                     cmpa.l     A1, A3
+00000850  6762                     beq        +0x64 /* 000008B4 */
+00000852  4A05                     tst.b      D5
+00000854  6766                     beq        +0x68 /* 000008BC */
+00000856  246E FFFC                movea.l    A2, [A6 - 0x4]
+0000085A  3F2A 000A                move.w     -[A7], [A2 + 0xA]
+0000085E  246E FFFC                movea.l    A2, [A6 - 0x4]
+00000862  3F2A 000C                move.w     -[A7], [A2 + 0xC]
+00000866  4EAD 0552                jsr        [A5 + 0x552 /* export_166, CODE:0 @ 00000000 */]
+0000086A  584F                     addq.w     A7, 4
+0000086C  246D FCE8                movea.l    A2, [A5 - 0x318]
+00000870  1632 0000                move.b     D3, [A2 + D0.w]
+00000874  C67C 00FF                and.w      D3, 0xFF
+00000878  B67C 002B                cmp.w      D3, 0x2B /* '+' */
+0000087C  663E                     bne        +0x40 /* 000008BC */
+0000087E  246E FFFC                movea.l    A2, [A6 - 0x4]
+00000882  3F2A 000A                move.w     -[A7], [A2 + 0xA]
+00000886  246E FFFC                movea.l    A2, [A6 - 0x4]
+0000088A  3F2A 000C                move.w     -[A7], [A2 + 0xC]
+0000088E  4EAD 0552                jsr        [A5 + 0x552 /* export_166, CODE:0 @ 00000000 */]
+00000892  584F                     addq.w     A7, 4
+00000894  246D FF20                movea.l    A2, [A5 - 0xE0]
+00000898  1632 0000                move.b     D3, [A2 + D0.w]
+0000089C  C67C 00FF                and.w      D3, 0xFF
+000008A0  C67C 000F                and.w      D3, 0xF
+000008A4  C6FC 0042                mulu.w     D3, 0x42 /* 'B' */
+000008A8  45ED E736                lea.l      A2, [A5 - 0x18CA]
+000008AC  D68A                     add.l      D3, A2
+000008AE  B6AD FCE0                cmp.l      D3, [A5 - 0x320]
+000008B2  6608                     bne        +0xA /* 000008BC */
+label000008B4:
+000008B4  244C                     movea.l    A2, A4
+000008B6  588C                     addq.l     A4, 4
+000008B8  24AE FFFC                move.l     [A2], [A6 - 0x4]
+label000008BC:
+000008BC  246E FFFC                movea.l    A2, [A6 - 0x4]
+000008C0  2D52 FFFC                move.l     [A6 - 0x4], [A2]
+000008C4  6000 FF6A                bra        -0x94 /* 00000830 */
+label000008C8:
+000008C8  260C                     move.l     D3, A4
+000008CA  45EE FF5C                lea.l      A2, [A6 - 0xA4]
+000008CE  968A                     sub.l      D3, A2
+000008D0  E48B                     lsr        D3, 2
+000008D2  3803                     move.w     D4, D3
+000008D4  4A43                     tst.w      D3
+000008D6  6612                     bne        +0x14 /* 000008EA */
+000008D8  487A 007A                pea.l      [PC + 0x7A /* 00000954, value 0x796F7520 'you ', cstring "you have a tingling feeling" */]
+000008DC  4EAD 0502                jsr        [A5 + 0x502 /* export_156, CODE:0 @ 00000000 */]
+000008E0  584F                     addq.w     A7, 4
+label000008E2:
+000008E2  4CDF 1830                movem.l    D4,D5,A3,A4, [A7]+
+000008E6  4E5E                     unlink     A6
+000008E8  4E75                     rts
+label000008EA:
+000008EA  4294                     clr.l      [A4]
+000008EC  362D FCD8                move.w     D3, [A5 - 0x328]
+000008F0  48C3                     ext.l      D3
+000008F2  87FC 0002                divs.w     D3, 0x2
+000008F6  3B43 FCD8                move.w     [A5 - 0x328], D3
+000008FA  362D FCD8                move.w     D3, [A5 - 0x328]
+000008FE  48C3                     ext.l      D3
+00000900  87C4                     divs.w     D3, D4
+00000902  3803                     move.w     D4, D3
+00000904  5244                     addq.w     D4, 1
+00000906  45EE FF5C                lea.l      A2, [A6 - 0xA4]
+0000090A  284A                     movea.l    A4, A2
+label0000090C:
+0000090C  4A94                     tst.l      [A4]
+0000090E  6742                     beq        +0x44 /* 00000952 */
+00000910  2D54 FFFC                move.l     [A6 - 0x4], [A4]
+00000914  246E FFFC                movea.l    A2, [A6 - 0x4]
+00000918  996A 0022                sub.w      [A2 + 0x22], D4
+0000091C  0C6A 0000 0022           cmpi.w     [A2 + 0x22], 0x0
+00000922  6E18                     bgt        +0x1A /* 0000093C */
+00000924  2F2E FFFC                move.l     -[A7], [A6 - 0x4]
+00000928  4EAD 03E2                jsr        [A5 + 0x3E2 /* export_120, CODE:0 @ 00000000 */]
+0000092C  584F                     addq.w     A7, 4
+0000092E  3F00                     move.w     -[A7], D0
+00000930  2F2E FFFC                move.l     -[A7], [A6 - 0x4]
+00000934  4EAD 0372                jsr        [A5 + 0x372 /* export_106, CODE:0 @ 00000000 */]
+00000938  5C4F                     addq.w     A7, 6
+0000093A  6012                     bra        +0x14 /* 0000094E */
+label0000093C:
+0000093C  246E FFFC                movea.l    A2, [A6 - 0x4]
+00000940  D5FC 0000 000A           add.l      A2, 0xA /* '\n' */
+00000946  2F0A                     move.l     -[A7], A2
+00000948  4EAD 03EA                jsr        [A5 + 0x3EA /* export_121, CODE:0 @ 00000000 */]
+0000094C  584F                     addq.w     A7, 4
+label0000094E:
+0000094E  588C                     addq.l     A4, 4
+00000950  60BA                     bra        -0x44 /* 0000090C */
+label00000952:
+00000952  608E                     bra        -0x70 /* 000008E2 */
+00000954  796F                     moveq.l    D4, 0x6F
+00000956  7520                     moveq.l    D2, 0x20
+00000958  6861                     bvc        +0x63 /* 000009BB */
+0000095A  7665                     moveq.l    D3, 0x65
+0000095C  2061                     movea.l    A0, -[A1]
+0000095E  2074 696E                movea.l    A0, <<invalid full ext with IS == 1 and I/IS == 6>>
+00000962  676C                     beq        +0x6E /* 000009D0 */
+00000964  696E                     bvs        +0x70 /* 000009D4 */
+00000966  6720                     beq        +0x22 /* 00000988 */
+00000968  6665                     bne        +0x67 /* 000009CF */
+0000096A  656C                     bcs        +0x6E /* 000009D8 */
+0000096C  696E                     bvs        +0x70 /* 000009DC */
+0000096E  6700 4E56                beq        +0x4E58 /* 000057C6 */
+00000972  FFA0                     .invalid   <<F/6/7>>
+00000974  48E7 0F18                movem.l    -[A7], D4,D5,D6,D7,A3,A4
+00000978  487A 0486                pea.l      [PC + 0x486 /* 00000E00, value 0x66726F73 'fros', cstring "frost" */]
+0000097C  2F2E 0010                move.l     -[A7], [A6 + 0x10]
+00000980  4EAD 029A                jsr        [A5 + 0x29A /* export_79, CODE:0 @ 00000000 */]
+00000984  504F                     addq.w     A7, 8
+00000986  4A40                     tst.w      D0
+label00000988:
+00000988  6606                     bne        +0x8 /* 00000990 */
+0000098A  363C 0001                move.w     D3, 0x1
+0000098E  6002                     bra        +0x4 /* 00000992 */
+label00000990:
+00000990  4243                     clr.w      D3
+label00000992:
+00000992  1D43 FFA1                move.b     [A6 - 0x5F], D3
+00000996  3D7C 0061 FFB0           move.w     [A6 - 0x50], 0x61 /* 'a' */
+0000099C  3D7C 000A FFC2           move.w     [A6 - 0x3E], 0xA /* '\n' */
+000009A2  45FA 0462                lea.l      A2, [PC + 0x462 /* 00000E06, value 0x36643600 '6d6\0', cstring "6d6" */]
+000009A6  2D4A FFBC                move.l     [A6 - 0x44], A2
+000009AA  2D6E FFBC FFB8           move.l     [A6 - 0x48], [A6 - 0x44]
+000009B0  3D7C 001E FFC4           move.w     [A6 - 0x3C], 0x1E
+000009B6  426E FFC6                clr.w      [A6 - 0x3A]
+000009BA  2B6E 0010 D776           move.l     [A5 - 0x288A], [A6 + 0x10]
+000009C0  246E 000C                movea.l    A2, [A6 + 0xC]
+000009C4  302A 0002                move.w     D0, [A2 + 0x2]
+000009C8  246E 000C                movea.l    A2, [A6 + 0xC]
+000009CC  D052                     add.w      D0, [A2]
+000009CE  6028                     bra        +0x2A /* 000009F8 */
+label000009D0:
+000009D0  603A                     bra        +0x3C /* 00000A0C */
+000009D2  786B                     moveq.l    D4, 0x6B
+label000009D4:
+000009D4  6036                     bra        +0x38 /* 00000A0C */
+000009D6  246E 000C                movea.l    A2, [A6 + 0xC]
+// begin alternate branch 000009D8-000009DC
+label000009D8:
+000009D8  000C 4A6A                ori.b      A4, 0x6A /* 'j' */
+// end alternate branch 000009D8-000009DC
+label000009D8: // (misaligned)
+000009DA  4A6A 0002                tst.w      [A2 + 0x2]
+// begin alternate branch 000009DC-000009E0
+label000009DC:
+000009DC  0002 6604                ori.b      D2, 0x4
+// end alternate branch 000009DC-000009E0
+label000009DC: // (misaligned)
+000009DE  6604                     bne        +0x6 /* 000009E4 */
+000009E0  766D                     moveq.l    D3, 0x6D
+000009E2  6002                     bra        +0x4 /* 000009E6 */
+label000009E4:
+000009E4  766E                     moveq.l    D3, 0x6E
+label000009E6:
+000009E6  1803                     move.b     D4, D3
+000009E8  6022                     bra        +0x24 /* 00000A0C */
+000009EA  786C                     moveq.l    D4, 0x6C
+000009EC  601E                     bra        +0x20 /* 00000A0C */
+000009EE  FFE0                     .invalid   <<F/7/7>>
+000009F0  FFCC                     .invalid   <<F/7/7>>
+000009F2  FFC8                     .invalid   <<F/7/7>>
+000009F4  FFCC                     .invalid   <<F/7/7>>
+000009F6  FFE0                     .invalid   <<F/7/7>>
+label000009F8:
+000009F8  907C FFFE                sub.w      D0, 0xFFFE
+000009FC  B07C 0005                cmp.w      D0, 0x5
+00000A00  640A                     bcc        +0xC /* 00000A0C */
+00000A02  E340                     asl        D0.w, 1
+00000A04  303B 00E8                move.w     D0, [PC + D0.w - 0x18]
+00000A08  4EFB 0000                jmp        [PC + D0.w]
+label00000A0C:
+00000A0C  45EE FFF8                lea.l      A2, [A6 - 0x8]
+00000A10  226E 0008                movea.l    A1, [A6 + 0x8]
+00000A14  24D9                     move.l     [A2]+, [A1]+
+00000A16  45ED FCC0                lea.l      A2, [A5 - 0x340]
+00000A1A  226E 0008                movea.l    A1, [A6 + 0x8]
+00000A1E  B3CA                     cmpa.l     A1, A2
+00000A20  6706                     beq        +0x8 /* 00000A28 */
+00000A22  363C 0001                move.w     D3, 0x1
+00000A26  6002                     bra        +0x4 /* 00000A2A */
+label00000A28:
+00000A28  4243                     clr.w      D3
+label00000A2A:
+00000A2A  1C03                     move.b     D6, D3
+00000A2C  7E00                     moveq.l    D7, 0x00
+00000A2E  422E FFFF                clr.b      [A6 - 0x1]
+00000A32  99CC                     sub.l      A4, A4
+label00000A34:
+00000A34  B8FC 0006                cmpa.w     A4, 0x6
+00000A38  6C00 035A                bge        +0x35C /* 00000D94 */
+00000A3C  4A07                     tst.b      D7
+00000A3E  6600 0354                bne        +0x356 /* 00000D94 */
+00000A42  246E 000C                movea.l    A2, [A6 + 0xC]
+00000A46  362A 0002                move.w     D3, [A2 + 0x2]
+00000A4A  D76E FFFA                add.w      [A6 - 0x6], D3
+00000A4E  246E 000C                movea.l    A2, [A6 + 0xC]
+00000A52  3612                     move.w     D3, [A2]
+00000A54  D76E FFF8                add.w      [A6 - 0x8], D3
+00000A58  3F2E FFF8                move.w     -[A7], [A6 - 0x8]
+00000A5C  3F2E FFFA                move.w     -[A7], [A6 - 0x6]
+00000A60  4EAD 05AA                jsr        [A5 + 0x5AA /* export_177, CODE:0 @ 00000000 */]
+00000A64  584F                     addq.w     A7, 4
+00000A66  1A00                     move.b     D5, D0
+00000A68  360C                     move.w     D3, A4
+00000A6A  C7FC 0006                muls.w     D3, 0x6
+00000A6E  2443                     movea.l    A2, D3
+00000A70  43EE FFD4                lea.l      A1, [A6 - 0x2C]
+00000A74  D5C9                     add.l      A2, A1
+00000A76  43EE FFF8                lea.l      A1, [A6 - 0x8]
+00000A7A  24D9                     move.l     [A2]+, [A1]+
+00000A7C  360C                     move.w     D3, A4
+00000A7E  C7FC 0006                muls.w     D3, 0x6
+00000A82  45EE FFD8                lea.l      A2, [A6 - 0x28]
+00000A86  2F03                     move.l     -[A7], D3
+00000A88  2F0A                     move.l     -[A7], A2
+00000A8A  3F2E FFF8                move.w     -[A7], [A6 - 0x8]
+00000A8E  3F2E FFFA                move.w     -[A7], [A6 - 0x6]
+00000A92  4EAD 00AA                jsr        [A5 + 0xAA /* export_17, CODE:0 @ 00000000 */]
+00000A96  584F                     addq.w     A7, 4
+00000A98  245F                     movea.l    A2, [A7]+
+00000A9A  261F                     move.l     D3, [A7]+
+00000A9C  1580 3800                move.b     [A2 + D3], D0
+00000AA0  C07C 00FF                and.w      D0, 0xFF
+00000AA4  C87C 00FF                and.w      D4, 0xFF
+00000AA8  B044                     cmp.w      D0, D4
+00000AAA  660E                     bne        +0x10 /* 00000ABA */
+00000AAC  360C                     move.w     D3, A4
+00000AAE  C7FC 0006                muls.w     D3, 0x6
+00000AB2  45EE FFD8                lea.l      A2, [A6 - 0x28]
+00000AB6  4232 3800                clr.b      [A2 + D3]
+label00000ABA:
+00000ABA  CA7C 00FF                and.w      D5, 0xFF
+00000ABE  3005                     move.w     D0, D5
+00000AC0  6000 0282                bra        +0x284 /* 00000D44 */
+label00000AC4:
+00000AC4  4A2E FFFF                tst.b      [A6 - 0x1]
+00000AC8  660E                     bne        +0x10 /* 00000AD8 */
+00000ACA  4A06                     tst.b      D6
+00000ACC  6606                     bne        +0x8 /* 00000AD4 */
+00000ACE  363C 0001                move.w     D3, 0x1
+00000AD2  6002                     bra        +0x4 /* 00000AD6 */
+label00000AD4:
+00000AD4  4243                     clr.w      D3
+label00000AD6:
+00000AD6  1C03                     move.b     D6, D3
+label00000AD8:
+00000AD8  422E FFFF                clr.b      [A6 - 0x1]
+00000ADC  246E 000C                movea.l    A2, [A6 + 0xC]
+00000AE0  446A 0002                neg.w      [A2 + 0x2]
+00000AE4  246E 000C                movea.l    A2, [A6 + 0xC]
+00000AE8  4452                     neg.w      [A2]
+00000AEA  534C                     subq.w     A4, 1
+00000AEC  2F2E 0010                move.l     -[A7], [A6 + 0x10]
+00000AF0  487A 0318                pea.l      [PC + 0x318 /* 00000E0A, value 0x74686520 'the ', cstring "the %s bounces" */]
+00000AF4  4EAD 0502                jsr        [A5 + 0x502 /* export_156, CODE:0 @ 00000000 */]
+00000AF8  504F                     addq.w     A7, 8
+00000AFA  6000 0292                bra        +0x294 /* 00000D8E */
+label00000AFE:
+00000AFE  4A06                     tst.b      D6
+00000B00  6600 0142                bne        +0x144 /* 00000C44 */
+00000B04  3F2E FFF8                move.w     -[A7], [A6 - 0x8]
+00000B08  3F2E FFFA                move.w     -[A7], [A6 - 0x6]
+00000B0C  4EAD 054A                jsr        [A5 + 0x54A /* export_165, CODE:0 @ 00000000 */]
+00000B10  584F                     addq.w     A7, 4
+00000B12  2640                     movea.l    A3, D0
+00000B14  4A80                     tst.l      D0
+00000B16  6700 012C                beq        +0x12E /* 00000C44 */
+00000B1A  7C01                     moveq.l    D6, 0x01
+00000B1C  4A2E FFFF                tst.b      [A6 - 0x1]
+00000B20  6606                     bne        +0x8 /* 00000B28 */
+00000B22  363C 0001                move.w     D3, 0x1
+00000B26  6002                     bra        +0x4 /* 00000B2A */
+label00000B28:
+00000B28  4243                     clr.w      D3
+label00000B2A:
+00000B2A  1D43 FFFF                move.b     [A6 - 0x1], D3
+00000B2E  162B 0011                move.b     D3, [A3 + 0x11]
+00000B32  4883                     ext.w      D3
+00000B34  B67C 007F                cmp.w      D3, 0x7F
+00000B38  6718                     beq        +0x1A /* 00000B52 */
+00000B3A  3F2E FFF8                move.w     -[A7], [A6 - 0x8]
+00000B3E  3F2E FFFA                move.w     -[A7], [A6 - 0x6]
+00000B42  4EAD 0552                jsr        [A5 + 0x552 /* export_166, CODE:0 @ 00000000 */]
+00000B46  584F                     addq.w     A7, 4
+00000B48  246D FCE8                movea.l    A2, [A5 - 0x318]
+00000B4C  1772 0000 0011           move.b     [A3 + 0x11], [A2 + D0.w]
+label00000B52:
+00000B52  2F0B                     move.l     -[A7], A3
+00000B54  3F3C 0003                move.w     -[A7], 0x3
+00000B58  4EAD 03A2                jsr        [A5 + 0x3A2 /* export_112, CODE:0 @ 00000000 */]
+00000B5C  5C4F                     addq.w     A7, 6
+00000B5E  4A40                     tst.w      D0
+00000B60  6708                     beq        +0xA /* 00000B6A */
+00000B62  4A2E FFA1                tst.b      [A6 - 0x5F]
+00000B66  6700 0086                beq        +0x88 /* 00000BEE */
+label00000B6A:
+00000B6A  45EE FFAC                lea.l      A2, [A6 - 0x54]
+00000B6E  43EE FFF8                lea.l      A1, [A6 - 0x8]
+00000B72  24D9                     move.l     [A2]+, [A1]+
+00000B74  7E01                     moveq.l    D7, 0x01
+00000B76  162B 000F                move.b     D3, [A3 + 0xF]
+00000B7A  4883                     ext.w      D3
+00000B7C  B67C 0044                cmp.w      D3, 0x44 /* 'D' */
+00000B80  661E                     bne        +0x20 /* 00000BA0 */
+00000B82  487A 0295                pea.l      [PC + 0x295 /* 00000E19, value 0x666C616D 'flam', cstring "flame" */]
+00000B86  2F2E 0010                move.l     -[A7], [A6 + 0x10]
+00000B8A  4EAD 029A                jsr        [A5 + 0x29A /* export_79, CODE:0 @ 00000000 */]
+00000B8E  504F                     addq.w     A7, 8
+00000B90  4A40                     tst.w      D0
+00000B92  660C                     bne        +0xE /* 00000BA0 */
+00000B94  487A 0289                pea.l      [PC + 0x289 /* 00000E1F, value 0x74686520 'the ', cstring "the flame has no effect on the "... */]
+00000B98  4EAD 0502                jsr        [A5 + 0x502 /* export_156, CODE:0 @ 00000000 */]
+00000B9C  584F                     addq.w     A7, 4
+00000B9E  604C                     bra        +0x4E /* 00000BEC */
+label00000BA0:
+00000BA0  486E FFA2                pea.l      [A6 - 0x5E]
+00000BA4  3F2E FFF8                move.w     -[A7], [A6 - 0x8]
+00000BA8  3F2E FFFA                move.w     -[A7], [A6 - 0x6]
+00000BAC  4EAD 06F2                jsr        [A5 + 0x6F2 /* export_218, CODE:0 @ 00000000 */]
+00000BB0  504F                     addq.w     A7, 8
+00000BB2  3F2E FFF8                move.w     -[A7], [A6 - 0x8]
+00000BB6  3F2E FFFA                move.w     -[A7], [A6 - 0x6]
+00000BBA  4EAD 00AA                jsr        [A5 + 0xAA /* export_17, CODE:0 @ 00000000 */]
+00000BBE  584F                     addq.w     A7, 4
+00000BC0  C87C 00FF                and.w      D4, 0xFF
+00000BC4  B044                     cmp.w      D0, D4
+00000BC6  6724                     beq        +0x26 /* 00000BEC */
+00000BC8  360C                     move.w     D3, A4
+00000BCA  C7FC 0006                muls.w     D3, 0x6
+00000BCE  45EE FFD8                lea.l      A2, [A6 - 0x28]
+00000BD2  2F03                     move.l     -[A7], D3
+00000BD4  2F0A                     move.l     -[A7], A2
+00000BD6  3F2E FFF8                move.w     -[A7], [A6 - 0x8]
+00000BDA  3F2E FFFA                move.w     -[A7], [A6 - 0x6]
+00000BDE  4EAD 00AA                jsr        [A5 + 0xAA /* export_17, CODE:0 @ 00000000 */]
+00000BE2  584F                     addq.w     A7, 4
+00000BE4  245F                     movea.l    A2, [A7]+
+00000BE6  261F                     move.l     D3, [A7]+
+00000BE8  1580 3800                move.b     [A2 + D3], D0
+label00000BEC:
+00000BEC  6052                     bra        +0x54 /* 00000C40 */
+label00000BEE:
+00000BEE  CA7C 00FF                and.w      D5, 0xFF
+00000BF2  BA7C 0058                cmp.w      D5, 0x58 /* 'X' */
+00000BF6  660C                     bne        +0xE /* 00000C04 */
+00000BF8  162B 0010                move.b     D3, [A3 + 0x10]
+00000BFC  4883                     ext.w      D3
+00000BFE  B67C 0058                cmp.w      D3, 0x58 /* 'X' */
+00000C02  663C                     bne        +0x3E /* 00000C40 */
+label00000C04:
+00000C04  45ED FCC0                lea.l      A2, [A5 - 0x340]
+00000C08  226E 0008                movea.l    A1, [A6 + 0x8]
+00000C0C  B3CA                     cmpa.l     A1, A2
+00000C0E  660A                     bne        +0xC /* 00000C1A */
+00000C10  486E FFF8                pea.l      [A6 - 0x8]
+00000C14  4EAD 03EA                jsr        [A5 + 0x3EA /* export_121, CODE:0 @ 00000000 */]
+00000C18  584F                     addq.w     A7, 4
+label00000C1A:
+00000C1A  CA7C 00FF                and.w      D5, 0xFF
+00000C1E  3605                     move.w     D3, D5
+00000C20  967C 0041                sub.w      D3, 0x41 /* 'A' */
+00000C24  C6FC 001A                mulu.w     D3, 0x1A
+00000C28  45ED DE88                lea.l      A2, [A5 - 0x2178]
+00000C2C  2F32 3800                move.l     -[A7], [A2 + D3]
+00000C30  2F2E 0010                move.l     -[A7], [A6 + 0x10]
+00000C34  487A 020F                pea.l      [PC + 0x20F /* 00000E45, value 0x74686520 'the ', cstring "the %s whizzes past the %s" */]
+00000C38  4EAD 0502                jsr        [A5 + 0x502 /* export_156, CODE:0 @ 00000000 */]
+00000C3C  DEFC 000C                add.w      A7, 0xC
+label00000C40:
+00000C40  6000 00E4                bra        +0xE6 /* 00000D26 */
+label00000C44:
+00000C44  4A06                     tst.b      D6
+00000C46  6700 00DE                beq        +0xE0 /* 00000D26 */
+00000C4A  486D FCC0                pea.l      [A5 - 0x340]
+00000C4E  486E FFF8                pea.l      [A6 - 0x8]
+00000C52  4EAD 059A                jsr        [A5 + 0x59A /* export_175, CODE:0 @ 00000000 */]
+00000C56  504F                     addq.w     A7, 8
+00000C58  4A40                     tst.w      D0
+00000C5A  6700 00CA                beq        +0xCC /* 00000D26 */
+00000C5E  7C00                     moveq.l    D6, 0x00
+00000C60  4A2E FFFF                tst.b      [A6 - 0x1]
+00000C64  6606                     bne        +0x8 /* 00000C6C */
+00000C66  363C 0001                move.w     D3, 0x1
+00000C6A  6002                     bra        +0x4 /* 00000C6E */
+label00000C6C:
+00000C6C  4243                     clr.w      D3
+label00000C6E:
+00000C6E  1D43 FFFF                move.b     [A6 - 0x1], D3
+00000C72  3F3C 0003                move.w     -[A7], 0x3
+00000C76  4EAD 0382                jsr        [A5 + 0x382 /* export_108, CODE:0 @ 00000000 */]
+00000C7A  544F                     addq.w     A7, 2
+00000C7C  4A40                     tst.w      D0
+00000C7E  6600 0098                bne        +0x9A /* 00000D18 */
+00000C82  4A2E FFA1                tst.b      [A6 - 0x5F]
+00000C86  6722                     beq        +0x24 /* 00000CAA */
+00000C88  487A 01D6                pea.l      [PC + 0x1D6 /* 00000E60, value 0x596F7520 'You ', cstring "You are frozen by a blast of fr"... */]
+00000C8C  4EAD 0502                jsr        [A5 + 0x502 /* export_156, CODE:0 @ 00000000 */]
+00000C90  584F                     addq.w     A7, 4
+00000C92  0C6D 0014 E4C2           cmpi.w     [A5 - 0x1B3E], 0x14
+00000C98  6C0E                     bge        +0x10 /* 00000CA8 */
+00000C9A  3F3C 0007                move.w     -[A7], 0x7
+00000C9E  4EAD 075A                jsr        [A5 + 0x75A /* export_231, CODE:0 @ 00000000 */]
+00000CA2  544F                     addq.w     A7, 2
+00000CA4  D16D E4C2                add.w      [A5 - 0x1B3E], D0
+label00000CA8:
+00000CA8  6056                     bra        +0x58 /* 00000D00 */
+label00000CAA:
+00000CAA  3F3C 0006                move.w     -[A7], 0x6
+00000CAE  3F3C 0006                move.w     -[A7], 0x6
+00000CB2  4EAD 051A                jsr        [A5 + 0x51A /* export_159, CODE:0 @ 00000000 */]
+00000CB6  584F                     addq.w     A7, 4
+00000CB8  916D FCD8                sub.w      [A5 - 0x328], D0
+00000CBC  0C6D 0000 FCD8           cmpi.w     [A5 - 0x328], 0x0
+00000CC2  6E3C                     bgt        +0x3E /* 00000D00 */
+00000CC4  45ED FCC0                lea.l      A2, [A5 - 0x340]
+00000CC8  226E 0008                movea.l    A1, [A6 + 0x8]
+00000CCC  B3CA                     cmpa.l     A1, A2
+00000CCE  660C                     bne        +0xE /* 00000CDC */
+00000CD0  3F3C 0062                move.w     -[A7], 0x62 /* 'b' */
+00000CD4  4EAD 0972                jsr        [A5 + 0x972 /* export_298, CODE:0 @ 00000000 */]
+00000CD8  544F                     addq.w     A7, 2
+00000CDA  6024                     bra        +0x26 /* 00000D00 */
+label00000CDC:
+00000CDC  246E 0008                movea.l    A2, [A6 + 0x8]
+00000CE0  3F12                     move.w     -[A7], [A2]
+00000CE2  246E 0008                movea.l    A2, [A6 + 0x8]
+00000CE6  3F2A 0002                move.w     -[A7], [A2 + 0x2]
+00000CEA  4EAD 054A                jsr        [A5 + 0x54A /* export_165, CODE:0 @ 00000000 */]
+00000CEE  584F                     addq.w     A7, 4
+00000CF0  2440                     movea.l    A2, D0
+00000CF2  162A 000F                move.b     D3, [A2 + 0xF]
+00000CF6  4883                     ext.w      D3
+00000CF8  3F03                     move.w     -[A7], D3
+00000CFA  4EAD 0972                jsr        [A5 + 0x972 /* export_298, CODE:0 @ 00000000 */]
+00000CFE  544F                     addq.w     A7, 2
+label00000D00:
+00000D00  7E01                     moveq.l    D7, 0x01
+00000D02  4A2E FFA1                tst.b      [A6 - 0x5F]
+00000D06  660E                     bne        +0x10 /* 00000D16 */
+00000D08  2F2E 0010                move.l     -[A7], [A6 + 0x10]
+00000D0C  487A 018A                pea.l      [PC + 0x18A /* 00000E98, value 0x796F7520 'you ', cstring "you are hit by the %s" */]
+00000D10  4EAD 0502                jsr        [A5 + 0x502 /* export_156, CODE:0 @ 00000000 */]
+00000D14  504F                     addq.w     A7, 8
+label00000D16:
+00000D16  600E                     bra        +0x10 /* 00000D26 */
+label00000D18:
+00000D18  2F2E 0010                move.l     -[A7], [A6 + 0x10]
+00000D1C  487A 0190                pea.l      [PC + 0x190 /* 00000EAE, value 0x6120626F 'a bo', cstring "a bolt of %s whizzes by you" */]
+00000D20  4EAD 0502                jsr        [A5 + 0x502 /* export_156, CODE:0 @ 00000000 */]
+00000D24  504F                     addq.w     A7, 8
+label00000D26:
+00000D26  C87C 00FF                and.w      D4, 0xFF
+00000D2A  3F04                     move.w     -[A7], D4
+00000D2C  3F2E FFF8                move.w     -[A7], [A6 - 0x8]
+00000D30  3F2E FFFA                move.w     -[A7], [A6 - 0x6]
+00000D34  4EAD 00B2                jsr        [A5 + 0xB2 /* export_18, CODE:0 @ 00000000 */]
+00000D38  5C4F                     addq.w     A7, 6
+00000D3A  4EAD 00CA                jsr        [A5 + 0xCA /* export_21, CODE:0 @ 00000000 */]
+00000D3E  4EAD 041A                jsr        [A5 + 0x41A /* export_127, CODE:0 @ 00000000 */]
+00000D42  604A                     bra        +0x4C /* 00000D8E */
+label00000D44:
+00000D44  907C 0020                sub.w      D0, 0x20 /* ' ' */
+00000D48  6700 FD7A                beq        -0x284 /* 00000AC4 */
+00000D4C  907C 000B                sub.w      D0, 0xB
+00000D50  6700 FD72                beq        -0x28C /* 00000AC4 */
+00000D54  5540                     subq.w     D0, 2
+00000D56  6700 FD6C                beq        -0x292 /* 00000AC4 */
+00000D5A  907C 000F                sub.w      D0, 0xF
+00000D5E  6700 FD64                beq        -0x29A /* 00000AC4 */
+00000D62  5540                     subq.w     D0, 2
+00000D64  6700 FD5E                beq        -0x2A0 /* 00000AC4 */
+00000D68  907C 001E                sub.w      D0, 0x1E
+00000D6C  6700 FD56                beq        -0x2A8 /* 00000AC4 */
+00000D70  5740                     subq.w     D0, 3
+00000D72  6700 FD50                beq        -0x2AE /* 00000AC4 */
+00000D76  907C 001C                sub.w      D0, 0x1C
+00000D7A  6700 FD48                beq        -0x2B6 /* 00000AC4 */
+00000D7E  5340                     subq.w     D0, 1
+00000D80  6700 FD42                beq        -0x2BC /* 00000AC4 */
+00000D84  5340                     subq.w     D0, 1
+00000D86  6700 FD3C                beq        -0x2C2 /* 00000AC4 */
+00000D8A  6000 FD72                bra        -0x28C /* 00000AFE */
+label00000D8E:
+00000D8E  524C                     addq.w     A4, 1
+00000D90  6000 FCA2                bra        -0x35C /* 00000A34 */
+label00000D94:
+00000D94  426E FFFC                clr.w      [A6 - 0x4]
+label00000D98:
+00000D98  362E FFFC                move.w     D3, [A6 - 0x4]
+00000D9C  B64C                     cmp.w      D3, A4
+00000D9E  6C58                     bge        +0x5A /* 00000DF8 */
+00000DA0  4EAD 041A                jsr        [A5 + 0x41A /* export_127, CODE:0 @ 00000000 */]
+00000DA4  362E FFFC                move.w     D3, [A6 - 0x4]
+00000DA8  C7FC 0006                muls.w     D3, 0x6
+00000DAC  45EE FFD8                lea.l      A2, [A6 - 0x28]
+00000DB0  4A32 3800                tst.b      [A2 + D3]
+00000DB4  673C                     beq        +0x3E /* 00000DF2 */
+00000DB6  362E FFFC                move.w     D3, [A6 - 0x4]
+00000DBA  C7FC 0006                muls.w     D3, 0x6
+00000DBE  45EE FFD8                lea.l      A2, [A6 - 0x28]
+00000DC2  1432 3800                move.b     D2, [A2 + D3]
+00000DC6  C47C 00FF                and.w      D2, 0xFF
+00000DCA  3F02                     move.w     -[A7], D2
+00000DCC  362E FFFC                move.w     D3, [A6 - 0x4]
+00000DD0  C7FC 0006                muls.w     D3, 0x6
+00000DD4  45EE FFD4                lea.l      A2, [A6 - 0x2C]
+00000DD8  3F32 3800                move.w     -[A7], [A2 + D3]
+00000DDC  362E FFFC                move.w     D3, [A6 - 0x4]
+00000DE0  C7FC 0006                muls.w     D3, 0x6
+00000DE4  45EE FFD6                lea.l      A2, [A6 - 0x2A]
+00000DE8  3F32 3800                move.w     -[A7], [A2 + D3]
+00000DEC  4EAD 00B2                jsr        [A5 + 0xB2 /* export_18, CODE:0 @ 00000000 */]
+00000DF0  5C4F                     addq.w     A7, 6
+label00000DF2:
+00000DF2  526E FFFC                addq.w     [A6 - 0x4], 1
+00000DF6  60A0                     bra        -0x5E /* 00000D98 */
+label00000DF8:
+00000DF8  4CDF 18F0                movem.l    D4,D5,D6,D7,A3,A4, [A7]+
+00000DFC  4E5E                     unlink     A6
+00000DFE  4E75                     rts
+00000E00  6672                     bne        +0x74 /* 00000E74 */
+00000E02  6F73                     ble        +0x75 /* 00000E77 */
+00000E04  7400                     moveq.l    D2, 0x00
+00000E06  3664                     movea.w    A3, -[A4]
+00000E08  3600                     move.w     D3, D0
+00000E0A  7468                     moveq.l    D2, 0x68
+00000E0C  6520                     bcs        +0x22 /* 00000E2E */
+00000E0E  2573 2062 6F75           move.l     [A2 + 0x6F75], [A3 + D2.w + 0x62]
+00000E14  6E63                     bgt        +0x65 /* 00000E79 */
+00000E16  6573                     bcs        +0x75 /* 00000E8B */
+00000E18  0066 6C61                ori.w      -[A6], 0x6C61 /* 'la' */
+00000E1C  6D65                     blt        +0x67 /* 00000E83 */
+00000E1E  0074 6865 2066           ori.w      [A4 + D2.w + 0x66], 0x6865 /* 'he' */
+00000E24  6C61                     bge        +0x63 /* 00000E87 */
+00000E26  6D65                     blt        +0x67 /* 00000E8D */
+00000E28  2068 6173                movea.l    A0, [A0 + 0x6173]
+00000E2C  206E 6F20                movea.l    A0, [A6 + 0x6F20]
+// begin alternate branch 00000E2E-00000E30
+label00000E2E:
+00000E2E  6F20                     ble        +0x22 /* 00000E50 */
+// end alternate branch 00000E2E-00000E30
+label00000E2E: // (misaligned)
+00000E30  6566                     bcs        +0x68 /* 00000E98 */
+00000E32  6665                     bne        +0x67 /* 00000E99 */
+00000E34  6374                     bls        +0x76 /* 00000EAA */
+00000E36  206F 6E20                movea.l    A0, [A7 + 0x6E20]
+00000E3A  7468                     moveq.l    D2, 0x68
+00000E3C  6520                     bcs        +0x22 /* 00000E5E */
+00000E3E  6472                     bcc        +0x74 /* 00000EB2 */
+00000E40  6167                     bsr        +0x69 /* 00000EA9 */
+00000E42  6F6E                     ble        +0x70 /* 00000EB2 */
+00000E44  0074 6865 2025           ori.w      [A4 + D2.w + 0x25], 0x6865 /* 'he' */
+00000E4A  7320                     moveq.l    D1, 0x20
+00000E4C  7768                     moveq.l    D3, 0x68
+00000E4E  697A                     bvs        +0x7C /* 00000ECA */
+label00000E50:
+00000E50  7A65                     moveq.l    D5, 0x65
+00000E52  7320                     moveq.l    D1, 0x20
+00000E54  7061                     moveq.l    D0, 0x61
+00000E56  7374                     moveq.l    D1, 0x74
+00000E58  2074 6865                movea.l    A0, [A4 + D6 + 0x65]
+00000E5C  2025                     move.l     D0, -[A5]
+label00000E5E:
+00000E5E  7300                     moveq.l    D1, 0x00
+00000E60  596F 7520                subq.w     [A7 + 0x7520], 4
+00000E64  6172                     bsr        +0x74 /* 00000ED8 */
+00000E66  6520                     bcs        +0x22 /* 00000E88 */
+00000E68  6672                     bne        +0x74 /* 00000EDC */
+00000E6A  6F7A                     ble        +0x7C /* 00000EE6 */
+00000E6C  656E                     bcs        +0x70 /* 00000EDC */
+00000E6E  2062                     movea.l    A0, -[A2]
+00000E70  7920                     moveq.l    D4, 0x20
+00000E72  6120                     bsr        +0x22 /* 00000E94 */
+label00000E74:
+00000E74  626C                     bhi        +0x6E /* 00000EE2 */
+00000E76  6173                     bsr        +0x75 /* 00000EEB */
+00000E78  7420                     moveq.l    D2, 0x20
+00000E7A  6F66                     ble        +0x68 /* 00000EE2 */
+00000E7C  2066                     movea.l    A0, -[A6]
+00000E7E  726F                     moveq.l    D1, 0x6F
+00000E80  7374                     moveq.l    D1, 0x74
+00000E82  2066                     movea.l    A0, -[A6]
+00000E84  726F                     moveq.l    D1, 0x6F
+00000E86  6D20                     blt        +0x22 /* 00000EA8 */
+label00000E88:
+00000E88  7468                     moveq.l    D2, 0x68
+00000E8A  6520                     bcs        +0x22 /* 00000EAC */
+00000E8C  4963                     chk.w      D4, -[A3]
+00000E8E  6520                     bcs        +0x22 /* 00000EB0 */
+00000E90  4D6F 6E73                chk.w      D6, [A7 + 0x6E73]
+fn00000E94:
+00000E94  7465                     moveq.l    D2, 0x65
+00000E96  7200                     moveq.l    D1, 0x00
+label00000E98:
+00000E98  796F                     moveq.l    D4, 0x6F
+00000E9A  7520                     moveq.l    D2, 0x20
+00000E9C  6172                     bsr        +0x74 /* 00000F10 */
+00000E9E  6520                     bcs        +0x22 /* 00000EC0 */
+00000EA0  6869                     bvc        +0x6B /* 00000F0B */
+00000EA2  7420                     moveq.l    D2, 0x20
+00000EA4  6279                     bhi        +0x7B /* 00000F1F */
+00000EA6  2074 6865                movea.l    A0, [A4 + D6 + 0x65]
+// begin alternate branch 00000EA8-00000EAA
+label00000EA8:
+00000EA8  6865                     bvc        +0x67 /* 00000F0F */
+// end alternate branch 00000EA8-00000EAA
+label00000EA8: // (misaligned)
+label00000EAA:
+00000EAA  2025                     move.l     D0, -[A5]
+label00000EAC:
+00000EAC  7300                     moveq.l    D1, 0x00
+00000EAE  6120                     bsr        +0x22 /* 00000ED0 */
+label00000EB0:
+00000EB0  626F                     bhi        +0x71 /* 00000F21 */
+label00000EB2:
+00000EB2  6C74                     bge        +0x76 /* 00000F28 */
+00000EB4  206F 6620                movea.l    A0, [A7 + 0x6620]
+00000EB8  2573 2077 6869           move.l     [A2 + 0x6869], [A3 + D2.w + 0x77]
+00000EBE  7A7A                     moveq.l    D5, 0x7A
+label00000EC0:
+00000EC0  6573                     bcs        +0x75 /* 00000F35 */
+00000EC2  2062                     movea.l    A0, -[A2]
+00000EC4  7920                     moveq.l    D4, 0x20
+00000EC6  796F                     moveq.l    D4, 0x6F
+00000EC8  7500                     moveq.l    D2, 0x00
+label00000ECA:
+00000ECA  4E56 FFFC                link       A6, -0x0004
+00000ECE  42A7                     clr.l      -[A7]
+fn00000ED0:
+00000ED0  A975                     syscall    TickCount
+00000ED2  201F                     move.l     D0, [A7]+
+00000ED4  5680                     addq.l     D0, 3
+00000ED6  2D40 FFFC                move.l     [A6 - 0x4], D0
+// begin alternate branch 00000ED8-00000EDA
+fn00000ED8:
+00000ED8  FFFC                     .invalid   <<F/7/7>>
+// end alternate branch 00000ED8-00000EDA
+fn00000ED8: // (misaligned)
+label00000EDA:
+00000EDA  42A7                     clr.l      -[A7]
+label00000EDC:
+00000EDC  A975                     syscall    TickCount
+00000EDE  201F                     move.l     D0, [A7]+
+00000EE0  B0AE FFFC                cmp.l      D0, [A6 - 0x4]
+// begin alternate branch 00000EE2-00000EE4
+label00000EE2:
+00000EE2  FFFC                     .invalid   <<F/7/7>>
+// end alternate branch 00000EE2-00000EE4
+label00000EE2: // (misaligned)
+00000EE4  6C02                     bge        +0x4 /* 00000EE8 */
+label00000EE6:
+00000EE6  60F2                     bra        -0xC /* 00000EDA */
+label00000EE8:
+00000EE8  4E5E                     unlink     A6
+00000EEA  4E75                     rts

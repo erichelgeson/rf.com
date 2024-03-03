@@ -1,0 +1,116 @@
+V:  Registers
+
+Each robot has a number of registers or variables.  They are initialized to their appropriate values, or 0 if none is appropriate, when the battle starts.  This section lists each variable, its use, and whether it can be read or written.  The registers are:
+
+A-Z                  FIRE                  ENERGY            SHIELD              RANGE	
+AIM                 SPEEDX             SPEEDY             DAMAGE           RANDOM
+MISSILE           NUKE                 COLLISION         MOVEX	           CHANNEL
+MOVEY            SIGNAL              RADAR              LOOK                HELLBORE
+SCAN               ROBOTS            CHRONON           MINE                FRIEND               
+BULLET            STUNNER          WALL                 TOP                 BOTTOM
+LEFT                RIGHT               DOPPLER
+
+A-Z (except X and Y)
+User-defined variables.  They may be used for any temporary storage that the robot needs.  They may be read or written.
+
+X
+X position of robot.  May range from 0 to 300 (the boundaries of the board).  0 is the left side; 300 is the right.  X may be read but may not be written (no unrestricted teleporting!).
+
+Y
+Y position of robot.  May range from 0 to 300.  0 is the top; 300 is the bottom.  Y may be read but not written.
+
+FIRE
+Used to shoot bullets.  Returns 0 if read, shoots bullet with energy investment equal to amount written.  This energy investment is removed from the robot’s energy supply.  It may exceed the robot’s current energy value (placing the robot at negative energy and immobilizing it), but may not exceed the robots energy maximum.  Depending on the settings from the Hardware Store, bullets may be normal, rubber, or explosive.  Explosive bullets explode like TacNukes in a 36 pixel radius when they hit their target.  Whey they detonate (3 chronons after impact) they do damage of 1.5*energy investment to all robots in the blast radius.  This is a larger, faster explosion than in versions of RoboWar before 3.0.  Normal bullets do damage equal to the energy investment when they hit their targets.  Rubber bullets only do half damage if they hit.  Bullets move across the screen at a speed of 12 pixels per chronon, heading in the direction that the robot’s turret pointed when the shot was fired.
+
+ENERGY
+Robot’s current energy.  May be read, but not written.  ENERGY returns the amount of energy the robot currently has.  If not used for other purposes, energy is restored at 2 points per chronon.  However, if the energy ever drops below 0, the robot does not interpret any more instructions or perform any more actions until the energy exceeds 0 again.   When the battle begins energy is set to the maximum energy value specified in the Hardware Store.
+
+SHIELD
+Robot’s current shield level.  May be read or written.  If read, it returns the current level of the shield, or 0 if no shields are up.  If written, is sets the shield level to the value written.  If the current level is less than the level written, a point of energy is used for each point added to the shields.  If not enough energy is available to set the shields, the shields are only strengthened as far as remaining energy permits. If the current level is greater than the level written, a point of energy is regained for each point of difference, although energy cannot exceed the maximum energy value set in the Hardware Store.  Shields can absorb damage from bullets, missiles, or TacNukes that otherwise would have been deducted from a robot’s damage score.  Each point of damage that is done deducts one point from the shield level, until no power is left in the shields.  The remaining damage is then done to a robot’s damage score.  Even if shields are not hit, they decrease by one half point each chronon from natural energy decay.  Note that this replaces the old drain of one point per chronon in previous versions of RoboWar.  Shields may be charged above the maximum shield value set in the Hardware Store (although they may never exceed 150), but if they are above maximum, they decrease by two points instead of one half per chronon.  Shields are set to 0 when the battle begins.
+
+RANGE
+Range to nearest target in sights.  May only be read.  If there is a target in the direction the robot’s AIM points, RANGE returns the distance.  Otherwise, it returns 0.
+
+AIM
+Angle turret points.  May be read or written.  The angle is in degrees, oriented like a compass with 0 degrees pointing upward and 90 degrees pointing to the right.  All bullets and missiles are fired in the direction that the turret is pointing.
+
+SPEEDX
+Speed of robot in left-right direction.  May be read or written.  Positive speeds move right, while negative speeds move to the left of the screen.  If SPEEDX is read, it returns the current velocity; if it is written, it sets the velocity.  Speeds must be in the range of -20 to 20.  Each point of change in speed costs 2 points of energy; thus going from 10 to -2 costs 24 energy.
+
+SPEEDY
+Speed of robot in up-down direction.  May be read or written.  Positive values move down, while negative values move up.  SPEEDY has the same limits and characteristics as SPEEDX.
+
+DAMAGE
+Robot’s current damage rating.  May only be read.  When the battle begins, the damage rating starts at the maximum value set at the Hardware Store.  Damage caused by bullets, missiles, and TacNukes that is not absorbed by the robot’s shields is removed from the damage rating.  When it reaches 0, the robot is dead.
+
+RANDOM
+A random number from 0 to 359.  May only be read.
+
+MISSILE
+Used to shoot missiles.  Returns 0 if read, shoots missile with energy investment equal to amount written.  This energy investment is removed from the robot’s energy supply.  It may not exceed 50; if it does, only 50 energy is used.  Missiles do 1.5*energy investment in damage if they hit their targets.  Missiles move across the screen at a speed of 5 pixels per chronon, heading in the direction that the robot’s turret pointed when the shot was fired.  Missiles cannot be used unless they were first enabled at the hardware store.
+
+NUKE
+Used to place TacNukes, or Tactical Nuclear Devices.  Returns 0 if read, places TacNuke with energy investment equal to amount written.  This energy investment is removed form the robot’s energy supply.  It may exceed the robot’s current energy value (placing the robot at negative energy and immobilizing it), but may not exceed the robots energy maximum.  TacNukes begin to explode as soon as they are placed, increasing in radius by 5 pixels each chronon.  At the tenth chronon, when they have a radius of 50, they detonate and cause 1.5*energy investment in damage to all robots in the radius.  Robots who lay TacNukes are well advised to hasten away and be out of the blast radius when the devices explode.  TacNukes cannot be used unless they were first enabled at the hardware store.
+
+COLLISION
+May only be read.  If another robot has collided with the current robot, the COLLISION variable returns 1; otherwise it returns 0.  When a collision with another robot takes place, both robots take one point of damage each chronon until they separate.  They may either separate by changing direction, or by blowing the rival to little pieces.
+
+CHANNEL
+The robot’s broadcasting and receiving channel.  May be read or written.  If it is read, it returns the current channel.  If it is written, it sets the channel.  The channel must be in a range of 1 to 10.  Communications over a given channel only affect robots on the same team.  Thus, a robot must be placed on a team with at least one other robot at Camp if communications are to have any effect.
+
+SIGNAL
+The signal value on the robot’s current channel.  May be read or written.  If it is read, it returns the last value broadcast over the channel by any robot on the same team.  If it is written, the value written is broadcast over the channel and may be read any time in the future by any other robot on the same team.  Typically signals and channels are used by two or more robots to coordinate movement or team up against another set of robots.
+
+MOVEX
+Used to move the robot a given distance in the X direction without changing SPEEDX.  Returns 0 if read, moves the robot the specified distance if written.  Movement costs two points of energy per unit moved.  The distance must be between -20 and 20 units.
+
+MOVEY
+Used to move the robot a given distance in the Y direction without changing SPEEDY.  MOVEY has the same characteristics and restrictions as MOVEX.
+
+RADAR
+Range to nearest bullet, missile, or TacNuke in the path of AIM.  May only be read.  RADAR checks a path 40 degrees wide centered on the AIM.  It returns the distance to the nearest bullet, missile, or TacNuke in this path.  If there are none, it returns 0.  Note that the weapon detected might be moving perpendicular to the aim, not toward the robot.
+
+LOOK
+Targeting offset from AIM.  The RANGE command returns a distance LOOK degrees clockwise to the AIM register.  However, all shots still come from the AIM direction.  Thus, a robot can actually look for targets that are ahead of the current AIM value.  If not otherwise set, LOOK defaults to 0.  LOOK may be read or written.
+
+SCAN
+Similar to LOOK, the radar offset from the AIM.  The RADAR command returns a distance SCAN degrees clockwise from the AIM register.  Thus, a robot can look for oncoming attacks coming from a different direction than the turret is pointing.  If not otherwise set, SCAN defaults to 0.  SCAN may be read or written.
+
+CHRONON
+Returns the number of chronons elapsed in the current battle.  CHRONON may only be read.
+
+HELLBORE
+Used to launch hellbores.  Returns 0 if read, shoots hellbore with speed equal to amount written (this is different than hellbores in RoboWar 2.1.2).  This amount is removed from the robot's energy supply.  Hellbores reduce the shield of any robot they hit to zero but do no other damage.  They must move at a speed from 4 to 20 in the direction that the robot's turret pointed when the shot was fired.  Hellbores cannot be used unless they were first enabled at the hardware store.
+
+MINE
+Used to lay atomic land mines.  Returns 0 if read, places a mine with energy investment equal to the amount written.  The mine is stationary and becomes active 5 chronons after placement.  Once active, it will detonate against any target that hits it, causing damage equal to 2*(energy investment-5).  This is twice as effective as mines in RoboWar 2.3 and earlier.  Mines cannot be used unless they were first enabled at the hardware store.
+
+ROBOTS
+Number of robots alive.  Returns the number of robots alive in the arena, including the robot itself.
+
+FRIEND
+Is the robot sensed in a collision on your team?  FRIEND can only be read.  If the collision register holds a 1, the FRIEND register holds a 1 if the robot collided with is on the same team.  Otherwise, the FRIEND register holds a 0.  This is useful to determine if a collision has taken place with another robot on your same team.
+
+BULLET
+Fires a normal bullet if either normal or explosive bullets are enabled.  This is primarily useful so that robots equipped with explosive bullets can fire at short range without engulfing themselves in the explosion.  Returns 0 if read.
+
+STUNNER
+Used to fire a stasis capsule.  Returns 0 if read, shoots stasis capsule with speed 14 in the directon that the robot's turret points.  The amound written is removed from the robot's energy supply; if a stasis capsule hits a robot, the robot is placed in stasis for one chronon for every four points of energy invested in the capsule.  While in stasis, a robot does not move, interpret instructions, or regain energy; however, the robot's shields do not decay.  Stunners cannot be used unless they are first enabled in the Hardware Store.
+
+WALL
+Is the robot touching the electrified walls?  Returns 1 when read if the robot is touching the wall, or 0 otherwise.  No effect if written.
+
+TOP
+This register is used exclusively for interrupts.  It has no effect if written and returns 0 if read.
+
+BOTTOM / BOT
+This register is used exclusively for interrupts.  It has no effect if written and returns 0 if read.
+
+LEFT
+This register is used exclusively for interrupts.  It has no effect if written and returns 0 if read.
+
+RIGHT
+This register is used exclusively for interrupts.  It has no effect if written and returns 0 if read.
+
+DOPPLER
+This register is used to help tracking routines.  It is used in conjunction with the RANGE command.  If no target is in the robot's sights, (i.e. the RANGE register is 0), DOPPLER returns 0.  Otherwise, it returns the speed of the target in a direction perpendicular to the aim.  For instance, if the target is moving directly toward or away from the robot, DOPPLER will return 0.  If the robot's sights are pointing directly up and the target is moving from left to right at speed 8, the DOPPLER register will contain 8.  DOPPLER has no effect if written.  (Note:  the DOPPLER command existed in some earlier versions of RoboWar, but was somewhat buggy and had not been documented.)

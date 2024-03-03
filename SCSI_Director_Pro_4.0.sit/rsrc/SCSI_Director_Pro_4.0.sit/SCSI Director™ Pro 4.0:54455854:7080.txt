@@ -1,0 +1,33 @@
+ 
+
+
+
+
+
+Updating an Existing SCSI Device
+ 
+To update an existing SCSI device with the SCSI driver in SCSI Director, select the SCSI device by clicking on the device in the device selection area, then click the “Install...” button. This will install the SCSI driver onto the SCSI device. Anytime you get a newer version of SCSI Director, you should update all your SCSI devices with the new version of the SCSI driver by using the “Install...” button on each device. New versions often fix bugs, offer new features, and enhance performance, so updating to the newer version is usually very beneficial. It is not technically mandatory to replace other companies SCSI drivers with ours, but we hope you do.
+
+If you own a SCSI device that uses a driver other than SCSI Director, you may also update that device to use SCSI Director's driver by using the “Install...” button on it. It's recommended that you use the same SCSI driver across all your SCSI device connected to the computer whenever possible. This helps isolate problems with the SCSI device, and also allows the SCSI driver to utilize shared resources such as driver code (this saves memory). So, standardize on one SCSI driver as much as possible (we hope that one is SCSI Director!). In case the device driver you are replacing is very special, and used non-approved by Apple allocation techniques (live compression, live decryption), it is important to backup your data first, before installing the driver.
+
+Some reasons SCSI Director will not allow you to install a SCSI driver onto a device include:
+
+
+• The device was partitioned by a very old program that uses a pre-March 1987 IM IV format
+• The device has never been partitioned (usually pre-March 1987)
+• The device's partition for the SCSI driver is too small to accommodate SCSI Director
+
+If you encounter any of these problems, and are not a SCSI partition editing expert (almost nobody is) then if you still want to use our SCSI driver,you have to backup all the data on the drive, re-partition the device using SCSI Director, then copy all the backed up data back.
+
+If you encounter these problems and are a SCSI Expert, and still really want to use SCSI Director's driver on the device, you may be able to “hack” the partition map (see “Advanced Users `hacker' features” section within the reference manual available with SCSI Director) to allow SCSI Director to install the driver. Otherwise, you might have to backup all the data on the drive, re-partition the device using SCSI Director, then copy all the backed up data back.
+
+Sometimes, after updating a SCSI device's driver from one other than SCSI Director's driver, the partition volumes will not show up on the desktop after restarting. This can usually be fixed by using the control panel to un-check any partition options that the other SCSI driver had set for the partition. The most notorious of these options is the manual-mount option. See “Using the Control Panel” section within the on-line help menu for a description of these partition options.
+
+When updating a disk with another SCSI driver, the program may notify you that there are problems with the partition map that it wishes to correct (e.g. A non-IM V Apple Standard compliant partition map). If you see any dialogs that have a "Fix..." button, click it to fix the problem. Also, if the other SCSI driver is active, you will get a dialog that offers you four choices to replace the driver. In this case, selecting the first option to "Forcibly replace the active driver" is usually OK as long as you re-boot the computer right after installing the SCSI driver.
+
+Also be aware of the "Driver Options..." command in the "Special" menu (which can also be selected when holding down the Option key after selecting an icon in the "Install..." process). This has some useful options that allow further customization to the SCSI driver.
+
+This concludes the help section for updating devices with new drivers.
+
+
+

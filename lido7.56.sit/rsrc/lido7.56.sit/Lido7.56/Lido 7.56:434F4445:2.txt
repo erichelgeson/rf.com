@@ -1,0 +1,1115 @@
+# near model CODE resource
+# jump table entries: 632-662 (31 of them)
+fn00000000:
+00000000  4E56 FFFC                link       A6, -0x0004
+00000004  2F0C                     move.l     -[A7], A4
+00000006  42A7                     clr.l      -[A7]
+00000008  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+0000000C  42A7                     clr.l      -[A7]
+0000000E  2F3C 0000 00AA           move.l     -[A7], 0xAA
+00000014  4EAD 00EA                jsr        [A5 + 0xEA /* export_25, CODE:1 @ 00003A0C */]
+00000018  70FF                     moveq.l    D0, 0xFFFFFFFF
+0000001A  2F00                     move.l     -[A7], D0
+0000001C  A97C                     syscall    GetNewDialog
+0000001E  285F                     movea.l    A4, [A7]+
+00000020  302C 0016                move.w     D0, [A4 + 0x16]
+00000024  906C 0012                sub.w      D0, [A4 + 0x12]
+00000028  3B40 F22E                move.w     [A5 - 0xDD2], D0
+0000002C  302C 0014                move.w     D0, [A4 + 0x14]
+00000030  906C 0010                sub.w      D0, [A4 + 0x10]
+00000034  3B40 F22C                move.w     [A5 - 0xDD4], D0
+00000038  2D4C 000A                move.l     [A6 + 0xA], A4
+0000003C  285F                     movea.l    A4, [A7]+
+0000003E  4E5E                     unlink     A6
+00000040  205F                     movea.l    A0, [A7]+
+00000042  544F                     addq.w     A7, 2
+00000044  4ED0                     jmp        [A0]
+00000046  8A50 5245 5044 4941 4... dc.b       "PREPDIALOG"
+export_79:
+fn00000054:
+00000054  4E56 FFFC                link       A6, -0x0004
+00000058  2F0C                     move.l     -[A7], A4
+0000005A  42A7                     clr.l      -[A7]
+0000005C  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+00000060  4EBA FF9E                jsr        [PC - 0x62 /* 00000000 */]
+00000064  285F                     movea.l    A4, [A7]+
+00000066  2F0C                     move.l     -[A7], A4
+00000068  302D F232                move.w     D0, [A5 - 0xDCE]
+0000006C  906D F22E                sub.w      D0, [A5 - 0xDD2]
+00000070  48C0                     ext.l      D0
+00000072  81FC 0002                divs.w     D0, 0x2
+00000076  3F00                     move.w     -[A7], D0
+00000078  302D F230                move.w     D0, [A5 - 0xDD0]
+0000007C  906D F22C                sub.w      D0, [A5 - 0xDD4]
+00000080  48C0                     ext.l      D0
+00000082  81FC 0002                divs.w     D0, 0x2
+00000086  D07C 000F                add.w      D0, 0xF
+0000008A  3F00                     move.w     -[A7], D0
+0000008C  1F3C 0001                move.b     -[A7], 0x1
+00000090  A91B                     syscall    MoveWindow
+00000092  2D4C 000A                move.l     [A6 + 0xA], A4
+00000096  285F                     movea.l    A4, [A7]+
+00000098  4E5E                     unlink     A6
+0000009A  205F                     movea.l    A0, [A7]+
+0000009C  544F                     addq.w     A7, 2
+0000009E  4ED0                     jmp        [A0]
+000000A0  8C43 454E 5445 5244 4... dc.b       "CENTERDIALOG"
+fn000000B0:
+000000B0  4E56 FFFC                link       A6, -0x0004
+000000B4  2F0C                     move.l     -[A7], A4
+000000B6  42A7                     clr.l      -[A7]
+000000B8  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+000000BC  4EBA FF42                jsr        [PC - 0xBE /* 00000000 */]
+000000C0  285F                     movea.l    A4, [A7]+
+000000C2  2F0C                     move.l     -[A7], A4
+000000C4  302D F232                move.w     D0, [A5 - 0xDCE]
+000000C8  906D F22E                sub.w      D0, [A5 - 0xDD2]
+000000CC  48C0                     ext.l      D0
+000000CE  81FC 0002                divs.w     D0, 0x2
+000000D2  3F00                     move.w     -[A7], D0
+000000D4  302D F230                move.w     D0, [A5 - 0xDD0]
+000000D8  906D F22C                sub.w      D0, [A5 - 0xDD4]
+000000DC  48C0                     ext.l      D0
+000000DE  81FC 0004                divs.w     D0, 0x4
+000000E2  3F00                     move.w     -[A7], D0
+000000E4  1F3C 0001                move.b     -[A7], 0x1
+000000E8  A91B                     syscall    MoveWindow
+000000EA  2F0C                     move.l     -[A7], A4
+000000EC  A915                     syscall    ShowWindow
+000000EE  2D4C 000A                move.l     [A6 + 0xA], A4
+000000F2  285F                     movea.l    A4, [A7]+
+000000F4  4E5E                     unlink     A6
+000000F6  205F                     movea.l    A0, [A7]+
+000000F8  544F                     addq.w     A7, 2
+000000FA  4ED0                     jmp        [A0]
+000000FC  8A50 5554 5550 414C 4... dc.b       "PUTUPALERT"
+export_80:
+0000010A  4E56 FF00                link       A6, -0x0100
+0000010E  206E 0008                movea.l    A0, [A6 + 0x8]
+00000112  43EE FF00                lea.l      A1, [A6 - 0x100]
+00000116  703F                     moveq.l    D0, 0x3F
+label00000118:
+00000118  22D8                     move.l     [A1]+, [A0]+
+0000011A  51C8 FFFC                dbf        D0, -0x6 /* 00000118 */
+0000011E  4AAD F220                tst.l      [A5 - 0xDE0]
+00000122  6634                     bne        +0x36 /* 00000158 */
+00000124  41EE FF00                lea.l      A0, [A6 - 0x100]
+00000128  1F10                     move.b     -[A7], [A0]
+0000012A  3F3C 00FF                move.w     -[A7], 0xFF
+0000012E  4EAD 074A                jsr        [A5 + 0x74A /* export_229, CODE:16 @ 000000B0 */]
+00000132  2F08                     move.l     -[A7], A0
+00000134  487A 0032                pea.l      [PC + 0x32 /* 00000168, value 0x4E56 'NV', cstring "" */]
+00000138  487A 002E                pea.l      [PC + 0x2E /* 00000168, value 0x4E56 'NV', cstring "" */]
+0000013C  487A 002A                pea.l      [PC + 0x2A /* 00000168, value 0x4E56 'NV', cstring "" */]
+00000140  A98B                     syscall    ParamText
+00000142  42A7                     clr.l      -[A7]
+00000144  3F3C 0BB8                move.w     -[A7], 0xBB8
+00000148  4EBA FF66                jsr        [PC - 0x9A /* 000000B0 */]
+0000014C  2B57 F220                move.l     [A5 - 0xDE0], [A7]
+00000150  A981                     syscall    DrawDialog
+00000152  2F2D F21C                move.l     -[A7], [A5 - 0xDE4]
+00000156  A981                     syscall    DrawDialog
+label00000158:
+00000158  4E5E                     unlink     A6
+0000015A  2E9F                     move.l     [A7], [A7]+
+0000015C  4E75                     rts
+0000015E  8741 4C45 5254 5550 0... dc.b       "ALERTUP" + 2 constant bytes
+export_81:
+0000016A  4E56 0000                link       A6, 0
+0000016E  4AAD F220                tst.l      [A5 - 0xDE0]
+00000172  6716                     beq        +0x18 /* 0000018A */
+00000174  2F2D F220                move.l     -[A7], [A5 - 0xDE0]
+00000178  A983                     syscall    DisposeDialog
+0000017A  2F3C 0000 FFFF           move.l     -[A7], 0xFFFF
+00000180  201F                     move.l     D0, [A7]+
+00000182  A032                     syscall    FlushEvents
+00000184  7000                     moveq.l    D0, 0x00
+00000186  2B40 F220                move.l     [A5 - 0xDE0], D0
+label0000018A:
+0000018A  4EAD 0032                jsr        [A5 + 0x32 /* export_2, CODE:1 @ 000000AE */]
+0000018E  4E5E                     unlink     A6
+00000190  4E75                     rts
+00000192  8941 4C45 5254 444F 5... dc.b       "ALERTDOWN"
+export_82:
+0000019E  4E56 0000                link       A6, 0
+000001A2  4AAD F218                tst.l      [A5 - 0xDE8]
+000001A6  6616                     bne        +0x18 /* 000001BE */
+000001A8  42A7                     clr.l      -[A7]
+000001AA  3F3C 0BB9                move.w     -[A7], 0xBB9
+000001AE  4EBA FF00                jsr        [PC - 0x100 /* 000000B0 */]
+000001B2  2B57 F218                move.l     [A5 - 0xDE8], [A7]
+000001B6  A873                     syscall    SetPort
+000001B8  2F2D F218                move.l     -[A7], [A5 - 0xDE8]
+000001BC  A981                     syscall    DrawDialog
+label000001BE:
+000001BE  4E5E                     unlink     A6
+000001C0  4E75                     rts
+000001C2  8E50 5554 5550 4D4F 5... dc.b       "PUTUPMOVINGDLG"
+export_83:
+000001D4  4E56 0000                link       A6, 0
+000001D8  4AAD F218                tst.l      [A5 - 0xDE8]
+000001DC  670C                     beq        +0xE /* 000001EA */
+000001DE  2F2D F218                move.l     -[A7], [A5 - 0xDE8]
+000001E2  A983                     syscall    DisposeDialog
+000001E4  7000                     moveq.l    D0, 0x00
+000001E6  2B40 F218                move.l     [A5 - 0xDE8], D0
+label000001EA:
+000001EA  4E5E                     unlink     A6
+000001EC  4E75                     rts
+000001EE  9050 5554 444F 574E 4... dc.b       "PUTDOWNMOVINGDLG"
+export_84:
+00000202  4E56 0000                link       A6, 0
+00000206  2F2E 0008                move.l     -[A7], [A6 + 0x8]
+0000020A  486D FE94                pea.l      [A5 - 0x16C]
+0000020E  4EAD 0642                jsr        [A5 + 0x642 /* export_196, CODE:6 @ 000007E0 */]
+00000212  42A7                     clr.l      -[A7]
+00000214  486D FE94                pea.l      [A5 - 0x16C]
+00000218  4EAD 0222                jsr        [A5 + 0x222 /* export_64, CODE:1 @ 0000405A */]
+0000021C  2B5F A67C                move.l     [A5 - 0x5984], [A7]+
+00000220  2F2D F218                move.l     -[A7], [A5 - 0xDE8]
+00000224  3F3C 0005                move.w     -[A7], 0x5
+00000228  41ED FE94                lea.l      A0, [A5 - 0x16C]
+0000022C  1F10                     move.b     -[A7], [A0]
+0000022E  3F3C 00FF                move.w     -[A7], 0xFF
+00000232  4EAD 074A                jsr        [A5 + 0x74A /* export_229, CODE:16 @ 000000B0 */]
+00000236  2F08                     move.l     -[A7], A0
+00000238  4EBA 0326                jsr        [PC + 0x326 /* 00000560 */]
+0000023C  4E5E                     unlink     A6
+0000023E  2E9F                     move.l     [A7], [A7]+
+00000240  4E75                     rts
+00000242  8C53 484F 574D 4F56 4... dc.b       "SHOWMOVENAME"
+fn00000252:
+00000252  4E56 FEFE                link       A6, -0x0102
+00000256  206E 0008                movea.l    A0, [A6 + 0x8]
+0000025A  43EE FF00                lea.l      A1, [A6 - 0x100]
+0000025E  703F                     moveq.l    D0, 0x3F
+label00000260:
+00000260  22D8                     move.l     [A1]+, [A0]+
+00000262  51C8 FFFC                dbf        D0, -0x6 /* 00000260 */
+00000266  4EAD 0032                jsr        [A5 + 0x32 /* export_2, CODE:1 @ 000000AE */]
+0000026A  41EE FF00                lea.l      A0, [A6 - 0x100]
+0000026E  1F10                     move.b     -[A7], [A0]
+00000270  3F3C 00FF                move.w     -[A7], 0xFF
+00000274  4EAD 074A                jsr        [A5 + 0x74A /* export_229, CODE:16 @ 000000B0 */]
+00000278  2F08                     move.l     -[A7], A0
+0000027A  487A 002E                pea.l      [PC + 0x2E /* 000002AA, value 0x4E56 'NV', cstring "" */]
+0000027E  487A 002A                pea.l      [PC + 0x2A /* 000002AA, value 0x4E56 'NV', cstring "" */]
+00000282  487A 0026                pea.l      [PC + 0x26 /* 000002AA, value 0x4E56 'NV', cstring "" */]
+00000286  A98B                     syscall    ParamText
+00000288  2F3C 03E3 0000           move.l     -[A7], 0x3E30000
+0000028E  42A7                     clr.l      -[A7]
+00000290  A987                     syscall    NoteAlert
+00000292  3D5F FEFE                move.w     [A6 - 0x102], [A7]+
+00000296  4E5E                     unlink     A6
+00000298  2E9F                     move.l     [A7], [A7]+
+0000029A  4E75                     rts
+0000029C  8B4D 594E 4F54 4541 4... dc.b       "MYNOTEALERT" + 2 constant bytes
+export_85:
+fn000002AC:
+000002AC  4E56 FEFE                link       A6, -0x0102
+000002B0  206E 0008                movea.l    A0, [A6 + 0x8]
+000002B4  43EE FF00                lea.l      A1, [A6 - 0x100]
+000002B8  703F                     moveq.l    D0, 0x3F
+label000002BA:
+000002BA  22D8                     move.l     [A1]+, [A0]+
+000002BC  51C8 FFFC                dbf        D0, -0x6 /* 000002BA */
+000002C0  4EAD 0032                jsr        [A5 + 0x32 /* export_2, CODE:1 @ 000000AE */]
+000002C4  41EE FF00                lea.l      A0, [A6 - 0x100]
+000002C8  1F10                     move.b     -[A7], [A0]
+000002CA  3F3C 00FF                move.w     -[A7], 0xFF
+000002CE  4EAD 074A                jsr        [A5 + 0x74A /* export_229, CODE:16 @ 000000B0 */]
+000002D2  2F08                     move.l     -[A7], A0
+000002D4  487A 0032                pea.l      [PC + 0x32 /* 00000308, value 0x4E56 'NV', cstring "" */]
+000002D8  487A 002E                pea.l      [PC + 0x2E /* 00000308, value 0x4E56 'NV', cstring "" */]
+000002DC  487A 002A                pea.l      [PC + 0x2A /* 00000308, value 0x4E56 'NV', cstring "" */]
+000002E0  A98B                     syscall    ParamText
+000002E2  2F3C 03E4 0000           move.l     -[A7], 0x3E40000
+000002E8  42A7                     clr.l      -[A7]
+000002EA  A988                     syscall    CautionAlert
+000002EC  3D5F FEFE                move.w     [A6 - 0x102], [A7]+
+000002F0  4E5E                     unlink     A6
+000002F2  2E9F                     move.l     [A7], [A7]+
+000002F4  4E75                     rts
+000002F6  8E4D 5943 4155 5449 4... dc.b       "MYCAUTIONALERT" + 2 constant bytes
+export_86:
+fn0000030A:
+0000030A  4E56 FEFE                link       A6, -0x0102
+0000030E  206E 0008                movea.l    A0, [A6 + 0x8]
+00000312  43EE FF00                lea.l      A1, [A6 - 0x100]
+00000316  703F                     moveq.l    D0, 0x3F
+label00000318:
+00000318  22D8                     move.l     [A1]+, [A0]+
+0000031A  51C8 FFFC                dbf        D0, -0x6 /* 00000318 */
+0000031E  4EAD 0032                jsr        [A5 + 0x32 /* export_2, CODE:1 @ 000000AE */]
+00000322  41EE FF00                lea.l      A0, [A6 - 0x100]
+00000326  1F10                     move.b     -[A7], [A0]
+00000328  3F3C 00FF                move.w     -[A7], 0xFF
+0000032C  4EAD 074A                jsr        [A5 + 0x74A /* export_229, CODE:16 @ 000000B0 */]
+00000330  2F08                     move.l     -[A7], A0
+00000332  487A 002E                pea.l      [PC + 0x2E /* 00000362, value 0x4E56 'NV', cstring "" */]
+00000336  487A 002A                pea.l      [PC + 0x2A /* 00000362, value 0x4E56 'NV', cstring "" */]
+0000033A  487A 0026                pea.l      [PC + 0x26 /* 00000362, value 0x4E56 'NV', cstring "" */]
+0000033E  A98B                     syscall    ParamText
+00000340  2F3C 03E7 0000           move.l     -[A7], 0x3E70000
+00000346  42A7                     clr.l      -[A7]
+00000348  A986                     syscall    StopAlert
+0000034A  3D5F FEFE                move.w     [A6 - 0x102], [A7]+
+0000034E  4E5E                     unlink     A6
+00000350  2E9F                     move.l     [A7], [A7]+
+00000352  4E75                     rts
+00000354  8B4D 5953 544F 5041 4... dc.b       "MYSTOPALERT" + 2 constant bytes
+export_87:
+00000364  4E56 FEF6                link       A6, -0x010A
+00000368  2F0C                     move.l     -[A7], A4
+0000036A  206E 0008                movea.l    A0, [A6 + 0x8]
+0000036E  43EE FF00                lea.l      A1, [A6 - 0x100]
+00000372  703F                     moveq.l    D0, 0x3F
+label00000374:
+00000374  22D8                     move.l     [A1]+, [A0]+
+00000376  51C8 FFFC                dbf        D0, -0x6 /* 00000374 */
+0000037A  4EAD 0032                jsr        [A5 + 0x32 /* export_2, CODE:1 @ 000000AE */]
+0000037E  486E FEF6                pea.l      [A6 - 0x10A]
+00000382  A874                     syscall    GetPort
+00000384  42A7                     clr.l      -[A7]
+00000386  3F3C 03E6                move.w     -[A7], 0x3E6
+0000038A  4EBA FCC8                jsr        [PC - 0x338 /* 00000054 */]
+0000038E  285F                     movea.l    A4, [A7]+
+00000390  2F0C                     move.l     -[A7], A4
+00000392  A873                     syscall    SetPort
+00000394  2F0C                     move.l     -[A7], A4
+00000396  3F3C 0003                move.w     -[A7], 0x3
+0000039A  41EE FF00                lea.l      A0, [A6 - 0x100]
+0000039E  1F10                     move.b     -[A7], [A0]
+000003A0  3F3C 00FF                move.w     -[A7], 0xFF
+000003A4  4EAD 074A                jsr        [A5 + 0x74A /* export_229, CODE:16 @ 000000B0 */]
+000003A8  2F08                     move.l     -[A7], A0
+000003AA  4EBA 01B4                jsr        [PC + 0x1B4 /* 00000560 */]
+000003AE  2F0C                     move.l     -[A7], A4
+000003B0  3F3C 0005                move.w     -[A7], 0x5
+000003B4  4EBA 08E0                jsr        [PC + 0x8E0 /* 00000C96 */]
+000003B8  2F0C                     move.l     -[A7], A4
+000003BA  A915                     syscall    ShowWindow
+label000003BC:
+000003BC  42A7                     clr.l      -[A7]
+000003BE  486E FEFE                pea.l      [A6 - 0x102]
+000003C2  A991                     syscall    ModalDialog
+000003C4  302E FEFE                move.w     D0, [A6 - 0x102]
+000003C8  6B18                     bmi        +0x1A /* 000003E2 */
+000003CA  B07C 0007                cmp.w      D0, 0x7
+000003CE  6E12                     bgt        +0x14 /* 000003E2 */
+000003D0  41FA 004A                lea.l      A0, [PC + 0x4A /* 0000041C, value 0x4E56FFFA */]
+000003D4  3200                     move.w     D1, D0
+000003D6  E649                     lsr        D1.w, 3
+000003D8  4441                     neg.w      D1
+000003DA  0130 10FF                btst       [A0 + D1.w - 0x1], D0
+000003DE  0A3C 0004                xori.b     ccr, 4
+label000003E2:
+000003E2  66D8                     bne        -0x26 /* 000003BC */
+000003E4  7001                     moveq.l    D0, 0x01
+000003E6  B06E FEFE                cmp.w      D0, [A6 - 0x102]
+000003EA  6608                     bne        +0xA /* 000003F4 */
+000003EC  1D7C 0001 000C           move.b     [A6 + 0xC], 0x1
+000003F2  6004                     bra        +0x6 /* 000003F8 */
+label000003F4:
+000003F4  422E 000C                clr.b      [A6 + 0xC]
+label000003F8:
+000003F8  2F0C                     move.l     -[A7], A4
+000003FA  A983                     syscall    DisposeDialog
+000003FC  2F2E FEF6                move.l     -[A7], [A6 - 0x10A]
+00000400  A873                     syscall    SetPort
+00000402  285F                     movea.l    A4, [A7]+
+00000404  4E5E                     unlink     A6
+00000406  2E9F                     move.l     [A7], [A7]+
+00000408  4E75                     rts
+0000040A  8D43 4155 5449 4F4E 3... dc.b       "CAUTION2ALERT" + 2 constant bytes
+export_88:
+0000041C  4E56 FFFA                link       A6, -0x0006
+00000420  2F0C                     move.l     -[A7], A4
+00000422  4EAD 0032                jsr        [A5 + 0x32 /* export_2, CODE:1 @ 000000AE */]
+00000426  42A7                     clr.l      -[A7]
+00000428  3F3C 03E2                move.w     -[A7], 0x3E2
+0000042C  4EBA FC26                jsr        [PC - 0x3DA /* 00000054 */]
+00000430  285F                     movea.l    A4, [A7]+
+00000432  2F0C                     move.l     -[A7], A4
+00000434  A873                     syscall    SetPort
+00000436  2F0C                     move.l     -[A7], A4
+00000438  3F3C 0005                move.w     -[A7], 0x5
+0000043C  4EBA 0858                jsr        [PC + 0x858 /* 00000C96 */]
+00000440  2F0C                     move.l     -[A7], A4
+00000442  A915                     syscall    ShowWindow
+label00000444:
+00000444  42A7                     clr.l      -[A7]
+00000446  486E FFFE                pea.l      [A6 - 0x2]
+0000044A  A991                     syscall    ModalDialog
+0000044C  302E FFFE                move.w     D0, [A6 - 0x2]
+00000450  6B18                     bmi        +0x1A /* 0000046A */
+00000452  B07C 0007                cmp.w      D0, 0x7
+00000456  6E12                     bgt        +0x14 /* 0000046A */
+00000458  41FA 0048                lea.l      A0, [PC + 0x48 /* 000004A2, value 0x4E560000 'NV\0\0', cstring "NV" */]
+0000045C  3200                     move.w     D1, D0
+0000045E  E649                     lsr        D1.w, 3
+00000460  4441                     neg.w      D1
+00000462  0130 10FF                btst       [A0 + D1.w - 0x1], D0
+00000466  0A3C 0004                xori.b     ccr, 4
+label0000046A:
+0000046A  66D8                     bne        -0x26 /* 00000444 */
+0000046C  7002                     moveq.l    D0, 0x02
+0000046E  B06E FFFE                cmp.w      D0, [A6 - 0x2]
+00000472  6608                     bne        +0xA /* 0000047C */
+00000474  1D7C 0001 0008           move.b     [A6 + 0x8], 0x1
+0000047A  6004                     bra        +0x6 /* 00000480 */
+label0000047C:
+0000047C  422E 0008                clr.b      [A6 + 0x8]
+label00000480:
+00000480  2F0C                     move.l     -[A7], A4
+00000482  A983                     syscall    DisposeDialog
+00000484  2F2D F21C                move.l     -[A7], [A5 - 0xDE4]
+00000488  A873                     syscall    SetPort
+0000048A  285F                     movea.l    A4, [A7]+
+0000048C  4E5E                     unlink     A6
+0000048E  4E75                     rts
+00000490  8C43 5553 544F 4D4F 5... dc.b       "CUSTOMOPTION" + 2 constant bytes
+export_89:
+000004A2  4E56 0000                link       A6, 0
+000004A6  486D FD94                pea.l      [A5 - 0x26C]
+000004AA  3F3C 03E7                move.w     -[A7], 0x3E7
+000004AE  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+000004B2  4EAD 01E2                jsr        [A5 + 0x1E2 /* export_56, CODE:1 @ 00003D96 */]
+000004B6  41ED FD94                lea.l      A0, [A5 - 0x26C]
+000004BA  1F10                     move.b     -[A7], [A0]
+000004BC  3F3C 00FF                move.w     -[A7], 0xFF
+000004C0  4EAD 074A                jsr        [A5 + 0x74A /* export_229, CODE:16 @ 000000B0 */]
+000004C4  2F08                     move.l     -[A7], A0
+000004C6  4EBA FE42                jsr        [PC - 0x1BE /* 0000030A */]
+000004CA  4E5E                     unlink     A6
+000004CC  205F                     movea.l    A0, [A7]+
+000004CE  544F                     addq.w     A7, 2
+000004D0  4ED0                     jmp        [A0]
+000004D2  8B44 4F53 544F 5041 4... dc.b       "DOSTOPALERT"
+export_90:
+000004E0  4E56 0000                link       A6, 0
+000004E4  486D FD94                pea.l      [A5 - 0x26C]
+000004E8  3F3C 03E3                move.w     -[A7], 0x3E3
+000004EC  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+000004F0  4EAD 01E2                jsr        [A5 + 0x1E2 /* export_56, CODE:1 @ 00003D96 */]
+000004F4  41ED FD94                lea.l      A0, [A5 - 0x26C]
+000004F8  1F10                     move.b     -[A7], [A0]
+000004FA  3F3C 00FF                move.w     -[A7], 0xFF
+000004FE  4EAD 074A                jsr        [A5 + 0x74A /* export_229, CODE:16 @ 000000B0 */]
+00000502  2F08                     move.l     -[A7], A0
+00000504  4EBA FD4C                jsr        [PC - 0x2B4 /* 00000252 */]
+00000508  4E5E                     unlink     A6
+0000050A  205F                     movea.l    A0, [A7]+
+0000050C  544F                     addq.w     A7, 2
+0000050E  4ED0                     jmp        [A0]
+00000510  8B44 4F4E 4F54 4541 4... dc.b       "DONOTEALERT"
+export_91:
+0000051E  4E56 0000                link       A6, 0
+00000522  486D FD94                pea.l      [A5 - 0x26C]
+00000526  3F3C 03E4                move.w     -[A7], 0x3E4
+0000052A  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+0000052E  4EAD 01E2                jsr        [A5 + 0x1E2 /* export_56, CODE:1 @ 00003D96 */]
+00000532  41ED FD94                lea.l      A0, [A5 - 0x26C]
+00000536  1F10                     move.b     -[A7], [A0]
+00000538  3F3C 00FF                move.w     -[A7], 0xFF
+0000053C  4EAD 074A                jsr        [A5 + 0x74A /* export_229, CODE:16 @ 000000B0 */]
+00000540  2F08                     move.l     -[A7], A0
+00000542  4EBA FD68                jsr        [PC - 0x298 /* 000002AC */]
+00000546  4E5E                     unlink     A6
+00000548  205F                     movea.l    A0, [A7]+
+0000054A  544F                     addq.w     A7, 2
+0000054C  4ED0                     jmp        [A0]
+0000054E  8E44 4F43 4155 5449 4... dc.b       "DOCAUTIONALERT"
+export_92:
+fn00000560:
+00000560  4E56 FF00                link       A6, -0x0100
+00000564  206E 0008                movea.l    A0, [A6 + 0x8]
+00000568  43EE FF00                lea.l      A1, [A6 - 0x100]
+0000056C  703F                     moveq.l    D0, 0x3F
+label0000056E:
+0000056E  22D8                     move.l     [A1]+, [A0]+
+00000570  51C8 FFFC                dbf        D0, -0x6 /* 0000056E */
+00000574  2F2E 000E                move.l     -[A7], [A6 + 0xE]
+00000578  3F2E 000C                move.w     -[A7], [A6 + 0xC]
+0000057C  486D F260                pea.l      [A5 - 0xDA0]
+00000580  486D F25C                pea.l      [A5 - 0xDA4]
+00000584  486D F254                pea.l      [A5 - 0xDAC]
+00000588  A98D                     syscall    GetDialogItem/GetDItem
+0000058A  2F2D F25C                move.l     -[A7], [A5 - 0xDA4]
+0000058E  41EE FF00                lea.l      A0, [A6 - 0x100]
+00000592  1F10                     move.b     -[A7], [A0]
+00000594  3F3C 00FF                move.w     -[A7], 0xFF
+00000598  4EAD 074A                jsr        [A5 + 0x74A /* export_229, CODE:16 @ 000000B0 */]
+0000059C  2F08                     move.l     -[A7], A0
+0000059E  A98F                     syscall    SetDialogItemText/SetIText
+000005A0  4E5E                     unlink     A6
+000005A2  205F                     movea.l    A0, [A7]+
+000005A4  DEFC 000A                add.w      A7, 0xA /* '\n' */
+000005A8  4ED0                     jmp        [A0]
+000005AA  8753 4554 5445 5854 0000 dc.b       "SETTEXT"
+export_93:
+000005B4  4E56 0000                link       A6, 0
+000005B8  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+000005BC  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+000005C0  486D F260                pea.l      [A5 - 0xDA0]
+000005C4  486D F25C                pea.l      [A5 - 0xDA4]
+000005C8  486D F254                pea.l      [A5 - 0xDAC]
+000005CC  A98D                     syscall    GetDialogItem/GetDItem
+000005CE  2F2D F25C                move.l     -[A7], [A5 - 0xDA4]
+000005D2  486D FD94                pea.l      [A5 - 0x26C]
+000005D6  A990                     syscall    GetDialogItemText/GetIText
+000005D8  206E 000E                movea.l    A0, [A6 + 0xE]
+000005DC  43ED FD94                lea.l      A1, [A5 - 0x26C]
+000005E0  1F11                     move.b     -[A7], [A1]
+000005E2  3F3C 00FF                move.w     -[A7], 0xFF
+000005E6  4EAD 074A                jsr        [A5 + 0x74A /* export_229, CODE:16 @ 000000B0 */]
+000005EA  703F                     moveq.l    D0, 0x3F
+label000005EC:
+000005EC  20D9                     move.l     [A0]+, [A1]+
+000005EE  51C8 FFFC                dbf        D0, -0x6 /* 000005EC */
+000005F2  4E5E                     unlink     A6
+000005F4  205F                     movea.l    A0, [A7]+
+000005F6  5C4F                     addq.w     A7, 6
+000005F8  4ED0                     jmp        [A0]
+000005FA  8747 4554 5445 5854 0000 dc.b       "GETTEXT"
+export_94:
+00000604  4E56 0000                link       A6, 0
+00000608  302E 0008                move.w     D0, [A6 + 0x8]
+0000060C  48C0                     ext.l      D0
+0000060E  2F00                     move.l     -[A7], D0
+00000610  A862                     syscall    ForeColor
+00000612  2F2E 000C                move.l     -[A7], [A6 + 0xC]
+00000616  3F2E 000A                move.w     -[A7], [A6 + 0xA]
+0000061A  486D F260                pea.l      [A5 - 0xDA0]
+0000061E  486D F25C                pea.l      [A5 - 0xDA4]
+00000622  486D F254                pea.l      [A5 - 0xDAC]
+00000626  A98D                     syscall    GetDialogItem/GetDItem
+00000628  2F3C 0003 0003           move.l     -[A7], 0x30003
+0000062E  A89B                     syscall    PenSize
+00000630  486D F254                pea.l      [A5 - 0xDAC]
+00000634  2F3C FFFC FFFC           move.l     -[A7], 0xFFFCFFFC
+0000063A  A8A9                     syscall    InsetRect
+0000063C  486D F254                pea.l      [A5 - 0xDAC]
+00000640  2F3C 0010 0010           move.l     -[A7], 0x100010
+00000646  A8B0                     syscall    FrameRoundRect
+00000648  A89E                     syscall    PenNormal
+0000064A  7021                     moveq.l    D0, 0x21
+0000064C  2F00                     move.l     -[A7], D0
+0000064E  A862                     syscall    ForeColor
+00000650  4E5E                     unlink     A6
+00000652  205F                     movea.l    A0, [A7]+
+00000654  504F                     addq.w     A7, 8
+00000656  4ED0                     jmp        [A0]
+00000658  8F48 4947 484C 4947 4... dc.b       "HIGHLIGHTBUTTON"
+export_95:
+0000066A  4E56 0000                link       A6, 0
+0000066E  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+00000672  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+00000676  486D F260                pea.l      [A5 - 0xDA0]
+0000067A  486D F25C                pea.l      [A5 - 0xDA4]
+0000067E  486D F254                pea.l      [A5 - 0xDAC]
+00000682  A98D                     syscall    GetDialogItem/GetDItem
+00000684  2F2D F25C                move.l     -[A7], [A5 - 0xDA4]
+00000688  3F3C 0001                move.w     -[A7], 0x1
+0000068C  A963                     syscall    SetControlValue/SetCtlValue
+0000068E  4E5E                     unlink     A6
+00000690  205F                     movea.l    A0, [A7]+
+00000692  5C4F                     addq.w     A7, 6
+00000694  4ED0                     jmp        [A0]
+00000696  8A43 4845 434B 424F 5... dc.b       "CHECKBOXON"
+export_96:
+000006A4  4E56 0000                link       A6, 0
+000006A8  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+000006AC  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+000006B0  486D F260                pea.l      [A5 - 0xDA0]
+000006B4  486D F25C                pea.l      [A5 - 0xDA4]
+000006B8  486D F254                pea.l      [A5 - 0xDAC]
+000006BC  A98D                     syscall    GetDialogItem/GetDItem
+000006BE  2F2D F25C                move.l     -[A7], [A5 - 0xDA4]
+000006C2  4267                     clr.w      -[A7]
+000006C4  A963                     syscall    SetControlValue/SetCtlValue
+000006C6  4E5E                     unlink     A6
+000006C8  205F                     movea.l    A0, [A7]+
+000006CA  5C4F                     addq.w     A7, 6
+000006CC  4ED0                     jmp        [A0]
+000006CE  8B43 4845 434B 424F 5... dc.b       "CHECKBOXOFF"
+export_97:
+000006DC  4E56 FFF2                link       A6, -0x000E
+000006E0  2F2E 000C                move.l     -[A7], [A6 + 0xC]
+000006E4  3F2E 000A                move.w     -[A7], [A6 + 0xA]
+000006E8  486E FFFE                pea.l      [A6 - 0x2]
+000006EC  486E FFFA                pea.l      [A6 - 0x6]
+000006F0  486E FFF2                pea.l      [A6 - 0xE]
+000006F4  A98D                     syscall    GetDialogItem/GetDItem
+000006F6  2F2E FFFA                move.l     -[A7], [A6 - 0x6]
+000006FA  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+000006FE  A963                     syscall    SetControlValue/SetCtlValue
+00000700  4E5E                     unlink     A6
+00000702  205F                     movea.l    A0, [A7]+
+00000704  504F                     addq.w     A7, 8
+00000706  4ED0                     jmp        [A0]
+00000708  8944 4F52 4255 5454 4... dc.b       "DORBUTTON"
+export_98:
+00000714  4E56 FEF2                link       A6, -0x010E
+00000718  206E 0008                movea.l    A0, [A6 + 0x8]
+0000071C  43EE FF00                lea.l      A1, [A6 - 0x100]
+00000720  703F                     moveq.l    D0, 0x3F
+label00000722:
+00000722  22D8                     move.l     [A1]+, [A0]+
+00000724  51C8 FFFC                dbf        D0, -0x6 /* 00000722 */
+00000728  2F2E 000E                move.l     -[A7], [A6 + 0xE]
+0000072C  3F2E 000C                move.w     -[A7], [A6 + 0xC]
+00000730  486E FEFE                pea.l      [A6 - 0x102]
+00000734  486E FEFA                pea.l      [A6 - 0x106]
+00000738  486E FEF2                pea.l      [A6 - 0x10E]
+0000073C  A98D                     syscall    GetDialogItem/GetDItem
+0000073E  2F2E FEFA                move.l     -[A7], [A6 - 0x106]
+00000742  41EE FF00                lea.l      A0, [A6 - 0x100]
+00000746  1F10                     move.b     -[A7], [A0]
+00000748  3F3C 00FF                move.w     -[A7], 0xFF
+0000074C  4EAD 074A                jsr        [A5 + 0x74A /* export_229, CODE:16 @ 000000B0 */]
+00000750  2F08                     move.l     -[A7], A0
+00000752  A95F                     syscall    SetControlTitle/SetCTitle
+00000754  4E5E                     unlink     A6
+00000756  205F                     movea.l    A0, [A7]+
+00000758  DEFC 000A                add.w      A7, 0xA /* '\n' */
+0000075C  4ED0                     jmp        [A0]
+0000075E  9143 4841 4E47 4543 4... dc.b       "CHANGECONTROLNAME"
+00000772  4E56 FD00                link       A6, -0x0300
+00000776  3F3C 0001                move.w     -[A7], 0x1
+0000077A  A887                     syscall    TextFont
+0000077C  3F3C 0009                move.w     -[A7], 0x9 /* '\t' */
+00000780  A88A                     syscall    TextSize
+00000782  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+00000786  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+0000078A  486D F260                pea.l      [A5 - 0xDA0]
+0000078E  486D F25C                pea.l      [A5 - 0xDA4]
+00000792  486D F254                pea.l      [A5 - 0xDAC]
+00000796  A98D                     syscall    GetDialogItem/GetDItem
+00000798  486D F254                pea.l      [A5 - 0xDAC]
+0000079C  2F3C 0005 0004           move.l     -[A7], 0x50004
+000007A2  A8A9                     syscall    InsetRect
+000007A4  302D F254                move.w     D0, [A5 - 0xDAC]
+000007A8  D07C 000D                add.w      D0, 0xD /* '\r' */
+000007AC  3B40 F258                move.w     [A5 - 0xDA8], D0
+000007B0  302D AA92                move.w     D0, [A5 - 0x556E]
+000007B4  48C0                     ext.l      D0
+000007B6  2F00                     move.l     -[A7], D0
+000007B8  486E FF00                pea.l      [A6 - 0x100]
+000007BC  4EAD 0202                jsr        [A5 + 0x202 /* export_60, CODE:1 @ 00004016 */]
+000007C0  486E FE00                pea.l      [A6 - 0x200]
+000007C4  2F3C 0007 01F8           move.l     -[A7], 0x701F8
+000007CA  4EAD 01E2                jsr        [A5 + 0x1E2 /* export_56, CODE:1 @ 00003D96 */]
+000007CE  486E FE00                pea.l      [A6 - 0x200]
+000007D2  486E FF00                pea.l      [A6 - 0x100]
+000007D6  486E FD00                pea.l      [A6 - 0x300]
+000007DA  3F3C 0002                move.w     -[A7], 0x2
+000007DE  4EAD 075A                jsr        [A5 + 0x75A /* export_231, CODE:16 @ 00000144 */]
+000007E2  41EE FD00                lea.l      A0, [A6 - 0x300]
+000007E6  1F10                     move.b     -[A7], [A0]
+000007E8  3F3C 00FF                move.w     -[A7], 0xFF
+000007EC  4EAD 074A                jsr        [A5 + 0x74A /* export_229, CODE:16 @ 000000B0 */]
+000007F0  43EE FE00                lea.l      A1, [A6 - 0x200]
+000007F4  703F                     moveq.l    D0, 0x3F
+label000007F6:
+000007F6  22D8                     move.l     [A1]+, [A0]+
+000007F8  51C8 FFFC                dbf        D0, -0x6 /* 000007F6 */
+000007FC  41EE FE00                lea.l      A0, [A6 - 0x200]
+00000800  2008                     move.l     D0, A0
+00000802  5280                     addq.l     D0, 1
+00000804  2F00                     move.l     -[A7], D0
+00000806  4240                     clr.w      D0
+00000808  102E FE00                move.b     D0, [A6 - 0x200]
+0000080C  48C0                     ext.l      D0
+0000080E  2F00                     move.l     -[A7], D0
+00000810  486D F254                pea.l      [A5 - 0xDAC]
+00000814  3F3C 0001                move.w     -[A7], 0x1
+00000818  A9CE                     syscall    TETextBox/TextBox
+0000081A  3B6D F258 F254           move.w     [A5 - 0xDAC], [A5 - 0xDA8]
+00000820  302D F254                move.w     D0, [A5 - 0xDAC]
+00000824  D07C 000D                add.w      D0, 0xD /* '\r' */
+00000828  D07C 000D                add.w      D0, 0xD /* '\r' */
+0000082C  3B40 F258                move.w     [A5 - 0xDA8], D0
+00000830  486E FE00                pea.l      [A6 - 0x200]
+00000834  2F3C 0008 01F8           move.l     -[A7], 0x801F8
+0000083A  4EAD 01E2                jsr        [A5 + 0x1E2 /* export_56, CODE:1 @ 00003D96 */]
+0000083E  486E FE00                pea.l      [A6 - 0x200]
+00000842  486D AAB0                pea.l      [A5 - 0x5550]
+00000846  486E FD00                pea.l      [A6 - 0x300]
+0000084A  3F3C 0002                move.w     -[A7], 0x2
+0000084E  4EAD 075A                jsr        [A5 + 0x75A /* export_231, CODE:16 @ 00000144 */]
+00000852  41EE FD00                lea.l      A0, [A6 - 0x300]
+00000856  1F10                     move.b     -[A7], [A0]
+00000858  3F3C 00FF                move.w     -[A7], 0xFF
+0000085C  4EAD 074A                jsr        [A5 + 0x74A /* export_229, CODE:16 @ 000000B0 */]
+00000860  43EE FF00                lea.l      A1, [A6 - 0x100]
+00000864  703F                     moveq.l    D0, 0x3F
+label00000866:
+00000866  22D8                     move.l     [A1]+, [A0]+
+00000868  51C8 FFFC                dbf        D0, -0x6 /* 00000866 */
+0000086C  41EE FF00                lea.l      A0, [A6 - 0x100]
+00000870  2008                     move.l     D0, A0
+00000872  5280                     addq.l     D0, 1
+00000874  2F00                     move.l     -[A7], D0
+00000876  4240                     clr.w      D0
+00000878  102E FF00                move.b     D0, [A6 - 0x100]
+0000087C  48C0                     ext.l      D0
+0000087E  2F00                     move.l     -[A7], D0
+00000880  486D F254                pea.l      [A5 - 0xDAC]
+00000884  3F3C 0001                move.w     -[A7], 0x1
+00000888  A9CE                     syscall    TETextBox/TextBox
+0000088A  3B6D F258 F254           move.w     [A5 - 0xDAC], [A5 - 0xDA8]
+00000890  302D F254                move.w     D0, [A5 - 0xDAC]
+00000894  D07C 000D                add.w      D0, 0xD /* '\r' */
+00000898  D07C 000D                add.w      D0, 0xD /* '\r' */
+0000089C  3B40 F258                move.w     [A5 - 0xDA8], D0
+000008A0  486E FE00                pea.l      [A6 - 0x200]
+000008A4  2F3C 0009 01F8           move.l     -[A7], 0x901F8
+000008AA  4EAD 01E2                jsr        [A5 + 0x1E2 /* export_56, CODE:1 @ 00003D96 */]
+000008AE  486E FE00                pea.l      [A6 - 0x200]
+000008B2  486D AAE2                pea.l      [A5 - 0x551E]
+000008B6  486E FD00                pea.l      [A6 - 0x300]
+000008BA  3F3C 0002                move.w     -[A7], 0x2
+000008BE  4EAD 075A                jsr        [A5 + 0x75A /* export_231, CODE:16 @ 00000144 */]
+000008C2  41EE FD00                lea.l      A0, [A6 - 0x300]
+000008C6  1F10                     move.b     -[A7], [A0]
+000008C8  3F3C 00FF                move.w     -[A7], 0xFF
+000008CC  4EAD 074A                jsr        [A5 + 0x74A /* export_229, CODE:16 @ 000000B0 */]
+000008D0  43EE FF00                lea.l      A1, [A6 - 0x100]
+000008D4  703F                     moveq.l    D0, 0x3F
+label000008D6:
+000008D6  22D8                     move.l     [A1]+, [A0]+
+000008D8  51C8 FFFC                dbf        D0, -0x6 /* 000008D6 */
+000008DC  41EE FF00                lea.l      A0, [A6 - 0x100]
+000008E0  2008                     move.l     D0, A0
+000008E2  5280                     addq.l     D0, 1
+000008E4  2F00                     move.l     -[A7], D0
+000008E6  4240                     clr.w      D0
+000008E8  102E FF00                move.b     D0, [A6 - 0x100]
+000008EC  48C0                     ext.l      D0
+000008EE  2F00                     move.l     -[A7], D0
+000008F0  486D F254                pea.l      [A5 - 0xDAC]
+000008F4  3F3C 0001                move.w     -[A7], 0x1
+000008F8  A9CE                     syscall    TETextBox/TextBox
+000008FA  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+000008FE  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+00000902  486D F260                pea.l      [A5 - 0xDA0]
+00000906  486D F25C                pea.l      [A5 - 0xDA4]
+0000090A  486D F254                pea.l      [A5 - 0xDAC]
+0000090E  A98D                     syscall    GetDialogItem/GetDItem
+00000910  2F3C 0002 0002           move.l     -[A7], 0x20002
+00000916  A89B                     syscall    PenSize
+00000918  486D F254                pea.l      [A5 - 0xDAC]
+0000091C  2F3C FFFE FFFE           move.l     -[A7], 0xFFFEFFFE
+00000922  A8A9                     syscall    InsetRect
+00000924  7021                     moveq.l    D0, 0x21
+00000926  2F00                     move.l     -[A7], D0
+00000928  A862                     syscall    ForeColor
+0000092A  486D F254                pea.l      [A5 - 0xDAC]
+0000092E  2F3C 0002 0002           move.l     -[A7], 0x20002
+00000934  A8A9                     syscall    InsetRect
+00000936  486D F254                pea.l      [A5 - 0xDAC]
+0000093A  A8A1                     syscall    FrameRect
+0000093C  4267                     clr.w      -[A7]
+0000093E  A887                     syscall    TextFont
+00000940  3F3C 000C                move.w     -[A7], 0xC
+00000944  A88A                     syscall    TextSize
+00000946  4E5E                     unlink     A6
+00000948  205F                     movea.l    A0, [A7]+
+0000094A  5C4F                     addq.w     A7, 6
+0000094C  4ED0                     jmp        [A0]
+0000094E  9044 5241 5743 5552 5... dc.b       "DRAWCURRENTDRIVE"
+export_99:
+00000962  4E56 0000                link       A6, 0
+00000966  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+0000096A  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+0000096E  486D F260                pea.l      [A5 - 0xDA0]
+00000972  486D F25C                pea.l      [A5 - 0xDA4]
+00000976  486D F254                pea.l      [A5 - 0xDAC]
+0000097A  A98D                     syscall    GetDialogItem/GetDItem
+0000097C  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+00000980  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+00000984  3F2D F260                move.w     -[A7], [A5 - 0xDA0]
+00000988  487A FDE8                pea.l      [PC - 0x218 /* 00000772, value 0x4E56FD00 */]
+0000098C  486D F254                pea.l      [A5 - 0xDAC]
+00000990  A98E                     syscall    SetDialogItem/SetDItem
+00000992  4E5E                     unlink     A6
+00000994  205F                     movea.l    A0, [A7]+
+00000996  5C4F                     addq.w     A7, 6
+00000998  4ED0                     jmp        [A0]
+0000099A  9153 4554 5550 4355 5... dc.b       "SETUPCURRENTDRIVE"
+000009AE  4E56 0000                link       A6, 0
+000009B2  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+000009B6  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+000009BA  486D F260                pea.l      [A5 - 0xDA0]
+000009BE  486D F25C                pea.l      [A5 - 0xDA4]
+000009C2  486D F254                pea.l      [A5 - 0xDAC]
+000009C6  A98D                     syscall    GetDialogItem/GetDItem
+000009C8  2F3C 0002 0002           move.l     -[A7], 0x20002
+000009CE  A89B                     syscall    PenSize
+000009D0  486D F254                pea.l      [A5 - 0xDAC]
+000009D4  A8A1                     syscall    FrameRect
+000009D6  A89E                     syscall    PenNormal
+000009D8  4E5E                     unlink     A6
+000009DA  205F                     movea.l    A0, [A7]+
+000009DC  5C4F                     addq.w     A7, 6
+000009DE  4ED0                     jmp        [A0]
+000009E0  8B53 5444 5245 4354 4... dc.b       "STDRECTDRAW"
+000009EE  4E56 0000                link       A6, 0
+000009F2  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+000009F6  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+000009FA  486D F260                pea.l      [A5 - 0xDA0]
+000009FE  486D F25C                pea.l      [A5 - 0xDA4]
+00000A02  486D F254                pea.l      [A5 - 0xDAC]
+00000A06  A98D                     syscall    GetDialogItem/GetDItem
+00000A08  486D A316                pea.l      [A5 - 0x5CEA]
+00000A0C  A89D                     syscall    PenPat
+00000A0E  486D F254                pea.l      [A5 - 0xDAC]
+00000A12  A8A1                     syscall    FrameRect
+00000A14  A89E                     syscall    PenNormal
+00000A16  4E5E                     unlink     A6
+00000A18  205F                     movea.l    A0, [A7]+
+00000A1A  5C4F                     addq.w     A7, 6
+00000A1C  4ED0                     jmp        [A0]
+00000A1E  8C47 5241 5952 4543 5... dc.b       "GRAYRECTDRAW"
+00000A2E  4E56 0000                link       A6, 0
+00000A32  2F3C 0000 0199           move.l     -[A7], 0x199
+00000A38  A862                     syscall    ForeColor
+00000A3A  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+00000A3E  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+00000A42  486D F260                pea.l      [A5 - 0xDA0]
+00000A46  486D F25C                pea.l      [A5 - 0xDA4]
+00000A4A  486D F254                pea.l      [A5 - 0xDAC]
+00000A4E  A98D                     syscall    GetDialogItem/GetDItem
+00000A50  2F3C 0002 0002           move.l     -[A7], 0x20002
+00000A56  A89B                     syscall    PenSize
+00000A58  486D F254                pea.l      [A5 - 0xDAC]
+00000A5C  A8A1                     syscall    FrameRect
+00000A5E  7021                     moveq.l    D0, 0x21
+00000A60  2F00                     move.l     -[A7], D0
+00000A62  A862                     syscall    ForeColor
+00000A64  A89E                     syscall    PenNormal
+00000A66  4E5E                     unlink     A6
+00000A68  205F                     movea.l    A0, [A7]+
+00000A6A  5C4F                     addq.w     A7, 6
+00000A6C  4ED0                     jmp        [A0]
+00000A6E  8F53 5444 424C 5545 5... dc.b       "STDBLUERECTDRAW"
+00000A80  4E56 0000                link       A6, 0
+00000A84  2F3C 0000 00CD           move.l     -[A7], 0xCD
+00000A8A  A862                     syscall    ForeColor
+00000A8C  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+00000A90  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+00000A94  486D F260                pea.l      [A5 - 0xDA0]
+00000A98  486D F25C                pea.l      [A5 - 0xDA4]
+00000A9C  486D F254                pea.l      [A5 - 0xDAC]
+00000AA0  A98D                     syscall    GetDialogItem/GetDItem
+00000AA2  2F3C 0002 0002           move.l     -[A7], 0x20002
+00000AA8  A89B                     syscall    PenSize
+00000AAA  486D F254                pea.l      [A5 - 0xDAC]
+00000AAE  A8A1                     syscall    FrameRect
+00000AB0  7021                     moveq.l    D0, 0x21
+00000AB2  2F00                     move.l     -[A7], D0
+00000AB4  A862                     syscall    ForeColor
+00000AB6  A89E                     syscall    PenNormal
+00000AB8  4E5E                     unlink     A6
+00000ABA  205F                     movea.l    A0, [A7]+
+00000ABC  5C4F                     addq.w     A7, 6
+00000ABE  4ED0                     jmp        [A0]
+00000AC0  8E53 5444 5245 4452 4... dc.b       "STDREDRECTDRAW"
+00000AD2  4E56 0000                link       A6, 0
+00000AD6  2F3C 0000 00CD           move.l     -[A7], 0xCD
+00000ADC  A862                     syscall    ForeColor
+00000ADE  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+00000AE2  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+00000AE6  486D F260                pea.l      [A5 - 0xDA0]
+00000AEA  486D F25C                pea.l      [A5 - 0xDA4]
+00000AEE  486D F254                pea.l      [A5 - 0xDAC]
+00000AF2  A98D                     syscall    GetDialogItem/GetDItem
+00000AF4  2F3C 0003 0003           move.l     -[A7], 0x30003
+00000AFA  A89B                     syscall    PenSize
+00000AFC  486D F254                pea.l      [A5 - 0xDAC]
+00000B00  2F3C 0010 0010           move.l     -[A7], 0x100010
+00000B06  A8B0                     syscall    FrameRoundRect
+00000B08  7021                     moveq.l    D0, 0x21
+00000B0A  2F00                     move.l     -[A7], D0
+00000B0C  A862                     syscall    ForeColor
+00000B0E  A89E                     syscall    PenNormal
+00000B10  4E5E                     unlink     A6
+00000B12  205F                     movea.l    A0, [A7]+
+00000B14  5C4F                     addq.w     A7, 6
+00000B16  4ED0                     jmp        [A0]
+00000B18  8852 4544 5348 4144 4... dc.b       "REDSHADE"
+00000B24  4E56 0000                link       A6, 0
+00000B28  2F3C 0000 0155           move.l     -[A7], 0x155
+00000B2E  A862                     syscall    ForeColor
+00000B30  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+00000B34  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+00000B38  486D F260                pea.l      [A5 - 0xDA0]
+00000B3C  486D F25C                pea.l      [A5 - 0xDA4]
+00000B40  486D F254                pea.l      [A5 - 0xDAC]
+00000B44  A98D                     syscall    GetDialogItem/GetDItem
+00000B46  2F3C 0003 0003           move.l     -[A7], 0x30003
+00000B4C  A89B                     syscall    PenSize
+00000B4E  486D F254                pea.l      [A5 - 0xDAC]
+00000B52  2F3C 0010 0010           move.l     -[A7], 0x100010
+00000B58  A8B0                     syscall    FrameRoundRect
+00000B5A  7021                     moveq.l    D0, 0x21
+00000B5C  2F00                     move.l     -[A7], D0
+00000B5E  A862                     syscall    ForeColor
+00000B60  A89E                     syscall    PenNormal
+00000B62  4E5E                     unlink     A6
+00000B64  205F                     movea.l    A0, [A7]+
+00000B66  5C4F                     addq.w     A7, 6
+00000B68  4ED0                     jmp        [A0]
+00000B6A  8A47 5245 454E 5348 4... dc.b       "GREENSHADE"
+export_100:
+00000B78  4E56 0000                link       A6, 0
+00000B7C  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+00000B80  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+00000B84  486D F260                pea.l      [A5 - 0xDA0]
+00000B88  486D F25C                pea.l      [A5 - 0xDA4]
+00000B8C  486D F254                pea.l      [A5 - 0xDAC]
+00000B90  A98D                     syscall    GetDialogItem/GetDItem
+00000B92  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+00000B96  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+00000B9A  3F2D F260                move.w     -[A7], [A5 - 0xDA0]
+00000B9E  487A FE0E                pea.l      [PC - 0x1F2 /* 000009AE, value 0x4E560000 'NV\0\0', cstring "NV" */]
+00000BA2  486D F254                pea.l      [A5 - 0xDAC]
+00000BA6  A98E                     syscall    SetDialogItem/SetDItem
+00000BA8  4E5E                     unlink     A6
+00000BAA  205F                     movea.l    A0, [A7]+
+00000BAC  5C4F                     addq.w     A7, 6
+00000BAE  4ED0                     jmp        [A0]
+00000BB0  8953 4554 5550 5245 4... dc.b       "SETUPRECT"
+export_101:
+00000BBC  4E56 0000                link       A6, 0
+00000BC0  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+00000BC4  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+00000BC8  486D F260                pea.l      [A5 - 0xDA0]
+00000BCC  486D F25C                pea.l      [A5 - 0xDA4]
+00000BD0  486D F254                pea.l      [A5 - 0xDAC]
+00000BD4  A98D                     syscall    GetDialogItem/GetDItem
+00000BD6  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+00000BDA  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+00000BDE  3F2D F260                move.w     -[A7], [A5 - 0xDA0]
+00000BE2  487A FE0A                pea.l      [PC - 0x1F6 /* 000009EE, value 0x4E560000 'NV\0\0', cstring "NV" */]
+00000BE6  486D F254                pea.l      [A5 - 0xDAC]
+00000BEA  A98E                     syscall    SetDialogItem/SetDItem
+00000BEC  4E5E                     unlink     A6
+00000BEE  205F                     movea.l    A0, [A7]+
+00000BF0  5C4F                     addq.w     A7, 6
+00000BF2  4ED0                     jmp        [A0]
+00000BF4  8D53 4554 5550 4752 4... dc.b       "SETUPGRAYRECT"
+export_102:
+00000C04  4E56 0000                link       A6, 0
+00000C08  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+00000C0C  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+00000C10  486D F260                pea.l      [A5 - 0xDA0]
+00000C14  486D F25C                pea.l      [A5 - 0xDA4]
+00000C18  486D F254                pea.l      [A5 - 0xDAC]
+00000C1C  A98D                     syscall    GetDialogItem/GetDItem
+00000C1E  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+00000C22  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+00000C26  3F2D F260                move.w     -[A7], [A5 - 0xDA0]
+00000C2A  487A FE54                pea.l      [PC - 0x1AC /* 00000A80, value 0x4E560000 'NV\0\0', cstring "NV" */]
+00000C2E  486D F254                pea.l      [A5 - 0xDAC]
+00000C32  A98E                     syscall    SetDialogItem/SetDItem
+00000C34  4E5E                     unlink     A6
+00000C36  205F                     movea.l    A0, [A7]+
+00000C38  5C4F                     addq.w     A7, 6
+00000C3A  4ED0                     jmp        [A0]
+00000C3C  8C53 4554 5550 5245 4... dc.b       "SETUPREDRECT"
+export_103:
+fn00000C4C:
+00000C4C  4E56 0000                link       A6, 0
+00000C50  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+00000C54  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+00000C58  486D F260                pea.l      [A5 - 0xDA0]
+00000C5C  486D F25C                pea.l      [A5 - 0xDA4]
+00000C60  486D F254                pea.l      [A5 - 0xDAC]
+00000C64  A98D                     syscall    GetDialogItem/GetDItem
+00000C66  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+00000C6A  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+00000C6E  3F2D F260                move.w     -[A7], [A5 - 0xDA0]
+00000C72  487A FE5E                pea.l      [PC - 0x1A2 /* 00000AD2, value 0x4E560000 'NV\0\0', cstring "NV" */]
+00000C76  486D F254                pea.l      [A5 - 0xDAC]
+00000C7A  A98E                     syscall    SetDialogItem/SetDItem
+00000C7C  4E5E                     unlink     A6
+00000C7E  205F                     movea.l    A0, [A7]+
+00000C80  5C4F                     addq.w     A7, 6
+00000C82  4ED0                     jmp        [A0]
+00000C84  8E53 4841 4445 5245 4... dc.b       "SHADEREDBUTTON"
+export_104:
+fn00000C96:
+00000C96  4E56 0000                link       A6, 0
+00000C9A  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+00000C9E  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+00000CA2  486D F260                pea.l      [A5 - 0xDA0]
+00000CA6  486D F25C                pea.l      [A5 - 0xDA4]
+00000CAA  486D F254                pea.l      [A5 - 0xDAC]
+00000CAE  A98D                     syscall    GetDialogItem/GetDItem
+00000CB0  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+00000CB4  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+00000CB8  3F2D F260                move.w     -[A7], [A5 - 0xDA0]
+00000CBC  487A FE66                pea.l      [PC - 0x19A /* 00000B24, value 0x4E560000 'NV\0\0', cstring "NV" */]
+00000CC0  486D F254                pea.l      [A5 - 0xDAC]
+00000CC4  A98E                     syscall    SetDialogItem/SetDItem
+00000CC6  486D F254                pea.l      [A5 - 0xDAC]
+00000CCA  A928                     syscall    InvalRect
+00000CCC  4E5E                     unlink     A6
+00000CCE  205F                     movea.l    A0, [A7]+
+00000CD0  5C4F                     addq.w     A7, 6
+00000CD2  4ED0                     jmp        [A0]
+00000CD4  9053 4841 4445 4752 4... dc.b       "SHADEGREENBUTTON"
+export_105:
+fn00000CE8:
+00000CE8  4E56 0000                link       A6, 0
+00000CEC  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+00000CF0  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+00000CF4  486D F260                pea.l      [A5 - 0xDA0]
+00000CF8  486D F25C                pea.l      [A5 - 0xDA4]
+00000CFC  486D F254                pea.l      [A5 - 0xDAC]
+00000D00  A98D                     syscall    GetDialogItem/GetDItem
+00000D02  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+00000D06  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+00000D0A  3F2D F260                move.w     -[A7], [A5 - 0xDA0]
+00000D0E  487A FD1E                pea.l      [PC - 0x2E2 /* 00000A2E, value 0x4E560000 'NV\0\0', cstring "NV" */]
+00000D12  486D F254                pea.l      [A5 - 0xDAC]
+00000D16  A98E                     syscall    SetDialogItem/SetDItem
+00000D18  4E5E                     unlink     A6
+00000D1A  205F                     movea.l    A0, [A7]+
+00000D1C  5C4F                     addq.w     A7, 6
+00000D1E  4ED0                     jmp        [A0]
+00000D20  8D53 4554 5550 424C 5... dc.b       "SETUPBLUERECT"
+00000D30  4E56 0000                link       A6, 0
+00000D34  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+00000D38  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+00000D3C  486D F260                pea.l      [A5 - 0xDA0]
+00000D40  486D F25C                pea.l      [A5 - 0xDA4]
+00000D44  486D F254                pea.l      [A5 - 0xDAC]
+00000D48  A98D                     syscall    GetDialogItem/GetDItem
+00000D4A  2F3C 0001 0001           move.l     -[A7], 0x10001
+00000D50  A89B                     syscall    PenSize
+00000D52  486D F254                pea.l      [A5 - 0xDAC]
+00000D56  A8A1                     syscall    FrameRect
+00000D58  4E5E                     unlink     A6
+00000D5A  205F                     movea.l    A0, [A7]+
+00000D5C  5C4F                     addq.w     A7, 6
+00000D5E  4ED0                     jmp        [A0]
+00000D60  8C54 4849 4E52 4543 5... dc.b       "THINRECTDRAW"
+export_106:
+00000D70  4E56 0000                link       A6, 0
+00000D74  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+00000D78  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+00000D7C  486D F260                pea.l      [A5 - 0xDA0]
+00000D80  486D F25C                pea.l      [A5 - 0xDA4]
+00000D84  486D F254                pea.l      [A5 - 0xDAC]
+00000D88  A98D                     syscall    GetDialogItem/GetDItem
+00000D8A  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+00000D8E  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+00000D92  3F2D F260                move.w     -[A7], [A5 - 0xDA0]
+00000D96  487A FF98                pea.l      [PC - 0x68 /* 00000D30, value 0x4E560000 'NV\0\0', cstring "NV" */]
+00000D9A  486D F254                pea.l      [A5 - 0xDAC]
+00000D9E  A98E                     syscall    SetDialogItem/SetDItem
+00000DA0  4E5E                     unlink     A6
+00000DA2  205F                     movea.l    A0, [A7]+
+00000DA4  5C4F                     addq.w     A7, 6
+00000DA6  4ED0                     jmp        [A0]
+00000DA8  8D53 4554 5550 5448 4... dc.b       "SETUPTHINRECT"
+export_107:
+00000DB8  4E56 FFF6                link       A6, -0x000A
+00000DBC  2F0C                     move.l     -[A7], A4
+00000DBE  486E FFF8                pea.l      [A6 - 0x8]
+00000DC2  A874                     syscall    GetPort
+00000DC4  42A7                     clr.l      -[A7]
+00000DC6  3F3C 0172                move.w     -[A7], 0x172
+00000DCA  4EBA F288                jsr        [PC - 0xD78 /* 00000054 */]
+00000DCE  285F                     movea.l    A4, [A7]+
+00000DD0  2F0C                     move.l     -[A7], A4
+00000DD2  A873                     syscall    SetPort
+00000DD4  2F0C                     move.l     -[A7], A4
+00000DD6  3F3C 0003                move.w     -[A7], 0x3
+00000DDA  4EBA FF0C                jsr        [PC - 0xF4 /* 00000CE8 */]
+00000DDE  486D FD94                pea.l      [A5 - 0x26C]
+00000DE2  3F3C 0172                move.w     -[A7], 0x172
+00000DE6  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+00000DEA  4EAD 01E2                jsr        [A5 + 0x1E2 /* export_56, CODE:1 @ 00003D96 */]
+00000DEE  2F0C                     move.l     -[A7], A4
+00000DF0  3F3C 0004                move.w     -[A7], 0x4
+00000DF4  41ED FD94                lea.l      A0, [A5 - 0x26C]
+00000DF8  1F10                     move.b     -[A7], [A0]
+00000DFA  3F3C 00FF                move.w     -[A7], 0xFF
+00000DFE  4EAD 074A                jsr        [A5 + 0x74A /* export_229, CODE:16 @ 000000B0 */]
+00000E02  2F08                     move.l     -[A7], A0
+00000E04  4EBA F75A                jsr        [PC - 0x8A6 /* 00000560 */]
+00000E08  2F0C                     move.l     -[A7], A4
+00000E0A  3F3C 0006                move.w     -[A7], 0x6
+00000E0E  4EBA FE3C                jsr        [PC - 0x1C4 /* 00000C4C */]
+00000E12  2F0C                     move.l     -[A7], A4
+00000E14  A915                     syscall    ShowWindow
+label00000E16:
+00000E16  42A7                     clr.l      -[A7]
+00000E18  486E FFF6                pea.l      [A6 - 0xA]
+00000E1C  A991                     syscall    ModalDialog
+00000E1E  302E FFF6                move.w     D0, [A6 - 0xA]
+00000E22  6B18                     bmi        +0x1A /* 00000E3C */
+00000E24  B07C 0007                cmp.w      D0, 0x7
+00000E28  6E12                     bgt        +0x14 /* 00000E3C */
+00000E2A  41FA 004C                lea.l      A0, [PC + 0x4C /* 00000E78, value 0x4E560000 'NV\0\0', cstring "NV" */]
+00000E2E  3200                     move.w     D1, D0
+00000E30  E649                     lsr        D1.w, 3
+00000E32  4441                     neg.w      D1
+00000E34  0130 10FF                btst       [A0 + D1.w - 0x1], D0
+00000E38  0A3C 0004                xori.b     ccr, 4
+label00000E3C:
+00000E3C  66D8                     bne        -0x26 /* 00000E16 */
+00000E3E  7002                     moveq.l    D0, 0x02
+00000E40  B06E FFF6                cmp.w      D0, [A6 - 0xA]
+00000E44  6608                     bne        +0xA /* 00000E4E */
+00000E46  1D7C 0001 000A           move.b     [A6 + 0xA], 0x1
+00000E4C  6004                     bra        +0x6 /* 00000E52 */
+label00000E4E:
+00000E4E  422E 000A                clr.b      [A6 + 0xA]
+label00000E52:
+00000E52  2F0C                     move.l     -[A7], A4
+00000E54  A983                     syscall    DisposeDialog
+00000E56  2F2E FFF8                move.l     -[A7], [A6 - 0x8]
+00000E5A  A873                     syscall    SetPort
+00000E5C  285F                     movea.l    A4, [A7]+
+00000E5E  4E5E                     unlink     A6
+00000E60  205F                     movea.l    A0, [A7]+
+00000E62  544F                     addq.w     A7, 2
+00000E64  4ED0                     jmp        [A0]
+00000E66  8C44 5249 5645 5741 5... dc.b       "DRIVEWARNING" + 2 constant bytes
+export_108:
+00000E78  4E56 0000                link       A6, 0
+00000E7C  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+00000E80  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+00000E84  486D F260                pea.l      [A5 - 0xDA0]
+00000E88  486D F25C                pea.l      [A5 - 0xDA4]
+00000E8C  486D F254                pea.l      [A5 - 0xDAC]
+00000E90  A98D                     syscall    GetDialogItem/GetDItem
+00000E92  2F2D F25C                move.l     -[A7], [A5 - 0xDA4]
+00000E96  3F3C 00FF                move.w     -[A7], 0xFF
+00000E9A  A95D                     syscall    HiliteControl
+00000E9C  4E5E                     unlink     A6
+00000E9E  205F                     movea.l    A0, [A7]+
+00000EA0  5C4F                     addq.w     A7, 6
+00000EA2  4ED0                     jmp        [A0]
+00000EA4  8E54 5552 4E4F 4646 4... dc.b       "TURNOFFCONTROL"
+export_109:
+00000EB6  4E56 0000                link       A6, 0
+00000EBA  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+00000EBE  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+00000EC2  486D F260                pea.l      [A5 - 0xDA0]
+00000EC6  486D F25C                pea.l      [A5 - 0xDA4]
+00000ECA  486D F254                pea.l      [A5 - 0xDAC]
+00000ECE  A98D                     syscall    GetDialogItem/GetDItem
+00000ED0  2F2D F25C                move.l     -[A7], [A5 - 0xDA4]
+00000ED4  4267                     clr.w      -[A7]
+00000ED6  A95D                     syscall    HiliteControl
+00000ED8  4E5E                     unlink     A6
+00000EDA  205F                     movea.l    A0, [A7]+
+00000EDC  5C4F                     addq.w     A7, 6
+00000EDE  4ED0                     jmp        [A0]
+00000EE0  8D54 5552 4E4F 4E43 4... dc.b       "TURNONCONTROL"

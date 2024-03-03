@@ -1,0 +1,209 @@
+00000006  0001 04B0                ori.b      D1, 0xB0
+init:
+exit:
+0000000A  2E9F                     move.l     [A7], [A7]+
+0000000C  4E75                     rts
+decompress:
+0000000E  48E7 FFFE                movem.l    -[A7], D0,D1,D2,D3,D4,D5,D6,D7,A0,A1,A2,A3,A4,A5,A6
+00000012  6000 0192                bra        +0x194 /* 000001A6 */
+00000016  C06D 7FC0                and.w      D0, [A5 + 0x7FC0]
+0000001A  A1DB                     syscall    vTruncateFile, flags=1
+0000001C  A9AC                     syscall    AddReference
+0000001E  858E ADE1                unpk       -[A2], -[A6], 0xADE1
+00000022  ADE3                     syscall    PtrToHand, auto_pop
+00000024  038C                     bclr       A4, D1
+00000026  078E                     bclr       A6, D3
+00000028  A1AA                     syscall    0x0AA, flags=1
+0000002A  01B2 BFD4                bclr       <<invalid full ext with I/IS == 4>>, D0
+0000002E  05A5                     bclr       -[A5], D2
+00000030  59D8                     svs        [A0]+
+00000032  FF9C                     .invalid   <<F/6/7>>
+00000034  CD9C                     and.l      [A4]+, D6
+00000036  F6DF E7E1                .extension 0x6DF <<F/2-3/3>> // unimplemented
+0000003A  D3DE                     add.l      A1, [A6]+
+0000003C  A3BC                     syscall    vLaunchInit, flags=3
+0000003E  C7E7                     muls.w     D3, -[A7]
+00000040  CFF3 E326 ABEA 2BAF      muls.w     D7, [[A3 - 0x5416] + A6 * 2 + 0x2BAF]
+00000048  47F9 1FC4 23B4           lea.l      A3, [0x1FC423B4]
+0000004E  963E                     sub.b      D3, <<invalid special address>>
+00000050  C7D2                     muls.w     D3, [A2]
+00000052  09FE                     .incomplete
+00000054  2AB4 2FC6                move.l     [A5], <<invalid full ext with IS == 1 and I/IS == 6>>
+00000058  5104                     subq.b     D4, 8
+0000005A  A46A                     syscall    HSetState, flags=4
+0000005C  4D44                     chk.w      D6, D4
+0000005E  9D0F                     subx.b     -[A6], -[A7]
+00000060  1A0C                     move.b     D5, A4
+00000062  A34F                     syscall    RDrvrInstall, flags=3
+00000064  30DC                     move.w     [A0]+, [A4]+
+00000066  AE6B                     syscall    PowerPCFuture, auto_pop
+00000068  E595                     roxl       D5, 2
+0000006A  6920                     bvs        +0x22 /* 0000008C */
+0000006C  15D9 2859                move.b     [PC + 0x2859 /* 000028C7 */], [A1]+
+00000070  45B2 39DA DCE8           .invalid   2, [[] - 0x2318] // invalid opcode 4 with b == 6
+00000076  B763                     xor.w      -[A3], D3
+00000078  432A BB67                .invalid   1, [A2 - 0x4499] // invalid opcode 4 with b == 4
+0000007C  4722                     .invalid   3, -[A2] // invalid opcode 4 with b == 4
+0000007E  BF6B 4B1A                xor.w      [A3 + 0x4B1A], D7
+00000082  C36F 4F12                and.w      [A7 + 0x4F12], D1
+00000086  C773 5308                and.w      [A3 + <<invalid base displacement size>> + D5 * 2], D3
+0000008A  CB77 57FE                and.w      <<invalid full ext with IS == 1 and I/IS == 6>>, D5
+// begin alternate branch 0000008C-0000008E
+label0000008C:
+0000008C  57FE                     seq        <<invalid special address>>
+// end alternate branch 0000008C-0000008E
+label0000008C: // (misaligned)
+0000008E  F93A                     .extension 0x93A <<F/4-5/4>> // unimplemented
+00000090  F705                     .extension 0x705 <<F/4-5/3>> // unimplemented
+00000092  6979                     bvs        +0x7B /* 0000010D */
+00000094  EA99                     ror        D1, 5
+00000096  5D30 0344                subq.b     <<invalid full ext with I/IS == 4>>, 6
+0000009A  010E                     btst       A6, D0
+0000009C  7343                     moveq.l    D1, 0x43
+0000009E  F2A3 6730                .extension 0x2A3 <<F/2-3/1>> // unimplemented
+000000A2  0D4E                     bchg       A6, D6
+000000A4  0B16                     btst       [A6], D5
+000000A6  7D2D                     moveq.l    D6, 0x2D
+000000A8  FAAD 7130                .extension 0xAAD <<F/2-3/5>> // unimplemented
+000000AC  6458                     bcc        +0x5A /* 00000106 */
+000000AE  8525                     or.b       -[A5], D2
+000000B0  00B5 7930 7860 8D25 06BD ori.l      [[A5 + 0x6BD] + A0 * 4], 0x79307860 /* 'y0x`' */
+000000BA  8130 7C68                or.b       [A0 + D7 * 4 + 0x68], D0
+000000BE  9529 0CC5                sub.b      [A1 + 0xCC5], D2
+000000C2  8930 8070                or.b       [A0 + A0.w + 0x70], D4
+000000C6  9D2F 12CD                sub.b      [A7 + 0x12CD], D6
+000000CA  5D32 FF79 1176 7D78      subq.b     [[A2 + 0x11767D78]], 6
+000000D2  037A AD54                bchg       [PC - 0x52AC /* FFFFAE28 */], D1
+000000D6  CF82                     and.l      D2, D7
+000000D8  AC4A                     syscall    FracMul, auto_pop
+000000DA  B142                     xor.w      D2, D0
+000000DC  535E                     subq.w     [A6]+, 1
+000000DE  958A                     subx.l     -[A2], -[A2]
+000000E0  2AF0 D3CA 6D57           move.l     [A5]+, [[ + <<invalid base displacement size>>] + 0x6D57]
+000000E6  DFDA                     add.l      A7, [A2]+
+000000E8  BA78 B174                cmp.w      D5, [0xFFFFB174]
+000000EC  775D                     moveq.l    D3, 0x5D
+000000EE  9D98                     sub.l      [A0]+, D6
+000000F0  159A C55C                move.b     <<invalid full ext with I/IS == 4>>, [A2]+
+000000F4  ADA3                     syscall    ReleaseResource, auto_pop
+000000F6  D15E                     add.w      [A6]+, D0
+000000F8  6E22                     bgt        +0x24 /* 0000011C */
+000000FA  D182                     addx.l     D0, D2
+000000FC  52CC F5A8                dbhi       D4, -0xA5A /* FFFFF6A6 */
+00000100  17F5 CF72 8B78 B1EE 9... move.b     [PC - 0x624BCFC9], [[A5 - 0x74874E12] - 0x6850]
+// begin alternate branch 00000102-0000010A
+label00000102:
+00000102  CF72 8B78 B1EE 97B0      and.w      [A2 - 0x4E116850], D7
+// end alternate branch 00000102-0000010A
+// begin alternate branch 00000106-00000112
+label00000106:
+00000106  B1EE 97B0                cmpa.l     A0, [A6 - 0x6850]
+0000010A  D178 9DB4                add.w      [0xFFFF9DB4], D0
+0000010E  3037 E452                move.w     D0, [A7 + A6.w * 4 + 0x52]
+// end alternate branch 00000106-00000112
+label00000102: // (misaligned)
+label00000106: // (misaligned)
+00000110  E452                     roxr       D2.w, 2
+00000112  53FF                     sls        <<invalid special address>>
+00000114  DFB0 5703 E3A6 5B07      add.l      [[A0 + <<invalid base displacement size>> + D5 * 8] - 0x1C59A4F9], D7
+label0000011C:
+0000011C  E79C                     rol        D4, 3
+0000011E  5F0B                     subq.b     A3, 7
+00000120  EB92                     roxl       D2, 5
+00000122  DACE                     add.w      A5, A6
+00000124  FB9B                     .invalid   <<F/6/5>>
+00000126  FF9E                     .invalid   <<F/6/7>>
+00000128  782D                     moveq.l    D4, 0x2D
+0000012A  F1B6                     .invalid   <<F/6/0>>
+0000012C  F2D8 059D                .extension 0x2D8 <<F/2-3/1>> // unimplemented
+00000130  09A0                     bclr       -[A0], D4
+00000132  8037 FBB6 F8E2 0FA3 13A6 or.b       D0, [[-0x71DF05D] + A7 * 2 + 0x13A6]
+0000013C  8841                     or.w       D4, D1
+0000013E  05B6 FEEC                bclr       [A6 + A7 * 8 - 0x14], D2
+00000142  19AB 1DAE 904B           move.b     [A4 + A1.w + 0x4B], [A3 + 0x1DAE]
+00000148  0FB6 04F6                bclr       [A6 + D0.w * 4 - 0xA], D7
+0000014C  23B4 27B7 09FE 5101 A... move.l     [A1 + <<invalid base displacement size>> + D1], [[0x9FE5101] + D2 * 8 - 0x558653DA]
+0000015A  B02B 1605                cmp.b      D0, [A3 + 0x1605]
+0000015E  F507                     .extension 0x507 <<F/4-5/2>> // unimplemented
+00000160  890D                     sbcd       -[A4], -[A5]
+00000162  990B                     subx.b     -[A4], -[A3]
+00000164  FDD4                     .invalid   <<F/7/6>>
+00000166  130F                     move.b     -[A1], A7
+00000168  9911                     sub.b      [A1], D4
+0000016A  F11D                     .extension 0x11D <<F/4-5/0>> // unimplemented
+0000016C  6494                     bcc        -0x6A /* 00000102 */
+0000016E  05DC                     .incomplete
+00000170  2C18                     move.l     D6, [A0]+
+00000172  EFB2                     roxl       D2, D7
+00000174  F1B4                     .invalid   <<F/6/0>>
+00000176  2EA6                     move.l     [A7], -[A6]
+00000178  DEDC                     add.w      A7, [A4]+
+0000017A  7768                     moveq.l    D3, 0x68
+0000017C  51E4                     sf         -[A4]
+0000017E  E3B0                     roxl       D0, D1
+00000180  33C7 68E9 1A4B           move.w     [0x68E91A4B], D7
+00000186  EDF6 3F7F 3F67           bfffo      D3, <<invalid full ext with IS == 1 and I/IS == 7>> {D5:D7}
+fn0000018C:
+0000018C  1D53 6F18                move.b     [A6 + 0x6F18], [A3]
+00000190  395D 4AC7                move.w     [A4 + 0x4AC7], [A5]+
+00000194  FAF8 4BD2                .extension 0xAF8 <<F/2-3/5>> // unimplemented
+label00000198:
+00000198  4ED0                     jmp        [A0]
+0000019A  0183                     bclr       D3, D0
+fn0000019C:
+0000019C  245F                     movea.l    A2, [A7]+
+0000019E  BBCE                     cmpa.l     A5, A6
+000001A0  6702                     beq        +0x4 /* 000001A4 */
+000001A2  4E95                     jsr        [A5]
+label000001A4:
+000001A4  4ED2                     jmp        [A2]
+label000001A6:
+000001A6  49FA FE6E                lea.l      A4, [PC - 0x192 /* 00000016, value 0xC06D7FC0 */]
+000001AA  264C                     movea.l    A3, A4
+000001AC  3A3A FFEC                move.w     D5, [PC - 0x14 /* 0000019A, value 0x183 */]
+000001B0  377C 0002 FFFE           move.w     [A3 - 0x2], 0x2
+000001B6  703F                     moveq.l    D0, 0x3F
+000001B8  E218                     ror        D0.b, 1
+000001BA  A746                     syscall    GetToolBoxTrapAddress/GetToolTrapAddress, flags=7
+000001BC  2C48                     movea.l    A6, A0
+000001BE  707B                     moveq.l    D0, 0x7B
+000001C0  E218                     ror        D0.b, 1
+000001C2  A346                     syscall    GetOSTrapAddress, flags=3
+000001C4  2A48                     movea.l    A5, A0
+000001C6  41FA 0010                lea.l      A0, [PC + 0x10 /* 000001D8, value 0x39E40, cstring "" */]
+000001CA  4490                     neg.l      [A0]
+000001CC  46A0                     not.l      -[A0]
+000001CE  4A60                     tst.w      -[A0]
+000001D0  60C6                     bra        -0x38 /* 00000198 */
+000001D2  61C8                     bsr        -0x36 /* 0000019C */
+000001D4  24E4                     move.l     [A2]+, -[A4]
+000001D6  AE32                     syscall    GetGDevice, auto_pop
+000001D8  0003 9E40                ori.b      D3, 0x40 /* '@' */
+000001DC  61AE                     bsr        -0x50 /* 0000018C */
+000001DE  A5A5                     syscall    VisRegionChanged, flags=5
+000001E0  3A43                     movea.w    A5, D3
+000001E2  6F70                     ble        +0x72 /* 00000254 */
+000001E4  7972                     moveq.l    D4, 0x72
+000001E6  6967                     bvs        +0x69 /* 0000024F */
+000001E8  6874                     bvc        +0x76 /* 0000025E */
+000001EA  20A9 2031                move.l     [A0], [A1 + 0x2031]
+000001EE  3939 322D 3139           move.w     -[A4], [0x322D3139]
+000001F4  3933 2042                move.w     -[A4], [A3 + D2.w + 0x42]
+000001F8  656E                     bcs        +0x70 /* 00000268 */
+000001FA  204D                     movea.l    A0, A5
+000001FC  6963                     bvs        +0x65 /* 00000261 */
+000001FE  6B61                     bmi        +0x63 /* 00000261 */
+00000200  656C                     bcs        +0x6E /* 0000026E */
+00000202  6961                     bvs        +0x63 /* 00000265 */
+00000204  6E2E                     bgt        +0x30 /* 00000234 */
+00000206  2041                     movea.l    A0, D1
+00000208  6C6C                     bge        +0x6E /* 00000276 */
+0000020A  2052                     movea.l    A0, [A2]
+0000020C  6967                     bvs        +0x69 /* 00000275 */
+0000020E  6874                     bvc        +0x76 /* 00000284 */
+00000210  7320                     moveq.l    D1, 0x20
+00000212  5265                     addq.w     -[A5], 1
+00000214  7365                     moveq.l    D1, 0x65
+00000216  7276                     moveq.l    D1, 0x76
+00000218  6564                     bcs        +0x66 /* 0000027E */
+0000021A  2E00                     move.l     D7, D0

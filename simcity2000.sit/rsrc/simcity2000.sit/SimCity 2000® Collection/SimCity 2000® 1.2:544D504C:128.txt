@@ -1,0 +1,36 @@
+‘snd/csnd’ resource ID (Default): 2-byte integer (decimal)
+Sample root key (Use 0 for default in ‘snd’): 2-byte integer (decimal)
+Reserved (Set to 0): 1-byte integer (decimal)
+(bit field)
+  Interpolate if lead instrument does?: boolean
+  Use note amplitude scaling?: boolean
+  Disable ‘snd’ looping?: boolean
+  Reserved (Set to 0): boolean
+  Reserved (Set to 0): boolean
+  Reserved (Set to 0): boolean
+  Reserved (Set to 0): boolean
+  Reserved (Set to 0): boolean
+(bit field)
+  Never interpolate?: boolean
+  Play only at sampled frequency?: boolean
+  Transpose to fit key splits?: boolean
+  Apply Sound Modifier?: boolean
+  Reserved (Set to 0): boolean
+  Instrument not polyphonic?: boolean
+  Enable pitch randomness?: boolean
+  Play from random keyboard splits?: boolean
+SMOD (Sound Modifier) Rsrc ID #: 1-byte integer (decimal)
+SMOD parameter 1 (or 0): 2-byte integer (decimal)
+SMOD parameter 2 (or 0): 2-byte integer (decimal)
+Number of keyboard splits: list (2-byte one-based item count)
+  Lowest MIDI note playable: 1-byte integer (decimal)
+  Highest MIDI note playable: 1-byte integer (decimal)
+  ‘snd’ resource ID for range: 2-byte integer (decimal)
+  SMOD parameter 1 (0 for no SMOD): 2-byte integer (decimal)
+  SMOD parameter 2 (0 for no SMOD): 2-byte integer (decimal)
+Tremolo data: list (2-byte one-based item count)
+  Tremolo data: 2-byte integer (hex)
+Terminate tremolo with $8000!: 2-byte integer (hex)
+Reserved (Set to 0): 2-byte integer (decimal)
+Copyright: pstring (1-byte length)
+Author: pstring (1-byte length)

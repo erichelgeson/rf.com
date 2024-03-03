@@ -1,0 +1,3263 @@
+# near model CODE resource
+# this CODE claims to have no jump table entries (but starts at 7900)
+00000000  6B00 0006                bmi        +0x8 /* 00000008 */
+00000004  7500                     moveq.l    D2, 0x00
+00000006  0001 6800                ori.b      D1, 0x0
+// begin alternate branch 00000008-00000022
+label00000008:
+00000008  6800 0005                bvc        +0x7 /* 0000000F */
+0000000C  6C00 0004                bge        +0x6 /* 00000012 */
+00000010  6C00 0004                bge        +0x6 /* 00000016 */
+label00000012: // (misaligned)
+00000014  6200 0002                bhi        +0x4 /* 00000018 */
+label00000016: // (misaligned)
+label00000018:
+00000018  6A00 0007                bpl        +0x9 /* 00000021 */
+0000001C  6E00 0003                bgt        +0x5 /* 00000021 */
+00000020  FFFF                     .invalid   <<F/7/7>>
+// end alternate branch 00000008-00000022
+label00000008: // (misaligned)
+0000000A  0005 6C00                ori.b      D5, 0x0
+0000000E  0004 6C00                ori.b      D4, 0x0
+label00000012:
+00000012  0004 6200                ori.b      D4, 0x0
+label00000016:
+00000016  0002 6A00                ori.b      D2, 0x0
+label00000018: // (misaligned)
+0000001A  0007 6E00                ori.b      D7, 0x0
+0000001E  0003 FFFF                ori.b      D3, 0xFF
+00000022  D77A FFFF                add.w      [PC - 0x1 /* 00000023, value 0x7AFF */], D3
+00000026  D77F                     add.w      <<invalid special address>>, D3
+00000028  FFFF                     .invalid   <<F/7/7>>
+0000002A  D78A                     addx.l     -[A3], -[A2]
+0000002C  FFFF                     .invalid   <<F/7/7>>
+0000002E  D794                     add.l      [A4], D3
+00000030  FFFF                     .invalid   <<F/7/7>>
+00000032  D79A                     add.l      [A2]+, D3
+00000034  FFFF                     .invalid   <<F/7/7>>
+00000036  D7A1                     add.l      -[A1], D3
+00000038  FFFF                     .invalid   <<F/7/7>>
+0000003A  D7B2 FFFF                add.l      <<invalid full ext with IS == 1 and I/IS == 7>>, D3
+0000003E  D7B7 FFFF                add.l      <<invalid full ext with IS == 1 and I/IS == 7>>, D3
+00000042  D7C0                     add.l      A3, D0
+00000044  FFFF                     .invalid   <<F/7/7>>
+00000046  D7CE                     add.l      A3, A6
+00000048  0000 0000                ori.b      D0, 0x0
+0000004C  6D61                     blt        +0x63 /* 000000AF */
+0000004E  6365                     bls        +0x67 /* 000000B5 */
+00000050  006C 6F6E 6720           ori.w      [A4 + 0x6720], 0x6F6E /* 'on' */
+00000056  7377                     moveq.l    D1, 0x77
+00000058  6F72                     ble        +0x74 /* 000000CC */
+0000005A  6400 7368                bcc        +0x736A /* 000073C4 */
+0000005E  6F72                     ble        +0x74 /* 000000D2 */
+00000060  7420                     moveq.l    D2, 0x20
+00000062  626F                     bhi        +0x71 /* 000000D3 */
+00000064  7700                     moveq.l    D3, 0x00
+00000066  6172                     bsr        +0x74 /* 000000DA */
+00000068  726F                     moveq.l    D1, 0x6F
+0000006A  7700                     moveq.l    D3, 0x00
+0000006C  6461                     bcc        +0x63 /* 000000CF */
+0000006E  6767                     beq        +0x69 /* 000000D7 */
+00000070  6572                     bcs        +0x74 /* 000000E4 */
+00000072  0074 776F 2068           ori.w      [A4 + D2.w + 0x68], 0x776F /* 'wo' */
+00000078  616E                     bsr        +0x70 /* 000000E8 */
+0000007A  6465                     bcc        +0x67 /* 000000E1 */
+0000007C  6420                     bcc        +0x22 /* 0000009E */
+0000007E  7377                     moveq.l    D1, 0x77
+00000080  6F72                     ble        +0x74 /* 000000F4 */
+00000082  6400 6461                bcc        +0x6463 /* 000064E5 */
+00000086  7274                     moveq.l    D1, 0x74
+00000088  0063 726F                ori.w      -[A3], 0x726F /* 'ro' */
+0000008C  7373                     moveq.l    D1, 0x73
+0000008E  626F                     bhi        +0x71 /* 000000FF */
+00000090  7700                     moveq.l    D3, 0x00
+00000092  6372                     bls        +0x74 /* 00000106 */
+00000094  6F73                     ble        +0x75 /* 00000109 */
+00000096  7362                     moveq.l    D1, 0x62
+00000098  6F77                     ble        +0x79 /* 00000111 */
+0000009A  2062                     movea.l    A0, -[A2]
+0000009C  6F6C                     ble        +0x6E /* 0000010A */
+label0000009E:
+0000009E  7400                     moveq.l    D2, 0x00
+000000A0  7370                     moveq.l    D1, 0x70
+000000A2  6561                     bcs        +0x63 /* 00000105 */
+000000A4  7200                     moveq.l    D1, 0x00
+000000A6  FFFF                     .invalid   <<F/7/7>>
+000000A8  D7F4 FFFF                add.l      A3, <<invalid full ext with IS == 1 and I/IS == 7>>
+000000AC  D802                     add.b      D4, D2
+000000AE  FFFF                     .invalid   <<F/7/7>>
+000000B0  D80C                     add.b      D4, A4
+000000B2  FFFF                     .invalid   <<F/7/7>>
+000000B4  D822                     add.b      D4, -[A2]
+000000B6  FFFF                     .invalid   <<F/7/7>>
+000000B8  D82D FFFF                add.b      D4, [A5 - 0x1]
+000000BC  D838 FFFF                add.b      D4, [0xFFFFFFFF]
+000000C0  D844                     add.w      D4, D4
+000000C2  FFFF                     .invalid   <<F/7/7>>
+000000C4  D850                     add.w      D4, [A0]
+000000C6  6C65                     bge        +0x67 /* 0000012D */
+000000C8  6174                     bsr        +0x76 /* 0000013E */
+000000CA  6865                     bvc        +0x67 /* 00000131 */
+label000000CC:
+000000CC  7220                     moveq.l    D1, 0x20
+000000CE  6172                     bsr        +0x74 /* 00000142 */
+000000D0  6D6F                     blt        +0x71 /* 00000141 */
+label000000D2:
+000000D2  7200                     moveq.l    D1, 0x00
+000000D4  7269                     moveq.l    D1, 0x69
+000000D6  6E67                     bgt        +0x69 /* 0000013F */
+000000D8  206D 6169                movea.l    A0, [A5 + 0x6169]
+// begin alternate branch 000000DA-000000DC
+fn000000DA:
+000000DA  6169                     bsr        +0x6B /* 00000145 */
+// end alternate branch 000000DA-000000DC
+fn000000DA: // (misaligned)
+000000DC  6C00 7374                bge        +0x7376 /* 00007452 */
+000000E0  7564                     moveq.l    D2, 0x64
+000000E2  6465                     bcc        +0x67 /* 00000149 */
+label000000E4:
+000000E4  6420                     bcc        +0x22 /* 00000106 */
+000000E6  6C65                     bge        +0x67 /* 0000014D */
+fn000000E8:
+000000E8  6174                     bsr        +0x76 /* 0000015E */
+000000EA  6865                     bvc        +0x67 /* 00000151 */
+000000EC  7220                     moveq.l    D1, 0x20
+000000EE  6172                     bsr        +0x74 /* 00000162 */
+000000F0  6D6F                     blt        +0x71 /* 00000161 */
+000000F2  7200                     moveq.l    D1, 0x00
+label000000F4:
+000000F4  7363                     moveq.l    D1, 0x63
+000000F6  616C                     bsr        +0x6E /* 00000164 */
+000000F8  6520                     bcs        +0x22 /* 0000011A */
+000000FA  6D61                     blt        +0x63 /* 0000015D */
+000000FC  696C                     bvs        +0x6E /* 0000016A */
+000000FE  0063 6861                ori.w      -[A3], 0x6861 /* 'ha' */
+00000102  696E                     bvs        +0x70 /* 00000172 */
+00000104  206D 6169                movea.l    A0, [A5 + 0x6169]
+// begin alternate branch 00000106-00000108
+label00000106:
+00000106  6169                     bsr        +0x6B /* 00000171 */
+// end alternate branch 00000106-00000108
+label00000106: // (misaligned)
+00000108  6C00 7370                bge        +0x7372 /* 0000747A */
+// begin alternate branch 0000010A-0000010C
+label0000010A:
+0000010A  7370                     moveq.l    D1, 0x70
+// end alternate branch 0000010A-0000010C
+label0000010A: // (misaligned)
+0000010C  6C69                     bge        +0x6B /* 00000177 */
+0000010E  6E74                     bgt        +0x76 /* 00000184 */
+00000110  206D 6169                movea.l    A0, [A5 + 0x6169]
+00000114  6C00 6261                bge        +0x6263 /* 00006377 */
+00000118  6E64                     bgt        +0x66 /* 0000017E */
+label0000011A:
+0000011A  6564                     bcs        +0x66 /* 00000180 */
+0000011C  206D 6169                movea.l    A0, [A5 + 0x6169]
+00000120  6C00 706C                bge        +0x706E /* 0000718E */
+00000124  6174                     bsr        +0x76 /* 0000019A */
+00000126  6520                     bcs        +0x22 /* 00000148 */
+00000128  6D61                     blt        +0x63 /* 0000018B */
+0000012A  696C                     bvs        +0x6E /* 00000198 */
+0000012C  0000 0014                ori.b      D0, 0x14
+00000130  0023 0032                ori.b      -[A3], 0x32 /* '2' */
+00000134  003F 004B                ori.b      <<invalid special address>>, 0x4B /* 'K' */
+00000138  0055 005F                ori.w      [A5], 0x5F /* '_' */
+0000013C  0064 0008                ori.w      -[A4], 0x8
+// begin alternate branch 0000013E-00000142
+fn0000013E:
+0000013E  0008 0007                ori.b      A0, 0x7
+// end alternate branch 0000013E-00000142
+fn0000013E: // (misaligned)
+00000140  0007 0007                ori.b      D7, 0x7
+// begin alternate branch 00000142-00000150
+fn00000142:
+00000142  0007 0006                ori.b      D7, 0x6
+00000146  0005 0004                ori.b      D5, 0x4
+label00000148: // (misaligned)
+0000014A  0004 0003                ori.b      D4, 0x3
+0000014E  FFFF                     .invalid   <<F/7/7>>
+// end alternate branch 00000142-00000150
+fn00000142: // (misaligned)
+00000144  0006 0005                ori.b      D6, 0x5
+label00000148:
+00000148  0004 0004                ori.b      D4, 0x4
+0000014C  0003 FFFF                ori.b      D3, 0xFF
+00000150  D8F4 0008                add.w      A4, [A4 + D0.w + 0x8]
+00000154  008C FFFF D906           ori.l      A4, 0xFFFFD906
+0000015A  000D 0096                ori.b      A5, 0x96
+fn0000015E:
+0000015E  FFFF                     .invalid   <<F/7/7>>
+00000160  D914                     add.b      [A4], D4
+fn00000162:
+00000162  0010 00B4                ori.b      [A0], 0xB4
+// begin alternate branch 00000164-00000170
+fn00000164:
+00000164  00B4 FFFF D921 0015      ori.l      [A4 + D0.w + 0x15], 0xFFFFD921
+label0000016A: // (misaligned)
+0000016C  0005 FFFF                ori.b      D5, 0xFF
+// end alternate branch 00000164-00000170
+fn00000164: // (misaligned)
+00000166  FFFF                     .invalid   <<F/7/7>>
+00000168  D921                     add.b      -[A1], D4
+label0000016A:
+0000016A  0015 0005                ori.b      [A5], 0x5
+0000016E  FFFF                     .invalid   <<F/7/7>>
+00000170  D927                     add.b      -[A7], D4
+label00000172:
+00000172  001D 00A0                ori.b      [A5]+, 0xA0
+00000176  FFFF                     .invalid   <<F/7/7>>
+00000178  D935 003B                add.b      [A5 + D0.w + 0x3B], D4
+0000017C  0064 FFFF                ori.w      -[A4], 0xFFFF
+// begin alternate branch 0000017E-00000180
+label0000017E:
+0000017E  FFFF                     .invalid   <<F/7/7>>
+// end alternate branch 0000017E-00000180
+label0000017E: // (misaligned)
+label00000180:
+00000180  D93E                     add.b      <<invalid special address>>, D4
+00000182  003F 00C8                ori.b      <<invalid special address>>, 0xC8
+// begin alternate branch 00000184-00000186
+label00000184:
+00000184  00C8                     .incomplete
+// end alternate branch 00000184-00000186
+label00000184: // (misaligned)
+00000186  FFFF                     .invalid   <<F/7/7>>
+00000188  D94C                     addx.w     -[A4], -[A4]
+0000018A  0040 0032                ori.w      D0, 0x32 /* '2' */
+0000018E  FFFF                     .invalid   <<F/7/7>>
+00000190  D957                     add.w      [A7], D4
+00000192  0047 00A5                ori.w      D7, 0xA5
+00000196  FFFF                     .invalid   <<F/7/7>>
+label00000198:
+00000198  D965                     add.w      -[A5], D4
+fn0000019A:
+0000019A  0051 0096                ori.w      [A1], 0x96
+0000019E  FFFF                     .invalid   <<F/7/7>>
+000001A0  D974 0056                add.w      [A4 + D0.w + 0x56], D4
+000001A4  004B FFFF                ori.w      A3, 0xFFFF
+000001A8  D983                     addx.l     D4, D3
+000001AA  005E 0069                ori.w      [A6]+, 0x69 /* 'i' */
+000001AE  FFFF                     .invalid   <<F/7/7>>
+000001B0  D990                     add.l      [A0], D4
+000001B2  0062 0014                ori.w      -[A2], 0x14
+000001B6  FFFF                     .invalid   <<F/7/7>>
+000001B8  D9A3                     add.l      -[A3], D4
+000001BA  0063 0005                ori.w      -[A3], 0x5
+000001BE  FFFF                     .invalid   <<F/7/7>>
+000001C0  D9AF 0064                add.l      [A7 + 0x64], D4
+000001C4  012C 6D6F                btst       [A4 + 0x6D6F], D0
+000001C8  6E73                     bgt        +0x75 /* 0000023D */
+000001CA  7465                     moveq.l    D2, 0x65
+000001CC  7220                     moveq.l    D1, 0x20
+000001CE  636F                     bls        +0x71 /* 0000023F */
+000001D0  6E66                     bgt        +0x68 /* 00000238 */
+000001D2  7573                     moveq.l    D2, 0x73
+000001D4  696F                     bvs        +0x71 /* 00000245 */
+000001D6  6E00 6D61                bgt        +0x6D63 /* 00006F39 */
+000001DA  6769                     beq        +0x6B /* 00000245 */
+000001DC  6320                     bls        +0x22 /* 000001FE */
+000001DE  6D61                     blt        +0x63 /* 00000241 */
+000001E0  7070                     moveq.l    D0, 0x70
+000001E2  696E                     bvs        +0x70 /* 00000252 */
+000001E4  6700 686F                beq        +0x6871 /* 00006A55 */
+000001E8  6C64                     bge        +0x66 /* 0000024E */
+000001EA  206D 6F6E                movea.l    A0, [A5 + 0x6F6E]
+000001EE  7374                     moveq.l    D1, 0x74
+000001F0  6572                     bcs        +0x74 /* 00000264 */
+000001F2  0073 6C65 6570 0065 6E63 ori.w      [A3 + 0x656E63], 0x6C65 /* 'le' */
+000001FC  6861                     bvc        +0x63 /* 0000025F */
+label000001FE:
+000001FE  6E74                     bgt        +0x76 /* 00000274 */
+00000200  2061                     movea.l    A0, -[A1]
+00000202  726D                     moveq.l    D1, 0x6D
+00000204  6F72                     ble        +0x74 /* 00000278 */
+00000206  0069 6465 6E74           ori.w      [A1 + 0x6E74], 0x6465 /* 'de' */
+0000020C  6966                     bvs        +0x68 /* 00000274 */
+0000020E  7900                     moveq.l    D4, 0x00
+00000210  7363                     moveq.l    D1, 0x63
+00000212  6172                     bsr        +0x74 /* 00000286 */
+00000214  6520                     bcs        +0x22 /* 00000236 */
+00000216  6D6F                     blt        +0x71 /* 00000287 */
+00000218  6E73                     bgt        +0x75 /* 0000028D */
+0000021A  7465                     moveq.l    D2, 0x65
+0000021C  7200                     moveq.l    D1, 0x00
+0000021E  7769                     moveq.l    D3, 0x69
+00000220  6C64                     bge        +0x66 /* 00000286 */
+00000222  206D 6167                movea.l    A0, [A5 + 0x6167]
+00000226  6963                     bvs        +0x65 /* 0000028B */
+00000228  0074 656C 6570 6F72 7461 ori.w      [A4 + 0x6F727461], 0x656C /* 'el' */
+00000232  7469                     moveq.l    D2, 0x69
+00000234  6F6E                     ble        +0x70 /* 000002A4 */
+label00000236:
+00000236  0065 6E63                ori.w      -[A5], 0x6E63 /* 'nc' */
+// begin alternate branch 00000238-0000023A
+label00000238:
+00000238  6E63                     bgt        +0x65 /* 0000029D */
+// end alternate branch 00000238-0000023A
+label00000238: // (misaligned)
+0000023A  6861                     bvc        +0x63 /* 0000029D */
+0000023C  6E74                     bgt        +0x76 /* 000002B2 */
+0000023E  2077 6561 706F           movea.l    A0, [[A7 + 0x706F]]
+00000244  6E00 6372                bgt        +0x6374 /* 000065B8 */
+00000248  6561                     bcs        +0x63 /* 000002AB */
+0000024A  7465                     moveq.l    D2, 0x65
+0000024C  206D 6F6E                movea.l    A0, [A5 + 0x6F6E]
+// begin alternate branch 0000024E-00000250
+label0000024E:
+0000024E  6F6E                     ble        +0x70 /* 000002BE */
+// end alternate branch 0000024E-00000250
+label0000024E: // (misaligned)
+00000250  7374                     moveq.l    D1, 0x74
+label00000252:
+00000252  6572                     bcs        +0x74 /* 000002C6 */
+00000254  0072 656D 6F76           ori.w      <<invalid full ext with IS == 1 and I/IS == 6>>, 0x656D /* 'em' */
+0000025A  6520                     bcs        +0x22 /* 0000027C */
+0000025C  6375                     bls        +0x77 /* 000002D3 */
+0000025E  7273                     moveq.l    D1, 0x73
+00000260  6500 6167                bcs        +0x6169 /* 000063C9 */
+label00000264:
+00000264  6772                     beq        +0x74 /* 000002D8 */
+00000266  6176                     bsr        +0x78 /* 000002DE */
+00000268  6174                     bsr        +0x76 /* 000002DE */
+0000026A  6520                     bcs        +0x22 /* 0000028C */
+0000026C  6D6F                     blt        +0x71 /* 000002DD */
+0000026E  6E73                     bgt        +0x75 /* 000002E3 */
+00000270  7465                     moveq.l    D2, 0x65
+00000272  7273                     moveq.l    D1, 0x73
+label00000274:
+00000274  0062 6C61                ori.w      -[A2], 0x6C61 /* 'la' */
+label00000278:
+00000278  6E6B                     bgt        +0x6D /* 000002E5 */
+0000027A  2070 6170 6572 0076      movea.l    A0, [A0 + 0x65720076]
+// begin alternate branch 0000027C-00000286
+label0000027C:
+0000027C  6170                     bsr        +0x72 /* 000002EE */
+0000027E  6572                     bcs        +0x74 /* 000002F2 */
+00000280  0076 6F72 7061           ori.w      [A6 + D7.w + 0x61], 0x6F72 /* 'or' */
+// end alternate branch 0000027C-00000286
+label0000027C: // (misaligned)
+00000282  6F72                     ble        +0x74 /* 000002F6 */
+00000284  7061                     moveq.l    D0, 0x61
+fn00000286:
+00000286  6C69                     bge        +0x6B /* 000002F1 */
+00000288  7A65                     moveq.l    D5, 0x65
+0000028A  2077 6561 706F           movea.l    A0, [[A7 + 0x706F]]
+// begin alternate branch 0000028C-00000290
+label0000028C:
+0000028C  6561                     bcs        +0x63 /* 000002EF */
+0000028E  706F                     moveq.l    D0, 0x6F
+// end alternate branch 0000028C-00000290
+label0000028C: // (misaligned)
+00000290  6E00 FFFF                bgt        -0xFFFFFFFFFFFFFFFF /* 00000291 */
+00000294  DA30 0008                add.b      D5, [A0 + D0.w + 0x8]
+00000298  0005 FFFF                ori.b      D5, 0xFF
+0000029C  DA3A 0012                add.b      D5, [PC + 0x12 /* 000002B0, value 0x0, cstring "" */]
+000002A0  0005 FFFF                ori.b      D5, 0xFF
+label000002A4:
+000002A4  DA44                     add.w      D5, D4
+000002A6  001A 0005                ori.b      [A2]+, 0x5
+000002AA  FFFF                     .invalid   <<F/7/7>>
+000002AC  DA4B                     add.w      D5, A3
+000002AE  0029 0096 FFFF           ori.b      [A1 - 0x1], 0x96
+// begin alternate branch 000002B2-000002B4
+label000002B2:
+000002B2  FFFF                     .invalid   <<F/7/7>>
+// end alternate branch 000002B2-000002B4
+label000002B2: // (misaligned)
+000002B4  DA59                     add.w      D5, [A1]+
+000002B6  002B 0064 FFFF           ori.b      [A3 - 0x1], 0x64 /* 'd' */
+000002BC  DA67                     add.w      D5, -[A7]
+label000002BE:
+000002BE  003A 0082 FFFF           ori.b      [PC - 0x1 /* 000002BF, value 0x3A ':', cstring ":" */], 0x82
+000002C4  DA6F 0040                add.w      D5, [A7 + 0x40]
+// begin alternate branch 000002C6-000002D6
+label000002C6:
+000002C6  0040 0082                ori.w      D0, 0x82
+000002CA  FFFF                     .invalid   <<F/7/7>>
+000002CC  DA7C 0046                add.w      D5, 0x46 /* 'F' */
+000002D0  0069 FFFF DA88           ori.w      [A1 - 0x2578], 0xFFFF
+// end alternate branch 000002C6-000002D6
+label000002C6: // (misaligned)
+000002C8  0082 FFFF DA7C           ori.l      D2, 0xFFFFDA7C
+000002CE  0046 0069                ori.w      D6, 0x69 /* 'i' */
+000002D2  FFFF                     .invalid   <<F/7/7>>
+000002D4  DA88                     add.l      D5, A0
+000002D6  0048 00FA                ori.w      A0, 0xFA
+// begin alternate branch 000002D8-000002DA
+label000002D8:
+000002D8  00FA                     .incomplete
+// end alternate branch 000002D8-000002DA
+label000002D8: // (misaligned)
+000002DA  FFFF                     .invalid   <<F/7/7>>
+000002DC  DA94                     add.l      D5, [A4]
+fn000002DE:
+000002DE  004D 00C8                ori.w      A5, 0xC8
+000002E2  FFFF                     .invalid   <<F/7/7>>
+000002E4  DAA2                     add.l      D5, -[A2]
+000002E6  0051 00BE                ori.w      [A1], 0xBE
+000002EA  FFFF                     .invalid   <<F/7/7>>
+000002EC  DAAD 005F                add.l      D5, [A5 + 0x5F]
+// begin alternate branch 000002EE-000002F2
+fn000002EE:
+000002EE  005F 0082                ori.w      [A7]+, 0x82
+// end alternate branch 000002EE-000002F2
+fn000002EE: // (misaligned)
+000002F0  0082 FFFF DABE           ori.l      D2, 0xFFFFDABE
+// begin alternate branch 000002F2-000002F6
+label000002F2:
+000002F2  FFFF                     .invalid   <<F/7/7>>
+000002F4  DABE                     add.l      D5, <<invalid special address>>
+// end alternate branch 000002F2-000002F6
+label000002F2: // (misaligned)
+label000002F6:
+000002F6  0063 0005                ori.w      -[A3], 0x5
+000002FA  FFFF                     .invalid   <<F/7/7>>
+000002FC  DAC8                     add.w      A5, A0
+000002FE  0064 0005                ori.w      -[A4], 0x5
+00000302  636F                     bls        +0x71 /* 00000373 */
+00000304  6E66                     bgt        +0x68 /* 0000036C */
+00000306  7573                     moveq.l    D2, 0x73
+00000308  696F                     bvs        +0x71 /* 00000379 */
+0000030A  6E00 7061                bgt        +0x7063 /* 0000736D */
+0000030E  7261                     moveq.l    D1, 0x61
+00000310  6C79                     bge        +0x7B /* 0000038B */
+00000312  7369                     moveq.l    D1, 0x69
+00000314  7300                     moveq.l    D1, 0x00
+00000316  706F                     moveq.l    D0, 0x6F
+00000318  6973                     bvs        +0x75 /* 0000038D */
+0000031A  6F6E                     ble        +0x70 /* 0000038A */
+0000031C  0067 6169                ori.w      -[A7], 0x6169 /* 'ai' */
+00000320  6E20                     bgt        +0x22 /* 00000342 */
+00000322  7374                     moveq.l    D1, 0x74
+00000324  7265                     moveq.l    D1, 0x65
+00000326  6E67                     bgt        +0x69 /* 0000038F */
+00000328  7468                     moveq.l    D2, 0x68
+0000032A  0073 6565 2069           ori.w      [A3 + D2.w + 0x69], 0x6565 /* 'ee' */
+00000330  6E76                     bgt        +0x78 /* 000003A8 */
+00000332  6973                     bvs        +0x75 /* 000003A7 */
+00000334  6962                     bvs        +0x64 /* 00000398 */
+00000336  6C65                     bge        +0x67 /* 0000039D */
+00000338  0068 6561 6C69           ori.w      [A0 + 0x6C69], 0x6561 /* 'ea' */
+0000033E  6E67                     bgt        +0x69 /* 000003A7 */
+00000340  006E 6967 6874           ori.w      [A6 + 0x6874], 0x6967 /* 'ig' */
+// begin alternate branch 00000342-00000346
+label00000342:
+00000342  6967                     bvs        +0x69 /* 000003AB */
+00000344  6874                     bvc        +0x76 /* 000003BA */
+// end alternate branch 00000342-00000346
+label00000342: // (misaligned)
+00000346  2076 6973 696F 6E00 6... movea.l    A0, [[A6 + 0x696F6E00] + 0x64697363]
+00000352  6572                     bcs        +0x74 /* 000003C6 */
+00000354  6E6D                     bgt        +0x6F /* 000003C3 */
+00000356  656E                     bcs        +0x70 /* 000003C6 */
+00000358  7400                     moveq.l    D2, 0x00
+0000035A  7261                     moveq.l    D1, 0x61
+0000035C  6973                     bvs        +0x75 /* 000003D1 */
+0000035E  6520                     bcs        +0x22 /* 00000380 */
+00000360  6C65                     bge        +0x67 /* 000003C7 */
+00000362  7665                     moveq.l    D3, 0x65
+00000364  6C00 6578                bge        +0x657A /* 000068DE */
+00000368  7472                     moveq.l    D2, 0x72
+0000036A  6120                     bsr        +0x22 /* 0000038C */
+label0000036C:
+0000036C  6865                     bvc        +0x67 /* 000003D3 */
+0000036E  616C                     bsr        +0x6E /* 000003DC */
+00000370  696E                     bvs        +0x70 /* 000003E0 */
+00000372  6700 6861                beq        +0x6863 /* 00006BD5 */
+00000376  7374                     moveq.l    D1, 0x74
+00000378  6520                     bcs        +0x22 /* 0000039A */
+0000037A  7365                     moveq.l    D1, 0x65
+0000037C  6C66                     bge        +0x68 /* 000003E4 */
+0000037E  0072 6573 746F           ori.w      [A2 + D7.w * 4 + 0x6F], 0x6573 /* 'es' */
+// begin alternate branch 00000380-00000384
+label00000380:
+00000380  6573                     bcs        +0x75 /* 000003F5 */
+00000382  746F                     moveq.l    D2, 0x6F
+// end alternate branch 00000380-00000384
+label00000380: // (misaligned)
+00000384  7265                     moveq.l    D1, 0x65
+00000386  2073 7472                movea.l    A0, [A3 + D7.w * 4 + 0x72]
+label0000038A:
+0000038A  656E                     bcs        +0x70 /* 000003FA */
+fn0000038C:
+0000038C  6774                     beq        +0x76 /* 00000402 */
+0000038E  6800 626C                bvc        +0x626E /* 000065FC */
+00000392  696E                     bvs        +0x70 /* 00000402 */
+00000394  646E                     bcc        +0x70 /* 00000404 */
+00000396  6573                     bcs        +0x75 /* 0000040B */
+label00000398:
+00000398  7300                     moveq.l    D1, 0x00
+label0000039A:
+0000039A  7468                     moveq.l    D2, 0x68
+0000039C  6972                     bvs        +0x74 /* 00000410 */
+0000039E  7374                     moveq.l    D1, 0x74
+000003A0  2071 7565                movea.l    A0, <<invalid full ext with IS == 1 and I/IS == 5>>
+000003A4  6E63                     bgt        +0x65 /* 00000409 */
+000003A6  6869                     bvc        +0x6B /* 00000411 */
+label000003A8:
+000003A8  6E67                     bgt        +0x69 /* 00000411 */
+000003AA  0000 FFFF                ori.b      D0, 0xFF
+000003AE  DB4A                     addx.w     -[A5], -[A2]
+000003B0  0009 0190                ori.b      A1, 0x90
+000003B4  FFFF                     .invalid   <<F/7/7>>
+000003B6  DB55                     add.w      [A5], D5
+000003B8  0012 0190                ori.b      [A2], 0x90
+// begin alternate branch 000003BA-000003BC
+label000003BA:
+000003BA  0190                     bclr       [A0], D0
+// end alternate branch 000003BA-000003BC
+label000003BA: // (misaligned)
+000003BC  FFFF                     .invalid   <<F/7/7>>
+000003BE  DB62                     add.w      -[A2], D5
+000003C0  0017 0118                ori.b      [A7], 0x18
+000003C4  FFFF                     .invalid   <<F/7/7>>
+label000003C6:
+000003C6  DB73 0021                add.w      [A3 + D0.w + 0x21], D5
+000003CA  01A4                     bclr       -[A4], D0
+000003CC  FFFF                     .invalid   <<F/7/7>>
+000003CE  DB7D                     add.w      <<invalid special address>>, D5
+000003D0  002B 0136 FFFF           ori.b      [A3 - 0x1], 0x36 /* '6' */
+000003D6  DB8B                     addx.l     -[A5], -[A3]
+000003D8  002C 000A FFFF           ori.b      [A4 - 0x1], 0xA /* '\n' */
+// begin alternate branch 000003DC-000003DE
+fn000003DC:
+000003DC  FFFF                     .invalid   <<F/7/7>>
+// end alternate branch 000003DC-000003DE
+fn000003DC: // (misaligned)
+000003DE  DB95                     add.l      [A5], D5
+label000003E0:
+000003E0  0036 000A FFFF           ori.b      <<invalid full ext with IS == 1 and I/IS == 7>>, 0xA /* '\n' */
+// begin alternate branch 000003E4-000003E6
+label000003E4:
+000003E4  FFFF                     .invalid   <<F/7/7>>
+// end alternate branch 000003E4-000003E6
+label000003E4: // (misaligned)
+000003E6  DBA7                     add.l      -[A7], D5
+000003E8  003E 01B8                ori.b      <<invalid special address>>, 0xB8
+000003EC  FFFF                     .invalid   <<F/7/7>>
+000003EE  DBB1 0046                add.l      [A1 + D0.w + 0x46], D5
+000003F2  0190                     bclr       [A0], D0
+000003F4  FFFF                     .invalid   <<F/7/7>>
+000003F6  DBC1                     add.l      A5, D1
+000003F8  004A 01CC                ori.w      A2, 0x1CC
+// begin alternate branch 000003FA-000003FC
+label000003FA:
+000003FA  01CC                     .incomplete
+// end alternate branch 000003FA-000003FC
+label000003FA: // (misaligned)
+000003FC  FFFF                     .invalid   <<F/7/7>>
+000003FE  DBCE                     add.l      A5, A6
+00000400  0053 00F0                ori.w      [A3], 0xF0
+// begin alternate branch 00000402-00000404
+label00000402:
+00000402  00F0                     .incomplete
+// end alternate branch 00000402-00000404
+label00000402: // (misaligned)
+label00000404:
+00000404  FFFF                     .invalid   <<F/7/7>>
+00000406  DBDD                     add.l      A5, [A5]+
+00000408  0058 001E                ori.w      [A0]+, 0x1E
+0000040C  FFFF                     .invalid   <<F/7/7>>
+0000040E  DBEB 005F                add.l      A5, [A3 + 0x5F]
+// begin alternate branch 00000410-00000414
+label00000410:
+00000410  005F 01D6                ori.w      [A7]+, 0x1D6
+// end alternate branch 00000410-00000414
+label00000410: // (misaligned)
+00000412  01D6                     .incomplete
+00000414  FFFF                     .invalid   <<F/7/7>>
+00000416  DBF3 0064                add.l      A5, [A3 + D0.w + 0x64]
+0000041A  017C 7072                bchg       0x7072 /* 'pr' */, D0
+0000041E  6F74                     ble        +0x76 /* 00000494 */
+00000420  6563                     bcs        +0x65 /* 00000485 */
+00000422  7469                     moveq.l    D2, 0x69
+00000424  6F6E                     ble        +0x70 /* 00000494 */
+00000426  0061 6464                ori.w      -[A1], 0x6464 /* 'dd' */
+0000042A  2073 7472                movea.l    A0, [A3 + D7.w * 4 + 0x72]
+0000042E  656E                     bcs        +0x70 /* 0000049E */
+00000430  6774                     beq        +0x76 /* 000004A6 */
+00000432  6800 7375                bvc        +0x7377 /* 000077A9 */
+00000436  7374                     moveq.l    D1, 0x74
+00000438  6169                     bsr        +0x6B /* 000004A3 */
+0000043A  6E20                     bgt        +0x22 /* 0000045C */
+0000043C  7374                     moveq.l    D1, 0x74
+0000043E  7265                     moveq.l    D1, 0x65
+00000440  6E67                     bgt        +0x69 /* 000004A9 */
+00000442  7468                     moveq.l    D2, 0x68
+00000444  0073 6561 7263           ori.w      [A3 + D7.w * 2 + 0x63], 0x6561 /* 'ea' */
+0000044A  6869                     bvc        +0x6B /* 000004B5 */
+0000044C  6E67                     bgt        +0x69 /* 000004B5 */
+0000044E  0073 6565 2069           ori.w      [A3 + D2.w + 0x69], 0x6565 /* 'ee' */
+00000454  6E76                     bgt        +0x78 /* 000004CC */
+00000456  6973                     bvs        +0x75 /* 000004CB */
+00000458  6962                     bvs        +0x64 /* 000004BC */
+0000045A  6C65                     bge        +0x67 /* 000004C1 */
+label0000045C:
+0000045C  0061 646F                ori.w      -[A1], 0x646F /* 'do' */
+00000460  726E                     moveq.l    D1, 0x6E
+00000462  6D65                     blt        +0x67 /* 000004C9 */
+00000464  6E74                     bgt        +0x76 /* 000004DA */
+00000466  0061 6767                ori.w      -[A1], 0x6767 /* 'gg' */
+0000046A  7261                     moveq.l    D1, 0x61
+0000046C  7661                     moveq.l    D3, 0x61
+0000046E  7465                     moveq.l    D2, 0x65
+00000470  206D 6F6E                movea.l    A0, [A5 + 0x6F6E]
+00000474  7374                     moveq.l    D1, 0x74
+00000476  6572                     bcs        +0x74 /* 000004EA */
+00000478  0064 6578                ori.w      -[A4], 0x6578 /* 'ex' */
+0000047C  7465                     moveq.l    D2, 0x65
+0000047E  7269                     moveq.l    D1, 0x69
+00000480  7479                     moveq.l    D2, 0x79
+00000482  0069 6E63 7265           ori.w      [A1 + 0x7265], 0x6E63 /* 'nc' */
+00000488  6173                     bsr        +0x75 /* 000004FD */
+0000048A  6520                     bcs        +0x22 /* 000004AC */
+0000048C  6461                     bcc        +0x63 /* 000004EF */
+0000048E  6D61                     blt        +0x63 /* 000004F1 */
+00000490  6765                     beq        +0x67 /* 000004F7 */
+00000492  0072 6567 656E           ori.w      <<invalid full ext with IS == 1 and I/IS == 6>>, 0x6567 /* 'eg' */
+// begin alternate branch 00000494-00000498
+label00000494:
+00000494  6567                     bcs        +0x69 /* 000004FD */
+00000496  656E                     bcs        +0x70 /* 00000506 */
+// end alternate branch 00000494-00000498
+label00000494: // (misaligned)
+00000498  6572                     bcs        +0x74 /* 0000050C */
+0000049A  6174                     bsr        +0x76 /* 00000510 */
+0000049C  696F                     bvs        +0x71 /* 0000050D */
+label0000049E:
+0000049E  6E00 736C                bgt        +0x736E /* 0000780C */
+000004A2  6F77                     ble        +0x79 /* 0000051B */
+000004A4  2064                     movea.l    A0, -[A4]
+label000004A6:
+000004A6  6967                     bvs        +0x69 /* 0000050F */
+000004A8  6573                     bcs        +0x75 /* 0000051D */
+000004AA  7469                     moveq.l    D2, 0x69
+label000004AC:
+000004AC  6F6E                     ble        +0x70 /* 0000051C */
+000004AE  0074 656C 6570 6F72 7461 ori.w      [A4 + 0x6F727461], 0x656C /* 'el' */
+000004B8  7469                     moveq.l    D2, 0x69
+000004BA  6F6E                     ble        +0x70 /* 0000052A */
+label000004BC:
+000004BC  0073 7465 616C           ori.w      <<invalid full ext with I/IS == 4>>, 0x7465 /* 'te' */
+000004C2  7468                     moveq.l    D2, 0x68
+000004C4  006D 6169 6E74           ori.w      [A5 + 0x6E74], 0x6169 /* 'ai' */
+000004CA  6169                     bsr        +0x6B /* 00000535 */
+label000004CC:
+000004CC  6E20                     bgt        +0x22 /* 000004EE */
+000004CE  6172                     bsr        +0x74 /* 00000542 */
+000004D0  6D6F                     blt        +0x71 /* 00000541 */
+000004D2  7200                     moveq.l    D1, 0x00
+000004D4  FFFF                     .invalid   <<F/7/7>>
+000004D6  DC72 000C                add.w      D6, [A2 + D0.w + 0xC]
+label000004DA:
+000004DA  00FA                     .incomplete
+000004DC  FFFF                     .invalid   <<F/7/7>>
+000004DE  DC78 0015                add.w      D6, [0x00000015]
+000004E2  004B FFFF                ori.w      A3, 0xFFFF
+000004E6  DC81                     add.l      D6, D1
+000004E8  0018 014A                ori.b      [A0]+, 0x4A /* 'J' */
+// begin alternate branch 000004EA-000004EC
+label000004EA:
+000004EA  014A                     bchg       A2, D0
+// end alternate branch 000004EA-000004EC
+label000004EA: // (misaligned)
+000004EC  FFFF                     .invalid   <<F/7/7>>
+label000004EE:
+000004EE  DC8B                     add.l      D6, A3
+000004F0  001B 014A                ori.b      [A3]+, 0x4A /* 'J' */
+000004F4  FFFF                     .invalid   <<F/7/7>>
+000004F6  DC90                     add.l      D6, [A0]
+000004F8  001E 014A                ori.b      [A6]+, 0x4A /* 'J' */
+000004FC  FFFF                     .invalid   <<F/7/7>>
+000004FE  DC95                     add.l      D6, [A5]
+00000500  002D 0136 FFFF           ori.b      [A5 - 0x1], 0x36 /* '6' */
+label00000506:
+00000506  DC9F                     add.l      D6, [A7]+
+00000508  0037 00AA FFFF           ori.b      <<invalid full ext with IS == 1 and I/IS == 7>>, 0xAA
+// begin alternate branch 0000050C-0000050E
+label0000050C:
+0000050C  FFFF                     .invalid   <<F/7/7>>
+// end alternate branch 0000050C-0000050E
+label0000050C: // (misaligned)
+0000050E  DCAD 0040                add.l      D6, [A5 + 0x40]
+// begin alternate branch 00000510-00000516
+fn00000510:
+00000510  0040 0005                ori.w      D0, 0x5
+00000514  FFFF                     .invalid   <<F/7/7>>
+// end alternate branch 00000510-00000516
+fn00000510: // (misaligned)
+00000512  0005 FFFF                ori.b      D5, 0xFF
+00000516  DCBB 004B                add.l      D6, [PC + D0.w + 0x4B]
+0000051A  015E                     bchg       [A6]+, D0
+label0000051C:
+0000051C  FFFF                     .invalid   <<F/7/7>>
+0000051E  DCC8                     add.w      A6, A0
+00000520  0054 012C                ori.w      [A4], 0x12C
+00000524  FFFF                     .invalid   <<F/7/7>>
+00000526  DCD3                     add.w      A6, [A3]
+00000528  0055 0005                ori.w      [A5], 0x5
+// begin alternate branch 0000052A-0000052E
+label0000052A:
+0000052A  0005 FFFF                ori.b      D5, 0xFF
+// end alternate branch 0000052A-0000052E
+label0000052A: // (misaligned)
+0000052C  FFFF                     .invalid   <<F/7/7>>
+0000052E  DCDB                     add.w      A6, [A3]+
+00000530  005A 0154                ori.w      [A2]+, 0x154
+00000534  FFFF                     .invalid   <<F/7/7>>
+00000536  DCE9 005F                add.w      A6, [A1 + 0x5F]
+0000053A  0032 FFFF DCF5           ori.b      [A2 + A5 * 4 - 0xB], 0xFF
+00000540  0064 0118                ori.w      -[A4], 0x118
+// begin alternate branch 00000542-00000544
+fn00000542:
+00000542  0118                     btst       [A0]+, D0
+// end alternate branch 00000542-00000544
+fn00000542: // (misaligned)
+00000544  6C69                     bge        +0x6B /* 000005AF */
+00000546  6768                     beq        +0x6A /* 000005B0 */
+00000548  7400                     moveq.l    D2, 0x00
+0000054A  7374                     moveq.l    D1, 0x74
+0000054C  7269                     moveq.l    D1, 0x69
+0000054E  6B69                     bmi        +0x6B /* 000005B9 */
+00000550  6E67                     bgt        +0x69 /* 000005B9 */
+00000552  006C 6967 6874           ori.w      [A4 + 0x6874], 0x6967 /* 'ig' */
+00000558  6E69                     bgt        +0x6B /* 000005C3 */
+0000055A  6E67                     bgt        +0x69 /* 000005C3 */
+0000055C  0066 6972                ori.w      -[A6], 0x6972 /* 'ir' */
+00000560  6500 636F                bcs        +0x6371 /* 000068D1 */
+00000564  6C64                     bge        +0x66 /* 000005CA */
+00000566  0070 6F6C 796D           ori.w      <<invalid full ext with IS == 1 and I/IS == 5>>, 0x6F6C /* 'ol' */
+0000056C  6F72                     ble        +0x74 /* 000005E0 */
+0000056E  7068                     moveq.l    D0, 0x68
+00000570  006D 6167 6963           ori.w      [A5 + 0x6963], 0x6167 /* 'ag' */
+00000576  206D 6973                movea.l    A0, [A5 + 0x6973]
+0000057A  7369                     moveq.l    D1, 0x69
+0000057C  6C65                     bge        +0x67 /* 000005E3 */
+0000057E  0068 6173 7465           ori.w      [A0 + 0x7465], 0x6173 /* 'as' */
+00000584  206D 6F6E                movea.l    A0, [A5 + 0x6F6E]
+00000588  7374                     moveq.l    D1, 0x74
+0000058A  6572                     bcs        +0x74 /* 000005FE */
+0000058C  0073 6C6F 7720 6D6F      ori.w      [A3 + 0x6D6F + D7 * 8], 0x6C6F /* 'lo' */
+00000594  6E73                     bgt        +0x75 /* 00000609 */
+00000596  7465                     moveq.l    D2, 0x65
+00000598  7200                     moveq.l    D1, 0x00
+0000059A  6472                     bcc        +0x74 /* 0000060E */
+0000059C  6169                     bsr        +0x6B /* 00000607 */
+0000059E  6E20                     bgt        +0x22 /* 000005C0 */
+000005A0  6C69                     bge        +0x6B /* 0000060B */
+000005A2  6665                     bne        +0x67 /* 00000609 */
+000005A4  006E 6F74 6869           ori.w      [A6 + 0x6869], 0x6F74 /* 'ot' */
+000005AA  6E67                     bgt        +0x69 /* 00000613 */
+000005AC  0074 656C 6570 6F72 7420 ori.w      [A4 + 0x6F727420], 0x656C /* 'el' */
+// begin alternate branch 000005B0-000005B6
+label000005B0:
+000005B0  6570                     bcs        +0x72 /* 00000622 */
+000005B2  6F72                     ble        +0x74 /* 00000626 */
+000005B4  7420                     moveq.l    D2, 0x20
+// end alternate branch 000005B0-000005B6
+label000005B0: // (misaligned)
+000005B6  6177                     bsr        +0x79 /* 0000062F */
+000005B8  6179                     bsr        +0x7B /* 00000633 */
+000005BA  0074 656C 6570 6F72 7420 ori.w      [A4 + 0x6F727420], 0x656C /* 'el' */
+// begin alternate branch 000005C0-000005C4
+label000005C0:
+000005C0  6F72                     ble        +0x74 /* 00000634 */
+000005C2  7420                     moveq.l    D2, 0x20
+// end alternate branch 000005C0-000005C4
+label000005C0: // (misaligned)
+000005C4  746F                     moveq.l    D2, 0x6F
+000005C6  0063 616E                ori.w      -[A3], 0x616E /* 'an' */
+label000005CA:
+000005CA  6365                     bls        +0x67 /* 00000631 */
+000005CC  6C6C                     bge        +0x6E /* 0000063A */
+000005CE  6174                     bsr        +0x76 /* 00000644 */
+000005D0  696F                     bvs        +0x71 /* 00000641 */
+000005D2  6E00 FFFF                bgt        -0xFFFFFFFFFFFFFFFF /* 000005D3 */
+000005D6  DD42                     addx.w     D6, D2
+000005D8  FFFF                     .invalid   <<F/7/7>>
+000005DA  DD43                     addx.w     D6, D3
+000005DC  FFFF                     .invalid   <<F/7/7>>
+000005DE  DD50                     add.w      [A0], D6
+label000005E0:
+000005E0  FFFF                     .invalid   <<F/7/7>>
+000005E2  DD5B                     add.w      [A3]+, D6
+000005E4  FFFF                     .invalid   <<F/7/7>>
+000005E6  DD66                     add.w      -[A6], D6
+000005E8  FFFF                     .invalid   <<F/7/7>>
+000005EA  DD71 FFFF                add.w      <<invalid full ext with IS == 1 and I/IS == 7>>, D6
+000005EE  DD79 FFFF DD81           add.w      [0xFFFFDD81], D6
+000005F4  FFFF                     .invalid   <<F/7/7>>
+000005F6  DD87                     addx.l     D6, D7
+000005F8  FFFF                     .invalid   <<F/7/7>>
+000005FA  DD90                     add.l      [A0], D6
+000005FC  FFFF                     .invalid   <<F/7/7>>
+label000005FE:
+000005FE  DD9D                     add.l      [A5]+, D6
+00000600  FFFF                     .invalid   <<F/7/7>>
+00000602  DDA5                     add.l      -[A5], D6
+00000604  FFFF                     .invalid   <<F/7/7>>
+00000606  DDAA FFFF                add.l      [A2 - 0x1], D6
+0000060A  DDB7 FFFF                add.l      <<invalid full ext with IS == 1 and I/IS == 7>>, D6
+label0000060E:
+0000060E  DDC2                     add.l      A6, D2
+00000610  FFFF                     .invalid   <<F/7/7>>
+00000612  DDC9                     add.l      A6, A1
+00000614  0047 7569                ori.w      D7, 0x7569 /* 'ui' */
+00000618  6C64                     bge        +0x66 /* 0000067E */
+0000061A  204E                     movea.l    A0, A6
+0000061C  6F76                     ble        +0x78 /* 00000694 */
+0000061E  6963                     bvs        +0x65 /* 00000683 */
+00000620  6500 4170                bcs        +0x4172 /* 00004792 */
+// begin alternate branch 00000622-00000626
+label00000622:
+00000622  4170 7072                chk.w      D0, [A0 + D7.w + 0x72]
+// end alternate branch 00000622-00000626
+label00000622: // (misaligned)
+00000624  7072                     moveq.l    D0, 0x72
+label00000626:
+00000626  656E                     bcs        +0x70 /* 00000696 */
+00000628  7469                     moveq.l    D2, 0x69
+0000062A  6365                     bls        +0x67 /* 00000691 */
+0000062C  004A 6F75                ori.w      A2, 0x6F75 /* 'ou' */
+00000630  726E                     moveq.l    D1, 0x6E
+00000632  6579                     bcs        +0x7B /* 000006AD */
+label00000634:
+00000634  6D61                     blt        +0x63 /* 00000697 */
+00000636  6E00 4164                bgt        +0x4166 /* 0000479C */
+label0000063A:
+0000063A  7665                     moveq.l    D3, 0x65
+0000063C  6E74                     bgt        +0x76 /* 000006B2 */
+0000063E  7572                     moveq.l    D2, 0x72
+00000640  6572                     bcs        +0x74 /* 000006B4 */
+00000642  0046 6967                ori.w      D6, 0x6967 /* 'ig' */
+// begin alternate branch 00000644-00000646
+fn00000644:
+00000644  6967                     bvs        +0x69 /* 000006AD */
+// end alternate branch 00000644-00000646
+fn00000644: // (misaligned)
+00000646  6874                     bvc        +0x76 /* 000006BC */
+00000648  6572                     bcs        +0x74 /* 000006BC */
+0000064A  0057 6172                ori.w      [A7], 0x6172 /* 'ar' */
+0000064E  7269                     moveq.l    D1, 0x69
+00000650  6F72                     ble        +0x74 /* 000006C4 */
+00000652  0052 6F67                ori.w      [A2], 0x6F67 /* 'og' */
+00000656  7565                     moveq.l    D2, 0x65
+00000658  0043 6861                ori.w      D3, 0x6861 /* 'ha' */
+0000065C  6D70                     blt        +0x72 /* 000006CE */
+0000065E  696F                     bvs        +0x71 /* 000006CF */
+00000660  6E00 4D61                bgt        +0x4D63 /* 000053C3 */
+00000664  7374                     moveq.l    D1, 0x74
+00000666  6572                     bcs        +0x74 /* 000006DA */
+00000668  2052                     movea.l    A0, [A2]
+0000066A  6F67                     ble        +0x69 /* 000006D3 */
+0000066C  7565                     moveq.l    D2, 0x65
+0000066E  0057 6172                ori.w      [A7], 0x6172 /* 'ar' */
+00000672  6C6F                     bge        +0x71 /* 000006E3 */
+00000674  7264                     moveq.l    D1, 0x64
+00000676  0048 6572                ori.w      A0, 0x6572 /* 'er' */
+0000067A  6F00 4775                ble        +0x4777 /* 00004DF1 */
+label0000067E:
+0000067E  696C                     bvs        +0x6E /* 000006EC */
+00000680  6420                     bcc        +0x22 /* 000006A2 */
+00000682  4D61                     chk.w      D6, -[A1]
+00000684  7374                     moveq.l    D1, 0x74
+00000686  6572                     bcs        +0x74 /* 000006FA */
+00000688  0044 7261                ori.w      D4, 0x7261 /* 'ra' */
+0000068C  676F                     beq        +0x71 /* 000006FD */
+0000068E  6E6C                     bgt        +0x6E /* 000006FC */
+00000690  6F72                     ble        +0x74 /* 00000704 */
+00000692  6400 5769                bcc        +0x576B /* 00005DFD */
+// begin alternate branch 00000694-00000698
+label00000694:
+00000694  5769 7A61                subq.w     [A1 + 0x7A61], 3
+// end alternate branch 00000694-00000698
+label00000694: // (misaligned)
+label00000696:
+00000696  7A61                     moveq.l    D5, 0x61
+00000698  7264                     moveq.l    D1, 0x64
+0000069A  0043 6865                ori.w      D3, 0x6865 /* 'he' */
+0000069E  6174                     bsr        +0x76 /* 00000714 */
+000006A0  6572                     bcs        +0x74 /* 00000714 */
+label000006A2:
+000006A2  0000 FFFF                ori.b      D0, 0xFF
+000006A6  DDFE                     add.l      A6, <<invalid special address>>
+000006A8  FFFF                     .invalid   <<F/7/7>>
+000006AA  DE06                     add.b      D7, D6
+000006AC  FFFF                     .invalid   <<F/7/7>>
+000006AE  DE0C                     add.b      D7, A4
+000006B0  FFFF                     .invalid   <<F/7/7>>
+label000006B2:
+000006B2  DE11                     add.b      D7, [A1]
+label000006B4:
+000006B4  FFFF                     .invalid   <<F/7/7>>
+000006B6  DE19                     add.b      D7, [A1]+
+000006B8  FFFF                     .invalid   <<F/7/7>>
+000006BA  DE21                     add.b      D7, -[A1]
+label000006BC:
+000006BC  FFFF                     .invalid   <<F/7/7>>
+000006BE  DE27                     add.b      D7, -[A7]
+000006C0  FFFF                     .invalid   <<F/7/7>>
+000006C2  DE2D FFFF                add.b      D7, [A5 - 0x1]
+// begin alternate branch 000006C4-000006C6
+label000006C4:
+000006C4  FFFF                     .invalid   <<F/7/7>>
+// end alternate branch 000006C4-000006C6
+label000006C4: // (misaligned)
+000006C6  DE3B FFFF                add.b      D7, <<invalid full ext with IS == 1 and I/IS == 7>>
+000006CA  DE47                     add.w      D7, D7
+000006CC  FFFF                     .invalid   <<F/7/7>>
+label000006CE:
+000006CE  DE62                     add.w      D7, -[A2]
+000006D0  5765                     subq.w     -[A5], 3
+000006D2  6170                     bsr        +0x72 /* 00000744 */
+000006D4  6F6E                     ble        +0x70 /* 00000744 */
+000006D6  7300                     moveq.l    D1, 0x00
+000006D8  4172 6D6F                chk.w      D0, <<invalid full ext with IS == 1 and I/IS == 7>>
+// begin alternate branch 000006DA-000006DC
+label000006DA:
+000006DA  6D6F                     blt        +0x71 /* 0000074B */
+// end alternate branch 000006DA-000006DC
+label000006DA: // (misaligned)
+000006DC  7200                     moveq.l    D1, 0x00
+000006DE  466F 6F64                not.w      [A7 + 0x6F64]
+000006E2  0050 6F74                ori.w      [A0], 0x6F74 /* 'ot' */
+000006E6  696F                     bvs        +0x71 /* 00000757 */
+000006E8  6E73                     bgt        +0x75 /* 0000075D */
+000006EA  0053 6372                ori.w      [A3], 0x6372 /* 'cr' */
+// begin alternate branch 000006EC-000006EE
+label000006EC:
+000006EC  6372                     bls        +0x74 /* 00000760 */
+// end alternate branch 000006EC-000006EE
+label000006EC: // (misaligned)
+000006EE  6F6C                     ble        +0x6E /* 0000075C */
+000006F0  6C73                     bge        +0x75 /* 00000765 */
+000006F2  0057 616E                ori.w      [A7], 0x616E /* 'an' */
+000006F6  6473                     bcc        +0x75 /* 0000076B */
+000006F8  0052 696E                ori.w      [A2], 0x696E /* 'in' */
+// begin alternate branch 000006FA-000006FC
+label000006FA:
+000006FA  696E                     bvs        +0x70 /* 0000076A */
+// end alternate branch 000006FA-000006FC
+label000006FA: // (misaligned)
+label000006FC:
+000006FC  6773                     beq        +0x75 /* 00000771 */
+000006FE  000C 7374                ori.b      A4, 0x74 /* 't' */
+00000702  7269                     moveq.l    D1, 0x69
+label00000704:
+00000704  6E67                     bgt        +0x69 /* 0000076D */
+00000706  732E                     moveq.l    D1, 0x2E
+00000708  7273                     moveq.l    D1, 0x73
+0000070A  7263                     moveq.l    D1, 0x63
+0000070C  000A 726F                ori.b      A2, 0x6F /* 'o' */
+00000710  6775                     beq        +0x77 /* 00000787 */
+00000712  652E                     bcs        +0x30 /* 00000742 */
+fn00000714:
+00000714  7273                     moveq.l    D1, 0x73
+00000716  7263                     moveq.l    D1, 0x63
+00000718  004B 2042                ori.w      A3, 0x2042 /* ' B' */
+0000071C  4849                     pea.l      A1
+0000071E  534F                     subq.w     A7, 1
+00000720  5220                     addq.b     -[A0], 1
+00000722  4C43 4120                divu.l     D0:D4, D3
+00000726  4E59                     unlink     A1
+00000728  5457                     addq.w     [A7], 2
+0000072A  4650                     not.w      [A0]
+0000072C  2047                     movea.l    A0, D7
+0000072E  4D58                     chk.w      D6, [A0]+
+00000730  564A                     addq.w     A2, 3
+00000732  4400                     neg.b      D0
+00000734  4B45                     chk.w      D5, D5
+00000736  4248                     clr.w      A0
+00000738  4953                     chk.w      D4, [A3]
+0000073A  4F52                     chk.w      D7, [A2]
+0000073C  5A20                     addq.b     -[A0], 5
+0000073E  4341                     chk.w      D1, D1
+00000740  5120                     subq.b     -[A0], 8
+label00000742:
+00000742  5954                     subq.w     [A4], 4
+fn00000744:
+00000744  5720                     subq.b     -[A0], 3
+00000746  5055                     addq.w     [A5], 8
+00000748  474D                     chk.w      D3, A5
+0000074A  2056                     movea.l    A0, [A6]
+0000074C  4A20                     tst.b      -[A0]
+0000074E  0000 0000                ori.b      D0, 0x0
+00000752  0000 0000                ori.b      D0, 0x0
+00000756  0000 0000                ori.b      D0, 0x0
+0000075A  FFFF                     .invalid   <<F/7/7>>
+label0000075C:
+0000075C  E12C                     lsl        D4.b, D0
+0000075E  0000 0020                ori.b      D0, 0x20 /* ' ' */
+// begin alternate branch 00000760-00000770
+label00000760:
+00000760  0020 000A                ori.b      -[A0], 0xA /* '\n' */
+00000764  0000 0014                ori.b      D0, 0x14
+00000768  0005 0002                ori.b      D5, 0x2
+label0000076A: // (misaligned)
+0000076C  0001 FFFF                ori.b      D1, 0xFF
+// end alternate branch 00000760-00000770
+label00000760: // (misaligned)
+00000762  000A 0000                ori.b      A2, 0x0
+00000766  0014 0005                ori.b      [A4], 0x5
+label0000076A:
+0000076A  0002 0001                ori.b      D2, 0x1
+0000076E  FFFF                     .invalid   <<F/7/7>>
+00000770  E134                     roxl       D4.b, D0
+00000772  0000 FFFF                ori.b      D0, 0xFF
+00000776  E13C                     rol        D4.b, D0
+00000778  0000 0000                ori.b      D0, 0x0
+0000077C  000A 0000                ori.b      A2, 0x0
+00000780  0001 0001                ori.b      D1, 0x1
+00000784  0003 0001                ori.b      D3, 0x1
+00000788  FFFF                     .invalid   <<F/7/7>>
+0000078A  E140                     asl        D0.w, 8
+0000078C  0000 FFFF                ori.b      D0, 0xFF
+00000790  E144                     asl        D4.w, 8
+00000792  000F 0000                ori.b      A7, 0x0
+00000796  000A 0000                ori.b      A2, 0x0
+0000079A  0019 0004                ori.b      [A1]+, 0x4
+0000079E  0004 0001                ori.b      D4, 0x1
+000007A2  FFFF                     .invalid   <<F/7/7>>
+000007A4  E14C                     lsl        D4.w, 8
+000007A6  0000 FFFF                ori.b      D0, 0xFF
+000007AA  E154                     roxl       D4.w, 8
+000007AC  0064 0020                ori.w      -[A4], 0x20 /* ' ' */
+000007B0  000A 0000                ori.b      A2, 0x0
+000007B4  1A90                     move.b     [A5], [A0]
+000007B6  000A FFFF                ori.b      A2, 0xFF
+000007BA  0001 FFFF                ori.b      D1, 0xFF
+000007BE  E15B                     rol        D3.w, 8
+000007C0  0000 FFFF                ori.b      D0, 0xFF
+000007C4  E168                     lsl        D0.w, D0
+000007C6  0000 0020                ori.b      D0, 0x20 /* ' ' */
+000007CA  000A 0000                ori.b      A2, 0x0
+000007CE  0002 0001                ori.b      D2, 0x1
+000007D2  0007 0001                ori.b      D7, 0x1
+000007D6  FFFF                     .invalid   <<F/7/7>>
+000007D8  E16C                     lsl        D4.w, D0
+000007DA  0000 FFFF                ori.b      D0, 0xFF
+000007DE  E170                     roxl       D0.w, D0
+000007E0  0000 0020                ori.b      D0, 0x20 /* ' ' */
+000007E4  000A 0000                ori.b      A2, 0x0
+000007E8  0050 0008                ori.w      [A0], 0x8
+000007EC  0003 0001                ori.b      D3, 0x1
+000007F0  FFFF                     .invalid   <<F/7/7>>
+000007F2  E17E                     rol        D6.w, D0
+000007F4  0000 FFFF                ori.b      D0, 0xFF
+000007F8  E184                     asl        D4, 8
+000007FA  0014 8220                ori.b      [A4], 0x20 /* ' ' */
+000007FE  000A 0000                ori.b      A2, 0x0
+00000802  07D0                     .incomplete
+00000804  000D 0002                ori.b      A5, 0x2
+00000808  0001 FFFF                ori.b      D1, 0xFF
+0000080C  E18C                     lsl        D4, 8
+0000080E  0000 FFFF                ori.b      D0, 0xFF
+00000812  E198                     rol        D0, 8
+00000814  0000 0020                ori.b      D0, 0x20 /* ' ' */
+00000818  000A 0000                ori.b      A2, 0x0
+0000081C  0003 0001                ori.b      D3, 0x1
+00000820  0005 0001                ori.b      D5, 0x1
+00000824  FFFF                     .invalid   <<F/7/7>>
+00000826  E1A2                     asl        D2, D0
+00000828  0000 FFFF                ori.b      D0, 0xFF
+0000082C  E1A6                     asl        D6, D0
+0000082E  0000 0020                ori.b      D0, 0x20 /* ' ' */
+00000832  000A 0000                ori.b      A2, 0x0
+00000836  0005 0001                ori.b      D5, 0x1
+0000083A  0009 0001                ori.b      A1, 0x1
+0000083E  FFFF                     .invalid   <<F/7/7>>
+00000840  E1B2                     roxl       D2, D0
+00000842  0000 FFFF                ori.b      D0, 0xFF
+00000846  E1B6                     roxl       D6, D0
+00000848  0046 0000                ori.w      D6, 0x0
+0000084C  000A 0000                ori.b      A2, 0x0
+00000850  0FA0                     bclr       -[A0], D7
+00000852  000F 0006                ori.b      A7, 0x6
+00000856  0001 FFFF                ori.b      D1, 0xFF
+0000085A  E1C1                     asl   .w   D1
+0000085C  0000 FFFF                ori.b      D0, 0xFF
+00000860  E1CA                     asl   .w   A2
+00000862  0000 8020                ori.b      D0, 0x20 /* ' ' */
+00000866  000A 0000                ori.b      A2, 0x0
+0000086A  0001 0001                ori.b      D1, 0x1
+0000086E  0007 0001                ori.b      D7, 0x1
+00000872  FFFF                     .invalid   <<F/7/7>>
+00000874  E1D2                     asl   .w   [A2]
+00000876  0000 FFFF                ori.b      D0, 0xFF
+0000087A  E1D6                     asl   .w   [A6]
+0000087C  0000 0000                ori.b      D0, 0x0
+00000880  000A 0000                ori.b      A2, 0x0
+00000884  000A 0003                ori.b      A2, 0x3
+00000888  0008 0001                ori.b      A0, 0x1
+0000088C  FFFF                     .invalid   <<F/7/7>>
+0000088E  E1E1                     asl   .w   -[A1]
+00000890  0000 FFFF                ori.b      D0, 0xFF
+00000894  E1E5                     asl   .w   -[A5]
+00000896  0028 0020 000A           ori.b      [A0 + 0xA], 0x20 /* ' ' */
+0000089C  0000 00C8                ori.b      D0, 0xC8
+000008A0  0008 0002                ori.b      A0, 0x2
+000008A4  0001 FFFF                ori.b      D1, 0xFF
+000008A8  E1EC 0000                asl   .w   [A4 + 0x0]
+000008AC  FFFF                     .invalid   <<F/7/7>>
+000008AE  E1F8 0064                asl   .w   [0x00000064 /* __m68k_vec_via__ */]
+000008B2  0000 000A                ori.b      D0, 0xA /* '\n' */
+000008B6  0000 0025                ori.b      D0, 0x25 /* '%' */
+000008BA  0003 0009                ori.b      D3, 0x9 /* '\t' */
+000008BE  0001 FFFF                ori.b      D1, 0xFF
+000008C2  E1FE                     asl   .w   <<invalid special address>>
+000008C4  0000 FFFF                ori.b      D0, 0xFF
+000008C8  E202                     asr        D2.b, 1
+000008CA  000F 0040                ori.b      A7, 0x40 /* '@' */
+000008CE  000A 0000                ori.b      A2, 0x0
+000008D2  0005 0001                ori.b      D5, 0x1
+000008D6  0006 0001                ori.b      D6, 0x1
+000008DA  FFFF                     .invalid   <<F/7/7>>
+000008DC  E206                     asr        D6.b, 1
+000008DE  0000 FFFF                ori.b      D0, 0xFF
+000008E2  E20A                     lsr        D2.b, 1
+000008E4  0000 0010                ori.b      D0, 0x10
+000008E8  000A 0000                ori.b      A2, 0x0
+000008EC  0078 0008 0003           ori.w      [0x00000003], 0x8
+000008F2  0001 FFFF                ori.b      D1, 0xFF
+000008F6  E212                     roxr       D2.b, 1
+000008F8  0000 FFFF                ori.b      D0, 0xFF
+000008FC  E216                     roxr       D6.b, 1
+000008FE  001E 0020                ori.b      [A6]+, 0x20 /* ' ' */
+00000902  000A 0000                ori.b      A2, 0x0
+00000906  0020 0003                ori.b      -[A0], 0x3
+0000090A  0002 0001                ori.b      D2, 0x1
+0000090E  FFFF                     .invalid   <<F/7/7>>
+00000910  E21D                     ror        D5.b, 1
+00000912  0000 FFFF                ori.b      D0, 0xFF
+00000916  E229                     lsr        D1.b, D1
+00000918  0000 0020                ori.b      D0, 0x20 /* ' ' */
+0000091C  000A 0000                ori.b      A2, 0x0
+00000920  0009 0002                ori.b      A1, 0x2
+00000924  0003 0001                ori.b      D3, 0x1
+00000928  FFFF                     .invalid   <<F/7/7>>
+0000092A  E235                     roxr       D5.b, D1
+0000092C  0000 FFFF                ori.b      D0, 0xFF
+00000930  E239                     ror        D1.b, D1
+00000932  0000 0020                ori.b      D0, 0x20 /* ' ' */
+00000936  000A 0000                ori.b      A2, 0x0
+0000093A  0002 0002                ori.b      D2, 0x2
+0000093E  0008 0001                ori.b      A0, 0x1
+00000942  FFFF                     .invalid   <<F/7/7>>
+00000944  E23F                     ror        D7.b, D1
+00000946  0000 FFFF                ori.b      D0, 0xFF
+0000094A  E243                     asr        D3.w, 1
+0000094C  0032 0220 000A           ori.b      [A2 + D0.w + 0xA], 0x20 /* ' ' */
+00000952  0000 0078                ori.b      D0, 0x78 /* 'x' */
+00000956  0006 0004                ori.b      D6, 0x4
+0000095A  0001 FFFF                ori.b      D1, 0xFF
+0000095E  E249                     lsr        D1.w, 1
+00000960  0000 FFFF                ori.b      D0, 0xFF
+00000964  E255                     roxr       D5.w, 1
+00000966  0000 0020                ori.b      D0, 0x20 /* ' ' */
+0000096A  000A 0000                ori.b      A2, 0x0
+0000096E  00BE 0007 FFFE           ori.l      <<invalid special address>>, 0x7FFFE
+00000974  0001 FFFF                ori.b      D1, 0xFF
+00000978  E25D                     ror        D5.w, 1
+0000097A  0000 FFFF                ori.b      D0, 0xFF
+0000097E  E26D                     lsr        D5.w, D1
+00000980  0014 0220                ori.b      [A4], 0x20 /* ' ' */
+00000984  000A 0000                ori.b      A2, 0x0
+00000988  015E                     bchg       [A6]+, D0
+0000098A  0008 0001                ori.b      A0, 0x1
+0000098E  0001 FFFF                ori.b      D1, 0xFF
+00000992  E275                     roxr       D5.w, D1
+00000994  0000 FFFF                ori.b      D0, 0xFF
+00000998  E27A                     ror        D2.w, D1
+0000099A  0000 0000                ori.b      D0, 0x0
+0000099E  000A 0000                ori.b      A2, 0x0
+000009A2  0037 0005 0004           ori.b      [A7 + D0.w + 0x4], 0x5
+000009A8  0001 FFFF                ori.b      D1, 0xFF
+000009AC  E281                     asr        D1, 1
+000009AE  0000 FFFF                ori.b      D0, 0xFF
+000009B2  E285                     asr        D5, 1
+000009B4  001E 0000                ori.b      [A6]+, 0x0
+000009B8  000A 0000                ori.b      A2, 0x0
+000009BC  0064 0007                ori.w      -[A4], 0x7
+000009C0  0007 0001                ori.b      D7, 0x1
+000009C4  FFFF                     .invalid   <<F/7/7>>
+000009C6  E28B                     lsr        D3, 1
+000009C8  0000 FFFF                ori.b      D0, 0xFF
+000009CC  E28F                     lsr        D7, 1
+000009CE  001E 0000                ori.b      [A6]+, 0x0
+000009D2  000A 0000                ori.b      A2, 0x0
+000009D6  0032 0004 0006           ori.b      [A2 + D0.w + 0x6], 0x4
+000009DC  0001 FFFF                ori.b      D1, 0xFF
+000009E0  E294                     roxr       D4, 1
+000009E2  0000 FFFF                ori.b      D0, 0xFF
+000009E6  E29C                     ror        D4, 1
+000009E8  0000 0020                ori.b      D0, 0x20 /* ' ' */
+000009EC  000A 0000                ori.b      A2, 0x0
+000009F0  0006 0002                ori.b      D6, 0x2
+000009F4  0008 0001                ori.b      A0, 0x1
+000009F8  FFFF                     .invalid   <<F/7/7>>
+000009FA  E2A3                     asr        D3, D1
+000009FC  0000 6171                ori.b      D0, 0x71 /* 'q' */
+00000A00  7561                     moveq.l    D2, 0x61
+00000A02  746F                     moveq.l    D2, 0x6F
+00000A04  7200                     moveq.l    D1, 0x00
+00000A06  3064                     movea.w    A0, -[A4]
+00000A08  302F 3064                move.w     D0, [A7 + 0x3064]
+00000A0C  3000                     move.w     D0, D0
+00000A0E  6261                     bhi        +0x63 /* 00000A71 */
+00000A10  7400                     moveq.l    D2, 0x00
+00000A12  3164 3200                move.w     [A0 + 0x3200], -[A4]
+00000A16  6365                     bls        +0x67 /* 00000A7D */
+00000A18  6E74                     bgt        +0x76 /* 00000A8E */
+00000A1A  6175                     bsr        +0x77 /* 00000A91 */
+00000A1C  7200                     moveq.l    D1, 0x00
+00000A1E  3164 362F                move.w     [A0 + 0x362F], -[A4]
+00000A22  3164 3600                move.w     [A0 + 0x3600], -[A4]
+00000A26  6472                     bcc        +0x74 /* 00000A9A */
+00000A28  6167                     bsr        +0x69 /* 00000A91 */
+00000A2A  6F6E                     ble        +0x70 /* 00000A9A */
+00000A2C  0031 6438 2F31 6438 2F33 ori.b      [[A1 + 0x64382F33 + D2 * 8]], 0x38 /* '8' */
+00000A36  6431                     bcc        +0x33 /* 00000A69 */
+00000A38  3000                     move.w     D0, D0
+00000A3A  656D                     bcs        +0x6F /* 00000AA9 */
+00000A3C  7500                     moveq.l    D2, 0x00
+00000A3E  3164 3200                move.w     [A0 + 0x3200], -[A4]
+00000A42  7665                     moveq.l    D3, 0x65
+00000A44  6E75                     bgt        +0x77 /* 00000ABB */
+00000A46  7320                     moveq.l    D1, 0x20
+00000A48  666C                     bne        +0x6E /* 00000AB6 */
+00000A4A  7974                     moveq.l    D4, 0x74
+00000A4C  7261                     moveq.l    D1, 0x61
+00000A4E  7000                     moveq.l    D0, 0x00
+00000A50  2525                     move.l     -[A2], -[A5]
+00000A52  2564 3000                move.l     [A2 + 0x3000], -[A4]
+00000A56  6772                     beq        +0x74 /* 00000ACA */
+00000A58  6966                     bvs        +0x68 /* 00000AC0 */
+00000A5A  6669                     bne        +0x6B /* 00000AC5 */
+00000A5C  6E00 3464                bgt        +0x3466 /* 00003EC2 */
+00000A60  332F 3364                move.w     -[A1], [A7 + 0x3364]
+00000A64  352F 3464                move.w     -[A2], [A7 + 0x3464]
+00000A68  3300                     move.w     -[A1], D0
+00000A6A  686F                     bvc        +0x71 /* 00000ADB */
+00000A6C  6267                     bhi        +0x69 /* 00000AD5 */
+00000A6E  6F62                     ble        +0x64 /* 00000AD2 */
+00000A70  6C69                     bge        +0x6B /* 00000ADB */
+00000A72  6E00 3164                bgt        +0x3166 /* 00003BD8 */
+00000A76  3800                     move.w     D4, D0
+00000A78  6963                     bvs        +0x65 /* 00000ADD */
+00000A7A  6520                     bcs        +0x22 /* 00000A9C */
+00000A7C  6D6F                     blt        +0x71 /* 00000AED */
+00000A7E  6E73                     bgt        +0x75 /* 00000AF3 */
+00000A80  7465                     moveq.l    D2, 0x65
+00000A82  7200                     moveq.l    D1, 0x00
+00000A84  3164 3200                move.w     [A0 + 0x3200], -[A4]
+00000A88  6A61                     bpl        +0x63 /* 00000AEB */
+00000A8A  6262                     bhi        +0x64 /* 00000AEE */
+00000A8C  6572                     bcs        +0x74 /* 00000B00 */
+label00000A8E:
+00000A8E  776F                     moveq.l    D3, 0x6F
+00000A90  636B                     bls        +0x6D /* 00000AFD */
+00000A92  0032 6431 322F           ori.b      [A2 + D3.w * 2 + 0x2F], 0x31 /* '1' */
+00000A98  3264                     movea.w    A1, -[A4]
+label00000A9A:
+00000A9A  3400                     move.w     D2, D0
+label00000A9C:
+00000A9C  6B65                     bmi        +0x67 /* 00000B03 */
+00000A9E  7374                     moveq.l    D1, 0x74
+00000AA0  7261                     moveq.l    D1, 0x61
+00000AA2  6C00 3164                bge        +0x3166 /* 00003C08 */
+00000AA6  3400                     move.w     D2, D0
+00000AA8  6C65                     bge        +0x67 /* 00000B0F */
+00000AAA  7072                     moveq.l    D0, 0x72
+00000AAC  6563                     bcs        +0x65 /* 00000B11 */
+00000AAE  6861                     bvc        +0x63 /* 00000B11 */
+00000AB0  756E                     moveq.l    D2, 0x6E
+00000AB2  0031 6432 006D           ori.b      [A1 + D0.w + 0x6D], 0x32 /* '2' */
+// begin alternate branch 00000AB6-00000ABC
+label00000AB6:
+00000AB6  006D 6564 7573           ori.w      [A5 + 0x7573], 0x6564 /* 'ed' */
+// end alternate branch 00000AB6-00000ABC
+label00000AB6: // (misaligned)
+00000AB8  6564                     bcs        +0x66 /* 00000B1E */
+00000ABA  7573                     moveq.l    D2, 0x73
+00000ABC  6100 3364                bsr        +0x3366 /* 00003E22 */
+label00000AC0:
+00000AC0  342F 3364                move.w     D2, [A7 + 0x3364]
+00000AC4  342F 3264                move.w     D2, [A7 + 0x3264]
+00000AC8  3500                     move.w     -[A2], D0
+label00000ACA:
+00000ACA  6E79                     bgt        +0x7B /* 00000B45 */
+00000ACC  6D70                     blt        +0x72 /* 00000B3E */
+00000ACE  6800 3064                bvc        +0x3066 /* 00003B34 */
+label00000AD2:
+00000AD2  3000                     move.w     D0, D0
+00000AD4  6F72                     ble        +0x74 /* 00000B48 */
+00000AD6  6300 3164                bls        +0x3166 /* 00003C3C */
+00000ADA  3800                     move.w     D4, D0
+00000ADC  7068                     moveq.l    D0, 0x68
+00000ADE  616E                     bsr        +0x70 /* 00000B4E */
+00000AE0  746F                     moveq.l    D2, 0x6F
+00000AE2  6D00 3464                blt        +0x3466 /* 00003F48 */
+00000AE6  3400                     move.w     D2, D0
+00000AE8  7175                     moveq.l    D0, 0x75
+00000AEA  6167                     bsr        +0x69 /* 00000B53 */
+00000AEC  6761                     beq        +0x63 /* 00000B4F */
+label00000AEE:
+00000AEE  0031 6432 2F31 6432 2F31 ori.b      [[A1 + 0x64322F31 + D2 * 8]], 0x32 /* '2' */
+00000AF8  6434                     bcc        +0x36 /* 00000B2E */
+00000AFA  0072 6174 746C           ori.w      [A2 + D7.w * 4 + 0x6C], 0x6174 /* 'at' */
+label00000B00:
+00000B00  6573                     bcs        +0x75 /* 00000B75 */
+00000B02  6E61                     bgt        +0x63 /* 00000B65 */
+00000B04  6B65                     bmi        +0x67 /* 00000B6B */
+00000B06  0031 6436 0073           ori.b      [A1 + D0.w + 0x73], 0x36 /* '6' */
+00000B0C  6C69                     bge        +0x6B /* 00000B77 */
+00000B0E  6D65                     blt        +0x67 /* 00000B75 */
+00000B10  0031 6433 0074           ori.b      [A1 + D0.w + 0x74], 0x33 /* '3' */
+00000B16  726F                     moveq.l    D1, 0x6F
+00000B18  6C6C                     bge        +0x6E /* 00000B86 */
+00000B1A  0031 6438 2F31 6438 2F32 ori.b      [[A1 + 0x64382F32 + D2 * 8]], 0x38 /* '8' */
+// begin alternate branch 00000B1E-00000B26
+label00000B1E:
+00000B1E  2F31 6438                move.l     -[A7], [A1 + D6.w * 4 + 0x38]
+00000B22  2F32 6436                move.l     -[A7], [A2 + D6.w * 4 + 0x36]
+// end alternate branch 00000B1E-00000B26
+label00000B1E: // (misaligned)
+00000B24  6436                     bcc        +0x38 /* 00000B5C */
+00000B26  0075 722D 7669           ori.w      [A5 + D7.w * 8 + 0x69], 0x722D /* 'r-' */
+00000B2C  6C65                     bge        +0x67 /* 00000B93 */
+label00000B2E:
+00000B2E  0031 6433 2F31 6433 2F31 ori.b      [[A1 + 0x64332F31 + D2 * 8]], 0x33 /* '3' */
+00000B38  6433                     bcc        +0x35 /* 00000B6D */
+00000B3A  2F34 6436                move.l     -[A7], [A4 + D6.w * 4 + 0x36]
+label00000B3E:
+00000B3E  0076 616D 7069           ori.w      [A6 + D7.w + 0x69], 0x616D /* 'am' */
+00000B44  7265                     moveq.l    D1, 0x65
+00000B46  0031 6431 3000           ori.b      [A1 + D3.w], 0x31 /* '1' */
+// begin alternate branch 00000B48-00000B4C
+label00000B48:
+00000B48  6431                     bcc        +0x33 /* 00000B7B */
+00000B4A  3000                     move.w     D0, D0
+// end alternate branch 00000B48-00000B4C
+label00000B48: // (misaligned)
+00000B4C  7772                     moveq.l    D3, 0x72
+fn00000B4E:
+00000B4E  6169                     bsr        +0x6B /* 00000BB9 */
+00000B50  7468                     moveq.l    D2, 0x68
+00000B52  0031 6436 0078           ori.b      [A1 + D0.w + 0x78], 0x36 /* '6' */
+00000B58  6572                     bcs        +0x74 /* 00000BCC */
+00000B5A  6F63                     ble        +0x65 /* 00000BBF */
+label00000B5C:
+00000B5C  0033 6434 0079           ori.b      [A3 + D0.w + 0x79], 0x34 /* '4' */
+00000B62  6574                     bcs        +0x76 /* 00000BD8 */
+00000B64  6900 3164                bvs        +0x3166 /* 00003CCA */
+00000B68  362F 3164                move.w     D3, [A7 + 0x3164]
+00000B6C  3600                     move.w     D3, D0
+00000B6E  7A6F                     moveq.l    D5, 0x6F
+00000B70  6D62                     blt        +0x64 /* 00000BD4 */
+00000B72  6965                     bvs        +0x67 /* 00000BD9 */
+00000B74  0031 6438 0000           ori.b      [A1 + D0.w], 0x38 /* '8' */
+00000B7A  FFFF                     .invalid   <<F/7/7>>
+00000B7C  E320                     asl        D0.b, D1
+00000B7E  FFFF                     .invalid   <<F/7/7>>
+00000B80  E324                     asl        D4.b, D1
+00000B82  6400 0000                bcc        +0x2 /* 00000B84 */
+// begin alternate branch 00000B84-00000B88
+label00000B84:
+00000B84  0000 FFFF                ori.b      D0, 0xFF
+// end alternate branch 00000B84-00000B88
+label00000B84: // (misaligned)
+label00000B86:
+00000B86  FFFF                     .invalid   <<F/7/7>>
+00000B88  E328                     lsl        D0.b, D1
+00000B8A  FFFF                     .invalid   <<F/7/7>>
+00000B8C  E32C                     lsl        D4.b, D1
+00000B8E  6400 0000                bcc        +0x2 /* 00000B90 */
+// begin alternate branch 00000B90-00000B94
+label00000B90:
+00000B90  0000 FFFF                ori.b      D0, 0xFF
+// end alternate branch 00000B90-00000B94
+label00000B90: // (misaligned)
+00000B92  FFFF                     .invalid   <<F/7/7>>
+00000B94  E330                     roxl       D0.b, D1
+00000B96  FFFF                     .invalid   <<F/7/7>>
+00000B98  E334                     roxl       D4.b, D1
+00000B9A  6400 0000                bcc        +0x2 /* 00000B9C */
+// begin alternate branch 00000B9C-00000BA0
+label00000B9C:
+00000B9C  0000 FFFF                ori.b      D0, 0xFF
+// end alternate branch 00000B9C-00000BA0
+label00000B9C: // (misaligned)
+00000B9E  FFFF                     .invalid   <<F/7/7>>
+00000BA0  E338                     rol        D0.b, D1
+00000BA2  FFFF                     .invalid   <<F/7/7>>
+00000BA4  E33C                     rol        D4.b, D1
+00000BA6  0200 0030                andi.b     D0, 0x30 /* '0' */
+00000BAA  FFFF                     .invalid   <<F/7/7>>
+00000BAC  E340                     asl        D0.w, 1
+00000BAE  FFFF                     .invalid   <<F/7/7>>
+00000BB0  E344                     asl        D4.w, 1
+00000BB2  6400 0010                bcc        +0x12 /* 00000BC4 */
+00000BB6  FFFF                     .invalid   <<F/7/7>>
+00000BB8  E348                     lsl        D0.w, 1
+00000BBA  FFFF                     .invalid   <<F/7/7>>
+00000BBC  E34C                     lsl        D4.w, 1
+00000BBE  6400 0000                bcc        +0x2 /* 00000BC0 */
+// begin alternate branch 00000BC0-00000BC4
+label00000BC0:
+00000BC0  0000 FFFF                ori.b      D0, 0xFF
+// end alternate branch 00000BC0-00000BC4
+label00000BC0: // (misaligned)
+00000BC2  FFFF                     .invalid   <<F/7/7>>
+label00000BC4:
+00000BC4  E350                     roxl       D0.w, 1
+00000BC6  FFFF                     .invalid   <<F/7/7>>
+00000BC8  E354                     roxl       D4.w, 1
+00000BCA  6400 0030                bcc        +0x32 /* 00000BFC */
+// begin alternate branch 00000BCC-00000BD2
+label00000BCC:
+00000BCC  0030 FFFF E358           ori.b      [A0], 0xFF
+// end alternate branch 00000BCC-00000BD2
+label00000BCC: // (misaligned)
+00000BCE  FFFF                     .invalid   <<F/7/7>>
+00000BD0  E358                     rol        D0.w, 1
+00000BD2  FFFF                     .invalid   <<F/7/7>>
+label00000BD4:
+00000BD4  E35C                     rol        D4.w, 1
+00000BD6  6400 0000                bcc        +0x2 /* 00000BD8 */
+// begin alternate branch 00000BD8-00000BDC
+label00000BD8:
+00000BD8  0000 FFFF                ori.b      D0, 0xFF
+// end alternate branch 00000BD8-00000BDC
+label00000BD8: // (misaligned)
+00000BDA  FFFF                     .invalid   <<F/7/7>>
+00000BDC  E360                     asl        D0.w, D1
+00000BDE  FFFF                     .invalid   <<F/7/7>>
+00000BE0  E364                     asl        D4.w, D1
+00000BE2  0700                     btst       D0, D3
+00000BE4  0030 FFFF E368 FFFF      ori.b      [A0 - 0x1], 0xFF
+00000BEC  E36C                     lsl        D4.w, D1
+00000BEE  6400 0010                bcc        +0x12 /* 00000C00 */
+00000BF2  3264                     movea.w    A1, -[A4]
+00000BF4  3400                     move.w     D2, D0
+00000BF6  3164 3300                move.w     [A0 + 0x3300], -[A4]
+00000BFA  3364 3400                move.w     [A1 + 0x3400], -[A4]
+// begin alternate branch 00000BFC-00000BFE
+label00000BFC:
+00000BFC  3400                     move.w     D2, D0
+// end alternate branch 00000BFC-00000BFE
+label00000BFC: // (misaligned)
+00000BFE  3164 3200                move.w     [A0 + 0x3200], -[A4]
+// begin alternate branch 00000C00-00000C02
+label00000C00:
+00000C00  3200                     move.w     D1, D0
+// end alternate branch 00000C00-00000C02
+label00000C00: // (misaligned)
+00000C02  3164 3100                move.w     [A0 + 0x3100], -[A4]
+00000C06  3164 3100                move.w     [A0 + 0x3100], -[A4]
+00000C0A  3164 3100                move.w     [A0 + 0x3100], -[A4]
+00000C0E  3264                     movea.w    A1, -[A4]
+00000C10  3300                     move.w     -[A1], D0
+00000C12  3164 3600                move.w     [A0 + 0x3600], -[A4]
+00000C16  3164 3400                move.w     [A0 + 0x3400], -[A4]
+00000C1A  3464                     movea.w    A2, -[A4]
+00000C1C  3400                     move.w     D2, D0
+00000C1E  3164 3200                move.w     [A0 + 0x3200], -[A4]
+00000C22  3164 3100                move.w     [A0 + 0x3100], -[A4]
+00000C26  3164 3300                move.w     [A0 + 0x3300], -[A4]
+00000C2A  3164 3100                move.w     [A0 + 0x3100], -[A4]
+00000C2E  3164 3100                move.w     [A0 + 0x3100], -[A4]
+00000C32  3164 3200                move.w     [A0 + 0x3200], -[A4]
+00000C36  3264                     movea.w    A1, -[A4]
+00000C38  3500                     move.w     -[A2], D0
+00000C3A  3264                     movea.w    A1, -[A4]
+00000C3C  3300                     move.w     -[A1], D0
+00000C3E  3164 3600                move.w     [A0 + 0x3600], -[A4]
+00000C42  0000 0000                ori.b      D0, 0x0
+00000C46  001B 0000                ori.b      [A3]+, 0x0
+00000C4A  0000 0000                ori.b      D0, 0x0
+00000C4E  0039 0000 0000 0000      ori.b      [0x00000000 /* __m68k_reset_stack__ */], 0x0
+00000C56  004A 0000                ori.w      A2, 0x0
+00000C5A  0000 0000                ori.b      D0, 0x0
+00000C5E  0052 0000                ori.w      [A2], 0x0
+00000C62  0000 0000                ori.b      D0, 0x0
+00000C66  005A 0000                ori.w      [A2]+, 0x0
+00000C6A  0000 0000                ori.b      D0, 0x0
+00000C6E  005F 0000                ori.w      [A7]+, 0x0
+00000C72  0000 0000                ori.b      D0, 0x0
+00000C76  0064 0000                ori.w      -[A4], 0x0
+00000C7A  0000 FFFF                ori.b      D0, 0xFF
+00000C7E  E3A8                     lsl        D0, D1
+00000C80  FFFF                     .invalid   <<F/7/7>>
+00000C82  E3B2                     roxl       D2, D1
+00000C84  4D61                     chk.w      D6, -[A1]
+00000C86  6E67                     bgt        +0x69 /* 00000CEF */
+00000C88  6F00 FFFF                ble        -0xFFFFFFFFFFFFFFFF /* 00000C89 */
+00000C8C  E3BC                     rol        D4, D1
+00000C8E  536F 6674                subq.w     [A7 + 0x6674], 1
+00000C92  7761                     moveq.l    D3, 0x61
+00000C94  7265                     moveq.l    D1, 0x65
+00000C96  2050                     movea.l    A0, [A0]
+00000C98  6972                     bvs        +0x74 /* 00000D0C */
+00000C9A  6174                     bsr        +0x76 /* 00000D10 */
+00000C9C  6500 FFFF                bcs        -0xFFFFFFFFFFFFFFFF /* 00000C9D */
+00000CA0  E3D0                     lsl   .w   [A0]
+00000CA2  436F 7079                chk.w      D1, [A7 + 0x7079]
+00000CA6  2050                     movea.l    A0, [A0]
+00000CA8  726F                     moveq.l    D1, 0x6F
+00000CAA  7465                     moveq.l    D2, 0x65
+00000CAC  6374                     bls        +0x76 /* 00000D22 */
+00000CAE  696F                     bvs        +0x71 /* 00000D1F */
+00000CB0  6E20                     bgt        +0x22 /* 00000CD2 */
+00000CB2  4D61                     chk.w      D6, -[A1]
+00000CB4  6669                     bne        +0x6B /* 00000D1F */
+00000CB6  6100 FFFF                bsr        -0xFFFFFFFFFFFFFFFF /* 00000CB7 */
+00000CBA  E3EA 206F                lsl   .w   [A2 + 0x206F]
+00000CBE  6620                     bne        +0x22 /* 00000CE0 */
+00000CC0  696E                     bvs        +0x70 /* 00000D30 */
+00000CC2  7465                     moveq.l    D2, 0x65
+00000CC4  6E73                     bgt        +0x75 /* 00000D39 */
+00000CC6  6520                     bcs        +0x22 /* 00000CE8 */
+00000CC8  7768                     moveq.l    D3, 0x68
+00000CCA  6974                     bvs        +0x76 /* 00000D40 */
+00000CCC  6520                     bcs        +0x22 /* 00000CEE */
+00000CCE  6C69                     bge        +0x6B /* 00000D39 */
+00000CD0  6768                     beq        +0x6A /* 00000D3A */
+label00000CD2:
+00000CD2  7400                     moveq.l    D2, 0x00
+00000CD4  FFFF                     .invalid   <<F/7/7>>
+00000CD6  E406                     asr        D6.b, 2
+00000CD8  796F                     moveq.l    D4, 0x6F
+00000CDA  7572                     moveq.l    D2, 0x72
+00000CDC  2025                     move.l     D0, -[A5]
+00000CDE  7320                     moveq.l    D1, 0x20
+label00000CE0:
+00000CE0  6769                     beq        +0x6B /* 00000D4B */
+00000CE2  7665                     moveq.l    D3, 0x65
+00000CE4  7320                     moveq.l    D1, 0x20
+00000CE6  6F66                     ble        +0x68 /* 00000D4E */
+label00000CE8:
+00000CE8  6620                     bne        +0x22 /* 00000D0A */
+00000CEA  6120                     bsr        +0x22 /* 00000D0C */
+00000CEC  666C                     bne        +0x6E /* 00000D5A */
+label00000CEE:
+00000CEE  6173                     bsr        +0x75 /* 00000D63 */
+00000CF0  6825                     bvc        +0x27 /* 00000D17 */
+00000CF2  7300                     moveq.l    D1, 0x00
+00000CF4  FFFF                     .invalid   <<F/7/7>>
+00000CF6  E426                     asr        D6.b, D2
+00000CF8  6974                     bvs        +0x76 /* 00000D6E */
+00000CFA  0000 FFFF                ori.b      D0, 0xFF
+00000CFE  E42E                     lsr        D6.b, D2
+00000D00  796F                     moveq.l    D4, 0x6F
+00000D02  7500                     moveq.l    D2, 0x00
+00000D04  FFFF                     .invalid   <<F/7/7>>
+00000D06  E436                     roxr       D6.b, D2
+00000D08  4E6F                     move       A7, USP
+label00000D0A:
+00000D0A  7420                     moveq.l    D2, 0x20
+fn00000D0C:
+00000D0C  656E                     bcs        +0x70 /* 00000D7C */
+00000D0E  6F75                     ble        +0x77 /* 00000D85 */
+fn00000D10:
+00000D10  6768                     beq        +0x6A /* 00000D7A */
+00000D12  204D                     movea.l    A0, A5
+00000D14  656D                     bcs        +0x6F /* 00000D83 */
+00000D16  6F72                     ble        +0x74 /* 00000D8A */
+00000D18  7900                     moveq.l    D4, 0x00
+00000D1A  FFFF                     .invalid   <<F/7/7>>
+00000D1C  E450                     roxr       D0.w, 2
+00000D1E  FFFF                     .invalid   <<F/7/7>>
+00000D20  E455                     roxr       D5.w, 2
+label00000D22:
+00000D22  7761                     moveq.l    D3, 0x61
+00000D24  6E64                     bgt        +0x66 /* 00000D8A */
+00000D26  0073 7461 6666           ori.w      [A3 + D6.w * 8 + 0x66], 0x7461 /* 'ta' */
+00000D2C  0000 FFFF                ori.b      D0, 0xFF
+label00000D30:
+00000D30  E460                     asr        D0.w, D2
+00000D32  3164 3400                move.w     [A0 + 0x3400], -[A4]
+00000D36  FFFF                     .invalid   <<F/7/7>>
+00000D38  E468                     lsr        D0.w, D2
+label00000D3A:
+00000D3A  3064                     movea.w    A0, -[A4]
+00000D3C  3000                     move.w     D0, D0
+00000D3E  0000 0000                ori.b      D0, 0x0
+// begin alternate branch 00000D40-00000D7C
+label00000D40:
+00000D40  0000 0000                ori.b      D0, 0x0
+00000D44  0000 0000                ori.b      D0, 0x0
+00000D48  0000 0000                ori.b      D0, 0x0
+00000D4C  0000 0000                ori.b      D0, 0x0
+label00000D4E: // (misaligned)
+00000D50  0000 0000                ori.b      D0, 0x0
+00000D54  0000 0000                ori.b      D0, 0x0
+00000D58  0000 0000                ori.b      D0, 0x0
+label00000D5A: // (misaligned)
+00000D5C  0000 0000                ori.b      D0, 0x0
+00000D60  0000 0000                ori.b      D0, 0x0
+00000D64  0000 0000                ori.b      D0, 0x0
+00000D68  0000 0000                ori.b      D0, 0x0
+00000D6C  0000 0000                ori.b      D0, 0x0
+label00000D6E: // (misaligned)
+00000D70  0000 0000                ori.b      D0, 0x0
+00000D74  0000 0000                ori.b      D0, 0x0
+00000D78  0000 0000                ori.b      D0, 0x0
+// end alternate branch 00000D40-00000D7C
+label00000D40: // (misaligned)
+00000D42  0000 0000                ori.b      D0, 0x0
+00000D46  0000 0000                ori.b      D0, 0x0
+00000D4A  0000 0000                ori.b      D0, 0x0
+label00000D4E:
+00000D4E  0000 0000                ori.b      D0, 0x0
+00000D52  0000 0000                ori.b      D0, 0x0
+00000D56  0000 0000                ori.b      D0, 0x0
+label00000D5A:
+00000D5A  0000 0000                ori.b      D0, 0x0
+00000D5E  0000 0000                ori.b      D0, 0x0
+00000D62  0000 0000                ori.b      D0, 0x0
+00000D66  0000 0000                ori.b      D0, 0x0
+00000D6A  0000 0000                ori.b      D0, 0x0
+label00000D6E:
+00000D6E  0000 0000                ori.b      D0, 0x0
+00000D72  0000 0000                ori.b      D0, 0x0
+00000D76  0000 0000                ori.b      D0, 0x0
+label00000D7A:
+00000D7A  0000 0000                ori.b      D0, 0x0
+// begin alternate branch 00000D7C-00000D84
+label00000D7C:
+00000D7C  0000 0000                ori.b      D0, 0x0
+00000D80  0000 0100                ori.b      D0, 0x0
+// end alternate branch 00000D7C-00000D84
+label00000D7C: // (misaligned)
+00000D7E  0000 0000                ori.b      D0, 0x0
+00000D82  0100                     btst       D0, D0
+00000D84  0000 0000                ori.b      D0, 0x0
+00000D88  0000 0000                ori.b      D0, 0x0
+// begin alternate branch 00000D8A-00001370
+label00000D8A:
+00000D8A  0000 0001                ori.b      D0, 0x1
+00000D8E  0000 0000                ori.b      D0, 0x0
+00000D92  0000 0000                ori.b      D0, 0x0
+00000D96  0000 0000                ori.b      D0, 0x0
+00000D9A  0000 0000                ori.b      D0, 0x0
+00000D9E  0000 0000                ori.b      D0, 0x0
+00000DA2  0000 0002                ori.b      D0, 0x2
+00000DA6  0000 0000                ori.b      D0, 0x0
+00000DAA  0000 0000                ori.b      D0, 0x0
+00000DAE  0000 0000                ori.b      D0, 0x0
+00000DB2  0000 0000                ori.b      D0, 0x0
+00000DB6  0000 0000                ori.b      D0, 0x0
+00000DBA  0000 0000                ori.b      D0, 0x0
+00000DBE  0000 0000                ori.b      D0, 0x0
+00000DC2  0000 0000                ori.b      D0, 0x0
+00000DC6  0000 0000                ori.b      D0, 0x0
+00000DCA  0000 0000                ori.b      D0, 0x0
+00000DCE  0000 0000                ori.b      D0, 0x0
+00000DD2  0000 0000                ori.b      D0, 0x0
+00000DD6  0000 0000                ori.b      D0, 0x0
+00000DDA  0000 0000                ori.b      D0, 0x0
+00000DDE  0000 0000                ori.b      D0, 0x0
+00000DE2  0000 0000                ori.b      D0, 0x0
+00000DE6  0000 0000                ori.b      D0, 0x0
+00000DEA  0000 0000                ori.b      D0, 0x0
+00000DEE  0000 0000                ori.b      D0, 0x0
+00000DF2  0000 0000                ori.b      D0, 0x0
+00000DF6  0000 0000                ori.b      D0, 0x0
+00000DFA  0000 0000                ori.b      D0, 0x0
+00000DFE  0000 0000                ori.b      D0, 0x0
+00000E02  0000 0000                ori.b      D0, 0x0
+00000E06  0000 0000                ori.b      D0, 0x0
+00000E0A  0000 0000                ori.b      D0, 0x0
+00000E0E  0000 0000                ori.b      D0, 0x0
+00000E12  0000 0000                ori.b      D0, 0x0
+00000E16  0000 0000                ori.b      D0, 0x0
+00000E1A  0000 0000                ori.b      D0, 0x0
+00000E1E  0000 0000                ori.b      D0, 0x0
+00000E22  0000 0000                ori.b      D0, 0x0
+00000E26  0000 0000                ori.b      D0, 0x0
+00000E2A  0000 0000                ori.b      D0, 0x0
+00000E2E  0000 0000                ori.b      D0, 0x0
+00000E32  0000 0000                ori.b      D0, 0x0
+00000E36  0000 0000                ori.b      D0, 0x0
+00000E3A  0000 0000                ori.b      D0, 0x0
+00000E3E  0000 0000                ori.b      D0, 0x0
+00000E42  0000 0000                ori.b      D0, 0x0
+00000E46  0000 0000                ori.b      D0, 0x0
+00000E4A  0000 0000                ori.b      D0, 0x0
+00000E4E  0000 0000                ori.b      D0, 0x0
+00000E52  0000 0000                ori.b      D0, 0x0
+00000E56  0000 0000                ori.b      D0, 0x0
+00000E5A  0000 0000                ori.b      D0, 0x0
+00000E5E  0000 0000                ori.b      D0, 0x0
+00000E62  0000 0000                ori.b      D0, 0x0
+00000E66  0000 0000                ori.b      D0, 0x0
+00000E6A  0000 0000                ori.b      D0, 0x0
+00000E6E  0000 0000                ori.b      D0, 0x0
+00000E72  0000 0000                ori.b      D0, 0x0
+00000E76  0000 0000                ori.b      D0, 0x0
+00000E7A  0000 0000                ori.b      D0, 0x0
+00000E7E  0000 0000                ori.b      D0, 0x0
+00000E82  0000 0000                ori.b      D0, 0x0
+00000E86  0000 0000                ori.b      D0, 0x0
+00000E8A  0000 0000                ori.b      D0, 0x0
+00000E8E  0000 0000                ori.b      D0, 0x0
+00000E92  0000 0000                ori.b      D0, 0x0
+00000E96  0000 0000                ori.b      D0, 0x0
+00000E9A  0000 0000                ori.b      D0, 0x0
+00000E9E  0000 0000                ori.b      D0, 0x0
+00000EA2  0000 0000                ori.b      D0, 0x0
+00000EA6  0000 0000                ori.b      D0, 0x0
+00000EAA  0000 0000                ori.b      D0, 0x0
+00000EAE  0000 0000                ori.b      D0, 0x0
+00000EB2  0000 0000                ori.b      D0, 0x0
+00000EB6  0000 0000                ori.b      D0, 0x0
+00000EBA  0000 0000                ori.b      D0, 0x0
+00000EBE  0000 0000                ori.b      D0, 0x0
+00000EC2  0000 0000                ori.b      D0, 0x0
+00000EC6  0000 0000                ori.b      D0, 0x0
+00000ECA  0000 0000                ori.b      D0, 0x0
+00000ECE  0000 0000                ori.b      D0, 0x0
+00000ED2  0000 0000                ori.b      D0, 0x0
+00000ED6  0000 0000                ori.b      D0, 0x0
+00000EDA  0000 0000                ori.b      D0, 0x0
+00000EDE  0000 0000                ori.b      D0, 0x0
+00000EE2  0000 0000                ori.b      D0, 0x0
+00000EE6  0000 0000                ori.b      D0, 0x0
+00000EEA  0000 0000                ori.b      D0, 0x0
+00000EEE  0000 0000                ori.b      D0, 0x0
+00000EF2  0000 0000                ori.b      D0, 0x0
+00000EF6  0000 0000                ori.b      D0, 0x0
+00000EFA  0000 0000                ori.b      D0, 0x0
+00000EFE  0000 0000                ori.b      D0, 0x0
+00000F02  0000 0000                ori.b      D0, 0x0
+00000F06  0000 0000                ori.b      D0, 0x0
+00000F0A  0000 0000                ori.b      D0, 0x0
+00000F0E  0000 0000                ori.b      D0, 0x0
+00000F12  0000 0000                ori.b      D0, 0x0
+00000F16  0000 0000                ori.b      D0, 0x0
+00000F1A  0000 0000                ori.b      D0, 0x0
+00000F1E  0000 0000                ori.b      D0, 0x0
+00000F22  0000 0000                ori.b      D0, 0x0
+00000F26  0000 0000                ori.b      D0, 0x0
+00000F2A  0000 0000                ori.b      D0, 0x0
+00000F2E  0000 0000                ori.b      D0, 0x0
+00000F32  0000 0000                ori.b      D0, 0x0
+00000F36  0000 0000                ori.b      D0, 0x0
+00000F3A  0000 0000                ori.b      D0, 0x0
+00000F3E  0000 0000                ori.b      D0, 0x0
+00000F42  0000 0000                ori.b      D0, 0x0
+00000F46  0000 0000                ori.b      D0, 0x0
+00000F4A  0000 0000                ori.b      D0, 0x0
+00000F4E  0000 0000                ori.b      D0, 0x0
+00000F52  0000 0000                ori.b      D0, 0x0
+00000F56  0000 0000                ori.b      D0, 0x0
+00000F5A  0000 0000                ori.b      D0, 0x0
+00000F5E  0000 0000                ori.b      D0, 0x0
+00000F62  0000 0000                ori.b      D0, 0x0
+00000F66  0000 0000                ori.b      D0, 0x0
+00000F6A  0000 0000                ori.b      D0, 0x0
+00000F6E  0000 0000                ori.b      D0, 0x0
+00000F72  0000 0000                ori.b      D0, 0x0
+00000F76  0000 0000                ori.b      D0, 0x0
+00000F7A  0000 0000                ori.b      D0, 0x0
+00000F7E  0000 0000                ori.b      D0, 0x0
+00000F82  0000 0000                ori.b      D0, 0x0
+00000F86  0000 0000                ori.b      D0, 0x0
+00000F8A  0000 0000                ori.b      D0, 0x0
+00000F8E  0000 0000                ori.b      D0, 0x0
+00000F92  0000 0000                ori.b      D0, 0x0
+00000F96  0000 0000                ori.b      D0, 0x0
+00000F9A  0000 0000                ori.b      D0, 0x0
+00000F9E  0000 0000                ori.b      D0, 0x0
+00000FA2  0000 0000                ori.b      D0, 0x0
+00000FA6  0000 0000                ori.b      D0, 0x0
+00000FAA  0000 0000                ori.b      D0, 0x0
+00000FAE  0000 0000                ori.b      D0, 0x0
+00000FB2  0000 0000                ori.b      D0, 0x0
+00000FB6  0000 0000                ori.b      D0, 0x0
+00000FBA  0000 0000                ori.b      D0, 0x0
+00000FBE  0000 0000                ori.b      D0, 0x0
+00000FC2  0000 0000                ori.b      D0, 0x0
+00000FC6  0000 0000                ori.b      D0, 0x0
+00000FCA  0000 0000                ori.b      D0, 0x0
+00000FCE  0000 0000                ori.b      D0, 0x0
+00000FD2  0000 0000                ori.b      D0, 0x0
+00000FD6  0000 0000                ori.b      D0, 0x0
+00000FDA  0000 0000                ori.b      D0, 0x0
+00000FDE  0000 0000                ori.b      D0, 0x0
+00000FE2  0000 0000                ori.b      D0, 0x0
+00000FE6  0000 0000                ori.b      D0, 0x0
+00000FEA  0000 0000                ori.b      D0, 0x0
+00000FEE  0000 0000                ori.b      D0, 0x0
+00000FF2  0000 0000                ori.b      D0, 0x0
+00000FF6  0000 0000                ori.b      D0, 0x0
+00000FFA  0000 0000                ori.b      D0, 0x0
+00000FFE  0000 0000                ori.b      D0, 0x0
+00001002  0000 0000                ori.b      D0, 0x0
+00001006  0000 0000                ori.b      D0, 0x0
+0000100A  0000 0000                ori.b      D0, 0x0
+0000100E  0000 0000                ori.b      D0, 0x0
+00001012  0000 0000                ori.b      D0, 0x0
+00001016  0003 0000                ori.b      D3, 0x0
+0000101A  0000 0000                ori.b      D0, 0x0
+0000101E  0000 0000                ori.b      D0, 0x0
+00001022  0000 0000                ori.b      D0, 0x0
+00001026  0000 0000                ori.b      D0, 0x0
+0000102A  0000 0000                ori.b      D0, 0x0
+0000102E  0000 0000                ori.b      D0, 0x0
+00001032  0000 0000                ori.b      D0, 0x0
+00001036  0000 0000                ori.b      D0, 0x0
+0000103A  0000 0000                ori.b      D0, 0x0
+0000103E  0000 0000                ori.b      D0, 0x0
+00001042  0000 0000                ori.b      D0, 0x0
+00001046  0000 0000                ori.b      D0, 0x0
+0000104A  0000 0000                ori.b      D0, 0x0
+0000104E  0000 0000                ori.b      D0, 0x0
+00001052  0000 0000                ori.b      D0, 0x0
+00001056  0000 0003                ori.b      D0, 0x3
+0000105A  0000 0000                ori.b      D0, 0x0
+0000105E  0000 0000                ori.b      D0, 0x0
+00001062  0000 0000                ori.b      D0, 0x0
+00001066  0000 0000                ori.b      D0, 0x0
+0000106A  0000 0000                ori.b      D0, 0x0
+0000106E  0000 0000                ori.b      D0, 0x0
+00001072  0000 0000                ori.b      D0, 0x0
+00001076  0000 0000                ori.b      D0, 0x0
+0000107A  0000 0000                ori.b      D0, 0x0
+0000107E  0000 0000                ori.b      D0, 0x0
+00001082  0000 0000                ori.b      D0, 0x0
+00001086  0000 0000                ori.b      D0, 0x0
+0000108A  0000 0000                ori.b      D0, 0x0
+0000108E  0000 0000                ori.b      D0, 0x0
+00001092  0000 0000                ori.b      D0, 0x0
+00001096  0000 0000                ori.b      D0, 0x0
+0000109A  0003 0000                ori.b      D3, 0x0
+0000109E  0000 0000                ori.b      D0, 0x0
+000010A2  0000 0000                ori.b      D0, 0x0
+000010A6  0000 0000                ori.b      D0, 0x0
+000010AA  0000 0000                ori.b      D0, 0x0
+000010AE  0000 0000                ori.b      D0, 0x0
+000010B2  0000 0000                ori.b      D0, 0x0
+000010B6  0000 0000                ori.b      D0, 0x0
+000010BA  0000 0000                ori.b      D0, 0x0
+000010BE  0000 0000                ori.b      D0, 0x0
+000010C2  0000 0000                ori.b      D0, 0x0
+000010C6  0000 0000                ori.b      D0, 0x0
+000010CA  0000 0000                ori.b      D0, 0x0
+000010CE  0000 0000                ori.b      D0, 0x0
+000010D2  0000 0000                ori.b      D0, 0x0
+000010D6  0000 0000                ori.b      D0, 0x0
+000010DA  0000 0003                ori.b      D0, 0x3
+000010DE  0000 0000                ori.b      D0, 0x0
+000010E2  0000 0000                ori.b      D0, 0x0
+000010E6  0000 0000                ori.b      D0, 0x0
+000010EA  0000 0000                ori.b      D0, 0x0
+000010EE  0000 0000                ori.b      D0, 0x0
+000010F2  0000 0000                ori.b      D0, 0x0
+000010F6  0000 0000                ori.b      D0, 0x0
+000010FA  0000 0000                ori.b      D0, 0x0
+000010FE  0000 0000                ori.b      D0, 0x0
+00001102  0000 0000                ori.b      D0, 0x0
+00001106  0000 0000                ori.b      D0, 0x0
+0000110A  0000 0000                ori.b      D0, 0x0
+0000110E  0000 0000                ori.b      D0, 0x0
+00001112  0000 0000                ori.b      D0, 0x0
+00001116  0000 0000                ori.b      D0, 0x0
+0000111A  0000 0000                ori.b      D0, 0x0
+0000111E  0003 0000                ori.b      D3, 0x0
+00001122  0000 0000                ori.b      D0, 0x0
+00001126  0000 0000                ori.b      D0, 0x0
+0000112A  0000 0000                ori.b      D0, 0x0
+0000112E  0000 0000                ori.b      D0, 0x0
+00001132  0000 0000                ori.b      D0, 0x0
+00001136  0000 0000                ori.b      D0, 0x0
+0000113A  0000 0000                ori.b      D0, 0x0
+0000113E  0000 0000                ori.b      D0, 0x0
+00001142  0000 0000                ori.b      D0, 0x0
+00001146  0000 0000                ori.b      D0, 0x0
+0000114A  0000 0000                ori.b      D0, 0x0
+0000114E  0000 0000                ori.b      D0, 0x0
+00001152  0000 0000                ori.b      D0, 0x0
+00001156  0000 0000                ori.b      D0, 0x0
+0000115A  0000 0000                ori.b      D0, 0x0
+0000115E  0000 0003                ori.b      D0, 0x3
+00001162  0000 0000                ori.b      D0, 0x0
+00001166  0000 0000                ori.b      D0, 0x0
+0000116A  0000 0000                ori.b      D0, 0x0
+0000116E  0000 0000                ori.b      D0, 0x0
+00001172  0000 0000                ori.b      D0, 0x0
+00001176  0000 0000                ori.b      D0, 0x0
+0000117A  0000 0000                ori.b      D0, 0x0
+0000117E  0000 0000                ori.b      D0, 0x0
+00001182  0000 0000                ori.b      D0, 0x0
+00001186  0000 0000                ori.b      D0, 0x0
+0000118A  0000 0000                ori.b      D0, 0x0
+0000118E  0000 0000                ori.b      D0, 0x0
+00001192  0000 0000                ori.b      D0, 0x0
+00001196  0000 0000                ori.b      D0, 0x0
+0000119A  0000 0000                ori.b      D0, 0x0
+0000119E  0000 0000                ori.b      D0, 0x0
+000011A2  0003 0000                ori.b      D3, 0x0
+000011A6  0000 0000                ori.b      D0, 0x0
+000011AA  0000 0000                ori.b      D0, 0x0
+000011AE  0000 0000                ori.b      D0, 0x0
+000011B2  0000 0000                ori.b      D0, 0x0
+000011B6  0000 0000                ori.b      D0, 0x0
+000011BA  0000 0000                ori.b      D0, 0x0
+000011BE  0000 0000                ori.b      D0, 0x0
+000011C2  0000 0000                ori.b      D0, 0x0
+000011C6  0000 0000                ori.b      D0, 0x0
+000011CA  0000 0000                ori.b      D0, 0x0
+000011CE  0000 0000                ori.b      D0, 0x0
+000011D2  0000 0000                ori.b      D0, 0x0
+000011D6  0000 0000                ori.b      D0, 0x0
+000011DA  0000 0000                ori.b      D0, 0x0
+000011DE  0000 0000                ori.b      D0, 0x0
+000011E2  0000 0003                ori.b      D0, 0x3
+000011E6  0000 0000                ori.b      D0, 0x0
+000011EA  0000 0000                ori.b      D0, 0x0
+000011EE  0000 0000                ori.b      D0, 0x0
+000011F2  0000 0000                ori.b      D0, 0x0
+000011F6  0000 0000                ori.b      D0, 0x0
+000011FA  0000 0000                ori.b      D0, 0x0
+000011FE  0000 0000                ori.b      D0, 0x0
+00001202  0000 0000                ori.b      D0, 0x0
+00001206  0000 0000                ori.b      D0, 0x0
+0000120A  0000 0000                ori.b      D0, 0x0
+0000120E  0000 0000                ori.b      D0, 0x0
+00001212  0000 0000                ori.b      D0, 0x0
+00001216  0000 0000                ori.b      D0, 0x0
+0000121A  0000 0000                ori.b      D0, 0x0
+0000121E  0000 0000                ori.b      D0, 0x0
+00001222  0000 0000                ori.b      D0, 0x0
+00001226  0003 0000                ori.b      D3, 0x0
+0000122A  0000 0000                ori.b      D0, 0x0
+0000122E  0000 0000                ori.b      D0, 0x0
+00001232  0000 0000                ori.b      D0, 0x0
+00001236  0000 0000                ori.b      D0, 0x0
+0000123A  0000 0000                ori.b      D0, 0x0
+0000123E  0000 0000                ori.b      D0, 0x0
+00001242  0000 0000                ori.b      D0, 0x0
+00001246  0000 0000                ori.b      D0, 0x0
+0000124A  0000 0000                ori.b      D0, 0x0
+0000124E  0000 0000                ori.b      D0, 0x0
+00001252  0000 0000                ori.b      D0, 0x0
+00001256  0000 0000                ori.b      D0, 0x0
+0000125A  0000 0000                ori.b      D0, 0x0
+0000125E  0000 0000                ori.b      D0, 0x0
+00001262  0000 0000                ori.b      D0, 0x0
+00001266  0000 0003                ori.b      D0, 0x3
+0000126A  0000 0000                ori.b      D0, 0x0
+0000126E  0000 0000                ori.b      D0, 0x0
+00001272  0000 0000                ori.b      D0, 0x0
+00001276  0000 0000                ori.b      D0, 0x0
+0000127A  0000 0000                ori.b      D0, 0x0
+0000127E  0000 0000                ori.b      D0, 0x0
+00001282  0000 0000                ori.b      D0, 0x0
+00001286  0000 0000                ori.b      D0, 0x0
+0000128A  0000 0000                ori.b      D0, 0x0
+0000128E  0000 0000                ori.b      D0, 0x0
+00001292  0000 0000                ori.b      D0, 0x0
+00001296  0000 0000                ori.b      D0, 0x0
+0000129A  0000 0000                ori.b      D0, 0x0
+0000129E  0000 0000                ori.b      D0, 0x0
+000012A2  0000 0000                ori.b      D0, 0x0
+000012A6  0000 0000                ori.b      D0, 0x0
+000012AA  0003 0000                ori.b      D3, 0x0
+000012AE  0000 0000                ori.b      D0, 0x0
+000012B2  0000 0000                ori.b      D0, 0x0
+000012B6  0000 0000                ori.b      D0, 0x0
+000012BA  0000 0000                ori.b      D0, 0x0
+000012BE  0000 0000                ori.b      D0, 0x0
+000012C2  0000 0000                ori.b      D0, 0x0
+000012C6  0000 0000                ori.b      D0, 0x0
+000012CA  0000 0000                ori.b      D0, 0x0
+000012CE  0000 0000                ori.b      D0, 0x0
+000012D2  0000 0000                ori.b      D0, 0x0
+000012D6  0000 0000                ori.b      D0, 0x0
+000012DA  0000 0000                ori.b      D0, 0x0
+000012DE  0000 0000                ori.b      D0, 0x0
+000012E2  0000 0000                ori.b      D0, 0x0
+000012E6  0000 0000                ori.b      D0, 0x0
+000012EA  0000 0003                ori.b      D0, 0x3
+000012EE  0000 0000                ori.b      D0, 0x0
+000012F2  0000 0000                ori.b      D0, 0x0
+000012F6  0000 0000                ori.b      D0, 0x0
+000012FA  0000 0000                ori.b      D0, 0x0
+000012FE  0000 0000                ori.b      D0, 0x0
+00001302  0000 0000                ori.b      D0, 0x0
+00001306  0000 0000                ori.b      D0, 0x0
+0000130A  0000 0000                ori.b      D0, 0x0
+0000130E  0000 0000                ori.b      D0, 0x0
+00001312  0000 0000                ori.b      D0, 0x0
+00001316  0000 0000                ori.b      D0, 0x0
+0000131A  0000 0000                ori.b      D0, 0x0
+0000131E  0000 0000                ori.b      D0, 0x0
+00001322  0000 0000                ori.b      D0, 0x0
+00001326  0000 0000                ori.b      D0, 0x0
+0000132A  0000 0000                ori.b      D0, 0x0
+0000132E  0000 0000                ori.b      D0, 0x0
+00001332  0000 0000                ori.b      D0, 0x0
+00001336  0000 0000                ori.b      D0, 0x0
+0000133A  0000 0000                ori.b      D0, 0x0
+0000133E  0000 0000                ori.b      D0, 0x0
+00001342  0000 0000                ori.b      D0, 0x0
+00001346  0000 0000                ori.b      D0, 0x0
+0000134A  0000 0000                ori.b      D0, 0x0
+0000134E  0000 0000                ori.b      D0, 0x0
+00001352  0000 0000                ori.b      D0, 0x0
+00001356  0000 0000                ori.b      D0, 0x0
+0000135A  0000 0000                ori.b      D0, 0x0
+0000135E  0000 0000                ori.b      D0, 0x0
+00001362  0000 0000                ori.b      D0, 0x0
+00001366  0000 0000                ori.b      D0, 0x0
+0000136A  0000 0000                ori.b      D0, 0x0
+0000136E  FFFF                     .invalid   <<F/7/7>>
+// end alternate branch 00000D8A-00001370
+label00000D8A: // (misaligned)
+00000D8C  0001 0000                ori.b      D1, 0x0
+00000D90  0000 0000                ori.b      D0, 0x0
+00000D94  0000 0000                ori.b      D0, 0x0
+00000D98  0000 0000                ori.b      D0, 0x0
+00000D9C  0000 0000                ori.b      D0, 0x0
+00000DA0  0000 0000                ori.b      D0, 0x0
+00000DA4  0002 0000                ori.b      D2, 0x0
+00000DA8  0000 0000                ori.b      D0, 0x0
+00000DAC  0000 0000                ori.b      D0, 0x0
+00000DB0  0000 0000                ori.b      D0, 0x0
+00000DB4  0000 0000                ori.b      D0, 0x0
+00000DB8  0000 0000                ori.b      D0, 0x0
+00000DBC  0000 0000                ori.b      D0, 0x0
+00000DC0  0000 0000                ori.b      D0, 0x0
+00000DC4  0000 0000                ori.b      D0, 0x0
+00000DC8  0000 0000                ori.b      D0, 0x0
+00000DCC  0000 0000                ori.b      D0, 0x0
+00000DD0  0000 0000                ori.b      D0, 0x0
+00000DD4  0000 0000                ori.b      D0, 0x0
+00000DD8  0000 0000                ori.b      D0, 0x0
+00000DDC  0000 0000                ori.b      D0, 0x0
+00000DE0  0000 0000                ori.b      D0, 0x0
+00000DE4  0000 0000                ori.b      D0, 0x0
+00000DE8  0000 0000                ori.b      D0, 0x0
+00000DEC  0000 0000                ori.b      D0, 0x0
+00000DF0  0000 0000                ori.b      D0, 0x0
+00000DF4  0000 0000                ori.b      D0, 0x0
+00000DF8  0000 0000                ori.b      D0, 0x0
+00000DFC  0000 0000                ori.b      D0, 0x0
+00000E00  0000 0000                ori.b      D0, 0x0
+00000E04  0000 0000                ori.b      D0, 0x0
+00000E08  0000 0000                ori.b      D0, 0x0
+00000E0C  0000 0000                ori.b      D0, 0x0
+00000E10  0000 0000                ori.b      D0, 0x0
+00000E14  0000 0000                ori.b      D0, 0x0
+00000E18  0000 0000                ori.b      D0, 0x0
+00000E1C  0000 0000                ori.b      D0, 0x0
+00000E20  0000 0000                ori.b      D0, 0x0
+00000E24  0000 0000                ori.b      D0, 0x0
+00000E28  0000 0000                ori.b      D0, 0x0
+00000E2C  0000 0000                ori.b      D0, 0x0
+00000E30  0000 0000                ori.b      D0, 0x0
+00000E34  0000 0000                ori.b      D0, 0x0
+00000E38  0000 0000                ori.b      D0, 0x0
+00000E3C  0000 0000                ori.b      D0, 0x0
+00000E40  0000 0000                ori.b      D0, 0x0
+00000E44  0000 0000                ori.b      D0, 0x0
+00000E48  0000 0000                ori.b      D0, 0x0
+00000E4C  0000 0000                ori.b      D0, 0x0
+00000E50  0000 0000                ori.b      D0, 0x0
+00000E54  0000 0000                ori.b      D0, 0x0
+00000E58  0000 0000                ori.b      D0, 0x0
+00000E5C  0000 0000                ori.b      D0, 0x0
+00000E60  0000 0000                ori.b      D0, 0x0
+00000E64  0000 0000                ori.b      D0, 0x0
+00000E68  0000 0000                ori.b      D0, 0x0
+00000E6C  0000 0000                ori.b      D0, 0x0
+00000E70  0000 0000                ori.b      D0, 0x0
+00000E74  0000 0000                ori.b      D0, 0x0
+00000E78  0000 0000                ori.b      D0, 0x0
+00000E7C  0000 0000                ori.b      D0, 0x0
+00000E80  0000 0000                ori.b      D0, 0x0
+00000E84  0000 0000                ori.b      D0, 0x0
+00000E88  0000 0000                ori.b      D0, 0x0
+00000E8C  0000 0000                ori.b      D0, 0x0
+00000E90  0000 0000                ori.b      D0, 0x0
+00000E94  0000 0000                ori.b      D0, 0x0
+00000E98  0000 0000                ori.b      D0, 0x0
+00000E9C  0000 0000                ori.b      D0, 0x0
+00000EA0  0000 0000                ori.b      D0, 0x0
+00000EA4  0000 0000                ori.b      D0, 0x0
+00000EA8  0000 0000                ori.b      D0, 0x0
+00000EAC  0000 0000                ori.b      D0, 0x0
+00000EB0  0000 0000                ori.b      D0, 0x0
+00000EB4  0000 0000                ori.b      D0, 0x0
+00000EB8  0000 0000                ori.b      D0, 0x0
+00000EBC  0000 0000                ori.b      D0, 0x0
+00000EC0  0000 0000                ori.b      D0, 0x0
+00000EC4  0000 0000                ori.b      D0, 0x0
+00000EC8  0000 0000                ori.b      D0, 0x0
+00000ECC  0000 0000                ori.b      D0, 0x0
+00000ED0  0000 0000                ori.b      D0, 0x0
+00000ED4  0000 0000                ori.b      D0, 0x0
+00000ED8  0000 0000                ori.b      D0, 0x0
+00000EDC  0000 0000                ori.b      D0, 0x0
+00000EE0  0000 0000                ori.b      D0, 0x0
+00000EE4  0000 0000                ori.b      D0, 0x0
+00000EE8  0000 0000                ori.b      D0, 0x0
+00000EEC  0000 0000                ori.b      D0, 0x0
+00000EF0  0000 0000                ori.b      D0, 0x0
+00000EF4  0000 0000                ori.b      D0, 0x0
+00000EF8  0000 0000                ori.b      D0, 0x0
+00000EFC  0000 0000                ori.b      D0, 0x0
+00000F00  0000 0000                ori.b      D0, 0x0
+00000F04  0000 0000                ori.b      D0, 0x0
+00000F08  0000 0000                ori.b      D0, 0x0
+00000F0C  0000 0000                ori.b      D0, 0x0
+00000F10  0000 0000                ori.b      D0, 0x0
+00000F14  0000 0000                ori.b      D0, 0x0
+00000F18  0000 0000                ori.b      D0, 0x0
+00000F1C  0000 0000                ori.b      D0, 0x0
+00000F20  0000 0000                ori.b      D0, 0x0
+00000F24  0000 0000                ori.b      D0, 0x0
+00000F28  0000 0000                ori.b      D0, 0x0
+00000F2C  0000 0000                ori.b      D0, 0x0
+00000F30  0000 0000                ori.b      D0, 0x0
+00000F34  0000 0000                ori.b      D0, 0x0
+00000F38  0000 0000                ori.b      D0, 0x0
+00000F3C  0000 0000                ori.b      D0, 0x0
+00000F40  0000 0000                ori.b      D0, 0x0
+00000F44  0000 0000                ori.b      D0, 0x0
+00000F48  0000 0000                ori.b      D0, 0x0
+00000F4C  0000 0000                ori.b      D0, 0x0
+00000F50  0000 0000                ori.b      D0, 0x0
+00000F54  0000 0000                ori.b      D0, 0x0
+00000F58  0000 0000                ori.b      D0, 0x0
+00000F5C  0000 0000                ori.b      D0, 0x0
+00000F60  0000 0000                ori.b      D0, 0x0
+00000F64  0000 0000                ori.b      D0, 0x0
+00000F68  0000 0000                ori.b      D0, 0x0
+00000F6C  0000 0000                ori.b      D0, 0x0
+00000F70  0000 0000                ori.b      D0, 0x0
+00000F74  0000 0000                ori.b      D0, 0x0
+00000F78  0000 0000                ori.b      D0, 0x0
+00000F7C  0000 0000                ori.b      D0, 0x0
+00000F80  0000 0000                ori.b      D0, 0x0
+00000F84  0000 0000                ori.b      D0, 0x0
+00000F88  0000 0000                ori.b      D0, 0x0
+00000F8C  0000 0000                ori.b      D0, 0x0
+00000F90  0000 0000                ori.b      D0, 0x0
+00000F94  0000 0000                ori.b      D0, 0x0
+00000F98  0000 0000                ori.b      D0, 0x0
+00000F9C  0000 0000                ori.b      D0, 0x0
+00000FA0  0000 0000                ori.b      D0, 0x0
+00000FA4  0000 0000                ori.b      D0, 0x0
+00000FA8  0000 0000                ori.b      D0, 0x0
+00000FAC  0000 0000                ori.b      D0, 0x0
+00000FB0  0000 0000                ori.b      D0, 0x0
+00000FB4  0000 0000                ori.b      D0, 0x0
+00000FB8  0000 0000                ori.b      D0, 0x0
+00000FBC  0000 0000                ori.b      D0, 0x0
+00000FC0  0000 0000                ori.b      D0, 0x0
+00000FC4  0000 0000                ori.b      D0, 0x0
+00000FC8  0000 0000                ori.b      D0, 0x0
+00000FCC  0000 0000                ori.b      D0, 0x0
+00000FD0  0000 0000                ori.b      D0, 0x0
+00000FD4  0000 0000                ori.b      D0, 0x0
+00000FD8  0000 0000                ori.b      D0, 0x0
+00000FDC  0000 0000                ori.b      D0, 0x0
+00000FE0  0000 0000                ori.b      D0, 0x0
+00000FE4  0000 0000                ori.b      D0, 0x0
+00000FE8  0000 0000                ori.b      D0, 0x0
+00000FEC  0000 0000                ori.b      D0, 0x0
+00000FF0  0000 0000                ori.b      D0, 0x0
+00000FF4  0000 0000                ori.b      D0, 0x0
+00000FF8  0000 0000                ori.b      D0, 0x0
+00000FFC  0000 0000                ori.b      D0, 0x0
+00001000  0000 0000                ori.b      D0, 0x0
+00001004  0000 0000                ori.b      D0, 0x0
+00001008  0000 0000                ori.b      D0, 0x0
+0000100C  0000 0000                ori.b      D0, 0x0
+00001010  0000 0000                ori.b      D0, 0x0
+00001014  0000 0003                ori.b      D0, 0x3
+00001018  0000 0000                ori.b      D0, 0x0
+0000101C  0000 0000                ori.b      D0, 0x0
+00001020  0000 0000                ori.b      D0, 0x0
+00001024  0000 0000                ori.b      D0, 0x0
+00001028  0000 0000                ori.b      D0, 0x0
+0000102C  0000 0000                ori.b      D0, 0x0
+00001030  0000 0000                ori.b      D0, 0x0
+00001034  0000 0000                ori.b      D0, 0x0
+00001038  0000 0000                ori.b      D0, 0x0
+0000103C  0000 0000                ori.b      D0, 0x0
+00001040  0000 0000                ori.b      D0, 0x0
+00001044  0000 0000                ori.b      D0, 0x0
+00001048  0000 0000                ori.b      D0, 0x0
+0000104C  0000 0000                ori.b      D0, 0x0
+00001050  0000 0000                ori.b      D0, 0x0
+00001054  0000 0000                ori.b      D0, 0x0
+00001058  0003 0000                ori.b      D3, 0x0
+0000105C  0000 0000                ori.b      D0, 0x0
+00001060  0000 0000                ori.b      D0, 0x0
+00001064  0000 0000                ori.b      D0, 0x0
+00001068  0000 0000                ori.b      D0, 0x0
+0000106C  0000 0000                ori.b      D0, 0x0
+00001070  0000 0000                ori.b      D0, 0x0
+00001074  0000 0000                ori.b      D0, 0x0
+00001078  0000 0000                ori.b      D0, 0x0
+0000107C  0000 0000                ori.b      D0, 0x0
+00001080  0000 0000                ori.b      D0, 0x0
+00001084  0000 0000                ori.b      D0, 0x0
+00001088  0000 0000                ori.b      D0, 0x0
+0000108C  0000 0000                ori.b      D0, 0x0
+00001090  0000 0000                ori.b      D0, 0x0
+00001094  0000 0000                ori.b      D0, 0x0
+00001098  0000 0003                ori.b      D0, 0x3
+0000109C  0000 0000                ori.b      D0, 0x0
+000010A0  0000 0000                ori.b      D0, 0x0
+000010A4  0000 0000                ori.b      D0, 0x0
+000010A8  0000 0000                ori.b      D0, 0x0
+000010AC  0000 0000                ori.b      D0, 0x0
+000010B0  0000 0000                ori.b      D0, 0x0
+000010B4  0000 0000                ori.b      D0, 0x0
+000010B8  0000 0000                ori.b      D0, 0x0
+000010BC  0000 0000                ori.b      D0, 0x0
+000010C0  0000 0000                ori.b      D0, 0x0
+000010C4  0000 0000                ori.b      D0, 0x0
+000010C8  0000 0000                ori.b      D0, 0x0
+000010CC  0000 0000                ori.b      D0, 0x0
+000010D0  0000 0000                ori.b      D0, 0x0
+000010D4  0000 0000                ori.b      D0, 0x0
+000010D8  0000 0000                ori.b      D0, 0x0
+000010DC  0003 0000                ori.b      D3, 0x0
+000010E0  0000 0000                ori.b      D0, 0x0
+000010E4  0000 0000                ori.b      D0, 0x0
+000010E8  0000 0000                ori.b      D0, 0x0
+000010EC  0000 0000                ori.b      D0, 0x0
+000010F0  0000 0000                ori.b      D0, 0x0
+000010F4  0000 0000                ori.b      D0, 0x0
+000010F8  0000 0000                ori.b      D0, 0x0
+000010FC  0000 0000                ori.b      D0, 0x0
+00001100  0000 0000                ori.b      D0, 0x0
+00001104  0000 0000                ori.b      D0, 0x0
+00001108  0000 0000                ori.b      D0, 0x0
+0000110C  0000 0000                ori.b      D0, 0x0
+00001110  0000 0000                ori.b      D0, 0x0
+00001114  0000 0000                ori.b      D0, 0x0
+00001118  0000 0000                ori.b      D0, 0x0
+0000111C  0000 0003                ori.b      D0, 0x3
+00001120  0000 0000                ori.b      D0, 0x0
+00001124  0000 0000                ori.b      D0, 0x0
+00001128  0000 0000                ori.b      D0, 0x0
+0000112C  0000 0000                ori.b      D0, 0x0
+00001130  0000 0000                ori.b      D0, 0x0
+00001134  0000 0000                ori.b      D0, 0x0
+00001138  0000 0000                ori.b      D0, 0x0
+0000113C  0000 0000                ori.b      D0, 0x0
+00001140  0000 0000                ori.b      D0, 0x0
+00001144  0000 0000                ori.b      D0, 0x0
+00001148  0000 0000                ori.b      D0, 0x0
+0000114C  0000 0000                ori.b      D0, 0x0
+00001150  0000 0000                ori.b      D0, 0x0
+00001154  0000 0000                ori.b      D0, 0x0
+00001158  0000 0000                ori.b      D0, 0x0
+0000115C  0000 0000                ori.b      D0, 0x0
+00001160  0003 0000                ori.b      D3, 0x0
+00001164  0000 0000                ori.b      D0, 0x0
+00001168  0000 0000                ori.b      D0, 0x0
+0000116C  0000 0000                ori.b      D0, 0x0
+00001170  0000 0000                ori.b      D0, 0x0
+00001174  0000 0000                ori.b      D0, 0x0
+00001178  0000 0000                ori.b      D0, 0x0
+0000117C  0000 0000                ori.b      D0, 0x0
+00001180  0000 0000                ori.b      D0, 0x0
+00001184  0000 0000                ori.b      D0, 0x0
+00001188  0000 0000                ori.b      D0, 0x0
+0000118C  0000 0000                ori.b      D0, 0x0
+00001190  0000 0000                ori.b      D0, 0x0
+00001194  0000 0000                ori.b      D0, 0x0
+00001198  0000 0000                ori.b      D0, 0x0
+0000119C  0000 0000                ori.b      D0, 0x0
+000011A0  0000 0003                ori.b      D0, 0x3
+000011A4  0000 0000                ori.b      D0, 0x0
+000011A8  0000 0000                ori.b      D0, 0x0
+000011AC  0000 0000                ori.b      D0, 0x0
+000011B0  0000 0000                ori.b      D0, 0x0
+000011B4  0000 0000                ori.b      D0, 0x0
+000011B8  0000 0000                ori.b      D0, 0x0
+000011BC  0000 0000                ori.b      D0, 0x0
+000011C0  0000 0000                ori.b      D0, 0x0
+000011C4  0000 0000                ori.b      D0, 0x0
+000011C8  0000 0000                ori.b      D0, 0x0
+000011CC  0000 0000                ori.b      D0, 0x0
+000011D0  0000 0000                ori.b      D0, 0x0
+000011D4  0000 0000                ori.b      D0, 0x0
+000011D8  0000 0000                ori.b      D0, 0x0
+000011DC  0000 0000                ori.b      D0, 0x0
+000011E0  0000 0000                ori.b      D0, 0x0
+000011E4  0003 0000                ori.b      D3, 0x0
+000011E8  0000 0000                ori.b      D0, 0x0
+000011EC  0000 0000                ori.b      D0, 0x0
+000011F0  0000 0000                ori.b      D0, 0x0
+000011F4  0000 0000                ori.b      D0, 0x0
+000011F8  0000 0000                ori.b      D0, 0x0
+000011FC  0000 0000                ori.b      D0, 0x0
+00001200  0000 0000                ori.b      D0, 0x0
+00001204  0000 0000                ori.b      D0, 0x0
+00001208  0000 0000                ori.b      D0, 0x0
+0000120C  0000 0000                ori.b      D0, 0x0
+00001210  0000 0000                ori.b      D0, 0x0
+00001214  0000 0000                ori.b      D0, 0x0
+00001218  0000 0000                ori.b      D0, 0x0
+0000121C  0000 0000                ori.b      D0, 0x0
+00001220  0000 0000                ori.b      D0, 0x0
+00001224  0000 0003                ori.b      D0, 0x3
+00001228  0000 0000                ori.b      D0, 0x0
+0000122C  0000 0000                ori.b      D0, 0x0
+00001230  0000 0000                ori.b      D0, 0x0
+00001234  0000 0000                ori.b      D0, 0x0
+00001238  0000 0000                ori.b      D0, 0x0
+0000123C  0000 0000                ori.b      D0, 0x0
+00001240  0000 0000                ori.b      D0, 0x0
+00001244  0000 0000                ori.b      D0, 0x0
+00001248  0000 0000                ori.b      D0, 0x0
+0000124C  0000 0000                ori.b      D0, 0x0
+00001250  0000 0000                ori.b      D0, 0x0
+00001254  0000 0000                ori.b      D0, 0x0
+00001258  0000 0000                ori.b      D0, 0x0
+0000125C  0000 0000                ori.b      D0, 0x0
+00001260  0000 0000                ori.b      D0, 0x0
+00001264  0000 0000                ori.b      D0, 0x0
+00001268  0003 0000                ori.b      D3, 0x0
+0000126C  0000 0000                ori.b      D0, 0x0
+00001270  0000 0000                ori.b      D0, 0x0
+00001274  0000 0000                ori.b      D0, 0x0
+00001278  0000 0000                ori.b      D0, 0x0
+0000127C  0000 0000                ori.b      D0, 0x0
+00001280  0000 0000                ori.b      D0, 0x0
+00001284  0000 0000                ori.b      D0, 0x0
+00001288  0000 0000                ori.b      D0, 0x0
+0000128C  0000 0000                ori.b      D0, 0x0
+00001290  0000 0000                ori.b      D0, 0x0
+00001294  0000 0000                ori.b      D0, 0x0
+00001298  0000 0000                ori.b      D0, 0x0
+0000129C  0000 0000                ori.b      D0, 0x0
+000012A0  0000 0000                ori.b      D0, 0x0
+000012A4  0000 0000                ori.b      D0, 0x0
+000012A8  0000 0003                ori.b      D0, 0x3
+000012AC  0000 0000                ori.b      D0, 0x0
+000012B0  0000 0000                ori.b      D0, 0x0
+000012B4  0000 0000                ori.b      D0, 0x0
+000012B8  0000 0000                ori.b      D0, 0x0
+000012BC  0000 0000                ori.b      D0, 0x0
+000012C0  0000 0000                ori.b      D0, 0x0
+000012C4  0000 0000                ori.b      D0, 0x0
+000012C8  0000 0000                ori.b      D0, 0x0
+000012CC  0000 0000                ori.b      D0, 0x0
+000012D0  0000 0000                ori.b      D0, 0x0
+000012D4  0000 0000                ori.b      D0, 0x0
+000012D8  0000 0000                ori.b      D0, 0x0
+000012DC  0000 0000                ori.b      D0, 0x0
+000012E0  0000 0000                ori.b      D0, 0x0
+000012E4  0000 0000                ori.b      D0, 0x0
+000012E8  0000 0000                ori.b      D0, 0x0
+000012EC  0003 0000                ori.b      D3, 0x0
+000012F0  0000 0000                ori.b      D0, 0x0
+000012F4  0000 0000                ori.b      D0, 0x0
+000012F8  0000 0000                ori.b      D0, 0x0
+000012FC  0000 0000                ori.b      D0, 0x0
+00001300  0000 0000                ori.b      D0, 0x0
+00001304  0000 0000                ori.b      D0, 0x0
+00001308  0000 0000                ori.b      D0, 0x0
+0000130C  0000 0000                ori.b      D0, 0x0
+00001310  0000 0000                ori.b      D0, 0x0
+00001314  0000 0000                ori.b      D0, 0x0
+00001318  0000 0000                ori.b      D0, 0x0
+0000131C  0000 0000                ori.b      D0, 0x0
+00001320  0000 0000                ori.b      D0, 0x0
+00001324  0000 0000                ori.b      D0, 0x0
+00001328  0000 0000                ori.b      D0, 0x0
+0000132C  0000 0000                ori.b      D0, 0x0
+00001330  0000 0000                ori.b      D0, 0x0
+00001334  0000 0000                ori.b      D0, 0x0
+00001338  0000 0000                ori.b      D0, 0x0
+0000133C  0000 0000                ori.b      D0, 0x0
+00001340  0000 0000                ori.b      D0, 0x0
+00001344  0000 0000                ori.b      D0, 0x0
+00001348  0000 0000                ori.b      D0, 0x0
+0000134C  0000 0000                ori.b      D0, 0x0
+00001350  0000 0000                ori.b      D0, 0x0
+00001354  0000 0000                ori.b      D0, 0x0
+00001358  0000 0000                ori.b      D0, 0x0
+0000135C  0000 0000                ori.b      D0, 0x0
+00001360  0000 0000                ori.b      D0, 0x0
+00001364  0000 0000                ori.b      D0, 0x0
+00001368  0000 0000                ori.b      D0, 0x0
+0000136C  0000 FFFF                ori.b      D0, 0xFF
+00001370  EB08                     lsl        D0.b, 5
+00001372  FFFF                     .invalid   <<F/7/7>>
+00001374  EB0E                     lsl        D6.b, 5
+00001376  FFFF                     .invalid   <<F/7/7>>
+00001378  EB19                     rol        D1.b, 5
+0000137A  FFFF                     .invalid   <<F/7/7>>
+0000137C  EB1F                     rol        D7.b, 5
+0000137E  FFFF                     .invalid   <<F/7/7>>
+00001380  EB24                     asl        D4.b, D5
+00001382  FFFF                     .invalid   <<F/7/7>>
+00001384  EB2A                     lsl        D2.b, D5
+00001386  FFFF                     .invalid   <<F/7/7>>
+00001388  EB30                     roxl       D0.b, D5
+0000138A  FFFF                     .invalid   <<F/7/7>>
+0000138C  EB38                     rol        D0.b, D5
+0000138E  FFFF                     .invalid   <<F/7/7>>
+00001390  EB3D                     rol        D5.b, D5
+00001392  FFFF                     .invalid   <<F/7/7>>
+00001394  EB42                     asl        D2.w, 5
+00001396  FFFF                     .invalid   <<F/7/7>>
+00001398  EB47                     asl        D7.w, 5
+0000139A  FFFF                     .invalid   <<F/7/7>>
+0000139C  EB4D                     lsl        D5.w, 5
+0000139E  FFFF                     .invalid   <<F/7/7>>
+000013A0  EB52                     roxl       D2.w, 5
+000013A2  FFFF                     .invalid   <<F/7/7>>
+000013A4  EB5A                     rol        D2.w, 5
+000013A6  FFFF                     .invalid   <<F/7/7>>
+000013A8  EB61                     asl        D1.w, D5
+000013AA  FFFF                     .invalid   <<F/7/7>>
+000013AC  EB66                     asl        D6.w, D5
+000013AE  FFFF                     .invalid   <<F/7/7>>
+000013B0  EB6C                     lsl        D4.w, D5
+000013B2  FFFF                     .invalid   <<F/7/7>>
+000013B4  EB73                     roxl       D3.w, D5
+000013B6  FFFF                     .invalid   <<F/7/7>>
+000013B8  EB77                     roxl       D7.w, D5
+000013BA  FFFF                     .invalid   <<F/7/7>>
+000013BC  EB7E                     rol        D6.w, D5
+000013BE  FFFF                     .invalid   <<F/7/7>>
+000013C0  EB82                     asl        D2, 5
+000013C2  FFFF                     .invalid   <<F/7/7>>
+000013C4  EB8C                     lsl        D4, 5
+000013C6  FFFF                     .invalid   <<F/7/7>>
+000013C8  EB92                     roxl       D2, 5
+000013CA  FFFF                     .invalid   <<F/7/7>>
+000013CC  EB9C                     rol        D4, 5
+000013CE  FFFF                     .invalid   <<F/7/7>>
+000013D0  EBA6                     asl        D6, D5
+000013D2  FFFF                     .invalid   <<F/7/7>>
+000013D4  EBAD                     lsl        D5, D5
+000013D6  FFFF                     .invalid   <<F/7/7>>
+000013D8  EBB3                     roxl       D3, D5
+000013DA  616D                     bsr        +0x6F /* 00001449 */
+000013DC  6265                     bhi        +0x67 /* 00001443 */
+000013DE  7200                     moveq.l    D1, 0x00
+000013E0  6171                     bsr        +0x73 /* 00001453 */
+000013E2  7561                     moveq.l    D2, 0x61
+000013E4  6D61                     blt        +0x63 /* 00001447 */
+000013E6  7269                     moveq.l    D1, 0x69
+000013E8  6E65                     bgt        +0x67 /* 0000144F */
+000013EA  0062 6C61                ori.w      -[A2], 0x6C61 /* 'la' */
+000013EE  636B                     bls        +0x6D /* 0000145B */
+000013F0  0062 6C75                ori.w      -[A2], 0x6C75 /* 'lu' */
+000013F4  6500 6272                bcs        +0x6274 /* 00007668 */
+000013F8  6F77                     ble        +0x79 /* 00001471 */
+000013FA  6E00 636C                bgt        +0x636E /* 00007768 */
+000013FE  6561                     bcs        +0x63 /* 00001461 */
+00001400  7200                     moveq.l    D1, 0x00
+00001402  6372                     bls        +0x74 /* 00001476 */
+00001404  696D                     bvs        +0x6F /* 00001473 */
+00001406  736F                     moveq.l    D1, 0x6F
+00001408  6E00 6379                bgt        +0x637B /* 00007783 */
+0000140C  616E                     bsr        +0x70 /* 0000147C */
+0000140E  0065 6372                ori.w      -[A5], 0x6372 /* 'cr' */
+00001412  7500                     moveq.l    D2, 0x00
+00001414  676F                     beq        +0x71 /* 00001485 */
+00001416  6C64                     bge        +0x66 /* 0000147C */
+00001418  0067 7265                ori.w      -[A7], 0x7265 /* 're' */
+0000141C  656E                     bcs        +0x70 /* 0000148C */
+0000141E  0067 7265                ori.w      -[A7], 0x7265 /* 're' */
+00001422  7900                     moveq.l    D4, 0x00
+00001424  6D61                     blt        +0x63 /* 00001487 */
+00001426  6765                     beq        +0x67 /* 0000148D */
+00001428  6E74                     bgt        +0x76 /* 0000149E */
+0000142A  6100 6F72                bsr        +0x6F74 /* 0000839E */
+0000142E  616E                     bsr        +0x70 /* 0000149E */
+00001430  6765                     beq        +0x67 /* 00001497 */
+00001432  0070 696E 6B00           ori.w      [A0 + <<invalid base displacement size>> + D6 * 2], 0x696E /* 'in' */
+00001438  706C                     moveq.l    D0, 0x6C
+0000143A  6169                     bsr        +0x6B /* 000014A5 */
+0000143C  6400 7075                bcc        +0x7077 /* 000084B3 */
+00001440  7270                     moveq.l    D1, 0x70
+00001442  6C65                     bge        +0x67 /* 000014A9 */
+00001444  0072 6564 0073           ori.w      [A2 + D0.w + 0x73], 0x6564 /* 'ed' */
+0000144A  696C                     bvs        +0x6E /* 000014B8 */
+0000144C  7665                     moveq.l    D3, 0x65
+0000144E  7200                     moveq.l    D1, 0x00
+00001450  7461                     moveq.l    D2, 0x61
+00001452  6E00 7461                bgt        +0x7463 /* 000088B5 */
+00001456  6E67                     bgt        +0x69 /* 000014BF */
+00001458  6572                     bcs        +0x74 /* 000014CC */
+0000145A  696E                     bvs        +0x70 /* 000014CA */
+0000145C  6500 746F                bcs        +0x7471 /* 000088CD */
+00001460  7061                     moveq.l    D0, 0x61
+00001462  7A00                     moveq.l    D5, 0x00
+00001464  7475                     moveq.l    D2, 0x75
+00001466  7271                     moveq.l    D1, 0x71
+00001468  756F                     moveq.l    D2, 0x6F
+0000146A  6973                     bvs        +0x75 /* 000014DF */
+0000146C  6500 7665                bcs        +0x7667 /* 00008AD3 */
+00001470  726D                     moveq.l    D1, 0x6D
+00001472  696C                     bvs        +0x6E /* 000014E0 */
+00001474  696F                     bvs        +0x71 /* 000014E5 */
+label00001476:
+00001476  6E00 7669                bgt        +0x766B /* 00008AE1 */
+0000147A  6F6C                     ble        +0x6E /* 000014E8 */
+fn0000147C:
+0000147C  6574                     bcs        +0x76 /* 000014F2 */
+0000147E  0077 6869 7465           ori.w      [A7 + D7.w * 4 + 0x65], 0x6869 /* 'hi' */
+00001484  0079 656C 6C6F 7700      ori.w      [0x6C6F7700], 0x656C /* 'el' */
+label0000148C:
+0000148C  FFFF                     .invalid   <<F/7/7>>
+0000148E  EBBE                     rol        D6, D5
+00001490  6263                     bhi        +0x65 /* 000014F5 */
+00001492  6466                     bcc        +0x68 /* 000014FA */
+00001494  6768                     beq        +0x6A /* 000014FE */
+00001496  6A6B                     bpl        +0x6D /* 00001503 */
+00001498  6C6D                     bge        +0x6F /* 00001507 */
+0000149A  6E70                     bgt        +0x72 /* 0000150C */
+0000149C  7172                     moveq.l    D0, 0x72
+fn0000149E:
+0000149E  7374                     moveq.l    D1, 0x74
+000014A0  7677                     moveq.l    D3, 0x77
+000014A2  7879                     moveq.l    D4, 0x79
+000014A4  7A00                     moveq.l    D5, 0x00
+000014A6  FFFF                     .invalid   <<F/7/7>>
+000014A8  EBD8 6165                bfexts     D6, [A0]+ {5:D5}
+000014AC  696F                     bvs        +0x71 /* 0000151D */
+000014AE  7500                     moveq.l    D2, 0x00
+000014B0  FFFF                     .invalid   <<F/7/7>>
+000014B2  EC7A                     ror        D2.w, D6
+000014B4  0019 FFFF                ori.b      [A1]+, 0xFF
+label000014B8:
+000014B8  EC80                     asr        D0, 6
+000014BA  0028 FFFF EC8C           ori.b      [A0 - 0x1374], 0xFF
+000014C0  0032 FFFF EC95           ori.b      [A2 + A6 * 4 - 0x6B], 0xFF
+000014C6  0028 FFFF EC9F           ori.b      [A0 - 0x1361], 0xFF
+// begin alternate branch 000014CA-000014CC
+label000014CA:
+000014CA  EC9F                     ror        D7, 6
+// end alternate branch 000014CA-000014CC
+label000014CA: // (misaligned)
+label000014CC:
+000014CC  012C FFFF                btst       [A4 - 0x1], D0
+000014D0  ECA7                     asr        D7, D6
+000014D2  012C FFFF                btst       [A4 - 0x1], D0
+000014D6  ECAF                     lsr        D7, D6
+000014D8  00E1                     .incomplete
+000014DA  FFFF                     .invalid   <<F/7/7>>
+000014DC  ECB9                     ror        D1, D6
+000014DE  0005 FFFF                ori.b      D5, 0xFF
+// begin alternate branch 000014E0-000014E2
+label000014E0:
+000014E0  FFFF                     .invalid   <<F/7/7>>
+// end alternate branch 000014E0-000014E2
+label000014E0: // (misaligned)
+000014E2  ECC1 0032                bfclr      D1 {0:D2}
+000014E6  FFFF                     .invalid   <<F/7/7>>
+label000014E8:
+000014E8  ECC8 0096                bfclr      A0 {2:22}
+000014EC  FFFF                     .invalid   <<F/7/7>>
+000014EE  ECCD 012C                bfclr      A5 {4:D4}
+label000014F2:
+000014F2  FFFF                     .invalid   <<F/7/7>>
+000014F4  ECD8 0032                bfclr      [A0]+ {0:D2}
+000014F8  FFFF                     .invalid   <<F/7/7>>
+label000014FA:
+000014FA  ECE5 0032                bfclr      -[A5] {0:D2}
+label000014FE:
+000014FE  FFFF                     .invalid   <<F/7/7>>
+00001500  ECEF 000F FFFF           bfclr      [A7 - 0x1] {0:15}
+00001506  ECF8 003C FFFF           bfclr      [0xFFFFFFFF] {0:D4}
+label0000150C:
+0000150C  ECFD 00C8                bfclr      <<invalid special address>> {3:8}
+00001510  FFFF                     .invalid   <<F/7/7>>
+00001512  ED02                     asl        D2.b, 6
+00001514  00DC                     .incomplete
+00001516  FFFF                     .invalid   <<F/7/7>>
+00001518  ED08                     lsl        D0.b, 6
+0000151A  003F FFFF                ori.b      <<invalid special address>>, 0xFF
+0000151E  ED10                     roxl       D0.b, 6
+00001520  015E                     bchg       [A6]+, D0
+00001522  FFFF                     .invalid   <<F/7/7>>
+00001524  ED15                     roxl       D5.b, 6
+00001526  011D                     btst       [A5]+, D0
+00001528  FFFF                     .invalid   <<F/7/7>>
+0000152A  ED1D                     rol        D5.b, 6
+0000152C  00C8                     .incomplete
+0000152E  FFFF                     .invalid   <<F/7/7>>
+00001530  ED2C                     lsl        D4.b, D6
+00001532  0032 FFFF ED36 003C F... ori.b      [[A2 + 0x3CFFFF] + A6 * 4 - 0x12C4], 0xFF
+0000153E  0046 FFFF                ori.w      D6, 0xFFFF
+00001542  ED46                     asl        D6.w, 6
+00001544  012C FFFF                btst       [A4 - 0x1], D0
+00001548  ED50                     roxl       D0.w, 6
+0000154A  0050 6167                ori.w      [A0], 0x6167 /* 'ag' */
+0000154E  6174                     bsr        +0x76 /* 000015C4 */
+00001550  6500 616C                bcs        +0x616E /* 000076BE */
+00001554  6578                     bcs        +0x7A /* 000015CE */
+00001556  616E                     bsr        +0x70 /* 000015C6 */
+00001558  6472                     bcc        +0x74 /* 000015CC */
+0000155A  6974                     bvs        +0x76 /* 000015D0 */
+0000155C  6500 616D                bcs        +0x616F /* 000076CB */
+00001560  6574                     bcs        +0x76 /* 000015D6 */
+00001562  6879                     bvc        +0x7B /* 000015DD */
+00001564  7374                     moveq.l    D1, 0x74
+00001566  0063 6172                ori.w      -[A3], 0x6172 /* 'ar' */
+0000156A  6E65                     bgt        +0x67 /* 000015D1 */
+0000156C  6C69                     bge        +0x6B /* 000015D7 */
+0000156E  616E                     bsr        +0x70 /* 000015DE */
+00001570  0064 6961                ori.w      -[A4], 0x6961 /* 'ia' */
+00001574  6D6F                     blt        +0x71 /* 000015E5 */
+00001576  6E64                     bgt        +0x66 /* 000015DC */
+00001578  0065 6D65                ori.w      -[A5], 0x6D65 /* 'me' */
+0000157C  7261                     moveq.l    D1, 0x61
+0000157E  6C64                     bge        +0x66 /* 000015E4 */
+00001580  0067 6572                ori.w      -[A7], 0x6572 /* 'er' */
+00001584  6D61                     blt        +0x63 /* 000015E7 */
+00001586  6E69                     bgt        +0x6B /* 000015F1 */
+00001588  756D                     moveq.l    D2, 0x6D
+0000158A  0067 7261                ori.w      -[A7], 0x7261 /* 'ra' */
+0000158E  6E69                     bgt        +0x6B /* 000015F9 */
+00001590  7465                     moveq.l    D2, 0x65
+00001592  0067 6172                ori.w      -[A7], 0x6172 /* 'ar' */
+00001596  6E65                     bgt        +0x67 /* 000015FD */
+00001598  7400                     moveq.l    D2, 0x00
+0000159A  6A61                     bpl        +0x63 /* 000015FD */
+0000159C  6465                     bcc        +0x67 /* 00001603 */
+0000159E  006B 7279 7074           ori.w      [A3 + 0x7074], 0x7279 /* 'ry' */
+000015A4  6F6E                     ble        +0x70 /* 00001614 */
+000015A6  6974                     bvs        +0x76 /* 0000161C */
+000015A8  6500 6C61                bcs        +0x6C63 /* 0000820B */
+000015AC  7069                     moveq.l    D0, 0x69
+000015AE  7320                     moveq.l    D1, 0x20
+000015B0  6C61                     bge        +0x63 /* 00001613 */
+000015B2  7A75                     moveq.l    D5, 0x75
+000015B4  6C69                     bge        +0x6B /* 0000161F */
+000015B6  006D 6F6F 6E73           ori.w      [A5 + 0x6E73], 0x6F6F /* 'oo' */
+000015BC  746F                     moveq.l    D2, 0x6F
+000015BE  6E65                     bgt        +0x67 /* 00001625 */
+000015C0  006F 6273 6964           ori.w      [A7 + 0x6964], 0x6273 /* 'bs' */
+// begin alternate branch 000015C4-000015C6
+fn000015C4:
+000015C4  6964                     bvs        +0x66 /* 0000162A */
+// end alternate branch 000015C4-000015C6
+fn000015C4: // (misaligned)
+fn000015C6:
+000015C6  6961                     bvs        +0x63 /* 00001629 */
+000015C8  6E00 6F6E                bgt        +0x6F70 /* 00008538 */
+label000015CC:
+000015CC  7978                     moveq.l    D4, 0x78
+label000015CE:
+000015CE  006F 7061 6C00           ori.w      [A7 + 0x6C00], 0x7061 /* 'pa' */
+// begin alternate branch 000015D0-000015D6
+label000015D0:
+000015D0  7061                     moveq.l    D0, 0x61
+000015D2  6C00 7065                bge        +0x7067 /* 00008639 */
+// end alternate branch 000015D0-000015D6
+label000015D0: // (misaligned)
+000015D4  7065                     moveq.l    D0, 0x65
+label000015D6:
+000015D6  6172                     bsr        +0x74 /* 0000164A */
+000015D8  6C00 7065                bge        +0x7067 /* 0000863F */
+label000015DC:
+000015DC  7269                     moveq.l    D1, 0x69
+fn000015DE:
+000015DE  646F                     bcc        +0x71 /* 0000164F */
+000015E0  7400                     moveq.l    D2, 0x00
+000015E2  7275                     moveq.l    D1, 0x75
+label000015E4:
+000015E4  6279                     bhi        +0x7B /* 0000165F */
+000015E6  0073 6170 6869           ori.w      [A3 + D6 + 0x69], 0x6170 /* 'ap' */
+000015EC  7265                     moveq.l    D1, 0x65
+000015EE  0073 7469 626F           ori.w      [A3 + D6.w * 2 + 0x6F], 0x7469 /* 'ti' */
+000015F4  7461                     moveq.l    D2, 0x61
+000015F6  6E74                     bgt        +0x76 /* 0000166C */
+000015F8  616C                     bsr        +0x6E /* 00001666 */
+000015FA  6974                     bvs        +0x76 /* 00001670 */
+000015FC  6500 7469                bcs        +0x746B /* 00008A67 */
+00001600  6765                     beq        +0x67 /* 00001667 */
+00001602  7220                     moveq.l    D1, 0x20
+00001604  6579                     bcs        +0x7B /* 0000167F */
+00001606  6500 746F                bcs        +0x7471 /* 00008A77 */
+0000160A  7061                     moveq.l    D0, 0x61
+0000160C  7A00                     moveq.l    D5, 0x00
+0000160E  7475                     moveq.l    D2, 0x75
+00001610  7271                     moveq.l    D1, 0x71
+00001612  756F                     moveq.l    D2, 0x6F
+label00001614:
+00001614  6973                     bvs        +0x75 /* 00001689 */
+00001616  6500 7461                bcs        +0x7463 /* 00008A79 */
+0000161A  6166                     bsr        +0x68 /* 00001682 */
+label0000161C:
+0000161C  6665                     bne        +0x67 /* 00001683 */
+0000161E  6974                     bvs        +0x76 /* 00001694 */
+00001620  6500 7A69                bcs        +0x7A6B /* 0000908B */
+00001624  7263                     moveq.l    D1, 0x63
+00001626  6F6E                     ble        +0x70 /* 00001696 */
+00001628  0000 FFFF                ori.b      D0, 0xFF
+// begin alternate branch 0000162A-0000162C
+label0000162A:
+0000162A  FFFF                     .invalid   <<F/7/7>>
+// end alternate branch 0000162A-0000162C
+label0000162A: // (misaligned)
+0000162C  EDDC FFFF                bfffo      D7, [A4]+ {D7:D7}
+00001630  EDE9 FFFF EDEF           bfffo      D7, [A1 - 0x1211] {D7:D7}
+00001636  FFFF                     .invalid   <<F/7/7>>
+00001638  EDF6 FFFF EDFD           bfffo      D7, <<invalid full ext with IS == 1 and I/IS == 5>> {D7:D7}
+0000163E  FFFF                     .invalid   <<F/7/7>>
+00001640  EE03                     asr        D3.b, 7
+00001642  FFFF                     .invalid   <<F/7/7>>
+00001644  EE09                     lsr        D1.b, 7
+00001646  FFFF                     .invalid   <<F/7/7>>
+00001648  EE10                     roxr       D0.b, 7
+fn0000164A:
+0000164A  FFFF                     .invalid   <<F/7/7>>
+0000164C  EE19                     ror        D1.b, 7
+0000164E  FFFF                     .invalid   <<F/7/7>>
+00001650  EE21                     asr        D1.b, D7
+00001652  FFFF                     .invalid   <<F/7/7>>
+00001654  EE29                     lsr        D1.b, D7
+00001656  FFFF                     .invalid   <<F/7/7>>
+00001658  EE33                     roxr       D3.b, D7
+0000165A  FFFF                     .invalid   <<F/7/7>>
+0000165C  EE39                     ror        D1.b, D7
+0000165E  FFFF                     .invalid   <<F/7/7>>
+00001660  EE3D                     ror        D5.b, D7
+00001662  FFFF                     .invalid   <<F/7/7>>
+00001664  EE48                     lsr        D0.w, 7
+fn00001666:
+00001666  FFFF                     .invalid   <<F/7/7>>
+00001668  EE4D                     lsr        D5.w, 7
+0000166A  FFFF                     .invalid   <<F/7/7>>
+label0000166C:
+0000166C  EE55                     roxr       D5.w, 7
+0000166E  FFFF                     .invalid   <<F/7/7>>
+label00001670:
+00001670  EE5B                     ror        D3.w, 7
+00001672  FFFF                     .invalid   <<F/7/7>>
+00001674  EE64                     asr        D4.w, D7
+00001676  FFFF                     .invalid   <<F/7/7>>
+00001678  EE6F                     lsr        D7.w, D7
+0000167A  FFFF                     .invalid   <<F/7/7>>
+0000167C  EE78                     ror        D0.w, D7
+0000167E  FFFF                     .invalid   <<F/7/7>>
+00001680  EE82                     asr        D2, 7
+fn00001682:
+00001682  FFFF                     .invalid   <<F/7/7>>
+00001684  EE88                     lsr        D0, 7
+00001686  FFFF                     .invalid   <<F/7/7>>
+00001688  EE8E                     lsr        D6, 7
+0000168A  FFFF                     .invalid   <<F/7/7>>
+0000168C  EE9D                     ror        D5, 7
+0000168E  FFFF                     .invalid   <<F/7/7>>
+00001690  EEA3                     asr        D3, D7
+00001692  FFFF                     .invalid   <<F/7/7>>
+label00001694:
+00001694  EEA8                     lsr        D0, D7
+label00001696:
+00001696  FFFF                     .invalid   <<F/7/7>>
+00001698  EEAF                     lsr        D7, D7
+0000169A  FFFF                     .invalid   <<F/7/7>>
+0000169C  EEB7                     roxr       D7, D7
+0000169E  FFFF                     .invalid   <<F/7/7>>
+000016A0  EEC0 FFFF                bfset      D0 {D7:D7}
+000016A4  EEC7 FFFF                bfset      D7 {D7:D7}
+000016A8  EECC FFFF                bfset      A4 {D7:D7}
+000016AC  EED3 6176                bfset      [A3] {5:D6}
+000016B0  6F63                     ble        +0x65 /* 00001715 */
+000016B2  6164                     bsr        +0x66 /* 00001718 */
+000016B4  6F20                     ble        +0x22 /* 000016D6 */
+000016B6  776F                     moveq.l    D3, 0x6F
+000016B8  6F64                     ble        +0x66 /* 0000171E */
+000016BA  0062 616C                ori.w      -[A2], 0x616C /* 'al' */
+000016BE  7361                     moveq.l    D1, 0x61
+000016C0  0062 616D                ori.w      -[A2], 0x616D /* 'am' */
+000016C4  626F                     bhi        +0x71 /* 00001735 */
+000016C6  6F00 6261                ble        +0x6263 /* 00007929 */
+000016CA  6E79                     bgt        +0x7B /* 00001745 */
+000016CC  616E                     bsr        +0x70 /* 0000173C */
+000016CE  0062 6972                ori.w      -[A2], 0x6972 /* 'ir' */
+000016D2  6368                     bls        +0x6A /* 0000173C */
+000016D4  0063 6564                ori.w      -[A3], 0x6564 /* 'ed' */
+// begin alternate branch 000016D6-000016D8
+label000016D6:
+000016D6  6564                     bcs        +0x66 /* 0000173C */
+// end alternate branch 000016D6-000016D8
+label000016D6: // (misaligned)
+000016D8  6172                     bsr        +0x74 /* 0000174C */
+000016DA  0063 6865                ori.w      -[A3], 0x6865 /* 'he' */
+000016DE  7272                     moveq.l    D1, 0x72
+000016E0  7900                     moveq.l    D4, 0x00
+000016E2  6369                     bls        +0x6B /* 0000174D */
+000016E4  6E6E                     bgt        +0x70 /* 00001754 */
+000016E6  6962                     bvs        +0x64 /* 0000174A */
+000016E8  6172                     bsr        +0x74 /* 0000175C */
+000016EA  0063 7970                ori.w      -[A3], 0x7970 /* 'yp' */
+000016EE  7265                     moveq.l    D1, 0x65
+000016F0  7373                     moveq.l    D1, 0x73
+000016F2  0064 6F67                ori.w      -[A4], 0x6F67 /* 'og' */
+000016F6  776F                     moveq.l    D3, 0x6F
+000016F8  6F64                     ble        +0x66 /* 0000175E */
+000016FA  0064 7269                ori.w      -[A4], 0x7269 /* 'ri' */
+000016FE  6674                     bne        +0x76 /* 00001774 */
+00001700  776F                     moveq.l    D3, 0x6F
+00001702  6F64                     ble        +0x66 /* 00001768 */
+00001704  0065 626F                ori.w      -[A5], 0x626F /* 'bo' */
+00001708  6E79                     bgt        +0x7B /* 00001783 */
+0000170A  0065 6C6D                ori.w      -[A5], 0x6C6D /* 'lm' */
+0000170E  0065 7563                ori.w      -[A5], 0x7563 /* 'uc' */
+00001712  616C                     bsr        +0x6E /* 00001780 */
+00001714  7970                     moveq.l    D4, 0x70
+00001716  7475                     moveq.l    D2, 0x75
+fn00001718:
+00001718  7300                     moveq.l    D1, 0x00
+0000171A  6661                     bne        +0x63 /* 0000177D */
+0000171C  6C6C                     bge        +0x6E /* 0000178A */
+label0000171E:
+0000171E  0068 656D 6C6F           ori.w      [A0 + 0x6C6F], 0x656D /* 'em' */
+00001724  636B                     bls        +0x6D /* 00001791 */
+00001726  0068 6F6C 6C79           ori.w      [A0 + 0x6C79], 0x6F6C /* 'ol' */
+0000172C  0069 726F 6E77           ori.w      [A1 + 0x6E77], 0x726F /* 'ro' */
+00001732  6F6F                     ble        +0x71 /* 000017A3 */
+00001734  6400 6B75                bcc        +0x6B77 /* 000082AB */
+00001738  6B75                     bmi        +0x77 /* 000017AF */
+0000173A  6920                     bvs        +0x22 /* 0000175C */
+fn0000173C:
+0000173C  776F                     moveq.l    D3, 0x6F
+0000173E  6F64                     ble        +0x66 /* 000017A4 */
+00001740  006D 6168 6F67           ori.w      [A5 + 0x6F67], 0x6168 /* 'ah' */
+00001746  616E                     bsr        +0x70 /* 000017B6 */
+00001748  7900                     moveq.l    D4, 0x00
+label0000174A:
+0000174A  6D61                     blt        +0x63 /* 000017AD */
+fn0000174C:
+0000174C  6E7A                     bgt        +0x7C /* 000017C8 */
+0000174E  616E                     bsr        +0x70 /* 000017BE */
+00001750  6974                     bvs        +0x76 /* 000017C6 */
+00001752  6100 6D61                bsr        +0x6D63 /* 000084B5 */
+// begin alternate branch 00001754-00001756
+label00001754:
+00001754  6D61                     blt        +0x63 /* 000017B7 */
+// end alternate branch 00001754-00001756
+label00001754: // (misaligned)
+00001756  706C                     moveq.l    D0, 0x6C
+00001758  6500 6F61                bcs        +0x6F63 /* 000086BB */
+fn0000175C:
+0000175C  6B65                     bmi        +0x67 /* 000017C3 */
+label0000175E:
+0000175E  6E00 7065                bgt        +0x7067 /* 000087C5 */
+00001762  7273                     moveq.l    D1, 0x73
+00001764  696D                     bvs        +0x6F /* 000017D3 */
+00001766  6D6F                     blt        +0x71 /* 000017D7 */
+label00001768:
+00001768  6E20                     bgt        +0x22 /* 0000178A */
+0000176A  776F                     moveq.l    D3, 0x6F
+0000176C  6F64                     ble        +0x66 /* 000017D2 */
+0000176E  0070 6563 616E           ori.w      <<invalid full ext with IS == 1 and I/IS == 6>>, 0x6563 /* 'ec' */
+label00001774:
+00001774  0070 696E 6500           ori.w      [A0 + <<invalid base displacement size>> + D6 * 4], 0x696E /* 'in' */
+0000177A  706F                     moveq.l    D0, 0x6F
+0000177C  706C                     moveq.l    D0, 0x6C
+0000177E  6172                     bsr        +0x74 /* 000017F2 */
+fn00001780:
+00001780  0072 6564 776F           ori.w      <<invalid full ext with IS == 1 and I/IS == 7>>, 0x6564 /* 'ed' */
+00001786  6F64                     ble        +0x66 /* 000017EC */
+00001788  0072 6F73 6577           ori.w      <<invalid full ext with IS == 1 and I/IS == 7>>, 0x6F73 /* 'os' */
+// begin alternate branch 0000178A-0000178E
+label0000178A:
+0000178A  6F73                     ble        +0x75 /* 000017FF */
+0000178C  6577                     bcs        +0x79 /* 00001805 */
+// end alternate branch 0000178A-0000178E
+label0000178A: // (misaligned)
+0000178E  6F6F                     ble        +0x71 /* 000017FF */
+00001790  6400 7370                bcc        +0x7372 /* 00008B02 */
+00001794  7275                     moveq.l    D1, 0x75
+00001796  6365                     bls        +0x67 /* 000017FD */
+00001798  0074 6561 6B00           ori.w      [A4 + <<invalid base displacement size>> + D6 * 2], 0x6561 /* 'ea' */
+0000179E  7761                     moveq.l    D3, 0x61
+000017A0  6C6E                     bge        +0x70 /* 00001810 */
+000017A2  7574                     moveq.l    D2, 0x74
+label000017A4:
+000017A4  007A 6562 7261           ori.w      [PC + 0x7261 /* 00008A07 */], 0x6562 /* 'eb' */
+000017AA  776F                     moveq.l    D3, 0x6F
+000017AC  6F64                     ble        +0x66 /* 00001812 */
+000017AE  0000 FFFF                ori.b      D0, 0xFF
+000017B2  EF36                     roxl       D6.b, D7
+000017B4  FFFF                     .invalid   <<F/7/7>>
+fn000017B6:
+000017B6  EF3F                     rol        D7.b, D7
+000017B8  FFFF                     .invalid   <<F/7/7>>
+000017BA  EF49                     lsl        D1.w, 7
+000017BC  FFFF                     .invalid   <<F/7/7>>
+fn000017BE:
+000017BE  EF4E                     lsl        D6.w, 7
+000017C0  FFFF                     .invalid   <<F/7/7>>
+000017C2  EF54                     roxl       D4.w, 7
+000017C4  FFFF                     .invalid   <<F/7/7>>
+label000017C6:
+000017C6  EF5B                     rol        D3.w, 7
+label000017C8:
+000017C8  FFFF                     .invalid   <<F/7/7>>
+000017CA  EF62                     asl        D2.w, D7
+000017CC  FFFF                     .invalid   <<F/7/7>>
+000017CE  EF6B                     lsl        D3.w, D7
+000017D0  FFFF                     .invalid   <<F/7/7>>
+label000017D2:
+000017D2  EF70                     roxl       D0.w, D7
+000017D4  FFFF                     .invalid   <<F/7/7>>
+000017D6  EF75                     roxl       D5.w, D7
+000017D8  FFFF                     .invalid   <<F/7/7>>
+000017DA  EF7A                     rol        D2.w, D7
+000017DC  FFFF                     .invalid   <<F/7/7>>
+000017DE  EF84                     asl        D4, 7
+000017E0  FFFF                     .invalid   <<F/7/7>>
+000017E2  EF8C                     lsl        D4, 7
+000017E4  FFFF                     .invalid   <<F/7/7>>
+000017E6  EF93                     roxl       D3, 7
+000017E8  FFFF                     .invalid   <<F/7/7>>
+000017EA  EF9A                     rol        D2, 7
+label000017EC:
+000017EC  FFFF                     .invalid   <<F/7/7>>
+000017EE  EFA3                     asl        D3, D7
+000017F0  FFFF                     .invalid   <<F/7/7>>
+fn000017F2:
+000017F2  EFA9                     lsl        D1, D7
+000017F4  FFFF                     .invalid   <<F/7/7>>
+000017F6  EFB0                     roxl       D0, D7
+000017F8  FFFF                     .invalid   <<F/7/7>>
+000017FA  EFB8                     rol        D0, D7
+000017FC  FFFF                     .invalid   <<F/7/7>>
+000017FE  EFBC                     rol        D4, D7
+00001800  FFFF                     .invalid   <<F/7/7>>
+00001802  EFC5 FFFF                bfins      D5 {D7:D7}, D7
+00001806  EFCE 616C                bfins      A6 {5:D4}, D6
+0000180A  756D                     moveq.l    D2, 0x6D
+0000180C  696E                     bvs        +0x70 /* 0000187C */
+0000180E  756D                     moveq.l    D2, 0x6D
+label00001810:
+00001810  0062 6572                ori.w      -[A2], 0x6572 /* 'er' */
+// begin alternate branch 00001812-00001814
+label00001812:
+00001812  6572                     bcs        +0x74 /* 00001886 */
+// end alternate branch 00001812-00001814
+label00001812: // (misaligned)
+00001814  796C                     moveq.l    D4, 0x6C
+00001816  6C69                     bge        +0x6B /* 00001881 */
+00001818  756D                     moveq.l    D2, 0x6D
+0000181A  0062 6F6E                ori.w      -[A2], 0x6F6E /* 'on' */
+0000181E  6500 6272                bcs        +0x6274 /* 00007A92 */
+00001822  6173                     bsr        +0x75 /* 00001897 */
+00001824  7300                     moveq.l    D1, 0x00
+00001826  6272                     bhi        +0x74 /* 0000189A */
+00001828  6F6E                     ble        +0x70 /* 00001898 */
+0000182A  7A65                     moveq.l    D5, 0x65
+0000182C  0063 6F70                ori.w      -[A3], 0x6F70 /* 'op' */
+00001830  7065                     moveq.l    D0, 0x65
+00001832  7200                     moveq.l    D1, 0x00
+00001834  656C                     bcs        +0x6E /* 000018A2 */
+00001836  6563                     bcs        +0x65 /* 0000189B */
+00001838  7472                     moveq.l    D2, 0x72
+0000183A  756D                     moveq.l    D2, 0x6D
+0000183C  0067 6F6C                ori.w      -[A7], 0x6F6C /* 'ol' */
+00001840  6400 6972                bcc        +0x6974 /* 000081B4 */
+00001844  6F6E                     ble        +0x70 /* 000018B4 */
+00001846  006C 6561 6400           ori.w      [A4 + 0x6400], 0x6561 /* 'ea' */
+0000184C  6D61                     blt        +0x63 /* 000018AF */
+0000184E  676E                     beq        +0x70 /* 000018BE */
+00001850  6573                     bcs        +0x75 /* 000018C5 */
+00001852  6975                     bvs        +0x77 /* 000018C9 */
+00001854  6D00 6D65                blt        +0x6D67 /* 000085BB */
+00001858  7263                     moveq.l    D1, 0x63
+0000185A  7572                     moveq.l    D2, 0x72
+0000185C  7900                     moveq.l    D4, 0x00
+0000185E  6E69                     bgt        +0x6B /* 000018C9 */
+00001860  636B                     bls        +0x6D /* 000018CD */
+00001862  656C                     bcs        +0x6E /* 000018D0 */
+00001864  0070 6577 7465           ori.w      [A0 + D7.w * 4 + 0x65], 0x6577 /* 'ew' */
+0000186A  7200                     moveq.l    D1, 0x00
+0000186C  706C                     moveq.l    D0, 0x6C
+0000186E  6174                     bsr        +0x76 /* 000018E4 */
+00001870  696E                     bvs        +0x70 /* 000018E0 */
+00001872  756D                     moveq.l    D2, 0x6D
+00001874  0073 7465 656C           ori.w      <<invalid full ext with I/IS == 4>>, 0x7465 /* 'te' */
+0000187A  0073 696C 7665           ori.w      [A3 + D7.w * 8 + 0x65], 0x696C /* 'il' */
+// begin alternate branch 0000187C-00001880
+label0000187C:
+0000187C  696C                     bvs        +0x6E /* 000018EA */
+0000187E  7665                     moveq.l    D3, 0x65
+// end alternate branch 0000187C-00001880
+label0000187C: // (misaligned)
+00001880  7200                     moveq.l    D1, 0x00
+00001882  7369                     moveq.l    D1, 0x69
+00001884  6C69                     bge        +0x6B /* 000018EF */
+label00001886:
+00001886  636F                     bls        +0x71 /* 000018F7 */
+00001888  6E00 7469                bgt        +0x746B /* 00008CF3 */
+0000188C  6E00 7469                bgt        +0x746B /* 00008CF7 */
+00001890  7461                     moveq.l    D2, 0x61
+00001892  6E69                     bgt        +0x6B /* 000018FD */
+00001894  756D                     moveq.l    D2, 0x6D
+00001896  0074 756E 6773 7465 6... ori.w      [[A4 + 0x74656E00] + 0x7A696E63], 0x756E /* 'un' */
+// begin alternate branch 00001898-0000189A
+label00001898:
+00001898  756E                     moveq.l    D2, 0x6E
+// end alternate branch 00001898-0000189A
+// begin alternate branch 0000189A-000018A4
+label0000189A:
+0000189A  6773                     beq        +0x75 /* 0000190F */
+0000189C  7465                     moveq.l    D2, 0x65
+0000189E  6E00 7A69                bgt        +0x7A6B /* 00009309 */
+label000018A2:
+000018A2  6E63                     bgt        +0x65 /* 00001907 */
+// end alternate branch 0000189A-000018A4
+label00001898: // (misaligned)
+label0000189A: // (misaligned)
+label000018A2: // (misaligned)
+000018A4  0000 0000                ori.b      D0, 0x0
+000018A8  018A                     bclr       A2, D0
+000018AA  0000 0192                ori.b      D0, 0x92
+000018AE  0000 019A                ori.b      D0, 0x9A
+000018B2  0000 1BE8                ori.b      D0, 0xE8
+// begin alternate branch 000018B4-000018BE
+label000018B4:
+000018B4  1BE8 0000                move.b     <<invalid special address>>, [A0 + 0x0]
+000018B8  1BFC 0000                move.b     <<invalid special address>>, 0x0
+000018BC  01A2                     bclr       -[A2], D0
+// end alternate branch 000018B4-000018BE
+label000018B4: // (misaligned)
+000018B6  0000 1BFC                ori.b      D0, 0xFC
+000018BA  0000 01A2                ori.b      D0, 0xA2
+label000018BE:
+000018BE  0000 01AA                ori.b      D0, 0xAA
+000018C2  0000 01B2                ori.b      D0, 0xB2
+000018C6  0000 01BA                ori.b      D0, 0xBA
+000018CA  0000 1D78                ori.b      D0, 0x78 /* 'x' */
+000018CE  0000 03D2                ori.b      D0, 0xD2
+// begin alternate branch 000018D0-000018D2
+label000018D0:
+000018D0  03D2                     .incomplete
+// end alternate branch 000018D0-000018D2
+label000018D0: // (misaligned)
+000018D2  0000 0000                ori.b      D0, 0x0
+000018D6  0000 18AA                ori.b      D0, 0xAA
+000018DA  0000 FFFF                ori.b      D0, 0xFF
+000018DE  F01E FFFF                .invalid   0xF01E, 0xFFFF // unimplemented
+// begin alternate branch 000018E0-000018E2
+label000018E0:
+000018E0  FFFF                     .invalid   <<F/7/7>>
+// end alternate branch 000018E0-000018E2
+label000018E0: // (misaligned)
+000018E2  F01F FFFF                .invalid   0xF01F, 0xFFFF // unimplemented
+// begin alternate branch 000018E4-000018E6
+fn000018E4:
+000018E4  FFFF                     .invalid   <<F/7/7>>
+// end alternate branch 000018E4-000018E6
+fn000018E4: // (misaligned)
+000018E6  F027 FFFF                .invalid   0xF027, 0xFFFF // unimplemented
+label000018EA:
+000018EA  F02D FFFF F034           .invalid   0xF02D, 0xFFFF // unimplemented
+000018F0  0006 4875                ori.b      D6, 0x75 /* 'u' */
+000018F4  6E67                     bgt        +0x69 /* 0000195D */
+000018F6  7279                     moveq.l    D1, 0x79
+000018F8  0004 5765                ori.b      D4, 0x65 /* 'e' */
+000018FC  616B                     bsr        +0x6D /* 00001969 */
+000018FE  0005 4661                ori.b      D5, 0x61 /* 'a' */
+00001902  696E                     bvs        +0x70 /* 00001972 */
+00001904  7400                     moveq.l    D2, 0x00
+00001906  013F                     btst       <<invalid special address>>, D0
+00001908  0000 0000                ori.b      D0, 0x0
+0000190C  0000 2573                ori.b      D0, 0x73 /* 's' */
+00001910  3A20                     move.w     D5, -[A0]
+00001912  2573 0041 726D           move.l     [A2 + 0x726D], [A3 + D0.w + 0x41]
+00001918  6F72                     ble        +0x74 /* 0000198C */
+0000191A  2053                     movea.l    A0, [A3]
+0000191C  7472                     moveq.l    D2, 0x72
+0000191E  656E                     bcs        +0x70 /* 0000198E */
+00001920  6774                     beq        +0x76 /* 00001996 */
+00001922  683A                     bvc        +0x3C /* 0000195E */
+00001924  2025                     move.l     D0, -[A5]
+00001926  322E 3264                move.w     D1, [A6 + 0x3264]
+0000192A  0025 6420                ori.b      -[A5], 0x20 /* ' ' */
+0000192E  676F                     beq        +0x71 /* 0000199F */
+00001930  6C64                     bge        +0x66 /* 00001996 */
+00001932  2070 6965                movea.l    A0, <<invalid full ext with IS == 1 and I/IS == 5>>
+00001936  6365                     bls        +0x67 /* 0000199D */
+00001938  732E                     moveq.l    D1, 0x2E
+0000193A  0000 0000                ori.b      D0, 0x0
+0000193E  0000 0064                ori.b      D0, 0x64 /* 'd' */
+00001942  0000 FFFF                ori.b      D0, 0xFF
+00001946  F082 0000                .extension 0x082 <<F/2-3/0>> // unimplemented
+0000194A  0000 001E                ori.b      D0, 0x1E
+0000194E  0000 FFFF                ori.b      D0, 0xFF
+00001952  F087 0348                .extension 0x087 <<F/2-3/0>> // unimplemented
+00001956  703A                     moveq.l    D0, 0x3A
+00001958  0004 5374                ori.b      D4, 0x74 /* 't' */
+0000195C  723A                     moveq.l    D1, 0x3A
+label0000195E:
+0000195E  0000 0000                ori.b      D0, 0x0
+00001962  0000 0000                ori.b      D0, 0x0
+00001966  FFFF                     .invalid   <<F/7/7>>
+00001968  0000 0005                ori.b      D0, 0x5
+0000196C  0000 0000                ori.b      D0, 0x0
+00001970  0005 0000                ori.b      D5, 0x0
+// begin alternate branch 00001972-00001984
+label00001972:
+00001972  0000 0002                ori.b      D0, 0x2
+00001976  0003 0004                ori.b      D3, 0x4
+0000197A  0000 0000                ori.b      D0, 0x0
+0000197E  0000 004D                ori.b      D0, 0x4D /* 'M' */
+00001982  0100                     btst       D0, D0
+// end alternate branch 00001972-00001984
+label00001972: // (misaligned)
+00001974  0002 0003                ori.b      D2, 0x3
+00001978  0004 0000                ori.b      D4, 0x0
+0000197C  0000 0000                ori.b      D0, 0x0
+00001980  004D 0100                ori.w      A5, 0x100
+00001984  5341                     subq.w     D1, 1
+00001986  5645                     addq.w     D5, 3
+00001988  0000 0000                ori.b      D0, 0x0
+label0000198C:
+0000198C  0000 0000                ori.b      D0, 0x0
+// begin alternate branch 0000198E-00001996
+label0000198E:
+0000198E  0000 0000                ori.b      D0, 0x0
+00001992  0000 0100                ori.b      D0, 0x0
+// end alternate branch 0000198E-00001996
+label0000198E: // (misaligned)
+00001990  0000 0000                ori.b      D0, 0x0
+00001994  0100                     btst       D0, D0
+label00001996:
+00001996  FFFF                     .invalid   <<F/7/7>>
+00001998  0000 0000                ori.b      D0, 0x0
+0000199C  0001 0001                ori.b      D1, 0x1
+000019A0  0000 0000                ori.b      D0, 0x0
+000019A4  FFFF                     .invalid   <<F/7/7>>
+000019A6  0001 0001                ori.b      D1, 0x1
+000019AA  0000 0000                ori.b      D0, 0x0
+000019AE  0000 0000                ori.b      D0, 0x0
+000019B2  0000 0000                ori.b      D0, 0x0
+000019B6  0000 0000                ori.b      D0, 0x0
+000019BA  0100                     btst       D0, D0
+000019BC  0100                     btst       D0, D0
+000019BE  0100                     btst       D0, D0
+000019C0  0000 0000                ori.b      D0, 0x0
+000019C4  0000 0000                ori.b      D0, 0x0
+000019C8  0000 0000                ori.b      D0, 0x0
+000019CC  0000 0001                ori.b      D0, 0x1
+000019D0  0000 0001                ori.b      D0, 0x1
+000019D4  0000 0000                ori.b      D0, 0x0
+000019D8  0000 0000                ori.b      D0, 0x0
+000019DC  0000 0000                ori.b      D0, 0x0
+000019E0  0000 0100                ori.b      D0, 0x0
+000019E4  0000 0100                ori.b      D0, 0x0
+000019E8  0100                     btst       D0, D0
+000019EA  0000 0000                ori.b      D0, 0x0
+000019EE  0000 0000                ori.b      D0, 0x0
+000019F2  0000 0000                ori.b      D0, 0x0
+000019F6  0001 0001                ori.b      D1, 0x1
+000019FA  0001 0001                ori.b      D1, 0x1
+000019FE  0000 0000                ori.b      D0, 0x0
+00001A02  0000 0000                ori.b      D0, 0x0
+00001A06  0000 0000                ori.b      D0, 0x0
+00001A0A  0000 0100                ori.b      D0, 0x0
+00001A0E  0100                     btst       D0, D0
+00001A10  0000 0100                ori.b      D0, 0x0
+00001A14  0000 0000                ori.b      D0, 0x0
+00001A18  0000 0000                ori.b      D0, 0x0
+00001A1C  0000 0000                ori.b      D0, 0x0
+00001A20  0001 0000                ori.b      D1, 0x0
+00001A24  0001 0000                ori.b      D1, 0x0
+00001A28  0000 0000                ori.b      D0, 0x0
+00001A2C  0000 0000                ori.b      D0, 0x0
+00001A30  0000 0000                ori.b      D0, 0x0
+00001A34  0000 0100                ori.b      D0, 0x0
+00001A38  0100                     btst       D0, D0
+00001A3A  0100                     btst       D0, D0
+00001A3C  0000 0000                ori.b      D0, 0x0
+00001A40  0000 0000                ori.b      D0, 0x0
+00001A44  0000 0000                ori.b      D0, 0x0
+00001A48  0000 0001                ori.b      D0, 0x1
+00001A4C  0001 0000                ori.b      D1, 0x0
+00001A50  0000 0000                ori.b      D0, 0x0
+00001A54  0000 0000                ori.b      D0, 0x0
+00001A58  0000 FFFF                ori.b      D0, 0xFF
+00001A5C  FFFF                     .invalid   <<F/7/7>>
+00001A5E  3031 3233                move.w     D0, [A1 + D3.w * 2 + 0x33]
+00001A62  3435 3637                move.w     D2, [A5 + D3.w * 8 + 0x37]
+00001A66  3839 6162 6364           move.w     D4, [0x61626364]
+00001A6C  6566                     bcs        +0x68 /* 00001AD4 */
+00001A6E  0000 0020                ori.b      D0, 0x20 /* ' ' */
+00001A72  2020                     move.l     D0, -[A0]
+00001A74  2020                     move.l     D0, -[A0]
+00001A76  2020                     move.l     D0, -[A0]
+00001A78  2020                     move.l     D0, -[A0]
+00001A7A  3030 3030                move.w     D0, [A0 + D3.w + 0x30]
+00001A7E  3020                     move.w     D0, -[A0]
+00001A80  2020                     move.l     D0, -[A0]
+00001A82  2020                     move.l     D0, -[A0]
+00001A84  2020                     move.l     D0, -[A0]
+00001A86  2020                     move.l     D0, -[A0]
+00001A88  2020                     move.l     D0, -[A0]
+00001A8A  2020                     move.l     D0, -[A0]
+00001A8C  2020                     move.l     D0, -[A0]
+00001A8E  2020                     move.l     D0, -[A0]
+00001A90  2090                     move.l     [A0], [A0]
+00001A92  4040                     negx.w     D0
+00001A94  4040                     negx.w     D0
+00001A96  4040                     negx.w     D0
+00001A98  4040                     negx.w     D0
+00001A9A  4040                     negx.w     D0
+00001A9C  4040                     negx.w     D0
+00001A9E  4040                     negx.w     D0
+00001AA0  400C                     negx.b     A4
+00001AA2  0C0C 0C0C                cmpi.b     A4, 0xC
+00001AA6  0C0C 0C0C                cmpi.b     A4, 0xC
+00001AAA  0C40 4040                cmpi.w     D0, 0x4040 /* '@@' */
+00001AAE  4040                     negx.w     D0
+00001AB0  4040                     negx.w     D0
+00001AB2  0909                     btst       A1, D4
+00001AB4  0909                     btst       A1, D4
+00001AB6  0909                     btst       A1, D4
+00001AB8  0101                     btst       D1, D0
+00001ABA  0101                     btst       D1, D0
+00001ABC  0101                     btst       D1, D0
+00001ABE  0101                     btst       D1, D0
+00001AC0  0101                     btst       D1, D0
+00001AC2  0101                     btst       D1, D0
+00001AC4  0101                     btst       D1, D0
+00001AC6  0101                     btst       D1, D0
+00001AC8  0101                     btst       D1, D0
+00001ACA  0101                     btst       D1, D0
+00001ACC  4040                     negx.w     D0
+00001ACE  4040                     negx.w     D0
+00001AD0  0140                     bchg       D0, D0
+00001AD2  0A0A 0A0A                xori.b     A2, 0xA /* '\n' */
+// begin alternate branch 00001AD4-00001AEE
+label00001AD4:
+00001AD4  0A0A 0A0A                xori.b     A2, 0xA /* '\n' */
+00001AD8  0202 0202                andi.b     D2, 0x2
+00001ADC  0202 0202                andi.b     D2, 0x2
+00001AE0  0202 0202                andi.b     D2, 0x2
+00001AE4  0202 0202                andi.b     D2, 0x2
+00001AE8  0202 0202                andi.b     D2, 0x2
+00001AEC  4040                     negx.w     D0
+// end alternate branch 00001AD4-00001AEE
+label00001AD4: // (misaligned)
+00001AD6  0A0A 0202                xori.b     A2, 0x2
+00001ADA  0202 0202                andi.b     D2, 0x2
+00001ADE  0202 0202                andi.b     D2, 0x2
+00001AE2  0202 0202                andi.b     D2, 0x2
+00001AE6  0202 0202                andi.b     D2, 0x2
+00001AEA  0202 4040                andi.b     D2, 0x40 /* '@' */
+00001AEE  4040                     negx.w     D0
+00001AF0  2000                     move.l     D0, D0
+00001AF2  0000 0000                ori.b      D0, 0x0
+00001AF6  0103                     btst       D3, D0
+00001AF8  0200                     .incomplete

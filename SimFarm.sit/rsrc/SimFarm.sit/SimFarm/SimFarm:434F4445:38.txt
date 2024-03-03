@@ -1,0 +1,370 @@
+# near model CODE resource
+# jump table entries: 8304-8313 (10 of them)
+export_1038:
+00000000  4E56 0000                link       A6, 0
+00000004  48E7 0108                movem.l    -[A7], D7,A4
+00000008  286E 0008                movea.l    A4, [A6 + 0x8]
+0000000C  598F                     subq.l     A7, 4
+0000000E  206E 000C                movea.l    A0, [A6 + 0xC]
+00000012  2F28 000A                move.l     -[A7], [A0 + 0xA]
+00000016  A93D                     syscall    MenuSelect
+00000018  2E17                     move.l     D7, [A7]
+0000001A  204C                     movea.l    A0, A4
+0000001C  226C 0060                movea.l    A1, [A4 + 0x60]
+00000020  D0E9 0078                add.w      A0, [A1 + 0x78]
+00000024  2F08                     move.l     -[A7], A0
+00000026  2049                     movea.l    A0, A1
+00000028  2268 007C                movea.l    A1, [A0 + 0x7C]
+0000002C  4E91                     jsr        [A1]
+0000002E  7000                     moveq.l    D0, 0x00
+00000030  3F00                     move.w     -[A7], D0
+00000032  A938                     syscall    HiliteMenu
+00000034  4CEE 1080 FFF8           movem.l    D7,A4, [A6 - 0x8]
+0000003A  4E5E                     unlink     A6
+0000003C  4E75                     rts
+0000003E  8023 4D6F 7573 6544 6... dc.b       "MouseDown__8cMenuBarFR11EventRecord"
+export_1039:
+00000066  4E56 0000                link       A6, 0
+0000006A  48E7 0118                movem.l    -[A7], D7,A3,A4
+0000006E  266E 000C                movea.l    A3, [A6 + 0xC]
+00000072  286E 0008                movea.l    A4, [A6 + 0x8]
+00000076  303C 0100                move.w     D0, 0x100
+0000007A  C06B 000E                and.w      D0, [A3 + 0xE]
+0000007E  6732                     beq        +0x34 /* 000000B2 */
+00000080  2E3C 0000 00FF           move.l     D7, 0xFF
+00000086  CEAB 0002                and.l      D7, [A3 + 0x2]
+0000008A  598F                     subq.l     A7, 4
+0000008C  4887                     ext.w      D7
+0000008E  3F07                     move.w     -[A7], D7
+00000090  A93E                     syscall    MenuKey
+00000092  204C                     movea.l    A0, A4
+00000094  226C 0060                movea.l    A1, [A4 + 0x60]
+00000098  D0E9 0078                add.w      A0, [A1 + 0x78]
+0000009C  2F08                     move.l     -[A7], A0
+0000009E  2049                     movea.l    A0, A1
+000000A0  2268 007C                movea.l    A1, [A0 + 0x7C]
+000000A4  4E91                     jsr        [A1]
+000000A6  7000                     moveq.l    D0, 0x00
+000000A8  3F00                     move.w     -[A7], D0
+000000AA  A938                     syscall    HiliteMenu
+000000AC  7001                     moveq.l    D0, 0x01
+000000AE  504F                     addq.w     A7, 8
+000000B0  6002                     bra        +0x4 /* 000000B4 */
+label000000B2:
+000000B2  7000                     moveq.l    D0, 0x00
+label000000B4:
+000000B4  4CEE 1880 FFF4           movem.l    D7,A3,A4, [A6 - 0xC]
+000000BA  4E5E                     unlink     A6
+000000BC  4E75                     rts
+000000BE  8021 4B65 7944 6F77 6... dc.b       "KeyDown__8cMenuBarFR11EventRecord"
+export_1040:
+000000E4  4E56 0000                link       A6, 0
+000000E8  206E 0008                movea.l    A0, [A6 + 0x8]
+000000EC  117C 0001 00A6           move.b     [A0 + 0xA6], 0x1
+000000F2  4E5E                     unlink     A6
+000000F4  4E75                     rts
+000000F6  9A4D 6F64 616C 5769 6... dc.b       "ModalWindowUp__8cMenuBarFv"
+export_1041:
+00000114  4E56 0000                link       A6, 0
+00000118  206E 0008                movea.l    A0, [A6 + 0x8]
+0000011C  4228 00A6                clr.b      [A0 + 0xA6]
+00000120  4E5E                     unlink     A6
+00000122  4E75                     rts
+00000124  9C4D 6F64 616C 5769 6... dc.b       "ModalWindowDown__8cMenuBarFv"
+export_1042:
+00000144  4E56 FFFE                link       A6, -0x0002
+00000148  48E7 0108                movem.l    -[A7], D7,A4
+0000014C  3E2E 0012                move.w     D7, [A6 + 0x12]
+00000150  286E 000C                movea.l    A4, [A6 + 0xC]
+00000154  2F0C                     move.l     -[A7], A4
+00000156  3F07                     move.w     -[A7], D7
+00000158  486E FFFE                pea.l      [A6 - 0x2]
+0000015C  A943                     syscall    GetItmMark
+0000015E  4A6E FFFE                tst.w      [A6 - 0x2]
+00000162  670C                     beq        +0xE /* 00000170 */
+00000164  2F0C                     move.l     -[A7], A4
+00000166  3F07                     move.w     -[A7], D7
+00000168  7000                     moveq.l    D0, 0x00
+0000016A  3F00                     move.w     -[A7], D0
+0000016C  A944                     syscall    SetItmMark
+0000016E  600A                     bra        +0xC /* 0000017A */
+label00000170:
+00000170  2F0C                     move.l     -[A7], A4
+00000172  3F07                     move.w     -[A7], D7
+00000174  7012                     moveq.l    D0, 0x12
+00000176  3F00                     move.w     -[A7], D0
+00000178  A944                     syscall    SetItmMark
+label0000017A:
+0000017A  4CEE 1080 FFF6           movem.l    D7,A4, [A6 - 0xA]
+00000180  4E5E                     unlink     A6
+00000182  4E75                     rts
+00000184  8027 546F 6767 6C65 4... dc.b       "ToggleCheckMark__8cMenuBarFPP8MenuInfos"
+export_1043:
+000001B0  4E56 FFFE                link       A6, -0x0002
+000001B4  2F03                     move.l     -[A7], D3
+000001B6  2F2E 000C                move.l     -[A7], [A6 + 0xC]
+000001BA  3F2E 0012                move.w     -[A7], [A6 + 0x12]
+000001BE  486E FFFE                pea.l      [A6 - 0x2]
+000001C2  A943                     syscall    GetItmMark
+000001C4  7012                     moveq.l    D0, 0x12
+000001C6  B06E FFFE                cmp.w      D0, [A6 - 0x2]
+000001CA  57C3                     seq        D3
+000001CC  4403                     neg.b      D3
+000001CE  1003                     move.b     D0, D3
+000001D0  262E FFFA                move.l     D3, [A6 - 0x6]
+000001D4  4E5E                     unlink     A6
+000001D6  4E75                     rts
+000001D8  8029 4D65 6E75 4974 6... dc.b       "MenuItemIsChecked__8cMenuBarFPP8MenuInfos"
+export_1044:
+00000206  4E56 FFFE                link       A6, -0x0002
+0000020A  48E7 1308                movem.l    -[A7], D3,D6,D7,A4
+0000020E  3C2E 0012                move.w     D6, [A6 + 0x12]
+00000212  286E 000C                movea.l    A4, [A6 + 0xC]
+00000216  558F                     subq.l     A7, 2
+00000218  2F0C                     move.l     -[A7], A4
+0000021A  A950                     syscall    CountMItems
+0000021C  3E1F                     move.w     D7, [A7]+
+0000021E  6022                     bra        +0x24 /* 00000242 */
+label00000220:
+00000220  BC47                     cmp.w      D6, D7
+00000222  671A                     beq        +0x1C /* 0000023E */
+00000224  2F0C                     move.l     -[A7], A4
+00000226  3F07                     move.w     -[A7], D7
+00000228  486E FFFE                pea.l      [A6 - 0x2]
+0000022C  A943                     syscall    GetItmMark
+0000022E  4A6E FFFE                tst.w      [A6 - 0x2]
+00000232  670A                     beq        +0xC /* 0000023E */
+00000234  2F0C                     move.l     -[A7], A4
+00000236  3F07                     move.w     -[A7], D7
+00000238  7000                     moveq.l    D0, 0x00
+0000023A  3F00                     move.w     -[A7], D0
+0000023C  A944                     syscall    SetItmMark
+label0000023E:
+0000023E  3007                     move.w     D0, D7
+00000240  5347                     subq.w     D7, 1
+label00000242:
+00000242  0C47 0001                cmpi.w     D7, 0x1
+00000246  6CD8                     bge        -0x26 /* 00000220 */
+00000248  2F0C                     move.l     -[A7], A4
+0000024A  3F06                     move.w     -[A7], D6
+0000024C  7012                     moveq.l    D0, 0x12
+0000024E  3F00                     move.w     -[A7], D0
+00000250  A944                     syscall    SetItmMark
+00000252  4CEE 10C8 FFEE           movem.l    D3,D6,D7,A4, [A6 - 0x12]
+00000258  4E5E                     unlink     A6
+0000025A  4E75                     rts
+0000025C  8028 4F6E 6C79 4F6E 6... dc.b       "OnlyOneCheckMark__8cMenuBarFPP8MenuInfos"
+export_1045:
+00000288  4E56 FF00                link       A6, -0x0100
+0000028C  48E7 1318                movem.l    -[A7], D3,D6,D7,A3,A4
+00000290  2C2E 000C                move.l     D6, [A6 + 0xC]
+00000294  286E 0008                movea.l    A4, [A6 + 0x8]
+00000298  203C FFFF 0000           move.l     D0, 0xFFFF0000
+0000029E  C086                     and.l      D0, D6
+000002A0  6776                     beq        +0x78 /* 00000318 */
+000002A2  2E2C 0074                move.l     D7, [A4 + 0x74]
+000002A6  6030                     bra        +0x32 /* 000002D8 */
+label000002A8:
+000002A8  2F07                     move.l     -[A7], D7
+000002AA  486C 0068                pea.l      [A4 + 0x68]
+000002AE  4EAD 16D2                jsr        [A5 + 0x16D2 /* export_726, CODE:32 @ 00003FEA */]
+000002B2  2640                     movea.l    A3, D0
+000002B4  BCAB 006C                cmp.l      D6, [A3 + 0x6C]
+000002B8  504F                     addq.w     A7, 8
+000002BA  6618                     bne        +0x1A /* 000002D4 */
+000002BC  204B                     movea.l    A0, A3
+000002BE  226B 0060                movea.l    A1, [A3 + 0x60]
+000002C2  D0E9 0068                add.w      A0, [A1 + 0x68]
+000002C6  2F08                     move.l     -[A7], A0
+000002C8  2049                     movea.l    A0, A1
+000002CA  2268 006C                movea.l    A1, [A0 + 0x6C]
+000002CE  4E91                     jsr        [A1]
+000002D0  584F                     addq.w     A7, 4
+000002D2  6046                     bra        +0x48 /* 0000031A */
+label000002D4:
+000002D4  2007                     move.l     D0, D7
+000002D6  5387                     subq.l     D7, 1
+label000002D8:
+000002D8  4A87                     tst.l      D7
+000002DA  6ECC                     bgt        -0x32 /* 000002A8 */
+000002DC  203C FFFF 0000           move.l     D0, 0xFFFF0000
+000002E2  C086                     and.l      D0, D6
+000002E4  B0AC 00A2                cmp.l      D0, [A4 + 0xA2]
+000002E8  662E                     bne        +0x30 /* 00000318 */
+000002EA  598F                     subq.l     A7, 4
+000002EC  7010                     moveq.l    D0, 0x10
+000002EE  222C 00A2                move.l     D1, [A4 + 0xA2]
+000002F2  E0A1                     asr        D1, D0
+000002F4  3F01                     move.w     -[A7], D1
+000002F6  A949                     syscall    GetMenuHandle
+000002F8  2657                     movea.l    A3, [A7]
+000002FA  203C 0000 FFFF           move.l     D0, 0xFFFF
+00000300  C086                     and.l      D0, D6
+00000302  3F00                     move.w     -[A7], D0
+00000304  486E FF00                pea.l      [A6 - 0x100]
+00000308  A946                     syscall    GetMenuItemText/GetItem
+0000030A  558F                     subq.l     A7, 2
+0000030C  486E FF00                pea.l      [A6 - 0x100]
+00000310  A9B6                     syscall    OpenDeskAcc
+00000312  7001                     moveq.l    D0, 0x01
+00000314  544F                     addq.w     A7, 2
+00000316  6002                     bra        +0x4 /* 0000031A */
+label00000318:
+00000318  7000                     moveq.l    D0, 0x00
+label0000031A:
+0000031A  4CEE 18C8 FEEC           movem.l    D3,D6,D7,A3,A4, [A6 - 0x114]
+00000320  4E5E                     unlink     A6
+00000322  4E75                     rts
+00000324  9F44 6563 6F64 6553 6... dc.b       "DecodeSelectedMenu__8cMenuBarFl"
+export_1046:
+00000346  4E56 0000                link       A6, 0
+0000034A  48E7 0108                movem.l    -[A7], D7,A4
+0000034E  2E2E 000C                move.l     D7, [A6 + 0xC]
+00000352  286E 0008                movea.l    A4, [A6 + 0x8]
+00000356  200C                     move.l     D0, A4
+00000358  6768                     beq        +0x6A /* 000003C2 */
+0000035A  206C 0064                movea.l    A0, [A4 + 0x64]
+0000035E  216D F498 0008           move.l     [A0 + 0x8], [A5 - 0xB68]
+00000364  296D F49C 0060           move.l     [A4 + 0x60], [A5 - 0xB64]
+0000036A  200C                     move.l     D0, A4
+0000036C  6754                     beq        +0x56 /* 000003C2 */
+0000036E  7002                     moveq.l    D0, 0x02
+00000370  2F00                     move.l     -[A7], D0
+00000372  486C 0086                pea.l      [A4 + 0x86]
+00000376  4EAD 183A                jsr        [A5 + 0x183A /* export_771, CODE:32 @ 00005CC6 */]
+0000037A  7002                     moveq.l    D0, 0x02
+0000037C  2F00                     move.l     -[A7], D0
+0000037E  486C 0068                pea.l      [A4 + 0x68]
+00000382  4EAD 16CA                jsr        [A5 + 0x16CA /* export_725, CODE:32 @ 00003F94 */]
+00000386  7000                     moveq.l    D0, 0x00
+00000388  2F00                     move.l     -[A7], D0
+0000038A  2F0C                     move.l     -[A7], A4
+0000038C  4EAD 148A                jsr        [A5 + 0x148A /* export_653, CODE:32 @ 00000140 */]
+00000390  7002                     moveq.l    D0, 0x02
+00000392  C087                     and.l      D0, D7
+00000394  6718                     beq        +0x1A /* 000003AE */
+00000396  7000                     moveq.l    D0, 0x00
+00000398  2F00                     move.l     -[A7], D0
+0000039A  220C                     move.l     D1, A4
+0000039C  D2BC 0000 00A8           add.l      D1, 0xA8
+000003A2  2F01                     move.l     -[A7], D1
+000003A4  4EAD 1632                jsr        [A5 + 0x1632 /* export_706, CODE:32 @ 000036CC */]
+000003A8  7000                     moveq.l    D0, 0x00
+000003AA  504F                     addq.w     A7, 8
+000003AC  6002                     bra        +0x4 /* 000003B0 */
+label000003AE:
+000003AE  7000                     moveq.l    D0, 0x00
+label000003B0:
+000003B0  0807 0000                btst.b     D7, 0x0
+000003B4  4FEF 0018                lea.l      A7, [A7 + 0x18]
+000003B8  6708                     beq        +0xA /* 000003C2 */
+000003BA  2F0C                     move.l     -[A7], A4
+000003BC  4EAD 0102                jsr        [A5 + 0x102 /* export_28, CODE:1 @ 00001BE0 */]
+000003C0  584F                     addq.w     A7, 4
+label000003C2:
+000003C2  4CEE 1080 FFF8           movem.l    D7,A4, [A6 - 0x8]
+000003C8  4E5E                     unlink     A6
+000003CA  4E75                     rts
+000003CC  915F 5F64 745F 5F38 6... dc.b       "__dt__8cMenuBarFv"
+export_1047:
+000003E0  4E56 0000                link       A6, 0
+000003E4  48E7 0118                movem.l    -[A7], D7,A3,A4
+000003E8  266E 0014                movea.l    A3, [A6 + 0x14]
+000003EC  2E2E 000C                move.l     D7, [A6 + 0xC]
+000003F0  286E 0008                movea.l    A4, [A6 + 0x8]
+000003F4  2007                     move.l     D0, D7
+000003F6  0480 4D65 6E31           subi.l     D0, 0x4D656E31 /* 'Men1' */
+000003FC  6704                     beq        +0x6 /* 00000402 */
+000003FE  5380                     subq.l     D0, 1
+00000400  662A                     bne        +0x2C /* 0000042C */
+label00000402:
+00000402  197C 0001 005E           move.b     [A4 + 0x5E], 0x1
+00000408  0C87 4D65 6E31           cmpi.l     D7, 0x4D656E31 /* 'Men1' */
+0000040E  660C                     bne        +0xE /* 0000041C */
+00000410  2F0B                     move.l     -[A7], A3
+00000412  2F0C                     move.l     -[A7], A4
+00000414  4EBA 005C                jsr        [PC + 0x5C /* 00000472 */]
+00000418  504F                     addq.w     A7, 8
+0000041A  600A                     bra        +0xC /* 00000426 */
+label0000041C:
+0000041C  2F0B                     move.l     -[A7], A3
+0000041E  2F0C                     move.l     -[A7], A4
+00000420  4EBA 00B8                jsr        [PC + 0xB8 /* 000004DA */]
+00000424  504F                     addq.w     A7, 8
+label00000426:
+00000426  422C 005E                clr.b      [A4 + 0x5E]
+0000042A  6012                     bra        +0x14 /* 0000043E */
+label0000042C:
+0000042C  2F0B                     move.l     -[A7], A3
+0000042E  2F2E 0010                move.l     -[A7], [A6 + 0x10]
+00000432  2F07                     move.l     -[A7], D7
+00000434  2F0C                     move.l     -[A7], A4
+00000436  4EAD 14C2                jsr        [A5 + 0x14C2 /* export_660, CODE:32 @ 00000440 */]
+0000043A  4FEF 0010                lea.l      A7, [A7 + 0x10]
+label0000043E:
+0000043E  4CEE 1880 FFF4           movem.l    D7,A3,A4, [A6 - 0xC]
+00000444  4E5E                     unlink     A6
+00000446  4E75                     rts
+00000448  8025 4861 7342 6565 6... dc.b       "HasBeenAChange__8cMenuBarFlP6cAgentPc"
+fn00000472:
+00000472  4E56 0000                link       A6, 0
+00000476  48E7 1318                movem.l    -[A7], D3,D6,D7,A3,A4
+0000047A  2C2E 000C                move.l     D6, [A6 + 0xC]
+0000047E  286E 0008                movea.l    A4, [A6 + 0x8]
+00000482  2E2C 0074                move.l     D7, [A4 + 0x74]
+00000486  6026                     bra        +0x28 /* 000004AE */
+label00000488:
+00000488  2F07                     move.l     -[A7], D7
+0000048A  486C 0068                pea.l      [A4 + 0x68]
+0000048E  4EAD 16D2                jsr        [A5 + 0x16D2 /* export_726, CODE:32 @ 00003FEA */]
+00000492  2640                     movea.l    A3, D0
+00000494  BCAB 0068                cmp.l      D6, [A3 + 0x68]
+00000498  504F                     addq.w     A7, 8
+0000049A  6706                     beq        +0x8 /* 000004A2 */
+0000049C  BCAB 006C                cmp.l      D6, [A3 + 0x6C]
+000004A0  6608                     bne        +0xA /* 000004AA */
+label000004A2:
+000004A2  2F0B                     move.l     -[A7], A3
+000004A4  4EAD 18BA                jsr        [A5 + 0x18BA /* export_787, CODE:32 @ 0000659E */]
+000004A8  584F                     addq.w     A7, 4
+label000004AA:
+000004AA  2007                     move.l     D0, D7
+000004AC  5387                     subq.l     D7, 1
+label000004AE:
+000004AE  4A87                     tst.l      D7
+000004B0  6ED6                     bgt        -0x28 /* 00000488 */
+000004B2  4CEE 18C8 FFEC           movem.l    D3,D6,D7,A3,A4, [A6 - 0x14]
+000004B8  4E5E                     unlink     A6
+000004BA  4E75                     rts
+000004BC  9A44 6F45 6E61 626C 6... dc.b       "DoEnableItem__8cMenuBarFUl"
+fn000004DA:
+000004DA  4E56 0000                link       A6, 0
+000004DE  48E7 1318                movem.l    -[A7], D3,D6,D7,A3,A4
+000004E2  2C2E 000C                move.l     D6, [A6 + 0xC]
+000004E6  286E 0008                movea.l    A4, [A6 + 0x8]
+000004EA  2E2C 0074                move.l     D7, [A4 + 0x74]
+000004EE  6026                     bra        +0x28 /* 00000516 */
+label000004F0:
+000004F0  2F07                     move.l     -[A7], D7
+000004F2  486C 0068                pea.l      [A4 + 0x68]
+000004F6  4EAD 16D2                jsr        [A5 + 0x16D2 /* export_726, CODE:32 @ 00003FEA */]
+000004FA  2640                     movea.l    A3, D0
+000004FC  BCAB 0068                cmp.l      D6, [A3 + 0x68]
+00000500  504F                     addq.w     A7, 8
+00000502  6706                     beq        +0x8 /* 0000050A */
+00000504  BCAB 006C                cmp.l      D6, [A3 + 0x6C]
+00000508  6608                     bne        +0xA /* 00000512 */
+label0000050A:
+0000050A  2F0B                     move.l     -[A7], A3
+0000050C  4EAD 18C2                jsr        [A5 + 0x18C2 /* export_788, CODE:32 @ 0000661C */]
+00000510  584F                     addq.w     A7, 4
+label00000512:
+00000512  2007                     move.l     D0, D7
+00000514  5387                     subq.l     D7, 1
+label00000516:
+00000516  4A87                     tst.l      D7
+00000518  6ED6                     bgt        -0x28 /* 000004F0 */
+0000051A  4CEE 18C8 FFEC           movem.l    D3,D6,D7,A3,A4, [A6 - 0x14]
+00000520  4E5E                     unlink     A6
+00000522  4E75                     rts
+00000524  9B44 6F44 6973 6162 6... dc.b       "DoDisableItem__8cMenuBarFUl"

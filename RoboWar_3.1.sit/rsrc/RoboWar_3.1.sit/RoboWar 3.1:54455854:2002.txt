@@ -1,0 +1,120 @@
+II.  RoboWar Control Stations
+
+RoboWar is controlled from five stations:  the Arena, the Drafting Board, the Hardware Store, the Icon Factory, and the Recording Studio.  One can move between the stations using the first five menu options under the View menu.  Each of the stations is described below:
+
+The Arena
+
+The Arena is the primary source of control in RoboWar.  When you start the program, you initially are in the Arena.  From the arena, you can chose robots to edit or fight and you can run battles.
+
+First you must add robots to the roster in the Arena.  Use the New… or Open… commands under the File menu to create and name a new robot or open a predesigned robot.  You can have up to six robots open at a time in the Arena.  You can select a robot in the roster by clicking on it; a black hilight appears on the robot.  Also the name and icon of the selected robot appears in the bottom right corner of the screen.  You can add an additional copy of the selected robot to the roster by choosing Duplicate or remove the selected robot by choosing Close.
+
+Once you have chosen robots to fight, begin the battle by clicking on the Battle button at the bottom of the roster.  The robots will be placed in random locations and begin executing their programs until only one robot (or one team) is left alive.  The arena displays a number of statistics about the battle.  Beside each robot, it lists the robot’s current energy and damage ratings, if alive, or the message deceased or buggy, if the robot was blown up or crashed from a defective program, respectively.  Robots start at their maximum damage figure and lose damage points as they are hit until they finally explode upon reaching 0 damage.  Energy also starts at a maximum value and is used for moving, shooting, maintaining shields, etc.  However, it increases at two points per chronon from the robots’ generators.  Below the roster of robots is a count of how many chronons have elapsed during the battle and how fast the battle is going (chronons per second).    A chronon is the elementary unit of time in RoboWar; each robot executes a certain part of its program and moves once per chronon.  The chronons per second count will vary based on the speed of the Macintosh you are using, the complexity of the battle (robots and weapons on screen), the state of the speed option, whether sound is being played, and whether the battle is being displayed on screen.
+
+Under the Arena menu are a number of options to configure the battles.  The first four are No Team, Team 1, Team 2, and Team 3.  These set the team of the selected robot.  Robots on the same teams don’t register each other on their targeting sensors (the RANGE register, for RoboWar programmers) and can communicate with each other if instructed to do so.  Next comes Don’t Play Sounds.  This turns off all sound effects and beeps.  It speeds up the program, saves your sanity, and prevents your boss from discovering the clandestine robot duels occuring at your machine.  The next option is the Display item, allowing you to display the entire battle and robot statistics, just the statistics, or nothing at all.  The later options are useful if you are running a large tournament in the background and care about speed, not the display.  Finally among the display options is the Speed… item.  It displays a submenu that lets you control the speed of RoboWar.  Fast only updates the screen every other chronon, giving jerkier movement, but speeding up the display somewhat.  This option has no benefit if the battle is not being displayed.  Normal lets RoboWar run at full speed with complete screen updates.  Slow restricts the maximum speed to 30 chronons per second, useful on a Mac IIfx if the battle is too fast to see.  Slower restricts the maximum speed to 12 chronons per second, useful for more detailed observation of a battle.  Slowest restricts the maximum speed to 2 chronons per second for careful debugging purposes.  At the bottom of the Arena menu is the Tournament option, used for running multiple battles.  It will be described at the end of this manual.  
+
+For programmers, there is an option to use the Debugger.  This feature is documented in Section III.
+
+If you just would like to watch combats, you now know everything you need.  The rest of this manual describes the other stations used to write robots and the RoboTalk programming language itself.
+
+Drafting Board
+
+The Drafting Board is a text editor and assembler used to write robots.  To go to the Drafting Board, select a robot from the roster in the Arena.  It may either be a preexisting one you wish to edit or a new robot you wish to program.  Then go to the View menu and choose Drafting Board.  The window will change from displaying the Arena to displaying the Drafting Board.  If you wish to return to the Arena, just choose Arena from the View menu.
+
+The Drafting Board window is divided into three parts.  The square panel on the left with the scroll bar is the text editor window.  Use it just like any text editor to type in the robot’s program or edit a previous program.  Information on how to write a robot will appear in Section III.  The bottom right panel shows the name and icon of the robot being edited.  Finally, the upper right panel shows statistics on the robot.  Under the Program Information heading, the Software Length entry lists the number of lines followed by the number of characters in the current robot’s program.  The RoboWar editor only allows about 32000 characters in a single robot’s program.  Next is the Code Length entry which notes the number of instructions in the robot the last time it was assembled using the Compile command.  Third is the number of icons in the robot, created in the Icon Factory.  Next is the Password Information heading, showing if the robot has a password or not.  Finally is a list of dates that the robot was last compiled and at the Drafting Board, Hardware Store, and Icon Factory.
+
+The Drafting Board supports several standard tools under the Edit Menu:  Undo, Cut, Copy, Paste, Clear, and some search and replace options.  They are essentially self-explanatory.
+
+Under the View menu is the Compile command.  It is used to translate the RoboTalk code typed into the text editor of the Drafting Board into a special internal representation used for efficient interpreting.  Every time you edit a robot’s program, you must compile it again to reflect the changes in the robot’s actual behavior.  If the compiler detects any syntax errors in the robot (label names that don’t exist, misspelled operands, etc.), it will display a message and hilight the word that is in error.
+
+Note that you must register your copy of RoboWar to compile robots of more than 100 instructions.  This should allow you to write relatively simple robots and learn your way around the program.  However, if you become a serious hacker, you really ought to send in your registration fee.  Moreover, as a registered user, you'll get information about future tournaments and major new versions of the program.  I intentionally kept the registration fee very low so that everyone could afford the program; if $10 is a serious drain on your finances, let me know and we'll work something out.
+
+Finally, under the View menu, is the Set Password command.  A robot’s password can be set from any of the RoboWar stations, including the Arena.  Enter the password into the dialog box, or hit return if you don’t want a password.  If you do want a password, the computer will prompt you to enter the password again to make sure you didn’t accidentally hit a wrong key.  Once a robot has a password, you must enter the password to go to the Drafting Board, Hardware Store, or Icon Factory for the first time after the robot is opened.  This means that somebody else could try your robot in the Arena and watch it fight, but couldn’t look at or edit the code without knowing the password.  Please note:  robots with passwords are stored in scrambled form.  If anything goes wrong, it is very easy to lose your robot’s code forever.  Therefore, placing passwords on your robot can be risky.  I would recommend that you don’t put passwords on robots until after they are completely finished, and that you always keep a backup of the robot without a password on your own disk somewhere safe.  In the immortal Latin tradition, “Cave passverbum.”
+
+Hardware Store
+
+The Hardware Store allows you to customize a robot’s equipment and weapons systems.  To visit the Hardware Store, select a robot from the roster in the Arena, then choose Hardware Store from the View menu.
+
+In the Hardware Store, you may buy up to nine points of equipment for your robot.  Points can be spent on the robot’s maximum energy, damage, and shield values, the robot’s processor speed, the type of bullets the robot has, and the various additional weapon systems you wish to install on the robot.
+
+The maximum energy value is the amount of energy the robot starts with at the beginning of a combat and also the maximum amount the robot could ever reach by letting power recharge from its power supply.  The choices are:  150 (3 points), 100 (2 points), 60 (1 point), and 40 (no cost).  
+
+The maximum damage value is the amount of damage a robot can sustain before being destroyed.  The choices are 150 (3 points), 100 (2 points), 60 (1 point), or 30 (no cost).
+
+The maximum shield value is the greatest amount of power that can be stored in a shield at normal drain rates.  Up to this amount of power may be placed in a shield; the power in the shield will decrease at half a point per chronon.  Quantities of energy greater than the shield max may be stored in a robot’s shields, but the power will decay at two points per chronon.  The options for shield max are 100 (3 points), 50 (2 points), 25 (1 point), and 0 (no cost).
+
+The processor speed indicates how many instructions a robot executes per chronon.  The options are 50 (4 points), 30 (3 points), 15 (2 points), 10 (1 point), and 5 (no cost).
+
+The Bullets choice determines what kind of ammunition is available for the robot’s built-in gun mount.  The options are explosive (2 points), normal (1 point), and rubber (no cost).  Finally is a list of additional weapons that can be mounted on a robot:  Missiles, TacNukes (tactical nuclear devices), Hellbores, Stunners, and Mines.  The weapons is described below:
+
+Every weapon has a certain amount of energy placed in it at launch that will be referred to as “energy” in this paragraph.  All bullets move at speed 12.  Explosive bullets set off a small nuclear explosion on impact.  The explosion radius grows to 36 pixels over three chronons, then detonates, causing 1.5*energy to any robots in the blast radius (possibly including the robot who fired)!  Normal bullets just cause damage equal to energy when they hit.  Rubber bullets cause damage equal to 0.5*energy when they hit.  Missiles move at speed 5 and cause damage equal to 1.5*energy if they hit.  TacNukes don’t move; they just grow to a radius of 50 pixels over ten chronons, then detonate like explosive bullets for 1.5*energy to any targets foolish enough to be present.  A wise robot using TacNukes will rapidly move away after depositing the nuke as to escape the blast radius.  Hellbores move at speed equal to the energy invested (between 4 and 20) and knock down the opponents shield if they hit but cause no other damage.  Stunners are stasis capsules fired at hostile robots.  They move at speed 14 and put anything they hit into stasis, a state in which a robot does not move, recover energy, execute instructions, or lose shield strength to natural decay.  For every four points of energy invested, the target will remain in stasis for one chronon.  Finally, mines are dropped in place and are inactive for 5 chronons before becomming armed.  Once armed, they do damage equal to two times (energy-5) to any robot that wanders over one.
+
+Lasers and Drones were supported in RoboWar 2.1.2 and 2.3, but are no longer available in the Hardware Store because they were found to be almost useless.  However, RoboWar 3.0 still will execute old robots with these weapons.
+
+An interesting twist on RoboWar is to compete with friends building robots that use very few hardware points and/or instructions.  For instance, you might limit everyone to four points and 500 instructions and see what robots you can create.  An option under the Arena menu allows you to specify the maximum number of hardware points for a particular battle.  Two suggestions are Titan robots (20 points) and Little League robots (2 points).  There will likely be a Titan-class category in the next RoboWar tournaments.
+
+On the right side of the window are some other configurations for the robot.  There is a choice of what kind of indicator to use to mark the robot’s turret:  either a line from the robot’s center out, a dot in the direction of the turret, or no marker at all.  This is a purely cosmetic option.  Finally there is a check box labeled No Negative Energy.  If checked, a robot will never overload its power supply and go to negative energy.  The advantage is that the robot will never run out of energy and freeze in place until recovering; the disadvantage is that a robot might not have enough energy to complete a shot or some movement.
+
+Icon Factory
+
+The Icon Factory is a station in which you design icons for your robots.  As with the other stations, first you must select a robot from the roster.  Then, choose Icon Factory from the View menu to go to the station.
+
+The Icon Factory has three panels.  The large square on the left is the magnified view of the icon being edited; the ten squares on the right are the robot’s various icons; and the box in the bottom right shows the robot being edited.
+
+To draw an icon, select it at the right.  The icon labeled standard (icon 0) is the robot’s normal icon that will appear in the roster.  It is used when the robot has no shields enabled and hasn’t explicitly been instructed to use another icon.  Icon 1 (shields) is the icon the robot uses by default when shields are enabled.  Icons 2-8 are user-defined pictures that can be selected by the robot during combat.  Click on the icon you wish to design or edit.
+
+On the left, use the 32x32 grid to draw the icon.  The crosshairs function much like the pencil in a paint program.  The four arrows on the edges of the grid allow you to scroll the picture left, right, up, or down.  The other tools allow you to rotate and flip your icons horizontally or vertically.
+
+You can also use the Edit menu to cut, paste, copy, or clear icons.  This is especially useful because it allows you to copy icons or pictures generated by other programs (e.g. SuperUltraMagnificentWayNiftyAndExpensivePaint) and paste them into your robot.
+
+Once you are satisfied with the icons you have created, you can return to the Arena from the View menu.
+
+Recording Studio
+
+The Recording Studio is a station in which you digitize sounds for your robots.  As with the other stations, first you must select a robot from the roster.  Then, choose Recording Studio from the View menu to go to the station.
+
+Each robot can have up to ten sounds defined.  These sounds are indicated on the right portion of the screen.  The first four sounds have special meanings.  Sound #0 is the Death sound, played when a robot explodes.  Sound #1 is the Collision sound, played when the robot is in a collision.  Sound #2 is the Shield Hit sound, played when the robot is hit by a weapon that fails to penetrate shields.  Finally, Sound #3 is the Robot Hit sound, played when the robot is hit and takes damage.
+
+To record or play a sound, select the appropriate rectange.  If a sound already is defined, the rectangle will be filled with gray.  On the left side of the screen will be icons to record a new sound or play a sound if it is already defined.  You can also adjust the degree of compression, from none to 6-fold.  Compressed voice is scarcely different in sound than uncompressed voice, so you can save a great deal of disk space through suitable compression.  Musical effects tend to suffer more from compression.  Individual sounds recorded in RoboWar are automatically limited to 40K in length to prevent extensive disk-hogging.
+
+As usual, you can cut, paste, copy, or clear sounds via the Edit menu.  Thus, you can copy sounds from other programs (for instance, sounds that you have recorded and touched up in a commercial recording program) and paste them into RoboWar.
+
+Be sparing and careful with your use of sounds.  Heavy use will slow the program and hog lots of disk space; for instance, if every robot in a tournament of 30 entries had ten very short sounds (6K each), the robots from the tournament would occupy more space than RoboWar itself and all the robots from Tournaments I through V combined!  Moreover, if you use too may sounds, you will quickly fill up your memory.  RoboWar has not been exhaustively tested under tight memory situations, so you have some risk of crashing the game.
+
+Once you are satisfied with the sounds you have created, you can return to the Arena from the View menu.
+
+Tournament
+
+The new, improved tournament facilities support several types of tournaments.  They currently will run tournaments of individual robots, tournaments of teams of two, a “winners’ circle” round, and customized tournaments.
+
+The first three types of tournaments follow the rules of the Fourth RoboWar Tournament, held May 1992.  The customized tournaments use the old klunky setup from the previous versions of RoboWar.
+
+To run a tournament, choose Tournament from the Arena menu.  Choose the type of tournament and enter a filename in which to store the results (this file namedoes not apply to custom tournaments), then click OK.  Select a set of robots from the standard file dialog or choose a custom tournament file.  The tournament will run automatically and results will be written to disk.
+
+In the Individual tournament, you may choose any number of robots.  Each fights against every other robot exactly three times, scoring one point for winning or surviving 1500 chronons.  Then there are a series of group combats, six times the number of robots entered, in which the groups of six robots are choosen at random.  Each of these group combats are repeated three times.  The winner receives 3 points, second place receives 2 points, and third place receivs 1 point.  Ties are awarded the higher value.  To normalize results, the group battle score of a robot is multiplied by the number of robots in the competition and divided by three times the number of battles in which the particular robot fought.  The robot’s total score is the sum of its one-on-one score and its normalized group score.  For instance, if, in a battle of 30 robots, Mr. DeadBot scores 35 points in individual combat and fights in 7 group battles (repeated 3 times), scoring a total of 14 points, Mr. DeadBot’s normalized group score is 14*30/(3*7)=20 and his total score is 35+20=55, a relatively pathetic showing.
+
+In the Finals Round (the winners’ circle competition for the Fourth RoboWar Tournament), you must choose exactly six robots.  Each fights all the others one-on-one exactly 8 times, scoring one point for winning or surviving 1500 chronons.  Then all six robots fight in a 6-way free-for-all exactly 16 times.  The winner receives 3 points, second place receives 2 points, and third place receives 2 points in each fight.  The total score is the sum of the single and group scores.
+
+In an actual RoboWar tournament, first all the robots compete in an Individual tournament.  The top six proceed to a Finals Round tournament.  These six receive an ultimate score equal to the average of their Individual and Finals tournament scores, from which the Robot Champion is declared.  I reserve the right to delete large sounds from robots before distributing them with the other tournament entries if disk space is tight.
+
+In future tournaments, there will be two categories of individual entries.  As always, there will be the standard contest in which each robot has nine hardware points.  In addition, however, there will be the Titan division.  Titans are allowed the full range of 20 hardware points, i.e. every possible feature.  Little League contests were held in the Fifth and Sixth tournaments, but will not be held in the future.
+
+Many people guard their secret RoboTalk techniques by deleting their source code before distributing their robots.  While this is fair enough, one may claim even more fame and glory by distributing a prize-winning robot with complete code.  Thus, novice hackers can learn from your example and you can put all sorts of funny messages through your code.  Of course, if you borrow code from somebody's robot, you should properly attribute it.  A letter to the author might be polite and wholesale copying of the bulk of a robot is obvious unethical.
+
+In Team tournaments, you must choose robots in pairs.  Each team competes against every other team exactly five times, winning one point if at least one team member wins or is alive at the end of 1500 chronons.  The scores are summed and the team with the highest total is proclaimed High and Mighty.
+
+To set up a custom tournament, you must run some text editor (your word processor, TeachText, an editor with a programming language, or whatever).  You will type in the tournament roster (described below), then save it in plain TEXT format.  This is the default format for TeachText and most editors, but if you are using a word processor, you must be certain to explicitly set the file format (often in the Save As dialog box) to Text Only.
+
+The format of the tournament roster is as follows:
+
+	Save filename
+
+	xxx
+	robot1
+	robot2
+	robot3
+
+	yyy
+	robot2
+	robot4
+
+The first line is optional; it instructs RoboWar to save the results and statistics in a file called “filename.”  Note that this save instruction overrides the filename in the tournament dialog box.  A blank line must follow the save directive.  xxx is the number of times to run the first battle; the robots in the battle (robot1, robot2, and robot3, in this case) follow.  If the battle should only be run once, the number may be omitted.  A blank line follows the last robot in the battle list, then comes another list with another number of battles and set of robots, as above.  This repeats for all the combats desired.

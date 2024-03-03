@@ -1,0 +1,31 @@
+# near model CODE resource
+# jump table entries: 5152-5153 (2 of them)
+export_644:
+00000000  554F                     subq.w     A7, 2
+00000002  2F2F 0006                move.l     -[A7], [A7 + 0x6]
+00000006  486F 0004                pea.l      [A7 + 0x4]
+0000000A  3F3C 2010                move.w     -[A7], 0x2010
+0000000E  A9EB                     syscall    Pack4/FP68K
+00000010  301F                     move.w     D0, [A7]+
+00000012  4E75                     rts
+export_645:
+00000014  48E7 8080                movem.l    -[A7], D0,A0
+00000018  202F 000C                move.l     D0, [A7 + 0xC]
+0000001C  206F 0010                movea.l    A0, [A7 + 0x10]
+00000020  6A18                     bpl        +0x1A /* 0000003A */
+00000022  30BC 401E                move.w     [A0], 0x401E
+00000026  2140 0002                move.l     [A0 + 0x2], D0
+0000002A  42A8 0006                clr.l      [A0 + 0x6]
+0000002E  2F08                     move.l     -[A7], A0
+00000030  2F08                     move.l     -[A7], A0
+00000032  3F3C 000E                move.w     -[A7], 0xE
+00000036  A9EB                     syscall    Pack4/FP68K
+00000038  600C                     bra        +0xE /* 00000046 */
+label0000003A:
+0000003A  486F 000C                pea.l      [A7 + 0xC]
+0000003E  2F08                     move.l     -[A7], A0
+00000040  3F3C 280E                move.w     -[A7], 0x280E
+00000044  A9EB                     syscall    Pack4/FP68K
+label00000046:
+00000046  4CDF 0101                movem.l    D0,A0, [A7]+
+0000004A  4E75                     rts

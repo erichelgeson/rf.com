@@ -1,0 +1,460 @@
+# near model CODE resource
+# jump table entries: 2152-2165 (14 of them)
+fn00000000:
+00000000  4E56 FFFA                link       A6, -0x0006
+00000004  48E7 0108                movem.l    -[A7], D7,A4
+00000008  287C 0000 0A60           movea.l    A4, 0xA60 /* '\n`' */
+0000000E  3E14                     move.w     D7, [A4]
+00000010  102D F7C4                move.b     D0, [A5 - 0x83C]
+00000014  6708                     beq        +0xA /* 0000001E */
+00000016  1F2E 0008                move.b     -[A7], [A6 + 0x8]
+0000001A  7007                     moveq.l    D0, 0x07
+0000001C  A822                     syscall    ResourceDispatch
+label0000001E:
+0000001E  3887                     move.w     [A4], D7
+00000020  4CDF 1080                movem.l    D7,A4, [A7]+
+00000024  4E5E                     unlink     A6
+00000026  205F                     movea.l    A0, [A7]+
+00000028  544F                     addq.w     A7, 2
+0000002A  4ED0                     jmp        [A0]
+fn0000002C:
+0000002C  4E56 FFFA                link       A6, -0x0006
+00000030  48E7 0108                movem.l    -[A7], D7,A4
+00000034  4267                     clr.w      -[A7]
+00000036  A9AF                     syscall    ResError
+00000038  3E1F                     move.w     D7, [A7]+
+0000003A  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+0000003E  A998                     syscall    UseResFile
+00000040  287C 0000 0A60           movea.l    A4, 0xA60 /* '\n`' */
+00000046  3887                     move.w     [A4], D7
+00000048  4CDF 1080                movem.l    D7,A4, [A7]+
+0000004C  4E5E                     unlink     A6
+0000004E  205F                     movea.l    A0, [A7]+
+00000050  544F                     addq.w     A7, 2
+00000052  4ED0                     jmp        [A0]
+export_269:
+00000054  4E56 FEF4                link       A6, -0x010C
+00000058  48E7 0018                movem.l    -[A7], A3,A4
+0000005C  286E 0008                movea.l    A4, [A6 + 0x8]
+00000060  4267                     clr.w      -[A7]
+00000062  2F0C                     move.l     -[A7], A4
+00000064  A9A6                     syscall    GetResAttrs
+00000066  3D5F FFFE                move.w     [A6 - 0x2], [A7]+
+0000006A  082E 0003 FFFF           btst.b     [A6 - 0x1], 0x3
+00000070  6712                     beq        +0x14 /* 00000084 */
+00000072  2F0C                     move.l     -[A7], A4
+00000074  7000                     moveq.l    D0, 0x00
+00000076  302E FFFE                move.w     D0, [A6 - 0x2]
+0000007A  7208                     moveq.l    D1, 0x08
+0000007C  4681                     not.l      D1
+0000007E  C081                     and.l      D0, D1
+00000080  3F00                     move.w     -[A7], D0
+00000082  A9A7                     syscall    SetResAttrs
+label00000084:
+00000084  42A7                     clr.l      -[A7]
+00000086  3F2E 000C                move.w     -[A7], [A6 + 0xC]
+0000008A  4EAD 01BA                jsr        [A5 + 0x1BA /* export_51, CODE:1 @ 00004582 */]
+0000008E  265F                     movea.l    A3, [A7]+
+00000090  200B                     move.l     D0, A3
+00000092  6722                     beq        +0x24 /* 000000B6 */
+00000094  2F0C                     move.l     -[A7], A4
+00000096  486E FFF8                pea.l      [A6 - 0x8]
+0000009A  486E FFF4                pea.l      [A6 - 0xC]
+0000009E  486E FEF4                pea.l      [A6 - 0x10C]
+000000A2  A9A8                     syscall    GetResInfo
+000000A4  2F0B                     move.l     -[A7], A3
+000000A6  2F2E FFF4                move.l     -[A7], [A6 - 0xC]
+000000AA  3F2E FFF8                move.w     -[A7], [A6 - 0x8]
+000000AE  3F3C 90F9                move.w     -[A7], 0x90F9
+000000B2  4EAD 0042                jsr        [A5 + 0x42 /* export_4, CODE:1 @ 000000C2 */]
+label000000B6:
+000000B6  3F2E 000C                move.w     -[A7], [A6 + 0xC]
+000000BA  2F0C                     move.l     -[A7], A4
+000000BC  4EBA 03F8                jsr        [PC + 0x3F8 /* 000004B6 */]
+000000C0  42A7                     clr.l      -[A7]
+000000C2  A9AF                     syscall    ResError
+000000C4  4267                     clr.w      -[A7]
+000000C6  4EAD 00F2                jsr        [A5 + 0xF2 /* export_26, CODE:1 @ 00002F14 */]
+000000CA  101F                     move.b     D0, [A7]+
+000000CC  6706                     beq        +0x8 /* 000000D4 */
+000000CE  2F0C                     move.l     -[A7], A4
+000000D0  205F                     movea.l    A0, [A7]+
+000000D2  A023                     syscall    DisposHandle/DisposeHandle
+label000000D4:
+000000D4  4CDF 1800                movem.l    A3,A4, [A7]+
+000000D8  4E5E                     unlink     A6
+000000DA  205F                     movea.l    A0, [A7]+
+000000DC  5C4F                     addq.w     A7, 6
+000000DE  4ED0                     jmp        [A0]
+export_270:
+fn000000E0:
+000000E0  4E56 FEFE                link       A6, -0x0102
+000000E4  206E 0008                movea.l    A0, [A6 + 0x8]
+000000E8  43EE FF00                lea.l      A1, [A6 - 0x100]
+000000EC  707F                     moveq.l    D0, 0x7F
+label000000EE:
+000000EE  32D8                     move.w     [A1]+, [A0]+
+000000F0  51C8 FFFC                dbf        D0, -0x6 /* 000000EE */
+000000F4  4267                     clr.w      -[A7]
+000000F6  A994                     syscall    CurResFile
+000000F8  3D5F FEFE                move.w     [A6 - 0x102], [A7]+
+000000FC  3F2E 0016                move.w     -[A7], [A6 + 0x16]
+00000100  A998                     syscall    UseResFile
+00000102  4267                     clr.w      -[A7]
+00000104  4EBA FEFA                jsr        [PC - 0x106 /* 00000000 */]
+00000108  2F2E 0012                move.l     -[A7], [A6 + 0x12]
+0000010C  2F2E 000E                move.l     -[A7], [A6 + 0xE]
+00000110  3F2E 000C                move.w     -[A7], [A6 + 0xC]
+00000114  486E FF00                pea.l      [A6 - 0x100]
+00000118  A9AB                     syscall    AddResource
+0000011A  1F3C 0001                move.b     -[A7], 0x1
+0000011E  4EBA FEE0                jsr        [PC - 0x120 /* 00000000 */]
+00000122  3F2E FEFE                move.w     -[A7], [A6 - 0x102]
+00000126  4EBA FF04                jsr        [PC - 0xFC /* 0000002C */]
+0000012A  42A7                     clr.l      -[A7]
+0000012C  A9AF                     syscall    ResError
+0000012E  3F3C 000D                move.w     -[A7], 0xD /* '\r' */
+00000132  4EAD 00F2                jsr        [A5 + 0xF2 /* export_26, CODE:1 @ 00002F14 */]
+00000136  1D5F 0018                move.b     [A6 + 0x18], [A7]+
+0000013A  4E5E                     unlink     A6
+0000013C  205F                     movea.l    A0, [A7]+
+0000013E  DEFC 0010                add.w      A7, 0x10
+00000142  4ED0                     jmp        [A0]
+export_271:
+00000144  4E56 FFFA                link       A6, -0x0006
+00000148  48E7 0108                movem.l    -[A7], D7,A4
+0000014C  42A7                     clr.l      -[A7]
+0000014E  2F2E 000C                move.l     -[A7], [A6 + 0xC]
+00000152  4EAD 0502                jsr        [A5 + 0x502 /* export_156, CODE:3 @ 00002506 */]
+00000156  285F                     movea.l    A4, [A7]+
+00000158  4267                     clr.w      -[A7]
+0000015A  2F0C                     move.l     -[A7], A4
+0000015C  3F3C 0010                move.w     -[A7], 0x10
+00000160  4EAD 010A                jsr        [A5 + 0x10A /* export_29, CODE:1 @ 000031C6 */]
+00000164  101F                     move.b     D0, [A7]+
+00000166  672E                     beq        +0x30 /* 00000196 */
+00000168  4267                     clr.w      -[A7]
+0000016A  3F2E 0010                move.w     -[A7], [A6 + 0x10]
+0000016E  2F2E 0008                move.l     -[A7], [A6 + 0x8]
+00000172  4EBA 0036                jsr        [PC + 0x36 /* 000001AA */]
+00000176  3E1F                     move.w     D7, [A7]+
+00000178  4267                     clr.w      -[A7]
+0000017A  3F2E 0010                move.w     -[A7], [A6 + 0x10]
+0000017E  2F0C                     move.l     -[A7], A4
+00000180  2F2E 0008                move.l     -[A7], [A6 + 0x8]
+00000184  3F07                     move.w     -[A7], D7
+00000186  487A 0020                pea.l      [PC + 0x20 /* 000001A8, value 0x4E56 'NV', cstring "" */]
+0000018A  4EBA FF54                jsr        [PC - 0xAC /* 000000E0 */]
+0000018E  101F                     move.b     D0, [A7]+
+00000190  6604                     bne        +0x6 /* 00000196 */
+00000192  7000                     moveq.l    D0, 0x00
+00000194  2840                     movea.l    A4, D0
+label00000196:
+00000196  2D4C 0012                move.l     [A6 + 0x12], A4
+0000019A  4CDF 1080                movem.l    D7,A4, [A7]+
+0000019E  4E5E                     unlink     A6
+000001A0  205F                     movea.l    A0, [A7]+
+000001A2  DEFC 000A                add.w      A7, 0xA /* '\n' */
+000001A6  4ED0                     jmp        [A0]
+000001A8  0000 4E56                ori.b      D0, 0x56 /* 'V' */
+// begin alternate branch 000001AA-000001AE
+export_272:
+fn000001AA:
+000001AA  4E56 FFF6                link       A6, -0x000A
+// end alternate branch 000001AA-000001AE
+export_272: // at 000001AA (misaligned)
+fn000001AA: // (misaligned)
+000001AC  FFF6                     .invalid   <<F/7/7>>
+000001AE  48E7 0F08                movem.l    -[A7], D4,D5,D6,D7,A4
+000001B2  4267                     clr.w      -[A7]
+000001B4  A994                     syscall    CurResFile
+000001B6  381F                     move.w     D4, [A7]+
+000001B8  3F2E 000C                move.w     -[A7], [A6 + 0xC]
+000001BC  A998                     syscall    UseResFile
+000001BE  4267                     clr.w      -[A7]
+000001C0  4EBA FE3E                jsr        [PC - 0x1C2 /* 00000000 */]
+000001C4  4267                     clr.w      -[A7]
+000001C6  4EAD 02C2                jsr        [A5 + 0x2C2 /* export_84, CODE:1 @ 00006392 */]
+000001CA  1A1F                     move.b     D5, [A7]+
+000001CC  4267                     clr.w      -[A7]
+000001CE  A99B                     syscall    SetResLoad
+000001D0  3E3C 0080                move.w     D7, 0x80
+label000001D4:
+000001D4  7C01                     moveq.l    D6, 0x01
+000001D6  42A7                     clr.l      -[A7]
+000001D8  2F2E 0008                move.l     -[A7], [A6 + 0x8]
+000001DC  3F07                     move.w     -[A7], D7
+000001DE  A81F                     syscall    Get1Resource
+000001E0  285F                     movea.l    A4, [A7]+
+000001E2  200C                     move.l     D0, A4
+000001E4  6716                     beq        +0x18 /* 000001FC */
+000001E6  4206                     clr.b      D6
+000001E8  5247                     addq.w     D7, 1
+000001EA  0C47 7FFF                cmpi.w     D7, 0x7FFF
+000001EE  660C                     bne        +0xE /* 000001FC */
+000001F0  4267                     clr.w      -[A7]
+000001F2  2F2E 0008                move.l     -[A7], [A6 + 0x8]
+000001F6  A810                     syscall    Unique1ID
+000001F8  3E1F                     move.w     D7, [A7]+
+000001FA  7C01                     moveq.l    D6, 0x01
+label000001FC:
+000001FC  1006                     move.b     D0, D6
+000001FE  67D4                     beq        -0x2A /* 000001D4 */
+00000200  1F05                     move.b     -[A7], D5
+00000202  A99B                     syscall    SetResLoad
+00000204  3D47 000E                move.w     [A6 + 0xE], D7
+00000208  1F3C 0001                move.b     -[A7], 0x1
+0000020C  4EBA FDF2                jsr        [PC - 0x20E /* 00000000 */]
+00000210  3F04                     move.w     -[A7], D4
+00000212  4EBA FE18                jsr        [PC - 0x1E8 /* 0000002C */]
+00000216  4CDF 10F0                movem.l    D4,D5,D6,D7,A4, [A7]+
+0000021A  4E5E                     unlink     A6
+0000021C  205F                     movea.l    A0, [A7]+
+0000021E  5C4F                     addq.w     A7, 6
+00000220  4ED0                     jmp        [A0]
+export_273:
+00000222  4E56 FFFC                link       A6, -0x0004
+00000226  4267                     clr.w      -[A7]
+00000228  4EAD 02C2                jsr        [A5 + 0x2C2 /* export_84, CODE:1 @ 00006392 */]
+0000022C  1D5F FFFD                move.b     [A6 - 0x3], [A7]+
+00000230  4267                     clr.w      -[A7]
+00000232  A994                     syscall    CurResFile
+00000234  3D5F FFFE                move.w     [A6 - 0x2], [A7]+
+00000238  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+0000023C  A998                     syscall    UseResFile
+0000023E  4267                     clr.w      -[A7]
+00000240  4EBA FDBE                jsr        [PC - 0x242 /* 00000000 */]
+00000244  4267                     clr.w      -[A7]
+00000246  A99B                     syscall    SetResLoad
+00000248  4267                     clr.w      -[A7]
+0000024A  A81C                     syscall    Count1Types
+0000024C  3D5F 000A                move.w     [A6 + 0xA], [A7]+
+00000250  1F3C 0001                move.b     -[A7], 0x1
+00000254  4EBA FDAA                jsr        [PC - 0x256 /* 00000000 */]
+00000258  3F2E FFFE                move.w     -[A7], [A6 - 0x2]
+0000025C  4EBA FDCE                jsr        [PC - 0x232 /* 0000002C */]
+00000260  1F2E FFFD                move.b     -[A7], [A6 - 0x3]
+00000264  A99B                     syscall    SetResLoad
+00000266  4E5E                     unlink     A6
+00000268  205F                     movea.l    A0, [A7]+
+0000026A  544F                     addq.w     A7, 2
+0000026C  4ED0                     jmp        [A0]
+export_274:
+0000026E  4E56 FFFE                link       A6, -0x0002
+00000272  4267                     clr.w      -[A7]
+00000274  A994                     syscall    CurResFile
+00000276  3D5F FFFE                move.w     [A6 - 0x2], [A7]+
+0000027A  3F2E 000E                move.w     -[A7], [A6 + 0xE]
+0000027E  A998                     syscall    UseResFile
+00000280  4267                     clr.w      -[A7]
+00000282  4EBA FD7C                jsr        [PC - 0x284 /* 00000000 */]
+00000286  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+0000028A  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+0000028E  A80F                     syscall    Get1IndType/Get1IxType
+00000290  1F3C 0001                move.b     -[A7], 0x1
+00000294  4EBA FD6A                jsr        [PC - 0x296 /* 00000000 */]
+00000298  3F2E FFFE                move.w     -[A7], [A6 - 0x2]
+0000029C  4EBA FD8E                jsr        [PC - 0x272 /* 0000002C */]
+000002A0  4E5E                     unlink     A6
+000002A2  205F                     movea.l    A0, [A7]+
+000002A4  504F                     addq.w     A7, 8
+000002A6  4ED0                     jmp        [A0]
+export_275:
+000002A8  4E56 FFFE                link       A6, -0x0002
+000002AC  4267                     clr.w      -[A7]
+000002AE  A994                     syscall    CurResFile
+000002B0  3D5F FFFE                move.w     [A6 - 0x2], [A7]+
+000002B4  3F2E 000C                move.w     -[A7], [A6 + 0xC]
+000002B8  A998                     syscall    UseResFile
+000002BA  4267                     clr.w      -[A7]
+000002BC  4EBA FD42                jsr        [PC - 0x2BE /* 00000000 */]
+000002C0  4267                     clr.w      -[A7]
+000002C2  2F2E 0008                move.l     -[A7], [A6 + 0x8]
+000002C6  A80D                     syscall    Count1Resources
+000002C8  3D5F 000E                move.w     [A6 + 0xE], [A7]+
+000002CC  1F3C 0001                move.b     -[A7], 0x1
+000002D0  4EBA FD2E                jsr        [PC - 0x2D2 /* 00000000 */]
+000002D4  3F2E FFFE                move.w     -[A7], [A6 - 0x2]
+000002D8  4EBA FD52                jsr        [PC - 0x2AE /* 0000002C */]
+000002DC  4E5E                     unlink     A6
+000002DE  205F                     movea.l    A0, [A7]+
+000002E0  5C4F                     addq.w     A7, 6
+000002E2  4ED0                     jmp        [A0]
+export_276:
+000002E4  4E56 FFF6                link       A6, -0x000A
+000002E8  48E7 0118                movem.l    -[A7], D7,A3,A4
+000002EC  4267                     clr.w      -[A7]
+000002EE  A994                     syscall    CurResFile
+000002F0  3E1F                     move.w     D7, [A7]+
+000002F2  3F2E 000E                move.w     -[A7], [A6 + 0xE]
+000002F6  A998                     syscall    UseResFile
+000002F8  4267                     clr.w      -[A7]
+000002FA  4EBA FD04                jsr        [PC - 0x2FC /* 00000000 */]
+000002FE  42A7                     clr.l      -[A7]
+00000300  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+00000304  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+00000308  A80E                     syscall    Get1IndResource/Get1IxResource
+0000030A  285F                     movea.l    A4, [A7]+
+0000030C  200C                     move.l     D0, A4
+0000030E  660A                     bne        +0xC /* 0000031A */
+00000310  267C 0000 0A60           movea.l    A3, 0xA60 /* '\n`' */
+00000316  36BC FF40                move.w     [A3], 0xFF40
+label0000031A:
+0000031A  1F3C 0001                move.b     -[A7], 0x1
+0000031E  4EBA FCE0                jsr        [PC - 0x320 /* 00000000 */]
+00000322  2D4C 0010                move.l     [A6 + 0x10], A4
+00000326  3F07                     move.w     -[A7], D7
+00000328  4EBA FD02                jsr        [PC - 0x2FE /* 0000002C */]
+0000032C  4CDF 1880                movem.l    D7,A3,A4, [A7]+
+00000330  4E5E                     unlink     A6
+00000332  205F                     movea.l    A0, [A7]+
+00000334  504F                     addq.w     A7, 8
+00000336  4ED0                     jmp        [A0]
+export_277:
+00000338  4E56 FFF6                link       A6, -0x000A
+0000033C  48E7 0118                movem.l    -[A7], D7,A3,A4
+00000340  4267                     clr.w      -[A7]
+00000342  A994                     syscall    CurResFile
+00000344  3E1F                     move.w     D7, [A7]+
+00000346  3F2E 000E                move.w     -[A7], [A6 + 0xE]
+0000034A  A998                     syscall    UseResFile
+0000034C  4267                     clr.w      -[A7]
+0000034E  4EBA FCB0                jsr        [PC - 0x350 /* 00000000 */]
+00000352  42A7                     clr.l      -[A7]
+00000354  2F2E 000A                move.l     -[A7], [A6 + 0xA]
+00000358  3F2E 0008                move.w     -[A7], [A6 + 0x8]
+0000035C  A81F                     syscall    Get1Resource
+0000035E  285F                     movea.l    A4, [A7]+
+00000360  200C                     move.l     D0, A4
+00000362  660A                     bne        +0xC /* 0000036E */
+00000364  267C 0000 0A60           movea.l    A3, 0xA60 /* '\n`' */
+0000036A  36BC FF40                move.w     [A3], 0xFF40
+label0000036E:
+0000036E  1F3C 0001                move.b     -[A7], 0x1
+00000372  4EBA FC8C                jsr        [PC - 0x374 /* 00000000 */]
+00000376  2D4C 0010                move.l     [A6 + 0x10], A4
+0000037A  3F07                     move.w     -[A7], D7
+0000037C  4EBA FCAE                jsr        [PC - 0x352 /* 0000002C */]
+00000380  4CDF 1880                movem.l    D7,A3,A4, [A7]+
+00000384  4E5E                     unlink     A6
+00000386  205F                     movea.l    A0, [A7]+
+00000388  504F                     addq.w     A7, 8
+0000038A  4ED0                     jmp        [A0]
+export_278:
+0000038C  4E56 FFFE                link       A6, -0x0002
+00000390  4267                     clr.w      -[A7]
+00000392  A994                     syscall    CurResFile
+00000394  3D5F FFFE                move.w     [A6 - 0x2], [A7]+
+00000398  42A7                     clr.l      -[A7]
+0000039A  3F2E 0016                move.w     -[A7], [A6 + 0x16]
+0000039E  1F3C 0001                move.b     -[A7], 0x1
+000003A2  4267                     clr.w      -[A7]
+000003A4  2F2E 0012                move.l     -[A7], [A6 + 0x12]
+000003A8  3F2E 0010                move.w     -[A7], [A6 + 0x10]
+000003AC  2F2E 000C                move.l     -[A7], [A6 + 0xC]
+000003B0  2F2E 0008                move.l     -[A7], [A6 + 0x8]
+000003B4  4EAD 0A82                jsr        [A5 + 0xA82 /* export_332, CODE:7 @ 00006112 */]
+000003B8  2D5F 0018                move.l     [A6 + 0x18], [A7]+
+000003BC  3F2E FFFE                move.w     -[A7], [A6 - 0x2]
+000003C0  4EBA FC6A                jsr        [PC - 0x396 /* 0000002C */]
+000003C4  4E5E                     unlink     A6
+000003C6  205F                     movea.l    A0, [A7]+
+000003C8  DEFC 0010                add.w      A7, 0x10
+000003CC  4ED0                     jmp        [A0]
+export_279:
+000003CE  4E56 FEF6                link       A6, -0x010A
+000003D2  48E7 0118                movem.l    -[A7], D7,A3,A4
+000003D6  206E 0008                movea.l    A0, [A6 + 0x8]
+000003DA  43EE FF00                lea.l      A1, [A6 - 0x100]
+000003DE  707F                     moveq.l    D0, 0x7F
+label000003E0:
+000003E0  32D8                     move.w     [A1]+, [A0]+
+000003E2  51C8 FFFC                dbf        D0, -0x6 /* 000003E0 */
+000003E6  4267                     clr.w      -[A7]
+000003E8  A994                     syscall    CurResFile
+000003EA  3E1F                     move.w     D7, [A7]+
+000003EC  3F2E 0010                move.w     -[A7], [A6 + 0x10]
+000003F0  A998                     syscall    UseResFile
+000003F2  4267                     clr.w      -[A7]
+000003F4  4EBA FC0A                jsr        [PC - 0x3F6 /* 00000000 */]
+000003F8  42A7                     clr.l      -[A7]
+000003FA  2F2E 000C                move.l     -[A7], [A6 + 0xC]
+000003FE  486E FF00                pea.l      [A6 - 0x100]
+00000402  A820                     syscall    Get1NamedResource
+00000404  285F                     movea.l    A4, [A7]+
+00000406  200C                     move.l     D0, A4
+00000408  660A                     bne        +0xC /* 00000414 */
+0000040A  267C 0000 0A60           movea.l    A3, 0xA60 /* '\n`' */
+00000410  36BC FF40                move.w     [A3], 0xFF40
+label00000414:
+00000414  1F3C 0001                move.b     -[A7], 0x1
+00000418  4EBA FBE6                jsr        [PC - 0x41A /* 00000000 */]
+0000041C  2D4C 0012                move.l     [A6 + 0x12], A4
+00000420  3F07                     move.w     -[A7], D7
+00000422  4EBA FC08                jsr        [PC - 0x3F8 /* 0000002C */]
+00000426  4CDF 1880                movem.l    D7,A3,A4, [A7]+
+0000042A  4E5E                     unlink     A6
+0000042C  205F                     movea.l    A0, [A7]+
+0000042E  DEFC 000A                add.w      A7, 0xA /* '\n' */
+00000432  4ED0                     jmp        [A0]
+export_280:
+00000434  4E56 FEFE                link       A6, -0x0102
+00000438  206E 0008                movea.l    A0, [A6 + 0x8]
+0000043C  43EE FF00                lea.l      A1, [A6 - 0x100]
+00000440  707F                     moveq.l    D0, 0x7F
+label00000442:
+00000442  32D8                     move.w     [A1]+, [A0]+
+00000444  51C8 FFFC                dbf        D0, -0x6 /* 00000442 */
+00000448  4267                     clr.w      -[A7]
+0000044A  A994                     syscall    CurResFile
+0000044C  3D5F FEFE                move.w     [A6 - 0x102], [A7]+
+00000450  3F2E 0016                move.w     -[A7], [A6 + 0x16]
+00000454  A998                     syscall    UseResFile
+00000456  2F2E 0012                move.l     -[A7], [A6 + 0x12]
+0000045A  2F2E 000E                move.l     -[A7], [A6 + 0xE]
+0000045E  3F2E 000C                move.w     -[A7], [A6 + 0xC]
+00000462  486E FF00                pea.l      [A6 - 0x100]
+00000466  A9AB                     syscall    AddResource
+00000468  3F2E FEFE                move.w     -[A7], [A6 - 0x102]
+0000046C  4EBA FBBE                jsr        [PC - 0x442 /* 0000002C */]
+00000470  4E5E                     unlink     A6
+00000472  205F                     movea.l    A0, [A7]+
+00000474  DEFC 0010                add.w      A7, 0x10
+00000478  4ED0                     jmp        [A0]
+export_281:
+0000047A  4E56 FFFE                link       A6, -0x0002
+0000047E  4267                     clr.w      -[A7]
+00000480  A994                     syscall    CurResFile
+00000482  3D5F FFFE                move.w     [A6 - 0x2], [A7]+
+00000486  3F2E 000C                move.w     -[A7], [A6 + 0xC]
+0000048A  A998                     syscall    UseResFile
+0000048C  4267                     clr.w      -[A7]
+0000048E  4EBA FB70                jsr        [PC - 0x490 /* 00000000 */]
+00000492  4267                     clr.w      -[A7]
+00000494  2F2E 0008                move.l     -[A7], [A6 + 0x8]
+00000498  A810                     syscall    Unique1ID
+0000049A  3D5F 000E                move.w     [A6 + 0xE], [A7]+
+0000049E  1F3C 0001                move.b     -[A7], 0x1
+000004A2  4EBA FB5C                jsr        [PC - 0x4A4 /* 00000000 */]
+000004A6  3F2E FFFE                move.w     -[A7], [A6 - 0x2]
+000004AA  4EBA FB80                jsr        [PC - 0x480 /* 0000002C */]
+000004AE  4E5E                     unlink     A6
+000004B0  205F                     movea.l    A0, [A7]+
+000004B2  5C4F                     addq.w     A7, 6
+000004B4  4ED0                     jmp        [A0]
+export_282:
+fn000004B6:
+000004B6  4E56 FFFE                link       A6, -0x0002
+000004BA  4267                     clr.w      -[A7]
+000004BC  A994                     syscall    CurResFile
+000004BE  3D5F FFFE                move.w     [A6 - 0x2], [A7]+
+000004C2  3F2E 000C                move.w     -[A7], [A6 + 0xC]
+000004C6  A998                     syscall    UseResFile
+000004C8  2F2E 0008                move.l     -[A7], [A6 + 0x8]
+000004CC  A9AD                     syscall    RemoveResource/RmveResource
+000004CE  3F2E FFFE                move.w     -[A7], [A6 - 0x2]
+000004D2  4EBA FB58                jsr        [PC - 0x4A8 /* 0000002C */]
+000004D6  4E5E                     unlink     A6
+000004D8  205F                     movea.l    A0, [A7]+
+000004DA  5C4F                     addq.w     A7, 6
+000004DC  4ED0                     jmp        [A0]

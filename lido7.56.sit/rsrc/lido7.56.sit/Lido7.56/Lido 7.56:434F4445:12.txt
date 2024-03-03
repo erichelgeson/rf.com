@@ -1,0 +1,41 @@
+# near model CODE resource
+# jump table entries: 1736-1736 (1 of them)
+export_217:
+00000000  4E56 FFFE                link       A6, -0x0002
+00000004  2F07                     move.l     -[A7], D7
+00000006  2F2D F21C                move.l     -[A7], [A5 - 0xDE4]
+0000000A  3F3C 0009                move.w     -[A7], 0x9 /* '\t' */
+0000000E  486D F260                pea.l      [A5 - 0xDA0]
+00000012  486D F25C                pea.l      [A5 - 0xDA4]
+00000016  486D F254                pea.l      [A5 - 0xDAC]
+0000001A  A98D                     syscall    GetDialogItem/GetDItem
+0000001C  2F2D F21C                move.l     -[A7], [A5 - 0xDE4]
+00000020  3F3C 0009                move.w     -[A7], 0x9 /* '\t' */
+00000024  3F2D F260                move.w     -[A7], [A5 - 0xDA0]
+00000028  486D 0092                pea.l      [A5 + 0x92 /* export_14, CODE:1 @ 000008FC */]
+0000002C  486D F254                pea.l      [A5 - 0xDAC]
+00000030  A98E                     syscall    SetDialogItem/SetDItem
+00000032  7E08                     moveq.l    D7, 0x08
+00000034  602A                     bra        +0x2C /* 00000060 */
+label00000036:
+00000036  2F2D F21C                move.l     -[A7], [A5 - 0xDE4]
+0000003A  3F07                     move.w     -[A7], D7
+0000003C  486D F260                pea.l      [A5 - 0xDA0]
+00000040  486D F25C                pea.l      [A5 - 0xDA4]
+00000044  486D F254                pea.l      [A5 - 0xDAC]
+00000048  A98D                     syscall    GetDialogItem/GetDItem
+0000004A  2F2D F21C                move.l     -[A7], [A5 - 0xDE4]
+0000004E  3F07                     move.w     -[A7], D7
+00000050  3F2D F260                move.w     -[A7], [A5 - 0xDA0]
+00000054  486D 009A                pea.l      [A5 + 0x9A /* export_15, CODE:1 @ 00000A6E */]
+00000058  486D F254                pea.l      [A5 - 0xDAC]
+0000005C  A98E                     syscall    SetDialogItem/SetDItem
+0000005E  5347                     subq.w     D7, 1
+label00000060:
+00000060  7002                     moveq.l    D0, 0x02
+00000062  B047                     cmp.w      D0, D7
+00000064  6FD0                     ble        -0x2E /* 00000036 */
+00000066  2E1F                     move.l     D7, [A7]+
+00000068  4E5E                     unlink     A6
+0000006A  4E75                     rts
+0000006C  8F44 5241 574D 4149 4... dc.b       "DRAWMAINSCSIBUS"

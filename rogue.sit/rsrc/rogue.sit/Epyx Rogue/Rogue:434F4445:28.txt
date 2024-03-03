@@ -1,0 +1,112 @@
+# near model CODE resource
+# jump table entries: 2184-2187 (4 of them)
+00000000  4E56 0000                link       A6, 0
+00000004  4E5E                     unlink     A6
+00000006  4E75                     rts
+00000008  4E56 FFD0                link       A6, -0x0030
+0000000C  48E7 0810                movem.l    -[A7], D4,A3
+00000010  7800                     moveq.l    D4, 0x00
+00000012  2F2D F702                move.l     -[A7], [A5 - 0x8FE]
+00000016  A873                     syscall    SetPort
+00000018  486E FFFC                pea.l      [A6 - 0x4]
+0000001C  A972                     syscall    GetMouse
+0000001E  4267                     clr.w      -[A7]
+00000020  2F2E FFFC                move.l     -[A7], [A6 - 0x4]
+00000024  486E FFF8                pea.l      [A6 - 0x8]
+00000028  A92C                     syscall    FindWindow
+0000002A  301F                     move.w     D0, [A7]+
+0000002C  6070                     bra        +0x72 /* 0000009E */
+label0000002E:
+0000002E  246E FFF8                movea.l    A2, [A6 - 0x8]
+00000032  262A 0098                move.l     D3, [A2 + 0x98]
+00000036  C6BC 0000 0100           and.l      D3, 0x100
+0000003C  6668                     bne        +0x6A /* 000000A6 */
+label0000003E:
+0000003E  4A6E 0008                tst.w      [A6 + 0x8]
+00000042  670E                     beq        +0x10 /* 00000052 */
+00000044  42A7                     clr.l      -[A7]
+00000046  A924                     syscall    FrontWindow
+00000048  201F                     move.l     D0, [A7]+
+0000004A  246E FFF8                movea.l    A2, [A6 - 0x8]
+0000004E  B5C0                     cmpa.l     A2, D0
+00000050  6654                     bne        +0x56 /* 000000A6 */
+label00000052:
+00000052  246E FFF8                movea.l    A2, [A6 - 0x8]
+00000056  B5ED F6DC                cmpa.l     A2, [A5 - 0x924]
+0000005A  6640                     bne        +0x42 /* 0000009C */
+0000005C  486E FFD0                pea.l      [A6 - 0x30]
+00000060  A976                     syscall    GetKeys
+00000062  4267                     clr.w      -[A7]
+00000064  486E FFD0                pea.l      [A6 - 0x30]
+00000068  2F3C 0000 003D           move.l     -[A7], 0x3D /* '=' */
+0000006E  A85D                     syscall    BitTst
+00000070  101F                     move.b     D0, [A7]+
+00000072  4A00                     tst.b      D0
+00000074  6706                     beq        +0x8 /* 0000007C */
+00000076  383C 0100                move.w     D4, 0x100
+0000007A  6020                     bra        +0x22 /* 0000009C */
+label0000007C:
+0000007C  4267                     clr.w      -[A7]
+0000007E  486E FFD0                pea.l      [A6 - 0x30]
+00000082  2F3C 0000 003F           move.l     -[A7], 0x3F /* '?' */
+00000088  A85D                     syscall    BitTst
+0000008A  101F                     move.b     D0, [A7]+
+0000008C  4880                     ext.w      D0
+0000008E  3F00                     move.w     -[A7], D0
+00000090  2F2E FFFC                move.l     -[A7], [A6 - 0x4]
+00000094  4EAD 0072                jsr        [A5 + 0x72 /* export_10, CODE:0 @ 00000000 */]
+00000098  5C4F                     addq.w     A7, 6
+0000009A  3800                     move.w     D4, D0
+label0000009C:
+0000009C  6008                     bra        +0xA /* 000000A6 */
+label0000009E:
+0000009E  5740                     subq.w     D0, 3
+000000A0  679C                     beq        -0x62 /* 0000003E */
+000000A2  5540                     subq.w     D0, 2
+000000A4  6788                     beq        -0x76 /* 0000002E */
+label000000A6:
+000000A6  3F04                     move.w     -[A7], D4
+000000A8  610A                     bsr        +0xC /* 000000B4 */
+000000AA  544F                     addq.w     A7, 2
+000000AC  4CDF 0810                movem.l    D4,A3, [A7]+
+000000B0  4E5E                     unlink     A6
+000000B2  4E75                     rts
+fn000000B4:
+000000B4  4E56 0000                link       A6, 0
+000000B8  362E 0008                move.w     D3, [A6 + 0x8]
+000000BC  B66D FF2C                cmp.w      D3, [A5 - 0xD4]
+000000C0  672C                     beq        +0x2E /* 000000EE */
+000000C2  302E 0008                move.w     D0, [A6 + 0x8]
+000000C6  3B40 FF2C                move.w     [A5 - 0xD4], D0
+000000CA  601A                     bra        +0x1C /* 000000E6 */
+label000000CC:
+000000CC  486D F60A                pea.l      [A5 - 0x9F6]
+000000D0  A851                     syscall    SetCursor
+000000D2  601A                     bra        +0x1C /* 000000EE */
+label000000D4:
+000000D4  42A7                     clr.l      -[A7]
+000000D6  3F2D FF2C                move.w     -[A7], [A5 - 0xD4]
+000000DA  A9B9                     syscall    GetCursor
+000000DC  201F                     move.l     D0, [A7]+
+000000DE  2440                     movea.l    A2, D0
+000000E0  2F12                     move.l     -[A7], [A2]
+000000E2  A851                     syscall    SetCursor
+000000E4  6008                     bra        +0xA /* 000000EE */
+label000000E6:
+000000E6  907C 0000                sub.w      D0, 0x0
+000000EA  67E0                     beq        -0x1E /* 000000CC */
+000000EC  60E6                     bra        -0x18 /* 000000D4 */
+label000000EE:
+000000EE  4E5E                     unlink     A6
+000000F0  4E75                     rts
+000000F2  4E56 0000                link       A6, 0
+000000F6  42A7                     clr.l      -[A7]
+000000F8  3B7C 0004 FF2C           move.w     [A5 - 0xD4], 0x4
+000000FE  3F3C 0004                move.w     -[A7], 0x4
+00000102  A9B9                     syscall    GetCursor
+00000104  201F                     move.l     D0, [A7]+
+00000106  2440                     movea.l    A2, D0
+00000108  2F12                     move.l     -[A7], [A2]
+0000010A  A851                     syscall    SetCursor
+0000010C  4E5E                     unlink     A6
+0000010E  4E75                     rts

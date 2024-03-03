@@ -1,0 +1,270 @@
+III:  An Introduction to RoboTalk
+
+RoboTalk is the language in which robots are programmed for RoboWar.  The language is based on Reverse Polish notation (RPN), similar to the HP calculators.  This section introduces a number of important RoboTalk concepts: the Stack, operands and operators, comments, tokens, delimiters, and programs, numbers, label definitions, labels, and variables.  It also describes the hardware interactions that robots have, including the effects of energy, shields, weapons, and collisions.  The section concludes with a step-by-step tutorial of creating your own robot.
+
+The Stack
+
+The stack is the basis of all RoboTalk instructions.  It works like a stack of paper:  a new sheet may be placed (pushed) onto the top of the stack or removed (popped) from it.  However, pieces cannot be taken from or inserted into the middle.  All operands, such as numbers, variable names, and labels are pushed onto the stack.  Operators may pop information off the top of the stack, act on it, and push any result back onto the stack.
+
+The most recently pushed operand on the stack is called the top of the stack.  A new operand pushed onto the stack is placed above the old top and becomes the new top of the stack.  An operand is popped off the top of the stack, leaving the operand beneath it as the new top.  If more than 100 operands are on the stack at once (an unlikely occurrence unless the robot has a bug), the robot has a Stack Overflow error.  If one tries to pop a number off of the stack when it is entirely empty, a Stack Underflow error is reported.
+
+Tokens, Delimiters, and Programs
+
+A token is a group of characters, usually a number or word.  Every element of RoboTalk:  numbers, label definitions, labels, variables, and operands, are really tokens.  Each token must be separated from the next by at least one delimiter.
+
+A delimiter is a symbol that separates two tokens.  The most common delimiters are spaces and new lines.  For example, in the line “Main JUMP” the space separating Main and Jump is a delimiter.  Other valid delimiters include the tabs, semicolons, and commas.  RoboTalk does not care which delimiters are used where.  Thus ShotBot could be rewritten as:
+
+Main:,Range;0 >;FireSub
+RotateSub,IFE,Main;JUMP;FireSub:;;;20 fire’    STORE,RETURN,RotateSub:
+  5 AIM + ,AIM’ STORE;RETURN
+
+However, this is very unclear for the reader.  Therefore, a style similar to that shown in some of the example robots, with spaces and new lines used for delimiters, and indentation following label definitions, is recommended.
+
+A program is a series of tokens that work together to control a robot.  Each robot’s software is a single program.  The segments branched to by IF and CALL operators are called subroutines.  Each of the types of tokens is described below.
+
+Comments
+
+Comments are messages that a human may use to help understand a program, but that are ignored by RoboTalk.  For example, in ShotBot, described in Part I, the line “# Written 1/3/90 by David Harris” is a comment.  It reports to the user information about the robot’s author, but does not generate any code that RoboTalk interprets.
+
+Comments come in two varieties for convenience.  The first variety begins with a # sign.  This comment means that the rest of the line is a comment and should be ignored.  The comment might come at the beginning of the line, or might follow some real code, as in the line:
+
+AIM 5 + AIM’ STORE  # Rotate Turret.
+
+The other form of comment is marked by the { and } symbols (open and close braces.)  The open brace indicates a start of the comment.  The comment is ended by the close brace.  There must be a close brace for every open brace.  However, comments may be nested; that is, a pair of open and close braces may appear between another set of braces.  The following program shows an example of comments marked by braces:
+
+# An example robot
+
+{   This is the beginning of a comment.
+    It continues on the next line.
+        {This comment is nested within the outer one
+    } The previous comment is closed.
+
+main: # this is not a label definition; it is enclosed in a comment
+}
+
+main:  # this is a valid label definition
+    main jump
+
+Label Definitions
+
+Label definitions mark a point in the program so that jumps and branches may go to that point.  A label definition consists of a word followed by a colon.  Label definitions do not generate any RoboTalk code.  However, they are used to mark the destination of labels in other parts of the program.
+
+Label definitions should not have the same names as variables or operators.  Also, there must not be two label definitions with the same names in a single program.
+
+Operands and Operators
+
+All tokens other than comments and label definitions are either operands or operators.  An operand is a number, label, or variable name that is pushed onto the stack.  An operator is a command that acts on the stack.  The various operands and operators are described below.
+
+Numbers
+
+A number is just that: a collection of digits.  Numbers are always pushed onto the stack when they are encountered.  Numbers may range from -19999 to 19999.  They may have a plus or minus sign in front of them; however, there must be no delimiters between the sign and the digits.  (If there were, RoboTalk would interpret it as an operand, either plus or minus, followed by a positive number.)  If an arithmetic operation produces a number out of this range, for instance, from executing “200 200 *”, the robot bombs with an error message “Number out of bounds.”
+
+Labels
+
+Labels are used with the IF, IFE, JUMP, and CALL operators.  They are coded as the location in the program to jump to, and thus are pushed onto the top of the stack when encountered.
+
+Variables
+
+Variables, also known as robot registers, contain information from the robot.  They include the range to the nearest robot in the sights, a robot’s current X and Y position, energy, etc.  A complete list of variables and their functions appears in Part IV.
+
+Variables may appear in two forms in a program: unquoted and quoted.  An unquoted variable really refers to the contents, or value, of that variable, while a quoted variable indicates the variable name itself.  Quoted variables (written as the variable name followed immediately by a single quotation mark e.g. AIM’) are used with the STORE operator, as they are the location in which a number should be stored.  Quoted variables must be used with every STORE operator, and should not be used with any other expression.  For example, although “5 AIM’ +” will successfully assemble, the results will be meaningless and will probably cause the robot to do strange things, because the number 5 is being added to the name of the variable AIM, not the contents of AIM.
+
+Advanced programmers should understand that an unquoted variable translates internally into a quoted variable followed by a RECALL statement.  Thus, it takes two cycles to access an unquoted variable, as opposed to the one cycle for other instructions.
+
+Operators
+
+Operators may pop information off of a stack, act on it, and push information back onto the stack.  A complete list of operators appears in Part IV.  They include mathematical functions like +, -, and *, stack manipulation functions like DROP and SWAP, and branching functions like JUMP and CALL.  
+
+Advanced programmers should note that all branches that may be returned from, namely, those generated by IF, IFE, and CALL, push the return address onto the stack.  Thus if a subroutine were to be written that would act on information on the stack, it would first have to save the return address before acting.  Then, it would have to restore the return address before making a RETURN statement.  The following code, which invokes a subroutine to double the number on the stack, demonstrates this technique:
+
+# Demonstration Robot
+
+Main:
+    5                          # the number to double
+    DoubleSub CALL    # double it
+    DROP                    # discard it
+    Main JUMP           # repeat forever...
+
+DoubleSub:
+    r’ STORE              # store the return address in the variable r
+    2 *                      # multiply the top number on the stack by 2
+    r                          # restore the return address to the stack
+    RETURN                # and return
+
+An alternative (better) method of writing DoubleSub would use stack manipulation commands, saving an instruction:
+
+DoubleSub:
+    SWAP                  # swap return address and number to multiply
+    2 *                      # multiply the top number on the stack by 2
+    SWAP                  # swap return address back to top of stack
+    RETURN                # and return
+
+The first DoubleSub routine executes in 7 cycles (recalling that an unquoted variable requires two cycles), while the second routine executes in only 5 cycles.
+
+Note that the IFG and IFEG branching commands do not leave any return address on the stack, so they are useful for transfering control permanently without requiring a DROP to clean up the stack.
+
+Special Operators
+
+The ICONx and SNDx (where x is a number from 0 to 9) operators are used for special effects.  Therefore, they take zero cycles to execute.  Icons are defined in the Hardware Store, while sounds are set in the Recording Studio.  Be sparing with the use of sound or you will create disk-hogging, battle-slowing behemoths that nobody else wants on their hard disk!
+
+DEBUGGER is another special command.  If the robot debugger is enabled (by selecting the robot and chosing Use Debugger from the Arena menu), the DEBUGGER command causes a robot to end all processing for the chronon (like the SYNC command) and enter the debugger, in which one can examine robot registers and single-step code.  If the robot debugger is not enabled, the DEBUGGER command is ignored and takes no time to execute, so a robot can be properly tested.
+
+Interrupts
+
+Interrupts are a new feature of RoboWar, as of version 3.0.  They are an advanced programming feature that novices may safely ignore, yet they present the opportunity for experts to write much more efficient (and hence deadly) code.
+
+Traditional robots use the "polling" style of programming, checking for events in a main loop.  For example, a typical moving robot would have to check each time through the main loop if it is too close to a wall, if it is in a collision, if any projectiles are coming toward it, and if it sees any enemies to shoot at.  Worse yet, a team robot might have to check if its partner had sent any messages recently.  All of this checking for conditions that are important but may rarely occur requires lots of processor time.
+
+Interrupts offer a new solution.  Instead of polling for events, an interrupt-driven robot can request that normal execution be "interrupted" when a special situation is detected.  The interrupt causes a robot to jump to a special procedure defined to handle the event.
+
+See Section VI for more information about interrupt-based programming.
+
+Maximum Size Limitations
+
+RoboWar places certain limitations on the size of robots.  Each robot may have no more than 5000 instructions and 32000 characters of source code (as counted in the Drafting Board).  Also, there may be no more than 400 labels and each label must be less than 20 characters long.   
+
+Sample Program
+
+Now that we have learned all the elements of a program, let us see how they act on the stack in a simple robot.  The following robot remains stationary, rotating its turret:
+
+# SimpleRobot
+
+Main:
+    Aim 5 +                # Rotate 5 degrees
+    Aim’ STORE
+    Main JUMP           # Repeat
+
+Suppose that the variable Aim currently contained 90 degrees, due east.  Let us trace the stack through each instruction:
+
+Instruction: # SimpleRobot
+Type: Comment
+Stack: Empty
+
+Instruction: Main:
+Type: Label Definition
+Stack: Empty
+
+Instruction: Aim
+Type: Unquoted variable = 90
+Stack: 90 <-- Top of Stack
+
+Instruction: 5
+Type: Number
+Stack: 5 <-- Top of Stack
+	 90
+
+Instruction: +
+Type: Operator
+Stack: 95 <-- Top of Stack
+
+Instruction: # Rotate 5 Degrees
+Type: Comment
+Stack: 95 <-- Top of Stack
+
+Instruction: Aim’
+Type: Quoted Variable
+Stack: Aim’ <-- Top of Stack
+	 95
+
+Instruction: STORE
+Type: Operator
+Stack: Empty
+
+Instruction: Main
+Type: Label
+Stack: Main <-- Top of Stack
+
+Instruction: JUMP
+Type: Operator
+Stack: Empty
+
+The program repeats this cycle, incrementing Aim by 5 degrees each time through the loop.
+
+Hardware Interactions
+
+The robot interacts with his environment by reading and writing variables.  For example, a robot could check his X position by reading the variable X, or could fire a bullet by writing some amount of energy to the Fire variable.  Bullets, missiles, and TacNukes were described in Part II, and in more detail in Part IV.  This section gives an overview of the robot’s energy and damage statistics, as well as the effect of collisions with other robots and walls.
+
+The robot’s energy, listed in the upper right box during combat, is the total amount of power available to the robot.  It is used for acceleration, maintaining shields, and shooting weapons.  Each chronon the energy recharges by two points.
+
+Large amounts of energy consumption may place a robot at negative energy.  On any chronon in which a robot begins with negative energy, it cannot move or interpret any instructions.  It is just a sitting duck until the energy returns to the realm of positive numbers.
+
+Finally, if energy ever drops below -200 (from a massive expenditure in a single chronon), the robot's power supply melts down and the robot explods.  This is generally a bad thing.
+
+The robot’s damage, also listed in the upper right box during combat, is how much damage may still be taken before the robot is destroyed.  Damage does not regenerate; once a robot takes damage, the damage is present until a new battle starts.
+
+Collisions are the bane of any moving robot.  Two types of collisions exist: collisions with walls and collisions with other robots.  Collisions with walls are the most dangerous, but also the most avoidable.  If a robot hits a wall, it takes five points of damage per chronon until it moves back into the main arena.  However, checking the X and Y positions of a robot, and adjusting velocity if the robot nears a wall, should prevent this kind of collision.
+
+Collisions with other robots are sensed in the Collision variable.  It returns a 1 if read while the robot has hit another.  Each chronon that the robots are touching causes 1 point of damage to both combatants.  Furthermore, the robots cannot move through each other, so they may end up locked together until one or the other perishes.  However, a smart moving robot will check the collision variable frequently.  If he has collided, he may jump to some code that locates and destroys his opponent.
+
+Debugger
+
+Starting with version 2.3, RoboWar has a debugger that allows you to trace your RoboTalk programs, examine registers, and observe the contents of the stack.  
+
+To use the debugger, click on an open robot in the Arena.  Choose the Use Debugger option from under the Arena menu.  The Use Debugger menu item will be checked.  To use the debugger on a different robot, select that robot instead and choose Use Debugger again.  To turn off the debugger, click at an empty line of the Arena to deselect all robots, then choose Use Debugger and notice that the check beside the menu item is removed.  If you are using the debugger on a robot with a password, you may be prompted to enter the password.
+
+When you run a battle with the debugger enabled, the right portion of the Arena window will display information about the robot being debugged.  Two boxes near the top display the program and the top five elements of the stack.  Below is a list of the robot's variables and their current values.
+
+Four buttons control execution.  When the battle begins, the robot will be paused.  The Go button begins free-running execution, just as in a normal battle.  Chronon executes for one chronon, then pauses again.  Step executes a single instruction at a time.  When the robot is free-running, clicking the Pause button pauses at the end of the chronon.  If a DEBUG instruction is encountered in program execution, the robot will also pause at the end of that chronon.  If a robot crashes, the program window will display the instruction that caused the crash.
+
+Keyboard shortcuts are available for the debugger:  G, P, C, and S correspond to Go, Pause, Chronon, and Step, respectively.
+
+In order to help with debugging, one may pick up any robot on the screen by clicking on it and may drag the robot to a new location.  Of course this is for testing only; I would require a bribe of an amount unable to fit in a 10 byte IEEE standard floating point format to bias tournaments in this fashion.
+
+Be aware that unquoted variable references are internally represented as a variable name (quoted variable) followed by a RECALL operation.  Also note that the debugger does not show the quotes on variable names.  Thus, the RoboTalk code in listing A would be displayed as listing B in the debugger:
+
+Listing A:  aim 5 + aim' store
+Listing B:  AIM RECALL 5 + AIM STORE
+
+The debugger is missing a few features due to viewing space limitations.  It does not display labels or label definitions in the code.  It does not display user-defined variables; however,
+you can check the value of a variable you are accessing by simply single-stepping through that section of code and observing what is placed on the stack.  There is also no way to scroll through the code or stack.
+
+Tutorial
+
+Now that we know the basics of RoboWar, let us design a robot.  We’ll create a robot that seeks a position along the top wall, then scans back and forth, shooting at any targets it sees.
+
+First, we need to create the robot.  Run RoboWar or make sure you are in the Arena if you are already running RoboWar and choose New Robot… from the File menu.  Give the new robot a name, say TopBot.
+
+Notice that the robot is hilighted in the roster and that it appears in the bottom right corner as the selected robot.  Now we must go to the drafting board and write the robot’s code.  Go to the View menu and choose Drafting Board. 
+
+The Drafting Board should have no code in it since we haven’t started the robot.  Type in the following program:
+
+# TopBot
+# Written by <YourName> on <Date>
+
+Start:
+      0 aim' store                      # point turret up
+      -4 speedy' store               # start moving up
+
+SeekTop:
+      range 0 > KillTarget if       # shoot at target
+      y 30 < ReachedTop if         # at top yet?
+      SeekTop jump                    # repeat
+
+ReachedTop:
+      drop                                  # return address
+      0 speedy' store                 # stop moving
+      90 aim' store                    # point gun right
+
+MainLoop:
+      range 0 > KillTarget if       # shoot at target
+      aim 5 + aim' store             # rotate turret
+      aim 270 > RotateBack if    # half circle
+      MainLoop jump                  # repeat forever
+
+KillTarget:
+      20 fire' store                    # fire a bullet
+      return                               # and continue
+
+RotateBack:
+      90 aim' store                    # point gun right
+      return
+
+Check over the program to make sure you typed it properly.  Then choose Compile from the View menu to compile the program.  If Compile tells you that you have a bug in your program, check it again against the listing above and fix your mistake.  When the program compiles properly, look at the statistics on the right.  It should say that your program is 57 instructions long.
+
+Now, let us go to the Hardware Store to add some features to the robot.  Choose Hardware Store from the View menu.  Looking at the window, note that, by default, the robot has a shield max of 50.  However, since TopBot doesn’t use shields, we don’t need any shield max.  Set it to 0 by clicking on the circle labeled Zilch under the Shield Max heading.  That gives us six points so far on hardware.  We can get three more.
+
+Choose explosive bullets from the Bullets box.  Then raise the Damage Max and the Energy Max to 150.  Looking at the info on the right again, we see we now have spent all nine points.  Return to the Arena by choosing Arena from the View menu.
+
+Let us put in another copy of TopBot so that the two robots can battle.  Be sure that TopBot is selected, then choose Duplicate from the File menu.  This will put a second copy of TopBot in the Arena.  Now click on the button labeled Battle.  Watch the results!  Try a few battles, then add some other pre-designed robots if any came with your copy of RoboWar.  What are TopBot’s strengths?  Weaknesses?  How can its design be improved?
+
+Now you are ready to design and construct your own robots.  Look through the next two sections on operators and registers to learn about the full spectrum of robot capabilities.  Then see what you can invent!  I would love to see your best creations or watch them compete in a RoboWar tournament.

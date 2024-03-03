@@ -1,0 +1,21 @@
+
+Error: Insufficient System Memory
+
+ 
+
+THIS ERROR IS NOT FATAL, But it is an annoying problem that is preventing this program from adding anything into your "System Heap" Memory.  Traditionally, very few things are put in the System Heap, and after the Mac is booted, almost nothing permanent is usually ever added to the System Heap. The only good exceptions are "SCSI Drivers" for drives that are force-mounted after the Mac is completely booted.  Even then, there is usually very very little free space on standard Macintoshes not running System 7.0.
+
+IF YOU REALLY WANT TO MOUNT THIS DRIVE, and potentially add its SCSI driver into memory, you will need to reboot your computer and try again with a bigger system heap, or just have the drive powered on and ready to automatically mount when you reboot your computer.
+
+NOT USING SYSTEM 7 ?: One way to try to avoid the System Heap inadequacies is to avoid running any naughty INITs (Extensions) that may not be treating the System Heap fairly. Naughty INITs are so common there are many programs written just to weed out which INITs are incorrectly wasting valuable System Heap space. Certain ROMS on some non-Apple Hardware may also, rarely, contribute to improper treatment of the System Heap.
+
+NOT USING SYSTEM 7 ?: Another way is to try and increase the System Heap yourself.  The System Heap can only be increased while the computer is booting.  There are several public domain programs that are either INITs, or programs that modify the boot blocks of a specific disk that you boot from to increase the default size of the System Heap.  If you modify the boot blocks of a startup disk, remember that your actions are automatically nullified as soon as a copy of the "Finder" or "System File" is placed on the special modified disk!  Transoft SCSI Director is sometimes shipped on a specially modified utility diskette that has its "boot blocks" modified for a larger system heap.  
+
+NOT USING SYSTEM 7 ?: A good way to increase the system heap is by using a third party INIT or a CDEV (containing INIT) that allows you to specify how much extra room in the System Heap you wish to have. Although many utilities like those exist, not everyone has access to them, therefore Transoft SCSI Director is now shipped with a simple INIT to increase any system heap. The INIT only assists SCSI Director and its SCSI driver and is called "Reserve System Heap INIT" . The INIT only has one little purpose, to reserve 20K of memory for usage when trying to load more SCSI drivers in memory with SCSI Director, or with automounting of cartridges. It is not necessary to use it if you do not want to. It doesn't conflict with anything, including System 7.0, but only functions in System 6.05 and up.
+
+The best solution is to use System 7.0 since Apple worked on it for three years just to avoid this whole damned System Heap problem, among many others. You do not even need to be running in virtual memory mode, or even 32 bit mode for System 7.0 to allow the system heap to expand at any time (The Finder must be functioning though).
+
+
+IN CONCLUSION: If you are running System 7.0 right now, as this error occurred, then please inform Transoft Corporation of the problem, as long as you know you can find no other cause of your problem. Otherwise the problem you are encountering is just a well known but irritating problem with a variety of clumsy solutions, other than switching to System 7.0
+
+Hope you have better luck getting more System Heap next time you boot. 

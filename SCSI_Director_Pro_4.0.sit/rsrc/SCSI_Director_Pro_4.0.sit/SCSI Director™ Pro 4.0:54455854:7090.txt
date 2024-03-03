@@ -1,0 +1,55 @@
+ 
+
+
+
+
+
+Using the Control Panel
+ 
+The control panel, SCSI Director Assistant, allows you to configure the various partition options such as password-protect, manual mount, read-only, disable finder eject, and make boot partition. It is a separate file delivered with the main application program. You may also perform the exact same operations by using the “Volumes...” command in the “Setup” menu (or main window command button) while inside the SCSI Director application.
+
+The control panel allows selection of the partition you wish to configure in a fashion similar to the Startup Disk control panel that comes with your computer.
+
+The “Mount Device X...” button will mount all partitions that belong to the device for which the selected partition belongs to. If the partitions are already mounted, this button will do nothing. If no partitions are selected, this button brings up a dialog which allows you to select the SCSI ID of the device you wish to mount. This gives the control panel similar features to the popular SCSI Probe (written and ©1992 by Robert Polic) utility.
+
+The “Configure...” button will bring up the partition options dialog.
+
+To set an option, click in the check box next to the option. After you have changed the desired partition options, click the OK button to save the changes. Here is a description of what each option does:
+
+Password Protect
+Check this option when you want to restrict access to the partition volume. A password-protected partition will not mount unless the correct password is entered into the password dialog. You choose the password by typing the password in the “Password:” field of the partition options dialog when you turn the password-protect option on. The next time you turn the computer on, you will need to enter the correct password for the volume before it will be mounted and ready for use. To enter the password, you must first use the “Mount Device X...” button (described earlier) on the device that contains the password-protected partition you wish to access. Doing this will present you will a password dialog where you enter the password you choose. If that password is entered correctly, the partition will be mounted and ready for use.
+
+When the computer is started and there are password-protected partitions that do not have the manual-mount option selected, a notification dialog is shown to remind you that there are password-protected partitions and that you must use the control panel or SCSI Director application in order to mount them.
+
+
+Manual Mount
+This option is used when you don't want a partition to be mounted automatically when the computer is started. You may wish to use this option for several reasons:
+
+• To reduce clutter when there are many partitions you work with
+• For safety purposes (if it's not mounted, it cannot be accessed or damaged easily)
+• To keep the existence of a partition from being known
+• To suppress the password notification dialog when the partition is password-protected
+
+To mount a partition that uses the manual-mount option, use the “Mount Device X...” button (described earlier).
+
+Read Only
+This option write-protects a partition. This will make all data on the partition available only for reading. This way, you can protect your data from being erased, changed, or modified in any way. So, if it is important that you access the data on the partition, but not change the data, use the read-only partition option. Some badly written programs do not like to be run from read-only disks, but most use the System folder for their temporary files, and... you must NEVER lock the area your active system folder is located on.
+
+Disable Finder Eject
+This option is useful only to partitions that reside on a removable media device. Because removable media devices are treated in a similar way to floppy disks (they can be ejected and swap copied) they also allow the finder to eject them via the “Eject” menu command or by moving them to the trash icon.
+
+Some badly written software does not like to be run from a floppy disk. These programs do not understand that a removable media device is not a floppy disk, and therefore refuse to act correctly. By using the disable finder eject option, you can force a partition that resides on a removable media device to appear to all software running on the Macintosh to be a fixed disk partition, the same as a hard disk.
+
+If you want to use a removable disk to hold the System 7.0 virtual memory files, you must use the “Disable Finder Eject” option! Additionally, there are several shareware utilities that permanently alter System 7.0 to allow temporary memory files on removable devices, but SCSI Director was available first, and is the proper way to do it.
+
+The disable finder eject option will probably not be used nearly as often as the other partition options.
+
+
+Make Boot Partition
+This option is useful when you have multiple System Folder's on different partitions on a device. When you wish to boot the computer using the System Folder off of a particular partition, then you should select the make boot partition option for that partition. Otherwise, the computer will boot off of the first partition it finds with a valid System Folder.
+
+The Startup Disk control panel, that comes with your computer, allows for the selection of the SCSI device you wish to start the computer from. It does not however allow you to select the partition on the SCSI device you wish to start from. This is what theºot partition allows you to do. You may find this very useful when working with Apple’s System 6.0x on occasions to run badly written programs that are not System 7.0 compatible yet.
+
+And remember... to use the Control Panel called “SCSI Director Assistant” you need to put a copy of it in your system folder or control panel folder.
+
+Consult the large reference manual available for SCSI Director if you require further assistance. 

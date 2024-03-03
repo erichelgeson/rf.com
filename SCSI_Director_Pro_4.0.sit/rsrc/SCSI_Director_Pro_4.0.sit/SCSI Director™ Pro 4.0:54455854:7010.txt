@@ -1,0 +1,26 @@
+ 
+
+
+
+
+
+Power Users's Guide
+ 
+(Refer to Users Manual, or other On-Line help if you aren't a "Power User")
+This information is intended for any technical person needing a brief synopsis of the entire program.
+
+SETUP NEW DEVICE
+To set up a new device, connect it, boot the computer, run the application, select the new device to set up, and click the “Auto Setup...” button. If the device is to be partitioned into multiple Mac HFS volumes, use the manual procedure of “Format...”, “Partition...”, and “Mount...”. Note that the “Partition...” function automatically installs the driver after partitioning, so there is no need to use “Install...” if “Partition...” was used.
+
+UPDATE EXISTING DEVICE
+A device usually does not need to be re-formatted to update it with a new SCSI driver. Just select the device and click “Install” to update the SCSI driver.
+
+ASSISTANT
+Use the control panel to set partition options such as password-protect, manual-mount, read-only, and boot. If a device is password-protected, a notification alert will inform the user of the condition. However, if the device is password-protected AND marked as manual-mount, this notification will not be presented. DO NOT PASSWORD PROTECT THE BOOT DRIVE. The read-only option write-protects the volume via the Mac OS software. No hardware write-protect is done with the read-only option, so software can still possibly write data to the device, if aggressive enough. The disable finder eject option makes the Mac OS treat removable media devices exactly as if they were fixed disks. The make boot partition allows for the selection of the partition in which the Macintosh first searches for a valid System Folder to boot off of when the device is being searched as a possible Startup Disk. Note that “Startup Disk” used to properly be called “Startup Device” previous to Apple System 7.0 and will probably be renamed again in the far future. This allows for the booting of different System Folders from a device that was partitioned into multiple volumes. No system extension is needed for automounting removable cartridges with our SCSI Driver.
+
+PARTITION
+The partition dialog allows multiple Mac HFS partitions as well as various A/UX System Drive, A/UX Data Drive options and sizes, and combinations thereof. While holding the option key, use the “View/Edit Partitions...” command in the “Utility” menu to perform specialized partitioning, or modifications. Read the utility On-Line Help for assistance.
+
+TESTING
+The four speed tests and four reliability tests are non-destructive. A result file is created which lists any problems discovered.
+

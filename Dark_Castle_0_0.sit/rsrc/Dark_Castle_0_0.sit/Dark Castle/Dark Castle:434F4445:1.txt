@@ -1,0 +1,178 @@
+# near model CODE resource
+# jump table entries: 0-0 (1 of them)
+fn00000000:
+00000000  4A78 028E                tst.w      [0x0000028E /* ROM85 */]
+00000004  6B22                     bmi        +0x24 /* 00000028 */
+00000006  303C 0090                move.w     D0, 0x90
+0000000A  A346                     syscall    GetOSTrapAddress, flags=3
+0000000C  2248                     movea.l    A1, A0
+0000000E  303C 009F                move.w     D0, 0x9F
+00000012  A746                     syscall    GetToolBoxTrapAddress/GetToolTrapAddress, flags=7
+00000014  B3C8                     cmpa.l     A1, A0
+00000016  6710                     beq        +0x12 /* 00000028 */
+00000018  225F                     movea.l    A1, [A7]+
+0000001A  205F                     movea.l    A0, [A7]+
+0000001C  301F                     move.w     D0, [A7]+
+0000001E  2F09                     move.l     -[A7], A1
+00000020  A090                     syscall    SysEnvirons
+00000022  3F40 0004                move.w     [A7 + 0x4], D0
+00000026  4E75                     rts
+label00000028:
+00000028  206F 0004                movea.l    A0, [A7 + 0x4]
+0000002C  303C 0001                move.w     D0, 0x1
+00000030  2248                     movea.l    A1, A0
+00000032  6006                     bra        +0x8 /* 0000003A */
+00000034  0313                     btst       [A3], D1
+00000036  0B02                     btst       D2, D5
+00000038  0100                     btst       D0, D0
+label0000003A:
+0000003A  303C 0010                move.w     D0, 0x10
+0000003E  E240                     asr        D0.w, 1
+00000040  5340                     subq.w     D0, 1
+label00000042:
+00000042  4258                     clr.w      [A0]+
+00000044  51C8 FFFC                dbf        D0, -0x6 /* 00000042 */
+00000048  32BC 0001                move.w     [A1], 0x1
+0000004C  2078 02AE                movea.l    A0, [0x000002AE /* ROMBase */]
+00000050  337C FFFE 0002           move.w     [A1 + 0x2], 0xFFFE
+00000056  0C28 00FF 0009           cmpi.b     [A0 + 0x9], 0xFF
+0000005C  6742                     beq        +0x44 /* 000000A0 */
+0000005E  4A28 0008                tst.b      [A0 + 0x8]
+00000062  6E20                     bgt        +0x22 /* 00000084 */
+00000064  337C FFFF 0002           move.w     [A1 + 0x2], 0xFFFF
+0000006A  4A78 028E                tst.w      [0x0000028E /* ROM85 */]
+0000006E  6B30                     bmi        +0x32 /* 000000A0 */
+00000070  337C 0001 0002           move.w     [A1 + 0x2], 0x1
+00000076  4A78 0B22                tst.w      [0x00000B22 /* HWCfgFlags */]
+0000007A  6A24                     bpl        +0x26 /* 000000A0 */
+0000007C  337C 0002 0002           move.w     [A1 + 0x2], 0x2
+00000082  601C                     bra        +0x1E /* 000000A0 */
+label00000084:
+00000084  4269 0002                clr.w      [A1 + 0x2]
+00000088  0C28 0002 0008           cmpi.b     [A0 + 0x8], 0x2
+0000008E  6E10                     bgt        +0x12 /* 000000A0 */
+00000090  6708                     beq        +0xA /* 0000009A */
+00000092  337C 0004 0002           move.w     [A1 + 0x2], 0x4
+00000098  6006                     bra        +0x8 /* 000000A0 */
+label0000009A:
+0000009A  337C 0003 0002           move.w     [A1 + 0x2], 0x3
+label000000A0:
+000000A0  4269 0004                clr.w      [A1 + 0x4]
+000000A4  0C38 0002 012F           cmpi.b     [0x0000012F /* CPUFlag */], 0x2
+000000AA  6E0A                     bgt        +0xC /* 000000B6 */
+000000AC  1038 012F                move.b     D0, [0x0000012F /* CPUFlag */]
+000000B0  5240                     addq.w     D0, 1
+000000B2  1340 0007                move.b     [A1 + 0x7], D0
+label000000B6:
+000000B6  4A78 028E                tst.w      [0x0000028E /* ROM85 */]
+000000BA  6B0E                     bmi        +0x10 /* 000000CA */
+000000BC  0838 0004 0B22           btst.b     [0x00000B22 /* HWCfgFlags */], 0x4
+000000C2  6706                     beq        +0x8 /* 000000CA */
+000000C4  137C 0001 0008           move.b     [A1 + 0x8], 0x1
+label000000CA:
+000000CA  0C78 3FFF 028E           cmpi.w     [0x0000028E /* ROM85 */], 0x3FFF
+000000D0  6206                     bhi        +0x8 /* 000000D8 */
+000000D2  137C 0001 0009           move.b     [A1 + 0x9], 0x1
+label000000D8:
+000000D8  1038 021E                move.b     D0, [0x0000021E /* KbdType */]
+000000DC  41FA FF5B                lea.l      A0, [PC - 0xA5 /* 00000039, value 0x303C00 '0<\0', cstring "" */]
+000000E0  323C 0004                move.w     D1, 0x4
+label000000E4:
+000000E4  B020                     cmp.b      D0, -[A0]
+000000E6  57C9 FFFC                dbeq       D1, -0x6 /* 000000E4 */
+000000EA  5241                     addq.w     D1, 1
+000000EC  3341 000A                move.w     [A1 + 0xA], D1
+000000F0  4A38 0291                tst.b      [0x00000291 /* PortBUse */]
+000000F4  6B18                     bmi        +0x1A /* 0000010E */
+000000F6  1238 01FB                move.b     D1, [0x000001FB /* SPConfig */]
+000000FA  0201 000F                andi.b     D1, 0xF
+000000FE  0C01 0001                cmpi.b     D1, 0x1
+00000102  660A                     bne        +0xC /* 0000010E */
+00000104  2078 02DC                movea.l    A0, [0x000002DC /* ABusDCE */]
+00000108  1368 0007 000D           move.b     [A1 + 0xD], [A0 + 0x7]
+label0000010E:
+0000010E  3378 0210 000E           move.w     [A1 + 0xE], [0x00000210 /* BootDrive */]
+00000114  4A78 03F6                tst.w      [0x000003F6 /* FSFCBLen */]
+00000118  6D44                     blt        +0x46 /* 0000015E */
+0000011A  4269 000E                clr.w      [A1 + 0xE]
+0000011E  323C 003C                move.w     D1, 0x3C /* '<' */
+label00000122:
+00000122  4267                     clr.w      -[A7]
+00000124  51C9 FFFC                dbf        D1, -0x6 /* 00000122 */
+00000128  204F                     movea.l    A0, A7
+0000012A  3178 0A58 0018           move.w     [A0 + 0x18], [0x00000A58 /* SysMap */]
+00000130  7008                     moveq.l    D0, 0x08
+00000132  A260                     syscall    FSDispatch/HFSDispatch, flags=2
+00000134  6624                     bne        +0x26 /* 0000015A */
+00000136  3168 0034 0016           move.w     [A0 + 0x16], [A0 + 0x34]
+0000013C  A207                     syscall    GetVolInfo/PBHGetVInfo/HGetVInfo, flags=2
+0000013E  661A                     bne        +0x1C /* 0000015A */
+00000140  2168 005A 0030           move.l     [A0 + 0x30], [A0 + 0x5A]
+00000146  217C 4552 494B 001C      move.l     [A0 + 0x1C], 0x4552494B /* 'ERIK' */
+0000014E  7001                     moveq.l    D0, 0x01
+00000150  A260                     syscall    FSDispatch/HFSDispatch, flags=2
+00000152  6606                     bne        +0x8 /* 0000015A */
+00000154  3368 0016 000E           move.w     [A1 + 0xE], [A0 + 0x16]
+label0000015A:
+0000015A  DEFC 007A                add.w      A7, 0x7A /* 'z' */
+label0000015E:
+0000015E  2049                     movea.l    A0, A1
+00000160  225F                     movea.l    A1, [A7]+
+00000162  5C4F                     addq.w     A7, 6
+00000164  3EBC EA84                move.w     [A7], 0xEA84
+00000168  4ED1                     jmp        [A1]
+export_0:
+0000016A  4267                     clr.w      -[A7]
+0000016C  3F3C 0001                move.w     -[A7], 0x1
+00000170  486D FFF0                pea.l      [A5 - 0x10]
+00000174  4EBA FE8A                jsr        [PC - 0x176 /* 00000000 */]
+00000178  4A5F                     tst.w      [A7]+
+0000017A  4A2D FFF9                tst.b      [A5 - 0x7]
+0000017E  6656                     bne        +0x58 /* 000001D6 */
+00000180  0838 0005 020B           btst.b     [0x0000020B /* SPMisc2/PCDeskPat */], 0x5
+00000186  6700 0026                beq        +0x28 /* 000001AE */
+0000018A  08B8 0005 020B           bclr.b     [0x0000020B /* SPMisc2/PCDeskPat */], 0x5
+00000190  41F8 0910                lea.l      A0, [0x00000910 /* CurApName */]
+00000194  43FA 005C                lea.l      A1, [PC + 0x5C /* 000001F2, value 0x0, cstring "" */]
+00000198  303C 0007                move.w     D0, 0x7
+label0000019C:
+0000019C  22D8                     move.l     [A1]+, [A0]+
+0000019E  51C8 FFFC                dbf        D0, -0x6 /* 0000019C */
+000001A2  41FA 0042                lea.l      A0, [PC + 0x42 /* 000001E6, value 0x0, cstring "" */]
+000001A6  43FA 004A                lea.l      A1, [PC + 0x4A /* 000001F2, value 0x0, cstring "" */]
+000001AA  2089                     move.l     [A0], A1
+000001AC  A9F2                     syscall    Launch/LaunchApplication
+label000001AE:
+000001AE  4278 0A78                clr.w      [0x00000A78 /* ApplScratch */]
+000001B2  2078 010C                movea.l    A0, [0x0000010C /* BufPtr */]
+000001B6  B1F8 0824                cmpa.l     A0, [0x00000824 /* ScrnBase */]
+000001BA  6600 000E                bne        +0x10 /* 000001CA */
+000001BE  41FA 002C                lea.l      A0, [PC + 0x2C /* 000001EC, value 0x0, cstring "" */]
+000001C2  43FA 004E                lea.l      A1, [PC + 0x4E /* 00000212, value 0x6446174, pstring "Data A" */]
+000001C6  2089                     move.l     [A0], A1
+000001C8  A9F2                     syscall    Launch/LaunchApplication
+label000001CA:
+000001CA  41FA 001A                lea.l      A0, [PC + 0x1A /* 000001E6, value 0x0, cstring "" */]
+000001CE  43FA 0042                lea.l      A1, [PC + 0x42 /* 00000212, value 0x6446174, pstring "Data A" */]
+000001D2  2089                     move.l     [A0], A1
+000001D4  A9F2                     syscall    Launch/LaunchApplication
+label000001D6:
+000001D6  4278 0A78                clr.w      [0x00000A78 /* ApplScratch */]
+000001DA  41FA 000A                lea.l      A0, [PC + 0xA /* 000001E6, value 0x0, cstring "" */]
+000001DE  43FA 0032                lea.l      A1, [PC + 0x32 /* 00000212, value 0x6446174, pstring "Data A" */]
+000001E2  2089                     move.l     [A0], A1
+000001E4  A9F2                     syscall    Launch/LaunchApplication
+000001E6  0000 0000                ori.b      D0, 0x0
+000001EA  0000 0000                ori.b      D0, 0x0
+000001EE  0000 FFFF                ori.b      D0, 0xFF
+000001F2  0000 0000                ori.b      D0, 0x0
+000001F6  0000 0000                ori.b      D0, 0x0
+000001FA  0000 0000                ori.b      D0, 0x0
+000001FE  0000 0000                ori.b      D0, 0x0
+00000202  0000 0000                ori.b      D0, 0x0
+00000206  0000 0000                ori.b      D0, 0x0
+0000020A  0000 0000                ori.b      D0, 0x0
+0000020E  0000 0000                ori.b      D0, 0x0
+00000212  0644 6174                addi.w     D4, 0x6174 /* 'at' */
+00000216  6120                     bsr        +0x22 /* 00000238 */
+00000218  4100                     .invalid   0, D0 // invalid opcode 4 with b == 4

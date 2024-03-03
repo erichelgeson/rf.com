@@ -1,0 +1,9 @@
+start:
+00000000  206F 0010                movea.l    A0, [A7 + 0x10]
+00000004  A025                     syscall    GetHandleSize
+00000006  5940                     subq.w     D0, 4
+00000008  2050                     movea.l    A0, [A0]
+0000000A  D1C0                     add.l      A0, D0
+0000000C  2050                     movea.l    A0, [A0]
+0000000E  4ED0                     jmp        [A0]
+00000010  4E75                     rts

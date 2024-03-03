@@ -1,0 +1,37 @@
+# near model CODE resource
+# jump table entries: 1696-1696 (1 of them)
+export_212:
+00000000  4E56 FFFE                link       A6, -0x0002
+00000004  2F07                     move.l     -[A7], D7
+00000006  202D A4E6                move.l     D0, [A5 - 0x5B1A]
+0000000A  5480                     addq.l     D0, 2
+0000000C  3E00                     move.w     D7, D0
+0000000E  7001                     moveq.l    D0, 0x01
+00000010  B047                     cmp.w      D0, D7
+00000012  6C40                     bge        +0x42 /* 00000054 */
+00000014  42A7                     clr.l      -[A7]
+00000016  3F3C 0086                move.w     -[A7], 0x86
+0000001A  A949                     syscall    GetMenuHandle
+0000001C  3F07                     move.w     -[A7], D7
+0000001E  3F3C 0020                move.w     -[A7], 0x20 /* ' ' */
+00000022  A944                     syscall    SetItmMark
+00000024  70FF                     moveq.l    D0, 0xFFFFFFFF
+00000026  2B40 A4E6                move.l     [A5 - 0x5B1A], D0
+0000002A  42A7                     clr.l      -[A7]
+0000002C  3F3C 0086                move.w     -[A7], 0x86
+00000030  A949                     syscall    GetMenuHandle
+00000032  3F3C 0001                move.w     -[A7], 0x1
+00000036  7012                     moveq.l    D0, 0x12
+00000038  41BC 00FF 3F00           .invalid   0, 0xFF3F00 // invalid opcode 4 with b == 6
+0000003E  A944                     syscall    SetItmMark
+00000040  A937                     syscall    DrawMenuBar
+00000042  206D F21C                movea.l    A0, [A5 - 0xDE4]
+00000046  4868 0010                pea.l      [A0 + 0x10]
+0000004A  A928                     syscall    InvalRect
+0000004C  4EAD 06EA                jsr        [A5 + 0x6EA /* export_217, CODE:12 @ 00000000 */]
+00000050  4EAD 00BA                jsr        [A5 + 0xBA /* export_19, CODE:1 @ 00002C5A */]
+label00000054:
+00000054  2E1F                     move.l     D7, [A7]+
+00000056  4E5E                     unlink     A6
+00000058  4E75                     rts
+0000005A  8E44 4F42 5549 4C54 4... dc.b       "DOBUILTINSTUFF"

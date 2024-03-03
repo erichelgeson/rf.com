@@ -1,0 +1,21 @@
+ 
+
+
+
+
+
+Testing a SCSI Device
+ 
+SCSI Storage Device Analyzer is a utility built into SCSI Director for evaluating the performance and reliability of SCSI based storage devices through the implementation of a comprehensive test suite. The tests measure the period of time it takes the Macintosh to complete various commands, as well as reporting back any device responses. One can also perform a comparative benchmark of devices and test the durability of devices and media. The utility saves its results to a text file which may be viewed with a word processor. Also, The tests have no logical flaws in their implementation, whatsoever, unlike nearly every other test program known to exist.
+
+A device is usually tested for one of two reasons: You either want to test the speed of the device, or you want to test the device for media problems. There are four speeds tests (Seek, SCSI Manager, SCSI Driver, Mac OS), and four reliability tests (P&G Listing, SCSI Verify, Media Analysis, Hardware Exercise).
+
+The “Test...” button brings up the test selection dialog. This is where you select the tests that are to be run on the selected device. The tests are non destructive but if you select “Write” as an option, if there is a problem with the cables or the drives, the act of trying to write copies of data over the original data could fail.  If this ever happens, small portions of your data could be damaged.  Therefore, unless you feel confident about your equipment, don’t normally select “Write”.
+
+The test function also provides an option to test whether “Asynchronous” tests should be performed.  If a SCSI driver handles Asynchronous data requests, from the Mac OS, in a special manner, then the timing results should reflect a difference. Most device drivers, including the current SCSI Director, do not handle Asynchronous requests in a special way.
+
+Before running, the test function will ask for a destination to create a text file containing the results.
+
+Also, the last two tests are very long to run (“Media Analysis” and “Hardware Exercise” ). Normally, don’t select them to be performed. If you do though, you can abort most of the long tests by holding down the mouse button.
+
+Consult the large reference manual available for SCSI Director to understand performance interpretation. 

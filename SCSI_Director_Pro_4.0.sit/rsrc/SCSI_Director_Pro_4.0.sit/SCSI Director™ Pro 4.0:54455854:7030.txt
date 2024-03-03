@@ -1,0 +1,23 @@
+ 
+
+
+
+
+
+SCSI TECHNOLOGY OVERVIEW
+ 
+What is a SCSI driver and why do you need it?
+Well, the SCSI driver is a behind the scenes piece of software that you never see and most no one ever notices. However, it is probably that most important piece of software you own, for without it, your hard disk (or other SCSI based storage device) could not talk to your computer.
+
+Background information: SCSI storage device organization
+Some of this background information may be confusing, but don't worry, it's not important to understand to normally utilize the program. When the computer is turned on, the SCSI driver is the first piece of software from the outside world to be loaded into the computer and started. This happens before MacsBug and system extensions are run, and before the system is loaded and patched. This must happen first because the SCSI driver is the piece of software that the computer calls upon to read and write data to volumes located on the SCSI device.
+
+A SCSI device organizes information into a large number of logical blocks on the media, numbered from 0 to (n-1). Each of these blocks is typically 512 bytes of data  in size. As an example, a 200 MB hard disk contains 409,600 logical blocks (the value of n), numbered 0 through 409,599.
+
+The Macintosh has a partitioning standard that expects to find the information it needs in specific locations on the SCSI device. This standard requires that the first few blocks on a device (typically around 100 blocks) are used to map out what information is stored on the rest of the device. These blocks are known as the Partition Map. Each block within the Partition Map is known as a Partition Map Block. The Partition Map allows the Macintosh to know what each piece of the SCSI device is used for. A Partition Map Block describes the purpose a particular section of the SCSI device. The Partition Map Block that corresponds to a Macintosh volume (which is seen on the Desktop as a volume partition icon) is the only type of Partition Map Block that usually has a direct representation during the use of the Macintosh (this is the volume partition icon on the Desktop).
+
+There are many other, less known, types of Partition Map Blocks that have no direct representation in the user interface, but nonetheless are very important. These less known Partition Map Blocks include descriptions for the Partition Map itself, for the SCSI driver, for reserved areas on the SCSI device, and for other operating systems such as A/UX and even MS-DOS. The Partition Map Block for the SCSI driver describes where the SCSI driver is located on the device, and is used by the Macintosh upon start up to load$rt the SCSI driver, giving control of the SCSI device from that point on, to the SCSI driver.
+
+When the Macintosh is turned on, the SCSI device's Partition Maps, and the first SCSI block (the DDM or "driver descriptor map") are scanned for the SCSI driver partition needed. When this is found, the SCSI driver in that partition is loaded and started. From that point on, essentially all control of the SCSI device is left up to the SCSI driver. The SCSI driver sets up the HFS partition volumes that you eventually see on the Desktop.
+
+

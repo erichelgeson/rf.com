@@ -1,0 +1,38 @@
+Mirroring Volumes
+
+Mirroring is a strategy meant to prevent data loss from catastrophic physical malfunctions. It does this by maintaining two, or more, exact copies of a volume, in case one fails. If so, the computer might still function with the remaining ones.
+
+
+Please note that most types of serious data loss are not PHYSICAL, but are LOGICAL corruption by the Macintosh and its programs. Even so, most devices cannot preserve media integrity upon power out failure and could then benefit from mirroring.
+
+
+								There are several restrictions to mirroring:
+
+First: The device(s) containing the mirrored partitions must all be using our products SCSI driver, and be connected to the normal Mac SCSI bus, not an accelerator card.
+
+Second: To indicate which partitions you want to select, our SCSI driver must already loaded in memory. Selecting 'Mount' might help, otherwise restart.
+
+Third: Setting up requires copying the main (fastest) partition, while unmounted, onto another partition. It must already be initialized and be valid. Copying of course, destroys the previous contents of the mirrored duplicate destination partition.
+
+
+
+A Diagram of a mirrored partition with two copies:
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+This setup shows a system with two storage devices. The first device has two Mac volume partitions, one of them is mirrored. Its mirror copies (it has two) are both found on the second storage device. Normally only one mirror copy per device is suggested, though.
+
+Note that only one of the mirrors is usually selected as readable and the other two are stored identically, but not read from unless the current "Main" fails.
+
+
+Consult the large reference manual available for the program if more assistance is needed.

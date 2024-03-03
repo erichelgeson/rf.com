@@ -1,0 +1,50 @@
+# near model CODE resource
+# jump table entries: 40-40 (1 of them)
+00000000  0000 0028                ori.b      D0, 0x28 /* '(' */
+00000004  0000 007C                ori.b      D0, 0x7C /* '|' */
+00000008  4E56 0000                link       A6, 0
+0000000C  4AAD FF64                tst.l      [A5 - 0x9C]
+00000010  661E                     bne        +0x20 /* 00000030 */
+00000012  6014                     bra        +0x16 /* 00000028 */
+label00000014:
+00000014  202D FFF6                move.l     D0, [A5 - 0xA]
+00000018  52AD FFF6                addq.l     [A5 - 0xA], 1
+0000001C  E588                     lsl        D0, 2
+0000001E  41ED FF68                lea.l      A0, [A5 - 0x98]
+00000022  2070 0800                movea.l    A0, [A0 + D0]
+00000026  4E90                     jsr        [A0]
+label00000028:
+00000028  7022                     moveq.l    D0, 0x22
+0000002A  B0AD FFF6                cmp.l      D0, [A5 - 0xA]
+0000002E  62E4                     bhi        -0x1A /* 00000014 */
+label00000030:
+00000030  2F2E 0008                move.l     -[A7], [A6 + 0x8]
+00000034  4EB9 0000 0042           jsr        [0x00000042]
+0000003A  4E5E                     unlink     A6
+0000003C  4E75                     rts
+0000003E  4E56 0000                link       A6, 0
+00000042  4EB9 0000 04AE           jsr        [0x000004AE]
+00000048  6014                     bra        +0x16 /* 0000005E */
+label0000004A:
+0000004A  202D FFFA                move.l     D0, [A5 - 0x6]
+0000004E  52AD FFFA                addq.l     [A5 - 0x6], 1
+00000052  E588                     lsl        D0, 2
+00000054  41ED FED8                lea.l      A0, [A5 - 0x128]
+00000058  2070 0800                movea.l    A0, [A0 + D0]
+0000005C  4E90                     jsr        [A0]
+label0000005E:
+0000005E  7022                     moveq.l    D0, 0x22
+00000060  B0AD FFFA                cmp.l      D0, [A5 - 0x6]
+00000064  62E4                     bhi        -0x1A /* 0000004A */
+00000066  4AAD FF60                tst.l      [A5 - 0xA0]
+0000006A  6706                     beq        +0x8 /* 00000072 */
+0000006C  206D FF60                movea.l    A0, [A5 - 0xA0]
+00000070  4E90                     jsr        [A0]
+label00000072:
+00000072  A9F4                     syscall    ExitToShell
+00000074  4E5E                     unlink     A6
+00000076  4E75                     rts
+00000078  0000 0000                ori.b      D0, 0x0
+0000007C  0000 0001                ori.b      D0, 0x1
+00000080  A400                     syscall    Open/PBHOpen/HOpen, flags=4
+00000082  0000 019D                ori.b      D0, 0x9D

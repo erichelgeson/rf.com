@@ -1,0 +1,82 @@
+# near model CODE resource
+# jump table entries: 1632-1633 (2 of them)
+00000000  4E56 0000                link       A6, 0
+00000004  4E5E                     unlink     A6
+00000006  4E75                     rts
+fn00000008:
+00000008  4E56 FFF0                link       A6, -0x0010
+0000000C  486E FFF0                pea.l      [A6 - 0x10]
+00000010  A976                     syscall    GetKeys
+00000012  4267                     clr.w      -[A7]
+00000014  486E FFF0                pea.l      [A6 - 0x10]
+00000018  2F3C 0000 003F           move.l     -[A7], 0x3F /* '?' */
+0000001E  A85D                     syscall    BitTst
+00000020  101F                     move.b     D0, [A7]+
+00000022  4880                     ext.w      D0
+00000024  4A40                     tst.w      D0
+00000026  6606                     bne        +0x8 /* 0000002E */
+00000028  303C 0001                move.w     D0, 0x1
+0000002C  6002                     bra        +0x4 /* 00000030 */
+label0000002E:
+0000002E  4240                     clr.w      D0
+label00000030:
+00000030  4E5E                     unlink     A6
+00000032  4E75                     rts
+00000034  4E56 FFF0                link       A6, -0x0010
+label00000038:
+00000038  61CE                     bsr        -0x30 /* 00000008 */
+0000003A  4A40                     tst.w      D0
+0000003C  6602                     bne        +0x4 /* 00000040 */
+0000003E  60F8                     bra        -0x6 /* 00000038 */
+label00000040:
+00000040  61C6                     bsr        -0x38 /* 00000008 */
+00000042  4A40                     tst.w      D0
+00000044  6702                     beq        +0x4 /* 00000048 */
+00000046  60F8                     bra        -0x6 /* 00000040 */
+label00000048:
+00000048  4E5E                     unlink     A6
+0000004A  4E75                     rts
+0000004C  4E56 0000                link       A6, 0
+00000050  2F04                     move.l     -[A7], D4
+00000052  42A7                     clr.l      -[A7]
+00000054  A975                     syscall    TickCount
+00000056  201F                     move.l     D0, [A7]+
+00000058  2800                     move.l     D4, D0
+0000005A  486E 000C                pea.l      [A6 + 0xC]
+0000005E  2F2E 0008                move.l     -[A7], [A6 + 0x8]
+00000062  487A 001E                pea.l      [PC + 0x1E /* 00000082, value 0x4E560000 'NV\0\0', cstring "NV" */]
+00000066  4EAD 026A                jsr        [A5 + 0x26A /* export_73, CODE:0 @ 00000000 */]
+0000006A  DEFC 000C                add.w      A7, 0xC
+0000006E  362D F092                move.w     D3, [A5 - 0xF6E]
+00000072  48C3                     ext.l      D3
+00000074  87FC 0002                divs.w     D3, 0x2
+00000078  48C3                     ext.l      D3
+0000007A  D883                     add.l      D4, D3
+0000007C  281F                     move.l     D4, [A7]+
+0000007E  4E5E                     unlink     A6
+00000080  4E75                     rts
+00000082  4E56 0000                link       A6, 0
+00000086  0C6D FFFF F094           cmpi.w     [A5 - 0xF6C], 0xFFFF
+0000008C  6612                     bne        +0x14 /* 000000A0 */
+0000008E  3F3C 0001                move.w     -[A7], 0x1
+00000092  487A 0026                pea.l      [PC + 0x26 /* 000000BA, value 0x2E616F75 '.aou', cstring ".aout" */]
+00000096  4EAD 02CA                jsr        [A5 + 0x2CA /* export_85, CODE:0 @ 00000000 */]
+0000009A  5C4F                     addq.w     A7, 6
+0000009C  3B40 F094                move.w     [A5 - 0xF6C], D0
+label000000A0:
+000000A0  3F3C 0001                move.w     -[A7], 0x1
+000000A4  486E 0009                pea.l      [A6 + 0x9]
+000000A8  3F2D F094                move.w     -[A7], [A5 - 0xF6C]
+000000AC  4EAD 0312                jsr        [A5 + 0x312 /* export_94, CODE:0 @ 00000000 */]
+000000B0  504F                     addq.w     A7, 8
+000000B2  526D F092                addq.w     [A5 - 0xF6E], 1
+000000B6  4E5E                     unlink     A6
+000000B8  4E75                     rts
+000000BA  2E61                     movea.l    A7, -[A1]
+000000BC  6F75                     ble        +0x77 /* 00000133 */
+000000BE  7400                     moveq.l    D2, 0x00
+000000C0  4E56 0000                link       A6, 0
+000000C4  3F3C 0002                move.w     -[A7], 0x2
+000000C8  A9C8                     syscall    SysBeep
+000000CA  4E5E                     unlink     A6
+000000CC  4E75                     rts

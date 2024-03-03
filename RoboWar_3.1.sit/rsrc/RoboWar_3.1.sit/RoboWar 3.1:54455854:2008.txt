@@ -1,0 +1,82 @@
+Appendix A: Version History
+
+Robots are not the only beasts which evolve with time.  The RoboWar application has gone through numerous versions, expanding features, patching bugs, and introducing new and wonderful bugs.  This version history records the changes from version 1.5 onward.
+
+Version 3.1 (January 31, 1994)
+This version fixes several bugs found in version 3.0 involving stunners, sounds crashing Centris machines, radar returning the wrong value at long ranges, radar and range appearing incorrectly in the debugger, robots with processor speed 30 being unopenable, and inconsistent instructions.
+
+Sound is still known to be a problem; sometimes sound turns on and off of its own accord.  If anybody can reliably reproduce this, a description of the method would be appreciated.
+
+Version 3.0 (August 22, 1993)
+The additions to version 2.4, combined with new interrupt routines that may revolutionize RoboTalk programming, have been promoted to Version 3.0 of RoboWar.  Several new instructions and registers have been added and several wimpy existing weapons have been souped up to be more competitive.  The precise changes are:
+
+		• Interrupt Support
+		• New Instructions:  inton, intoff, rti, setint, setparam, dropall
+		• New Registers:  wall, top, bot, left, right
+		• Fixed & Documented Register:  doppler
+		• Explosive bullets expand to size 36 in three chronons
+		• Mines do twice as much damage as before
+		• Zoom to buggy line in Drafting Board when a robot crashes
+		• Minor bug fix involving collision handling
+		• New undocumented feature
+
+Note that the format of the Hardware Store resources has changed, so although RoboWar 3.0 can read the robots of previous versions, RoboWar 2.3 may incorrectly read the hardware resources of robots from version 3.0.  Also, the Recording Studio produces occasional error messages of the nature "Error Disposing Sound."  These shouldn't be happening, but can generally be ignored.  If trouble persists, check "Don't Play Sounds" under the Arena menu.
+
+Version 2.4 Beta (July 25, 1993)
+Many old bugs have been fixed in this version; moreover, many new features have been added that will probably be accompanied by their own bugs.  The most important changes are:  the Recording Studio for adding digitized sounds to robots, the new Stunner weapon, and a general speedup of the program (time-critical routines have been improved for about a 25% speedup and 68881 support has been added for roughly a 50% speedup on Macs with floating-point hardware).  A complete list of changes follows:
+		• Many small bug fixes in the RoboTalk interpreter
+		• Reduced flicker in the Debugger
+		• Battles can run in the background
+		• Icon editor supports flips and rotations
+		• Recording studio supports recording and copying sounds
+		• Processor Speed 30 option added
+		• Save As… works correctly
+		• Lasers and Drones no longer available (too pathetic)
+		• Stunners available
+		• Arena runs faster and supports floating point hardware
+
+Version 2.3 (June 7, 1992)
+This version introduces the new RoboTalk debugger, something promised for a year and a half now!  The DEBUG instruction is also available.  This manual has been somewhat updated to define Little League and Titan class tournaments and a few other minor changes.  If one sets that maximum advantage value under the Arena menu to 99, cheating robots are permitted; i.e. ResEdit hacks to modify hardware values are allowed.  Errors in printing and saving these instructions are corrected.
+
+Version 2.2.1 (May 15, 1992)
+The Fourth RoboWar tournament brough to light several subtle bugs in version 2.2 that are fixed here.  This version fixes a bug that causes battles to end prematurely and also corrects a glitch that allows robots to fire bullets of negative energy that do huge amounts of damage!
+
+Version 2.2 (March 24, 1992)
+The tournament utility is now complete.  It currently supports both old custom tournaments and the new automated forms for the Fourth RoboWar Tournament.  Error alerts now time out after 30 seconds so a crashed robot won't tie up an unattended tournament.
+
+Version 2.2 Beta (January 24, 1992)
+This is a preliminary version of the next major release of RoboWar.  Hellbores now behave differently; this change is not backward compatible.  Robots now have 50 processor speed rather than 30.  One can grab (click on) a robot during a battle and move it about for debugging purposes.  Shields are more efficient, decaying at only 1/2 point per chronon.  A bug in Save As has been corrected so robots save properly to other folders, and a few other small arena bugs have been corrected. In order to compile a robot of more than 100 lines, one must register for RoboWar and obtain a code number.  The maximum allowable hardware points may now be user-specified, creating the possibility of "Titain" (unlimited advantages) or "Little League" (very few points) competitions.  The instructions can be saved to disk by the user.  Finally, the initial hooks for a source level debugger are installed.  Still missing, however, is the debugger and the improved tournament utility.  
+
+Version 2.1.3 (July 8, 1991)
+Ye olde bugs strike again.  This version corrects a problem with radar detecting targets located straight above a robot and fixes another error in the collision routine that sometimes prevents collisions from registering.  For the fourth or fifth time, I hope that the collision detection bugs are thoroughly crushed!  This version also addes color icons for System 7 and adds a cancel box to the print dialog box so that users can cancel out-of-control print loops without resorting to Ye Olde Programmers' Switch.  When leaving one of the editors, RoboWar now only updates the last modification dates if changes have actually been made.
+The IFG, IFEG instructions and the DOPPLER register are now available.
+
+Version 2.1.2 (April 17, 1991)
+This version makes a number of small fixes and improvements.  It repairs a serious bug that prevents robots from having more than 100 labels.  It lets battles start with a single robot for testing purposes.  Finally, it displays the chronon at which a given robot died.
+
+Version 2.1.1 (April 7, 1991)
+This version fixes a bug that causes RoboWar to crash while playing sounds on older Macs.  It fixes the sine and cosine operators so that they return the actual sine or cosine of the angle and fixes a bug in the roll operator.  Also, it adds the DIST operator to compute distances.
+
+Version 2.1 (March 31, 1991)
+This version adds sound to the Arena.  It also adds a new instruction (BULLET) which lets robots with explosive bullets also fire regular bullets.  It checks that arithmetic operations stay within the bounds of legal numbers.  Finally, it adds these instructions on line accessible from the help command.
+
+Version 2.0.1 (March 23, 1991)
+This version fixes some severe bugs discovered in version 2.0.  It fixes printing, which caused a bomb on 68000 machines, and catches a memory allocation error which could trash robots accidentally.  2.0.1 also makes some minor changes to the update routines to reduce unnecessary flashes and glitches.
+
+Version 2.0 (February 3, 1991)
+A major redesign of RoboWar, attempting to keep maximal compatibility while greatly increasing the range of possible robot designs and fixing some long-standing bugs.  A synopsis of the new features appears below; more information can be found in appropriate sections of the manual above.  WARNING:  Robots edited in the RoboWar 2.0 hardware store are no longer readable by version 1.5.1 (due to a change in the format of the hardware information).  Also, robots that go below -200 energy melt their power supplies and blow up.  This fixes a loop hole in 1.5.1 but means that some robots, like MX™ III and Lich Sr. no longer work.  These two changes are the only incompatibilities I know of between 1.5.1 and 2.0.
+
+New Instructions:  LOOK, SCAN, ABS, CHRONON, SIN, COS, TAN, SQRT, ICON0-ICON9, PRINT, SYNC, ROBOTS, FRIEND, VSTORE, VRECALL, HELLBORE, DRONE, MINE, LASER.  Also, the maximum number of instructions is now 5000 and the maximum number of labels is 400.
+
+Bug Fixes:  Collision detection bug squashed (on the nth attempt), bullets no longer “jump over” the edge of their targets, the almost-invisible yellow robot is no longer a color used in the Arena.
+
+Battle changes:  Robots graphically explode, battles don’t end until 20 chronons after the robot dies (to allow retaliatory shots to hit), robots with bugs or robots that cheat blow up instead of halt the combat, a chronons per second count monitors the speed of the battle.
+
+User interface:  The user interface has vastly changed.  Check out the new about box, too...
+
+Version 1.5.1 (May 28, 1990)
+This version is a bug fix on version 1.5.  Most significantly, I found that the DUP command does not work in the old versions.  This causes great problems and confusion for robots using DUP.  Now DUP behaves correctly.  I also fixed some glitches in the password protection, regarding opening robots.  I also added tallying features for group battles to the automated combat menu.  Finally, I updated these instructions to include some of these advanced features.
+
+Version 1.5 (May 18, 1990)
+This version introduces two major new features:  automated combat and password protection.  In anticipation of the upcoming tournament, I added these features to help run the large number of combats and to keep everyone’s code secret.  Notice:  I hate passwords, so if anyone has their robot garbled by the password protection, I’ll just laugh.  Version 1.5 also adds the “Don’t show battle” menu option.  This speeds up battles significantly, especially on a color monitor.  After extensive testing I found that 256 color mode slowed RoboWar down the greatest amount during most combats; however, a large number of bullets on the screen at one time (as used by Matt’s Pearl and his seventh generation robots) slows the game even further.  Worse yet, not showing the battle scarcely improves the performance of missiles.  I dread running large numbers of combats with his robots.  They usually take at least ten minutes.  A final change:  a number of intrepid RoboWar hackers discovered a method of cheating to create nearly invincible robots by going through a back door in the program.  Unfortunately for them, I now check for this method of cheating and tweak any robots who violate the rules.  Don’t worry:  you won’t stumble upon this method of cheating by accident.
+

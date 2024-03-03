@@ -1,0 +1,45 @@
+Format: 2-byte integer (decimal)
+Flags: 2-byte integer (hex)
+Script name: pstring (1-byte length) (padded to 2-byte alignment)
+Help: pstring (2-byte length)
+Align: (align to 2-byte boundary)
+Files: list (2-byte one-based item count)
+  Fspec: 2-byte integer (hex)
+  Type: 4-byte integer (char)
+  Creator: 4-byte integer (char)
+  Cr date: 4-byte integer (hex)
+  Handle: 4-byte zero fill
+  Del size: 4-byte zero fill
+  Add size: 4-byte zero fill
+  File name: pstring (1-byte length) (padded to 2-byte alignment)
+Rsrc files: list (2-byte one-based item count)
+  Fspec: 2-byte integer (hex)
+  Type: 4-byte integer (char)
+  Creator: 4-byte integer (char)
+  Cr date: 4-byte integer (hex)
+  Handle: 4-byte zero fill
+  Del size: 4-byte zero fill
+  Add size: 4-byte zero fill
+  To file name: pstring (1-byte length) (padded to 2-byte alignment)
+  From files: list (2-byte one-based item count)
+    Fspec: 2-byte integer (hex)
+    Type: 4-byte integer (char)
+    Creator: 4-byte integer (char)
+    Cr date: 4-byte integer (hex)
+    Handle: 4-byte zero fill
+    Del size: 4-byte zero fill
+    Add size: 4-byte zero fill
+    From file name: pstring (1-byte length) (padded to 2-byte alignment)
+    Rsrcs: list (2-byte one-based item count)
+      Rspec: 2-byte integer (hex)
+      Type: 4-byte integer (char)
+      Src id: 2-byte integer (decimal)
+      Tgt id: 2-byte integer (decimal)
+      Crc/vrsn: 2-byte integer (decimal)
+      Filler1: 2-byte zero fill
+      Filler2: 4-byte zero fill
+      Del size: 4-byte zero fill
+      Add size: 4-byte zero fill
+      Rsrc name: pstring (1-byte length) (padded to 2-byte alignment)
+      Prev crcs: 2-byte integer (hex)
+Dump: rest of data in resource
